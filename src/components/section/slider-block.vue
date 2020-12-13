@@ -1,29 +1,36 @@
 <template>
   <section class="sb shadow-bg" id="trusted-by">
-    <dark-bg/>
-    <stripe-wrapper :color-strip="'dark'"/>
+    <dark-bg />
+    <stripe-wrapper :color-strip="'dark'" />
     <div class="sb__container container">
       <title-block
-          :title="'Trusted By'"
-          :sub-title="'Keep growing with us'"
-          :color-icon="'light'"
+        :title="'Trusted By'"
+        :sub-title="'Keep growing with us'"
+        :color-icon="'light'"
       />
-      <infinite-slide-bar class="sb__card-container" :duration="'20s'" :barStyle="{ background: 'transparent' }">
-        <img v-for="(item, i) in cardList"
-             :key="i" :src="item.img" class="sb__card"/>
+      <infinite-slide-bar
+        class="sb__card-container"
+        :duration="'40s'"
+        :barStyle="{ background: 'transparent' }"
+      >
+        <img
+          v-for="(item, i) in cardList"
+          :key="i"
+          :src="item.img"
+          class="sb__card"
+        />
       </infinite-slide-bar>
       <div class="sb__card-mobile_wrapper">
         <div v-for="(item, i) in cardList" :key="i" class="sb__card-mobile">
-          <img :src="item.img" class="sb__card-mobile_icon"/>
+          <img :src="item.img" class="sb__card-mobile_icon" />
         </div>
       </div>
-
     </div>
   </section>
 </template>
 
 <script lang="ts" scoped>
-import {Component, Vue } from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
 import TitleBlock from "@/components/elements/title.vue";
 import DarkBg from "@/components/elements/dark-bg.vue";
 import StripeWrapper from "@/components/elements/strip-bg.vue";
@@ -40,7 +47,7 @@ import InfiniteSlideBar from "vue-infinite-slide-bar";
   }
 })
 export default class SliderBlock extends Vue {
-  cardList: Array<any> = [
+  cardList: Array<{ img: string; link: string }> = [
     {
       img: "/img/slider/tab-1.svg",
       link: "https://www.google.com"
@@ -66,8 +73,6 @@ export default class SliderBlock extends Vue {
       link: "https://www.google.com"
     }
   ];
-
-
 }
 </script>
 
@@ -109,37 +114,37 @@ export default class SliderBlock extends Vue {
         margin: 10px;
       }
 
-        &_wrapper {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          margin-top: 20px;
-        }
+      &_wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 20px;
+      }
 
-        &_icon {
-          width: 100%;
-          height: auto;
-          max-width: 200px;
+      &_icon {
+        width: 100%;
+        height: auto;
+        max-width: 200px;
 
-          @include for-small() {
-            max-width: 120px;
-          }
+        @include for-small() {
+          max-width: 120px;
         }
+      }
     }
   }
 }
 
 @keyframes float {
   0% {
-    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
     transform: translatey(0px);
   }
   50% {
-    box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+    box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
     transform: translatey(-20px);
   }
   100% {
-    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
     transform: translatey(0px);
   }
 }
