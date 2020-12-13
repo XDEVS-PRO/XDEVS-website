@@ -1,0 +1,49 @@
+// Colors
+$dark-f: #232323;
+$white-f: #ffffff;
+$grey-f: #838383;
+
+$breakpoint-vm: 380px;
+$breakpoint-sm: 560px;
+$breakpoint-vsm: 660px;
+$breakpoint-avg: 767px;
+$breakpoint-md: 991px;
+$breakpoint-lg: 1024px;
+$breakpoint-vlg: 1440px;
+
+
+@mixin for-verysmall {
+  @media all and (max-width: $breakpoint-vm) {
+    @content;
+  }
+}
+
+@mixin for-small {
+  @media all and (max-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin for-smallmedium {
+  @media all and (max-width: $breakpoint-vsm) {
+    @content;
+  }
+}
+
+@mixin for-average {
+  @media all and (max-width: $breakpoint-avg) {
+    @content;
+  }
+}
+
+@mixin for-middle {
+  @media all and (max-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin for-large {
+  @media all and (max-width: $breakpoint-lg) {
+    @content;
+  }
+}

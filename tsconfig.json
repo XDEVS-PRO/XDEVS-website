@@ -11,9 +11,13 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
-    "baseUrl": "../../new-xdevs",
+    "baseUrl": ".",
     "types": [
       "webpack-env"
+    ],
+    "typeRoots": [
+      "/typings",
+      "./node_modules/@types"
     ],
     "paths": {
       "@/*": [
@@ -35,6 +39,6 @@
     "tests/**/*.tsx"
   ],
   "exclude": [
-    "../../new-xdevs/node_modules"
+    "node_modules"
   ]
 }

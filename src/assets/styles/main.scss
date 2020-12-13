@@ -1,0 +1,54 @@
+@import "normalizestyles";
+@import "fonts";
+@import "variables";
+
+body {
+  font-family: "Gordita", sans-serif;
+  font-size: 1.125rem;
+}
+
+section {
+  position: relative;
+}
+
+.custom-link {
+  display: inline-block;
+  position: relative;
+  transition: all 0.3s ease-out 0s;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 0;
+    left: 0;
+    height: 1px;
+    background: linear-gradient(to right, #dcdcdc 0%, rgba(255, 255, 255, 0) 100%);
+    position: absolute;
+    bottom: -8px;
+    transition: all 0.3s ease-out 0s;
+  }
+
+  &:hover {
+    color: #dcdcdc;
+    &:before {
+      width: 100%;
+      left: 0;
+    }
+  }
+}
+
+.container {
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 1rem;
+
+  @include for-middle() {
+    max-width: 900px;
+  }
+
+  @media screen and (max-width: 767px){}
+
+  @media screen and (max-width: 560px) {}
+}
