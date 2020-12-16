@@ -2,13 +2,13 @@
   <section class="fb">
     <stripe-wrapper />
     <div class="fb__container container">
-      <img src="/img/bg-head.png" class="fb__img"/>
+      <img src="/img/bg-head.png" class="fb__img" />
     </div>
   </section>
 </template>
 
 <script lang="ts">
-import {Component, Vue} from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
 import StripeWrapper from "@/components/elements/strip-bg.vue";
 
 @Component({
@@ -16,7 +16,6 @@ import StripeWrapper from "@/components/elements/strip-bg.vue";
     StripeWrapper
   }
 })
-
 export default class FirstBlock extends Vue {}
 </script>
 
@@ -38,6 +37,7 @@ export default class FirstBlock extends Vue {}
   &__img {
     max-width: 890px;
     width: 100%;
+    height: auto;
   }
 }
 </style>
