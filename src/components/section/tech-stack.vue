@@ -4,6 +4,10 @@
     <div class="ts__container container">
       <title-block :title="'Core Team'" :color-icon="'dark'" />
       <div :class="['ts__inner', `state-${classState}`]">
+        <div @click="changeState('default')" class="item__back-to-default">
+          <div class="arrow-round"></div>
+          <span>Come back</span>
+        </div>
         <div class="item__tabs" @click="changeState('tabs')">
           <svg
             class="svg-tabs"
@@ -44,6 +48,10 @@
               stroke-width="2"
             />
           </svg>
+          <p class="item__tabs-text text-desc">
+            here i add text for next desctiprion. here i add text for next
+            desctiprion.
+          </p>
           <div class="tabs-inner">
             <div class="tabs-inner-python">
               <img src="/img/tech-stack/python.svg" />
@@ -93,6 +101,10 @@
             <circle cx="46" cy="16" r="6" stroke="#C4C4C4" stroke-width="2" />
             <circle cx="65" cy="16" r="6" stroke="#C4C4C4" stroke-width="2" />
           </svg>
+          <p class="item__screen-text text-desc">
+            here i add text for next desctiprion. here i add text for next
+            desctiprion.
+          </p>
           <div class="screen-inner">
             <div class="screen-inner_angular">
               <img src="/img/tech-stack/angular.svg" />
@@ -138,6 +150,10 @@
               stroke-width="2"
             />
           </svg>
+          <p class="item__phone-text text-desc">
+            here i add text for next desctiprion. here i add text for next
+            desctiprion.
+          </p>
           <div class="phone-inner">
             <img class="phone-inner_react" src="/img/tech-stack/react.svg" />
             <p class="phone-inner_react-text">React Native</p>
@@ -176,10 +192,39 @@
               mask="url(#path-1-inside-1)"
             />
           </svg>
+          <p class="item__cloud-text text-desc">
+            here i add text for next desctiprion. here i add text for next
+            desctiprion.
+          </p>
           <div class="cloud-inner">
             <img src="/img/tech-stack/aws.svg" />
             <p>AWS</p>
           </div>
+        </div>
+      </div>
+      <div class="ts__inner-mob">
+        <div
+          @click="showText(`${item.className}`)"
+          class="ts__inner-mob_wrapper"
+          v-for="(item, i) in cardsMobile"
+          :key="i"
+        >
+          <img
+            :class="[`ts__inner-mob_img-${item.className}`]"
+            :src="item.img"
+            :style="{
+              opacity:
+                item.className === isShowTextId && isShowText ? '0.4' : null
+            }"
+          />
+          <p
+            :class="[
+              `ts__inner-mob_text-${item.className}`,
+              { active: item.className === isShowTextId && isShowText }
+            ]"
+          >
+            {{ item.text }}
+          </p>
         </div>
       </div>
     </div>
@@ -198,10 +243,44 @@ import StripeWrapper from "@/components/elements/strip-bg.vue";
   }
 })
 export default class TechStack extends Vue {
+  cardsMobile: arr[any] = [
+    {
+      img: "/img/tech-stack/cloud-mob.svg",
+      className: "cloud",
+      text: "CLOUD this just some what are you see if you clicked icon",
+      textId: "cloud"
+    },
+    {
+      img: "/img/tech-stack/phone-mob.svg",
+      className: "phone",
+      text: "PHONE this just some what are you see if you clicked icon",
+      textId: "phone"
+    },
+    {
+      img: "/img/tech-stack/screen-mob.svg",
+      className: "screen",
+      text: "SCREEN this just some what are you see if you clicked icon",
+      textId: "screen"
+    },
+    {
+      img: "/img/tech-stack/tabs-mob.svg",
+      className: "tabs",
+      text: "TABS this just some what are you see if you clicked icon",
+      textId: "tabs"
+    }
+  ];
+
   classState = "default";
+  isShowText = false;
+  isShowTextId = null;
 
   changeState(state: any = "default") {
     this.classState = state;
+  }
+
+  showText(item) {
+    this.isShowTextId = item;
+    this.isShowText = !this.isShowText;
   }
 }
 </script>
@@ -223,6 +302,10 @@ rect {
       max-width: 400px;
       height: 400px;
     }
+
+    @include for-smallmedium() {
+      height: initial;
+    }
   }
 }
 
@@ -238,25 +321,17 @@ rect {
 
   &__tabs {
     right: 20%;
-    top: 50%;
+    top: 40%;
     z-index: 2;
   }
 
   &__screen {
-    top: 18%;
-  }
-
-  &__cloud {
-    top: 0;
-    right: 28%;
-
-    @include for-large() {
-    }
+    top: 5%;
   }
 
   &__phone {
-    right: -60px;
-    bottom: 15%;
+    right: 68px;
+    bottom: 45%;
   }
 }
 
@@ -286,6 +361,19 @@ svg:hover {
 }
 // end hover effect styles
 
+.item__tabs-text.text-desc,
+.item__screen-text.text-desc,
+.item__phone-text.text-desc,
+.item__cloud-text.text-desc {
+  position: absolute;
+  text-align: center;
+  color: $dark-f;
+  font-size: 14px;
+  margin-top: 10px;
+  opacity: 0;
+  transition: all 0.6s ease-out;
+}
+
 //inner block styles
 .tabs-inner,
 .screen-inner,
@@ -306,7 +394,7 @@ svg:hover {
   &-phone,
   &-default {
     .item__cloud {
-      top: 0;
+      top: -12%;
       right: 28%;
 
       svg {
@@ -329,7 +417,7 @@ svg:hover {
       }
 
       @include for-middle() {
-        transform: translate(13%, -80%) scale(0.6);
+        transform: translate(24%, -70%) scale(0.5);
         top: 20%;
       }
     }
@@ -354,7 +442,8 @@ svg:hover {
       }
 
       @include for-middle() {
-        transform: translate(-30%, 0%) scale(0.6);
+        //transform: translate(-30%, 0%) scale(0.6);
+        transform: translate(40%, 28%) scale(0.5);
       }
     }
 
@@ -384,7 +473,8 @@ svg:hover {
       }
 
       @include for-middle() {
-        transform: translate(-40%, -35%) scale(0.6);
+        //transform: translate(-40%, -35%) scale(0.6);
+        transform: translate(-30%, -15%) scale(0.5);
       }
     }
 
@@ -421,6 +511,7 @@ svg:hover {
 
       @include for-middle() {
         transform: translate(20%, -20%) scale(0.6);
+        transform: translate(20%, -20%) scale(0.5);
       }
     }
   }
@@ -428,8 +519,10 @@ svg:hover {
   // cloud state
   &-cloud {
     .item__cloud {
-      top: 50%;
-      transform: translateY(-140%) scale(1.2);
+      //top: 50%;
+      top: -12%;
+      right: 28%;
+      transform: translate(-15%, 80%) scale(1.1);
 
       svg {
         position: relative;
@@ -455,13 +548,17 @@ svg:hover {
         fill: #337dee;
       }
 
+      &-text.text-desc {
+        opacity: 1;
+      }
+
       @include for-middle() {
-        transform: translate(20%, -90%) scale(0.8);
+        transform: translate(16%, 30%) scale(0.6);
       }
     }
 
     .item__phone {
-      transform: translate(0%, -45%) scale(0.8);
+      transform: translate(20%, 0%) scale(0.7);
 
       .phone-inner {
         position: absolute;
@@ -477,12 +574,12 @@ svg:hover {
       }
 
       @include for-middle() {
-        transform: translate(12%, 0%) scale(0.5);
+        transform: translate(68%, 32%) scale(0.5);
       }
     }
 
     .item__screen {
-      transform: translate(-45%, -50%) scale(0.8);
+      transform: translate(29%, 70%) scale(0.7);
 
       .screen-inner {
         display: flex;
@@ -501,12 +598,12 @@ svg:hover {
       }
 
       @include for-middle() {
-        transform: translate(-60%, -40%) scale(0.4);
+        transform: translate(-14%, 18%) scale(0.4);
       }
     }
 
     .item__tabs {
-      transform: translate(-15%, 10%) scale(0.8);
+      transform: translate(-105%, -90%) scale(0.7);
 
       .tabs-inner {
         position: absolute;
@@ -521,16 +618,20 @@ svg:hover {
       }
 
       @include for-middle() {
-        transform: translate(20%, -10%) scale(0.5);
+        transform: translate(-28%, -70%) scale(0.4);
       }
+    }
+
+    .item__back-to-default {
+      opacity: 1;
     }
   }
 
-  // browser state
+  // screen(browser) state
   &-screen {
     .item__cloud {
-      top: 50%;
-      transform: translateY(-250%) scale(0.8);
+      //top: 50%;
+      transform: translate(-145%, 100%) scale(0.7);
 
       path:first-of-type {
         fill: #f9f9f9;
@@ -541,12 +642,13 @@ svg:hover {
       }
 
       @include for-middle() {
-        transform: translate(15%, -170%) scale(0.5);
+        //transform: translate(15%, -170%) scale(0.5);
+        transform: translate(14%, 70%) scale(0.4);
       }
     }
 
     .item__phone {
-      transform: translate(0%, -25%) scale(0.8);
+      transform: translate(30%, 10%) scale(0.7);
 
       .phone-inner {
         opacity: 0;
@@ -559,28 +661,39 @@ svg:hover {
       }
 
       @include for-middle() {
-        transform: translate(10%, 6%) scale(0.4);
+        //transform: translate(10%, 6%) scale(0.4);
+
+        transform: translate(78%, 32%) scale(0.5);
       }
     }
 
     .item__screen {
-      transform: translate(28%, -10%) scale(0.9);
+      transform: translate(28%, -10%) scale(0.8);
+      //transform: translate(-17%, -13%) scale(0.5);
+
+      &-text.text-desc {
+        opacity: 1;
+        left: 0;
+        right: 0;
+      }
 
       rect:first-of-type {
         fill: #f9f9f9;
       }
+
       rect,
       circle {
         stroke: #337dee;
       }
 
       @include for-middle() {
-        transform: translate(-17%, -25%) scale(0.5);
+        //transform: translate(-17%, -25%) scale(0.5);
+        transform: translate(-17%, -13%) scale(0.5);
       }
     }
 
     .item__tabs {
-      transform: translate(-120%, -82%) scale(0.7);
+      transform: translate(-12%, 20%) scale(0.7);
 
       .tabs-inner {
         opacity: 0;
@@ -590,13 +703,17 @@ svg:hover {
         transform: translate(-45%, -60%) scale(0.4);
       }
     }
+
+    .item__back-to-default {
+      opacity: 1;
+    }
   }
 
   // tab state
   &-tabs {
     .item__cloud {
-      top: 50%;
-      transform: translateY(-250%) scale(0.8);
+      //top: 50%;
+      transform: translate(-145%, 100%) scale(0.7);
 
       path:first-of-type {
         fill: #f9f9f9;
@@ -607,12 +724,12 @@ svg:hover {
       }
 
       @include for-middle() {
-        transform: translate(18%, -170%) scale(0.5);
+        transform: translate(-52%, -40%) scale(0.5);
       }
     }
 
     .item__phone {
-      transform: translate(0%, -30%) scale(0.8);
+      transform: translate(20%, 0%) scale(0.7);
 
       .svg-phone {
         rect:last-of-type {
@@ -625,12 +742,12 @@ svg:hover {
       }
 
       @include for-middle() {
-        transform: translate(12%, 0%) scale(0.5);
+        transform: translate(68%, 32%) scale(0.5);
       }
     }
 
     .item__screen {
-      transform: translate(-42%, -32%) scale(0.8);
+      transform: translate(29%, 70%) scale(0.7);
 
       .screen-inner {
         opacity: 0;
@@ -643,12 +760,16 @@ svg:hover {
       }
 
       @include for-middle() {
-        transform: translate(-55%, -35%) scale(0.4);
+        transform: translate(-14%, 22%) scale(0.4);
       }
     }
 
     .item__tabs {
-      transform: translate(0%, -84%) scale(0.9);
+      transform: translate(-15%, -100%) scale(0.8);
+
+      &-text.text-desc {
+        opacity: 1;
+      }
 
       rect {
         fill: $white-f;
@@ -660,16 +781,21 @@ svg:hover {
       }
 
       @include for-middle() {
-        transform: translate(22%, -64%) scale(0.5);
+        //transform: translate(22%, -64%) scale(0.5);
+        transform: translate(21%, -75%) scale(0.5);
       }
+    }
+
+    .item__back-to-default {
+      opacity: 1;
     }
   }
 
   // phone state
   &-phone {
     .item__cloud {
-      top: 50%;
-      transform: translateY(-280%) scale(0.8);
+      //top: 50%;
+      transform: translate(95%, 100%) scale(0.7);
 
       path:first-of-type {
         fill: #f9f9f9;
@@ -680,15 +806,19 @@ svg:hover {
       }
 
       @include for-middle() {
-        transform: translate(18%, -170%) scale(0.5);
+        transform: translate(18%, 74%) scale(0.4);
       }
     }
 
     .item__phone {
-      transform: translate(-176%, -30%) scale(1.2);
+      transform: translate(-135%, -20%) scale(0.9);
 
       rect:last-of-type {
         fill: #f9f9f9;
+      }
+
+      &-text.text-desc {
+        opacity: 1;
       }
 
       rect,
@@ -697,12 +827,13 @@ svg:hover {
       }
 
       @include for-middle() {
-        transform: translate(-80%, 5%) scale(0.6);
+        //transform: translate(-80%, 5%) scale(0.6);
+        transform: translate(-15%, 25%) scale(0.5);
       }
     }
 
     .item__screen {
-      transform: translate(-42%, -32%) scale(0.8);
+      transform: translate(29%, 80%) scale(0.7);
 
       .screen-inner {
         opacity: 0;
@@ -715,20 +846,178 @@ svg:hover {
       }
 
       @include for-middle() {
-        transform: translate(-50%, -35%) scale(0.4);
+        transform: translate(20%, -18%) scale(0.4);
       }
     }
 
     .item__tabs {
-      transform: translate(82%, -84%) scale(0.8);
+      transform: translate(-105%, -90%) scale(0.7);
 
       .tabs-inner {
         opacity: 0;
       }
 
-      @include for-middle() {
-        transform: translate(61%, -62%) scale(0.4);
+      .svg-tabs {
+        rect {
+          fill: #f9f9f9;
+        }
       }
+
+      @include for-middle() {
+        transform: translate(-18%, -60%) scale(0.4);
+      }
+    }
+
+    .item__back-to-default {
+      opacity: 1;
+    }
+  }
+}
+
+// from 280px to 660px
+.ts__inner.state-default {
+  @include for-smallmedium() {
+    display: none;
+  }
+}
+
+.ts__inner-mob_wrapper {
+  position: relative;
+}
+
+.ts__inner-mob {
+  display: none;
+  @include for-smallmedium() {
+    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-bottom: 40px;
+  }
+
+  &_img {
+    &-cloud,
+    &-phone,
+    &-screen,
+    &-tabs {
+      width: 100%;
+      margin: 8px;
+      position: relative;
+      transition: all 0.6s ease-out;
+    }
+
+    &-cloud {
+      max-width: 170px;
+    }
+
+    &-phone {
+      max-height: 190px;
+      max-width: 96px;
+    }
+
+    &-screen {
+      max-width: 220px;
+    }
+
+    &-tabs {
+      max-width: 180px;
+    }
+  }
+}
+
+.ts__inner-mob_text-cloud,
+.ts__inner-mob_text-phone,
+.ts__inner-mob_text-screen,
+.ts__inner-mob_text-tabs {
+  transition: all 0.6s ease-out;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: $dark-f;
+  font-size: 13px;
+  color: #fff;
+  padding: 20px;
+
+  &.active {
+    opacity: 1;
+  }
+}
+
+// arrow + animation for arrow
+.arrow-round {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin: 20px auto;
+
+  border: 10px solid $dark-f;
+  border-radius: 50%;
+  border-right-color: transparent;
+
+  @media screen and (min-width: 991px) {
+    animation-name: rotation;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+}
+
+.arrow-round::after {
+  content: "";
+  position: absolute;
+  border: 20px solid #ffffff;
+  top: -10px;
+  left: 10px;
+  border-bottom-color: $dark-f;
+  border-top-width: 0;
+  border-right-width: 0;
+  border-left-color: transparent;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.item__back-to-default {
+  position: absolute;
+  top: -120px;
+  right: 0;
+  text-align: center;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.6s ease-out;
+
+  @include for-middle() {
+    transform: scale(0.6);
+    top: -80px;
+  }
+
+  @include for-smallmedium() {
+    display: none;
+  }
+
+  span {
+    background-color: $dark-f;
+    color: $white-f;
+    padding: 6px 8px;
+    transition: all 0.6s ease-out;
+
+    @media screen and (min-width: 991px) {
+      opacity: 0;
+    }
+  }
+
+  &:hover {
+    span {
+      opacity: 1;
     }
   }
 }
