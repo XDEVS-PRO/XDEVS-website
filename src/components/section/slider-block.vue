@@ -1,28 +1,20 @@
 <template>
   <section class="sb shadow-bg" id="trusted-by">
-    <dark-bg />
-    <stripe-wrapper :color-strip="'dark'" />
+    <dark-bg/>
+    <stripe-wrapper :color-strip="'dark'"/>
     <div class="sb__container container">
       <title-block
-        :title="'Trusted By'"
-        :sub-title="'Keep growing with us'"
-        :color-icon="'light'"
+          :title="'Trusted By'"
+          :sub-title="'Keep growing with us'"
+          :color-icon="'light'"
       />
-      <infinite-slide-bar
-        class="sb__card-container"
-        :duration="'40s'"
-        :barStyle="{ background: 'transparent' }"
-      >
-        <img
-          v-for="(item, i) in cardList"
-          :key="i"
-          :src="item.img"
-          class="sb__card"
-        />
+      <infinite-slide-bar class="sb__card-container" :duration="'20s'" :barStyle="{ background: 'transparent' }">
+        <img v-for="(item, i) in cardList"
+             :key="i" :src="item.img" :alt="item.alt" class="sb__card"/>
       </infinite-slide-bar>
       <div class="sb__card-mobile_wrapper">
         <div v-for="(item, i) in cardList" :key="i" class="sb__card-mobile">
-          <img :src="item.img" class="sb__card-mobile_icon" />
+          <img :src="item.img" :alt="item.alt" class="sb__card-mobile_icon"/>
         </div>
       </div>
     </div>
@@ -50,27 +42,33 @@ export default class SliderBlock extends Vue {
   cardList: Array<{ img: string; link: string }> = [
     {
       img: "/img/slider/tab-1.svg",
-      link: "https://www.google.com"
+      link: "https://www.google.com",
+      alt: "INOXOFT"
     },
     {
       img: "/img/slider/tab-2.svg",
-      link: "https://www.google.com"
+      link: "https://www.google.com",
+      alt: "Octopus"
     },
     {
       img: "/img/slider/tab-3.svg",
-      link: "https://www.google.com"
+      link: "https://www.google.com",
+      alt: "Singlead"
     },
     {
       img: "/img/slider/tab-4.svg",
-      link: "https://www.google.com"
+      link: "https://www.google.com",
+      alt: "zitemedia"
     },
     {
       img: "/img/slider/tab-5.svg",
-      link: "https://www.google.com"
+      link: "https://www.google.com",
+      alt: "chargeback"
     },
     {
       img: "/img/slider/tab-6.svg",
-      link: "https://www.google.com"
+      link: "https://www.google.com",
+      alt: "DevLogics"
     }
   ];
 }

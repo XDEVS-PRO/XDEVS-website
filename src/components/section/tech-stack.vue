@@ -10,6 +10,7 @@
         </div>
         <div class="item__tabs" @click="changeState('tabs')">
           <svg
+              alt="tabs"
             class="svg-tabs"
             width="400"
             height="260"
@@ -54,21 +55,22 @@
           </p>
           <div class="tabs-inner">
             <div class="tabs-inner-python">
-              <img src="/img/tech-stack/python.svg" />
+              <img src="/img/tech-stack/python.svg" alt="Python" />
               <p>Python</p>
             </div>
             <div class="tabs-inner-nodejs">
-              <img src="/img/tech-stack/node.svg" />
+              <img src="/img/tech-stack/node.svg" alt="NodeJS" />
               <p>NodeJs</p>
             </div>
             <div class="tabs-inner-golang">
-              <img src="/img/tech-stack/gl.svg" />
+              <img src="/img/tech-stack/gl.svg" alt="Golang" />
               <p>Golang</p>
             </div>
           </div>
         </div>
         <div class="item__screen" @click="changeState('screen')">
           <svg
+              alt="screen"
             class="svg-screen"
             width="550"
             height="340"
@@ -107,21 +109,22 @@
           </p>
           <div class="screen-inner">
             <div class="screen-inner_angular">
-              <img src="/img/tech-stack/angular.svg" />
+              <img src="/img/tech-stack/angular.svg" alt="Angular" />
               <p>Angular</p>
             </div>
             <div class="screen-inner_react">
-              <img src="/img/tech-stack/react.svg" />
+              <img src="/img/tech-stack/react.svg" alt="React" />
               <p>React</p>
             </div>
             <div class="screen-inner_vue">
-              <img src="/img/tech-stack/vue.svg" />
+              <img src="/img/tech-stack/vue.svg" alt="Vue" />
               <p>Vue</p>
             </div>
           </div>
         </div>
         <div class="item__phone" @click="changeState('phone')">
           <svg
+              alt="phone"
             class="svg-phone"
             width="200"
             height="395"
@@ -155,17 +158,19 @@
             desctiprion.
           </p>
           <div class="phone-inner">
-            <img class="phone-inner_react" src="/img/tech-stack/react.svg" />
+            <img class="phone-inner_react" src="/img/tech-stack/react.svg" alt="React Native" />
             <p class="phone-inner_react-text">React Native</p>
             <img
               class="phone-inner_flutter"
               src="/img/tech-stack/flutter.svg"
+              alt="Flutter"
             />
             <p class="phone-inner_flutter-text">Flutter</p>
           </div>
         </div>
         <div class="item__cloud" @click="changeState('cloud')">
           <svg
+              alt="cloud"
             class="svg-cloud"
             width="276"
             height="174"
@@ -197,7 +202,7 @@
             desctiprion.
           </p>
           <div class="cloud-inner">
-            <img src="/img/tech-stack/aws.svg" />
+            <img src="/img/tech-stack/aws.svg" alt="AWS"/>
             <p>AWS</p>
           </div>
         </div>
@@ -212,6 +217,7 @@
           <img
             :class="[`ts__inner-mob_img-${item.className}`]"
             :src="item.img"
+            :alt="item.className"
             :style="{
               opacity:
                 item.className === isShowTextId && isShowText ? '0.4' : null
@@ -261,7 +267,7 @@ export default class TechStack extends Vue {
       img: "/img/tech-stack/cloud-mob.svg",
       className: "cloud",
       text: "CLOUD this just some what are you see if you clicked icon",
-      textId: "cloud"
+      textId: "cloud",
     },
     {
       img: "/img/tech-stack/phone-mob.svg",

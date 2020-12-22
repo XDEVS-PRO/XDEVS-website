@@ -4,7 +4,7 @@
       <div class="header__inner">
         <div class="header__left">
           <a href="/">
-            <img class="header__left-img" src="/logo-header.svg" />
+            <img class="header__left-img" src="/logo-header.svg" alt="XDEVS" />
           </a>
         </div>
         <div class="header__right" v-if="headerList.length">

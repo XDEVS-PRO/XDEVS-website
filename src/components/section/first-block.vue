@@ -2,7 +2,7 @@
   <section class="fb">
     <stripe-wrapper />
     <div class="fb__container container">
-      <img src="/img/bg-head.png" class="fb__img" />
+      <img src="/img/bg-head.png" alt="More technologies" class="fb__img" />
     </div>
   </section>
 </template>
