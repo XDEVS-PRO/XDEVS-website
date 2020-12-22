@@ -243,7 +243,7 @@ import StripeWrapper from "@/components/elements/strip-bg.vue";
   }
 })
 export default class TechStack extends Vue {
-  cardsMobile: arr[any] = [
+  cardsMobile = [
     {
       img: "/img/tech-stack/cloud-mob.svg",
       className: "cloud",
@@ -278,7 +278,7 @@ export default class TechStack extends Vue {
     this.classState = state;
   }
 
-  showText(item) {
+  showText(item: any) {
     this.isShowTextId = item;
     this.isShowText = !this.isShowText;
   }
