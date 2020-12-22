@@ -204,7 +204,7 @@
       </div>
       <div class="ts__inner-mob">
         <div
-          @click="showText(`${item.className}`)"
+          @click="showModal(item)"
           class="ts__inner-mob_wrapper"
           v-for="(item, i) in cardsMobile"
           :key="i"
@@ -226,6 +226,17 @@
             {{ item.text }}
           </p>
         </div>
+
+        <custom-modal :is-open="isShowModal" :close="closeModal">
+          <div class="cr__modal">
+            <div class="cr__modal-container container">
+              <div class="cr__modal-right">
+                  {{dataModalCard.text}}
+              </div>
+            </div>
+          </div>
+        </custom-modal>
+
       </div>
     </div>
   </section>
@@ -235,11 +246,13 @@
 import { Component, Vue } from "vue-property-decorator";
 import TitleBlock from "@/components/elements/title.vue";
 import StripeWrapper from "@/components/elements/strip-bg.vue";
+import CustomModal from "@/components/elements/custom-modal.vue";
 
 @Component({
   components: {
     TitleBlock,
-    StripeWrapper
+    StripeWrapper,
+    CustomModal
   }
 })
 export default class TechStack extends Vue {
@@ -274,6 +287,10 @@ export default class TechStack extends Vue {
   isShowText = false;
   isShowTextId = null;
 
+  isShowModal = false;
+  isCloseModal = false;
+  dataModalCard = {};
+
   changeState(state: any = "default") {
     this.classState = state;
   }
@@ -281,6 +298,16 @@ export default class TechStack extends Vue {
   showText(item: any) {
     this.isShowTextId = item;
     this.isShowText = !this.isShowText;
+  }
+
+  showModal(item: any) {
+    this.dataModalCard = item;
+    this.isShowModal = true;
+  }
+
+  closeModal() {
+    this.dataModalCard = {};
+    return this.isShowModal = false;
   }
 }
 </script>
@@ -519,7 +546,6 @@ svg:hover {
   // cloud state
   &-cloud {
     .item__cloud {
-      //top: 50%;
       top: -12%;
       right: 28%;
       transform: translate(-15%, 80%) scale(1.1);
@@ -566,7 +592,7 @@ svg:hover {
         text-align: center;
         transform: translate(50%, -50%) scale(0.8);
         opacity: 0;
-        //z-index: -1;
+        will-change: opacity;
       }
 
       .phone-inner_react-text {
@@ -1020,6 +1046,13 @@ svg:hover {
       opacity: 1;
     }
   }
+}
+
+.cr__modal-right {
+  color: #fff;
+  max-width: 270px;
+  margin: 0 auto;
+  padding: 60px 0;
 }
 
 @include for-middle() {
