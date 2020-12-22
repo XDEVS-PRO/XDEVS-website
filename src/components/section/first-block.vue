@@ -38,6 +38,7 @@ export default class FirstBlock extends Vue {}
     max-width: 890px;
     width: 100%;
     height: auto;
+    max-height: 530px;
   }
 }
 </style>
