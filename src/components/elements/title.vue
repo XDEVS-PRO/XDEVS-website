@@ -2,8 +2,8 @@
   <div class="title">
       <div class="title__inner">
         <div class="title__inner-icon">
-          <img v-if="colorIcon === 'dark'" src="/img/dark-logo.svg"/>
-          <img v-else-if="colorIcon === 'light'" src="/img/light-logo.svg"/>
+          <img v-if="colorIcon === 'dark'" src="/img/dark-logo.svg" alt="XDEVS"/>
+          <img v-else-if="colorIcon === 'light'" src="/img/light-logo.svg" alt="XDEVS"/>
         </div>
         <div :class="['title__inner-text', {dark: colorIcon === 'dark'}]">
           {{ title }}

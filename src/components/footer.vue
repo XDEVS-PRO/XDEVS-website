@@ -6,7 +6,7 @@
       <div class="footer__inner">
         <div class="footer__left">
           <a href="/">
-            <img class="footer__left-img" src="/logo-header.svg" />
+            <img class="footer__left-img" src="/logo-header.svg" alt="XDEVS" />
           </a>
         </div>
         <div class="footer__center">

@@ -9,7 +9,7 @@
         <custom-modal :is-open="isShowModal" :close="closeModal">
           <div class="cr__modal">
             <div class="cr__modal-container container">
-              <img v-if="dataModalCard.img" class="cr__modal-left" :src="dataModalCard.img" />
+              <img v-if="dataModalCard.img" class="cr__modal-left" :src="dataModalCard.img" :alt="dataModalCard.alt" />
               <div class="cr__modal-right">
                 <div class="cr__modal-right_title">
                   {{dataModalCard.title}}
@@ -27,7 +27,7 @@
 
         <div v-for="(item, i) in cardList" :key="i" class="cr__card-wrapper" >
           <div class="cr__card-icon">
-            <img v-if="item.img" :src="item.img"  class="cr__card-icon_preview"  />
+            <img v-if="item.img" :src="item.img" :alt="item.alt" class="cr__card-icon_preview"  />
             <p class="cr__card-icon_preview-text" @click="showModal(item)">profile</p>
           </div>
           <div class="cr__card-text">
@@ -64,6 +64,7 @@ export default class CoreTeam extends Vue {
   cardList: Array<any> = [
     {
       img: "/img/core-team/ct-1.svg",
+      alt: "Andrew Whalle",
       title: "Andrew Whalle",
       position: "Founder of company",
       desc:
@@ -71,6 +72,7 @@ export default class CoreTeam extends Vue {
     },
     {
       img: "/img/core-team/ct-2.svg",
+      alt: "Valentina Dialektova",
       title: "Valentina Dialektova",
       position: "UX/ UI Designer",
       desc:
@@ -78,6 +80,7 @@ export default class CoreTeam extends Vue {
     },
     {
       img: "/img/core-team/ct-3.svg",
+      alt: "Vitaliy Sokolov",
       title: "Vitaliy Sokolov",
       position: "Developer",
       desc:
@@ -85,6 +88,7 @@ export default class CoreTeam extends Vue {
     },
     {
       img: "/img/core-team/ct-4.svg",
+      alt: "Viktoria Moroz",
       title: "Viktoria Moroz",
       position: "Copywriter",
       desc:

@@ -5,7 +5,7 @@
       <title-block :title="'Services'" :color-icon="'dark'"/>
       <div class="sb__cards-container">
         <div v-for="(item, i) in cardList" :key="i" class="sb__card-wrapper">
-          <img v-if="item.img" class="sb__card-icon" :src="item.img" />
+          <img v-if="item.img" class="sb__card-icon" :alt="item.alt" :src="item.img" />
           <div v-if="item.title" class="sb__card-title">{{item.title}}</div>
           <div v-if="item.desc" class="sb__card-desc">{{item.desc}}</div>
         </div>
@@ -29,31 +29,37 @@ export default class ServicesBlock extends Vue {
   cardList: Array<any> = [
     {
       img: "/img/services/i-1.svg",
+      alt: "Big Data Analytics",
       title: "Big Data Analytics",
       desc: "Apply advanced analytics and data-driven decisions to leverage quality of processes."
     },
     {
       img: "/img/services/i-2.svg",
+      alt: "Mobile Application Development",
       title: "Mobile Application Development",
       desc: "Transform lucrative ideas into original industry-specific mobile apps."
     },
     {
       img: "/img/services/i-3.svg",
+      alt: "Web Development",
       title: "Web Development",
       desc: "Upgrade or build from scratch scalable, fully-functional web solutions."
     },
     {
       img: "/img/services/i-4.svg",
+      alt: "UI/UX design",
       title: "UI/UX design",
       desc: "Win with great user experience and persuasive design."
     },
     {
       img: "/img/services/i-5.svg",
+      alt: "Quality Assurance",
       title: "Quality Assurance",
       desc: "Turn to our experts to perform comprehensive, multi-stage testing and auditing of your software."
     },
     {
       img: "/img/services/i-6.svg",
+      alt: "Discovery phase",
       title: "Discovery phase",
       desc: "Implement your business idea consulting Inoxoft experts and you get the best solutions ever to satisfy your target users’ needs."
     }
