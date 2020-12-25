@@ -17,7 +17,6 @@
           <img :src="item.img" :alt="item.alt" class="sb__card-mobile_icon"/>
         </div>
       </div>
-
     </div>
   </section>
 </template>
