@@ -88,6 +88,7 @@ export default class ContactBlock extends Vue {
 
     @include for-small() {
       flex-direction: column-reverse;
+      margin: 0 auto;
     }
 
     &-left {
