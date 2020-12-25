@@ -36,6 +36,7 @@ export default class FirstBlock extends Vue {}
 
   &__img {
     max-width: 890px;
+    width: 100%;
   }
 }
 </style>
