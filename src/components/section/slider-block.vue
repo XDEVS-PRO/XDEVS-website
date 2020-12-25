@@ -39,7 +39,7 @@ import InfiniteSlideBar from "vue-infinite-slide-bar";
   }
 })
 export default class SliderBlock extends Vue {
-  cardList: Array<{ img: string; link: string }> = [
+  cardList: Array<{ img: string; link: string; alt: string }> = [
     {
       img: "/img/slider/tab-1.svg",
       link: "https://www.google.com",

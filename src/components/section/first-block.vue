@@ -2,7 +2,7 @@
   <section class="fb">
     <stripe-wrapper />
     <div class="fb__container container">
-      <img src="/img/bg-head.png" alt="More technologies" class="fb__img" />
+      <img src="/img/bg-head-svg.svg" alt="More technologies" class="fb__img" />
     </div>
   </section>
 </template>
@@ -36,9 +36,6 @@ export default class FirstBlock extends Vue {}
 
   &__img {
     max-width: 890px;
-    width: 100%;
-    height: auto;
-    max-height: 530px;
   }
 }
 </style>
