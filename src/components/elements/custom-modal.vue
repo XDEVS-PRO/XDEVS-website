@@ -1,5 +1,5 @@
 <template>
-  <portal v-if="portal" to="modal">
+  <portal v-if="portal" :to="to">
     <transition name="fade">
       <div v-if="isOpen" class="modal__wrapper" :class="className">
         <div class="modal__overlay" @click="close()"></div>
@@ -10,15 +10,6 @@
       </div>
     </transition>
   </portal>
-  <transition v-else name="fade">
-    <div v-if="isOpen" class="modal__wrapper">
-      <div class="modal__overlay" @click="close()"></div>
-      <div class="modal">
-        <a class="modal__close-btn" @click="close()"></a>
-        <slot></slot>
-      </div>
-    </div>
-  </transition>
 </template>
 
 <script lang="ts">
@@ -34,6 +25,7 @@ export default class CustomModal extends Vue {
   @Prop({ default: null }) className: any;
   @Prop() close: any;
   @Prop({ default: true }) portal: boolean | undefined;
+  @Prop({ default: 'modal'}) to: string | undefined;
 
   handleClose() {
     this.close();

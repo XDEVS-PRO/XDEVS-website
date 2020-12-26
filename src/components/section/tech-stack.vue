@@ -2,7 +2,7 @@
   <section class="ts" id="tech-stack">
     <stripe-wrapper :color-strip="'ling'" />
     <div class="ts__container container">
-      <title-block :title="'Core Team'" :color-icon="'dark'" />
+      <title-block :title="'Tech Stack'" :color-icon="'dark'" />
       <div :class="['ts__inner', `state-${classState}`]">
         <div @click="changeState('default')" class="item__back-to-default">
           <div class="arrow-round"></div>
@@ -209,7 +209,7 @@
       </div>
       <div class="ts__inner-mob">
         <div
-          @click="showModal(item)"
+          @click="isShowingModal(item)"
           class="ts__inner-mob_wrapper"
           v-for="(item, i) in cardsMobile"
           :key="i"
@@ -233,7 +233,7 @@
           </p>
         </div>
 
-        <custom-modal :is-open="isShowModal" :close="closeModal">
+        <custom-modal :is-open="isShowModal" :close="isClosedModal" :to="'tech-block'">
           <div class="cr__modal">
             <div class="cr__modal-container container">
               <div class="cr__modal-right">
@@ -306,12 +306,12 @@ export default class TechStack extends Vue {
     this.isShowText = !this.isShowText;
   }
 
-  showModal(item: any) {
+  isShowingModal(item: any) {
     this.dataModalCard = item;
     this.isShowModal = true;
   }
 
-  closeModal() {
+  isClosedModal() {
     this.dataModalCard = {};
     return this.isShowModal = false;
   }
