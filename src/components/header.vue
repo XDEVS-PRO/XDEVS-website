@@ -21,7 +21,7 @@
               'hamburger hamburger--emphatic js-hamburger',
               { active: isShowMobMenu }
             ]"
-            @click="isShowMobMenu = !isShowMobMenu"
+            @click="isShow()"
           >
             <div class="hamburger-box">
               <div class="hamburger-inner"></div>
@@ -29,6 +29,28 @@
           </div>
         </div>
       </div>
+    </div>
+    <!--  mob menu -->
+    <div :class="['mobile-menu', { active: isShowMobMenu}]" >
+      <ul class="mobile-menu-list">
+        <a class="mobile-menu-list_link-to-block"
+           v-for="(linkBtn, linkIndex) in headerList"
+           :key="linkIndex"
+           href="#"
+           v-scroll-to="`${linkBtn.link}`"
+        >{{linkBtn.title}}</a>
+        <div class="mobile-menu-list_contact">
+          <img class="mobile-menu-list_contact-img" src="/img/contact-us/per-i.svg" />
+          <p class="mobile-menu-list_contact-title">Viktoria Samoilenko</p>
+          <p class="mobile-menu-list_contact-subtitle">Head of Engagement</p>
+          <div class="mobile-menu-list_contact-links">
+            <a v-for="(item, i) in cardList" :href="item.link" :key="i">
+              <img v-if="item.img" :alt="item.alt" class="mobile-menu-list_contact-links-icon" :src="item.img"/>
+            </a>
+          </div>
+        </div>
+      </ul>
+      <div class="mobile-menu_bg"></div>
     </div>
   </header>
 </template>
@@ -42,7 +64,7 @@ import { Component, Vue } from "vue-property-decorator";
 export default class HeaderBlock extends Vue {
   isShowMobMenu = false;
 
-  headerList: any[] = [
+  headerList: Array<{title: string; link: string}> = [
     {
       title: "Services",
       link: "#service"
@@ -64,6 +86,28 @@ export default class HeaderBlock extends Vue {
       link: "#contact-us"
     }
   ];
+
+  cardList: Array<{img: string; alt: string; link: string}> = [
+    {
+      img: "/img/contact-us/s-i.svg",
+      alt: "Send us",
+      link: "https://www.google.com"
+    },
+    {
+      img: "/img/contact-us/l-i.svg",
+      alt: "LinkedIn",
+      link: "https://www.google.com"
+    },
+    {
+      img: "/img/contact-us/p-i.svg",
+      alt: "Post us",
+      link: "https://www.google.com"
+    }
+  ];
+
+  isShow() {
+    this.isShowMobMenu = !this.isShowMobMenu;
+  }
 }
 </script>
 
@@ -71,12 +115,15 @@ export default class HeaderBlock extends Vue {
 @import "src/assets/styles/variables";
 
 .header {
-  //position: fixed;
   position: absolute;
   top: 0;
   z-index: 100;
   width: 100%;
   background-color: #181818;
+
+  @include for-average() {
+    position: fixed;
+  }
 
   &__inner {
     display: flex;
@@ -90,6 +137,9 @@ export default class HeaderBlock extends Vue {
   }
 
   &__left-img {
+    position: relative;
+    z-index: 10;
+
     @include for-smallmedium() {
       max-width: 120px;
     }
@@ -179,6 +229,7 @@ export default class HeaderBlock extends Vue {
   transition-duration: 0.15s;
   transition-property: transform;
   background-color: #fff;
+  z-index: 10;
 }
 
 .hamburger-inner:after,
@@ -241,5 +292,103 @@ export default class HeaderBlock extends Vue {
   transition: right 0.125s ease-out, top 0.05s linear 0.125s,
     transform 0.125s cubic-bezier(0.075, 0.82, 0.165, 1) 0.175s;
   transform: translate3d(-80px, 80px, 0) rotate(-45deg);
+}
+
+// mobile menu list and bg
+.mobile-menu {
+  transition: all 1s ease-out;
+  transform: translateX(-130%);
+  height: 0;
+
+  &.active {
+    transition: all 1s ease-out;
+    transform: translateX(0);
+    margin-right: 20px;
+  }
+
+  &_bg {
+    background-color: #fbdd4b;
+    width: 493px;
+    position: absolute;
+    height: 740px;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    transform: rotate(14deg) scale(2) translate(-30%, 10%);
+  }
+
+  &-list {
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    align-items: center;
+
+    @include for-small() {
+      align-items: flex-start;
+      padding-left: 16px;
+    }
+
+    &_link-to-block {
+      text-decoration: none;
+      color: $dark-f;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      padding-bottom: 10px;
+      font-size: 32px;
+
+      @include for-verysmall() {
+        font-size: 23px;
+      }
+    }
+
+    &_contact {
+      text-align: center;
+
+      @include for-verysmall() {
+        text-align: left;
+      }
+
+      &-img {
+        max-width: 240px;
+        width: 100%;
+        margin: 10px 0 0 0;
+
+        @include for-verysmall() {
+          max-width: 170px;
+          margin: 0;
+        }
+      }
+
+      &-title {
+        font-size: 20px;
+        color: #232323;
+        padding: 8px 0 5px 0;
+      }
+
+      &-subtitle {
+        color: #838383;
+        font-weight: 300;
+        padding-bottom: 10px;
+      }
+
+      &-links {
+        flex: 1 1 auto;
+        display: flex;
+        justify-content: center;
+
+        @include for-verysmall() {
+          justify-content: flex-start;
+        }
+
+        &-icon {
+          margin: 5px;
+        }
+      }
+    }
+  }
+
+  &-list_item {
+    list-style-type: none;
+  }
 }
 </style>
