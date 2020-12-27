@@ -18,6 +18,7 @@ export default class DarkBg extends Vue {
     bottom: 0;
     right: 0;
     left: 0;
+    background-color: #181818;
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url(/img/bg-section.svg);
