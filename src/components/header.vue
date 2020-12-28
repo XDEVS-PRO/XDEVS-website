@@ -38,6 +38,7 @@
            :key="linkIndex"
            href="#"
            v-scroll-to="`${linkBtn.link}`"
+           @click="isShow()"
         >{{linkBtn.title}}</a>
         <div class="mobile-menu-list_contact">
           <img class="mobile-menu-list_contact-img" src="/img/contact-us/per-i.svg" />
@@ -51,6 +52,7 @@
         </div>
       </ul>
       <div class="mobile-menu_bg"></div>
+      <div class="mobile-menu_bg-deep"></div>
     </div>
   </header>
 </template>
@@ -296,14 +298,27 @@ export default class HeaderBlock extends Vue {
 
 // mobile menu list and bg
 .mobile-menu {
+  display: none;
   transition: all 1s ease-out;
   transform: translateX(-130%);
   height: 0;
+
+  @include for-average() {
+    display: block;
+  }
 
   &.active {
     transition: all 1s ease-out;
     transform: translateX(0);
     margin-right: 20px;
+
+    .mobile-menu-list {
+      opacity: 1;
+    }
+
+    .mobile-menu_bg-deep {
+      opacity: 1;
+    }
   }
 
   &_bg {
@@ -315,6 +330,22 @@ export default class HeaderBlock extends Vue {
     right: 0;
     z-index: -1;
     transform: rotate(14deg) scale(2) translate(-30%, 10%);
+
+    &-deep {
+      position: absolute;
+      transition: opacity 1s ease-out;
+      background-color: #fff;
+      //background-color: red;
+      z-index: -2;
+      width: 100vh;
+      height: 100vh;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      //transform: translateX(-44%);
+      opacity: 0;
+    }
   }
 
   &-list {
@@ -322,6 +353,8 @@ export default class HeaderBlock extends Vue {
     flex-direction: column;
     padding-left: 30px;
     align-items: center;
+    opacity: 0;
+    transition: opacity 3s ease-out;
 
     @include for-small() {
       align-items: flex-start;
@@ -334,10 +367,10 @@ export default class HeaderBlock extends Vue {
       font-weight: 600;
       letter-spacing: 0.5px;
       padding-bottom: 10px;
-      font-size: 32px;
+      font-size: 26px;
 
       @include for-verysmall() {
-        font-size: 23px;
+        font-size: 18px;
       }
     }
 
@@ -349,7 +382,7 @@ export default class HeaderBlock extends Vue {
       }
 
       &-img {
-        max-width: 240px;
+        max-width: 200px;
         width: 100%;
         margin: 10px 0 0 0;
 
@@ -360,7 +393,7 @@ export default class HeaderBlock extends Vue {
       }
 
       &-title {
-        font-size: 20px;
+        font-size: 18px;
         color: #232323;
         padding: 8px 0 5px 0;
       }
@@ -369,6 +402,7 @@ export default class HeaderBlock extends Vue {
         color: #838383;
         font-weight: 300;
         padding-bottom: 10px;
+        font-size: 16px;
       }
 
       &-links {
@@ -381,7 +415,7 @@ export default class HeaderBlock extends Vue {
         }
 
         &-icon {
-          margin: 5px;
+          margin: 5px 8px;
         }
       }
     }
