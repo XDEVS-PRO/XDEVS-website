@@ -318,6 +318,7 @@ export default class HeaderBlock extends Vue {
 
     .mobile-menu_bg-deep {
       opacity: 1;
+      transform: none;
     }
   }
 
@@ -335,7 +336,6 @@ export default class HeaderBlock extends Vue {
       position: absolute;
       transition: opacity 1s ease-out;
       background-color: #fff;
-      //background-color: red;
       z-index: -2;
       width: 100vh;
       height: 100vh;
@@ -343,8 +343,12 @@ export default class HeaderBlock extends Vue {
       bottom: 0;
       left: 0;
       right: 0;
-      //transform: translateX(-44%);
       opacity: 0;
+      transform: translateX(-50%);
+
+      @include for-small() {
+        transform: translateX(-100%);
+      }
     }
   }
 
