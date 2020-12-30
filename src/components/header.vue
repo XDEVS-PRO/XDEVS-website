@@ -123,11 +123,6 @@ export default class HeaderBlock extends Vue {
   width: 100%;
   background-color: #181818;
 
-  &__left {
-    position: relative;
-    z-index: 100;
-  }
-
   @include for-average() {
     position: fixed;
   }
@@ -334,14 +329,14 @@ export default class HeaderBlock extends Vue {
     height: 740px;
     top: 0;
     right: 0;
-    z-index: -1;
+    z-index: -2;
     transform: rotate(14deg) scale(2) translate(-30%, 10%);
 
     &-deep {
       position: absolute;
       transition: opacity 1s ease-out;
       background-color: #fff;
-      z-index: -2;
+      z-index: -3;
       width: 100vh;
       height: 100vh;
       top: 0;
