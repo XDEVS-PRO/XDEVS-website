@@ -15,11 +15,8 @@
 <script lang="ts">
 import Vue from "vue";
 import { Component, Prop } from "vue-property-decorator";
-// import CustomClose from "@/components/elements/custom-close.vue";
 
-@Component({ components: {
-    // CustomClose
-  } })
+@Component({ components: {} })
 export default class CustomModal extends Vue {
   @Prop() isOpen: any;
   @Prop({ default: null }) className: any;
