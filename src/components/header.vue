@@ -132,6 +132,7 @@ export default class HeaderBlock extends Vue {
     justify-content: space-between;
     padding: 30px 0;
     align-items: center;
+    opacity: 1;
 
     @include for-average() {
       padding: 15px 0;
