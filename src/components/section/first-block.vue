@@ -27,6 +27,7 @@ export default class FirstBlock extends Vue {}
 
   @include for-average() {
     padding: 100px 0 40px 0;
+    height: initial;
   }
 
   &__container.container {
