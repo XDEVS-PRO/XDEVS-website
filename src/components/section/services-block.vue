@@ -26,7 +26,7 @@ import StripeWrapper from "@/components/elements/strip-bg.vue";
 
 export default class ServicesBlock extends Vue {
 
-  cardList: Array<any> = [
+  cardList: Array<{img: string; alt: string; title: string; desc: string }> = [
     {
       img: "/img/services/i-1.svg",
       alt: "Big Data Analytics",
@@ -132,5 +132,4 @@ export default class ServicesBlock extends Vue {
     margin: 0 0 auto 0;
   }
 }
-
 </style>

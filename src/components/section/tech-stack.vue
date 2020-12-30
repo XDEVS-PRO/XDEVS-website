@@ -262,7 +262,7 @@ import CustomModal from "@/components/elements/custom-modal.vue";
   }
 })
 export default class TechStack extends Vue {
-  cardsMobile = [
+  cardsMobile: Array<{img: string; className: string; text: string; textId: string}> = [
     {
       img: "/img/tech-stack/cloud-mob.svg",
       className: "cloud",
@@ -393,7 +393,6 @@ svg:hover {
   }
 }
 // end hover effect styles
-
 .item__tabs-text.text-desc,
 .item__screen-text.text-desc,
 .item__phone-text.text-desc,
@@ -475,7 +474,6 @@ svg:hover {
       }
 
       @include for-middle() {
-        //transform: translate(-30%, 0%) scale(0.6);
         transform: translate(40%, 28%) scale(0.5);
       }
     }
@@ -506,7 +504,6 @@ svg:hover {
       }
 
       @include for-middle() {
-        //transform: translate(-40%, -35%) scale(0.6);
         transform: translate(-30%, -15%) scale(0.5);
       }
     }
@@ -543,7 +540,6 @@ svg:hover {
       }
 
       @include for-middle() {
-        transform: translate(20%, -20%) scale(0.6);
         transform: translate(20%, -20%) scale(0.5);
       }
     }
@@ -662,7 +658,6 @@ svg:hover {
   // screen(browser) state
   &-screen {
     .item__cloud {
-      //top: 50%;
       transform: translate(-145%, 100%) scale(0.7);
 
       path:first-of-type {
@@ -674,7 +669,6 @@ svg:hover {
       }
 
       @include for-middle() {
-        //transform: translate(15%, -170%) scale(0.5);
         transform: translate(14%, 70%) scale(0.4);
       }
     }
@@ -693,15 +687,12 @@ svg:hover {
       }
 
       @include for-middle() {
-        //transform: translate(10%, 6%) scale(0.4);
-
         transform: translate(78%, 32%) scale(0.5);
       }
     }
 
     .item__screen {
       transform: translate(28%, -10%) scale(0.8);
-      //transform: translate(-17%, -13%) scale(0.5);
 
       &-text.text-desc {
         opacity: 1;
@@ -719,7 +710,6 @@ svg:hover {
       }
 
       @include for-middle() {
-        //transform: translate(-17%, -25%) scale(0.5);
         transform: translate(-17%, -13%) scale(0.5);
       }
     }
@@ -744,7 +734,6 @@ svg:hover {
   // tab state
   &-tabs {
     .item__cloud {
-      //top: 50%;
       transform: translate(-145%, 100%) scale(0.7);
 
       path:first-of-type {
@@ -813,7 +802,6 @@ svg:hover {
       }
 
       @include for-middle() {
-        //transform: translate(22%, -64%) scale(0.5);
         transform: translate(21%, -75%) scale(0.5);
       }
     }
@@ -826,7 +814,6 @@ svg:hover {
   // phone state
   &-phone {
     .item__cloud {
-      //top: 50%;
       transform: translate(95%, 100%) scale(0.7);
 
       path:first-of-type {
@@ -859,7 +846,6 @@ svg:hover {
       }
 
       @include for-middle() {
-        //transform: translate(-80%, 5%) scale(0.6);
         transform: translate(-15%, 25%) scale(0.5);
       }
     }

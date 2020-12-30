@@ -40,7 +40,6 @@ export default class FooterBlock extends Vue {}
 
 .footer {
   position: relative;
-  //background-color: #181818;
   color: $grey-f;
   font-weight: 300;
 
@@ -82,8 +81,6 @@ export default class FooterBlock extends Vue {}
       @include for-smallmedium() {
         margin: 20px 20px 20px 0;
       }
-
-
     }
   }
 
@@ -97,5 +94,4 @@ export default class FooterBlock extends Vue {}
     }
   }
 }
-
 </style>

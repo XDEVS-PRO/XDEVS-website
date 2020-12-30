@@ -20,7 +20,7 @@ Vue.use(PortalVue);
 Vue.use(VueScrollTo, {
   container: "body",
   duration: 500,
-  easing: "ease",
+  easing: "ease-in",
   offset: 0,
   force: true,
   cancelable: true,

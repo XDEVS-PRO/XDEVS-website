@@ -45,7 +45,7 @@ import StripeWrapper from "@/components/elements/strip-bg.vue";
 })
 
 export default class ContactBlock extends Vue {
-  cardList: Array<any> = [
+  cardList: Array<{ img: string; alt: string; link: string }> = [
     {
       img: "/img/contact-us/s-i.svg",
       alt: "Send us",
