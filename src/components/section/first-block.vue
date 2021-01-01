@@ -31,8 +31,10 @@ export default class FirstBlock extends Vue {}
   }
 
   &__container.container {
-    display: flex;
-    justify-content: center;
+    @media screen and (min-width: 767px) {
+      display: flex;
+      justify-content: center;
+    }
   }
 
   &__img {

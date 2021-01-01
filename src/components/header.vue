@@ -32,7 +32,7 @@
     </div>
     <!--  mob menu -->
     <div :class="['mobile-menu', { active: isShowMobMenu}]" >
-      <ul class="mobile-menu-list">
+      <div class="mobile-menu-list">
         <a class="mobile-menu-list_link-to-block"
            v-for="(linkBtn, linkIndex) in headerList"
            :key="linkIndex"
@@ -50,7 +50,7 @@
             </a>
           </div>
         </div>
-      </ul>
+      </div>
       <div class="mobile-menu_bg"></div>
       <div class="mobile-menu_bg-deep"></div>
     </div>
@@ -309,7 +309,6 @@ export default class HeaderBlock extends Vue {
   }
 
   &.active {
-    transition: all 1s ease-out;
     transform: translateX(0);
     margin-right: 20px;
 
@@ -358,8 +357,6 @@ export default class HeaderBlock extends Vue {
     flex-direction: column;
     padding-left: 30px;
     align-items: center;
-    opacity: 0;
-    transition: opacity 3s ease-out;
 
     @include for-small() {
       align-items: flex-start;
