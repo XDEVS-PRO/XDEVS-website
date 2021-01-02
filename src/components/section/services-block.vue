@@ -4,8 +4,8 @@
     <div class="sb__container container">
       <title-block :title="'Services'" :color-icon="'dark'"/>
       <div class="sb__cards-container">
-        <div v-for="(item, i) in cardList" :key="i" width="68" hidden="68" class="sb__card-wrapper">
-          <img v-if="item.img" class="sb__card-icon" :alt="item.alt" :src="item.img" />
+        <div v-for="(item, i) in cardList" :key="i" class="sb__card-wrapper">
+          <img v-if="item.img" class="sb__card-icon" :alt="item.alt" :src="item.img" width="52" />
           <div v-if="item.title" class="sb__card-title">{{item.title}}</div>
           <div v-if="item.desc" class="sb__card-desc">{{item.desc}}</div>
         </div>

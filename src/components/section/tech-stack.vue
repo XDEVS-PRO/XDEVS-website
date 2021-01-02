@@ -55,15 +55,15 @@
           </p>
           <div class="tabs-inner">
             <div class="tabs-inner-python">
-              <img src="/img/tech-stack/python.svg" alt="Python" />
+              <img src="/img/tech-stack/python.svg" alt="Python" width="44" />
               <p>Python</p>
             </div>
             <div class="tabs-inner-nodejs">
-              <img src="/img/tech-stack/node.svg" alt="NodeJS" />
+              <img src="/img/tech-stack/node.svg" alt="NodeJS" width="52" />
               <p>NodeJs</p>
             </div>
             <div class="tabs-inner-golang">
-              <img src="/img/tech-stack/gl.svg" alt="Golang" />
+              <img src="/img/tech-stack/gl.svg" alt="Golang" width="52" />
               <p>Golang</p>
             </div>
           </div>
@@ -109,15 +109,15 @@
           </p>
           <div class="screen-inner">
             <div class="screen-inner_angular">
-              <img src="/img/tech-stack/angular.svg" alt="Angular" />
+              <img src="/img/tech-stack/angular.svg" alt="Angular" width="53" />
               <p>Angular</p>
             </div>
             <div class="screen-inner_react">
-              <img src="/img/tech-stack/react.svg" alt="React" />
+              <img src="/img/tech-stack/react.svg" alt="React" width="52" />
               <p>React</p>
             </div>
             <div class="screen-inner_vue">
-              <img src="/img/tech-stack/vue.svg" alt="Vue" />
+              <img src="/img/tech-stack/vue.svg" alt="Vue" width="70" />
               <p>Vue</p>
             </div>
           </div>
@@ -158,12 +158,13 @@
             desctiprion.
           </p>
           <div class="phone-inner">
-            <img class="phone-inner_react" src="/img/tech-stack/react.svg" alt="React Native" />
+            <img class="phone-inner_react" src="/img/tech-stack/react.svg" alt="React Native" width="52" />
             <p class="phone-inner_react-text">React Native</p>
             <img
               class="phone-inner_flutter"
               src="/img/tech-stack/flutter.svg"
               alt="Flutter"
+              width="52"
             />
             <p class="phone-inner_flutter-text">Flutter</p>
           </div>
@@ -202,7 +203,7 @@
             desctiprion.
           </p>
           <div class="cloud-inner">
-            <img src="/img/tech-stack/aws.svg" alt="AWS"/>
+            <img src="/img/tech-stack/aws.svg" alt="AWS" width="52"/>
             <p>AWS</p>
           </div>
         </div>

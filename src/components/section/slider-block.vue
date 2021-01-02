@@ -10,7 +10,7 @@
       />
       <infinite-slide-bar class="sb__card-container" :duration="'20s'" :barStyle="{ background: 'transparent' }">
         <img v-for="(item, i) in cardList"
-             :key="i" :src="item.img" :alt="item.alt" class="sb__card"/>
+             :key="i" :src="item.img" :alt="item.alt" width="270" class="sb__card"/>
       </infinite-slide-bar>
       <div class="sb__card-mobile_wrapper">
         <div v-for="(item, i) in cardList" :key="i" class="sb__card-mobile">

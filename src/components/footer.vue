@@ -10,7 +10,7 @@
           </a>
         </div>
         <div class="footer__center">
-          <a class="custom-link" href="/pravicy-policy">Privacy Policy</a>
+          <a class="custom-link" href="/privacy-policy">Privacy Policy</a>
         </div>
         <div class="footer__right">
           <div>
