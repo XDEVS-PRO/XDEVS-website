@@ -18,13 +18,13 @@
               </div>
               <div class="cb__info-left_social">
                   <a v-for="(item, i) in cardList" :href="item.link" :key="i">
-                    <img v-if="item.img" :alt="item.alt" class="cb__info-left_social-icon" :src="item.img"/>
+                    <img v-if="item.img" :alt="item.alt" class="cb__info-left_social-icon" width="45" height="45" :src="item.img"/>
                   </a>
               </div>
             </div>
           </div>
           <div class="cb__info-right">
-            <img class="cb__info-right-icon" alt="Contact Person" src="/img/contact-us/per-i.svg"/>
+            <img class="cb__info-right-icon" width="389" alt="Contact Person" src="/img/contact-us/per-i.svg"/>
           </div>
         </div>
       </div>

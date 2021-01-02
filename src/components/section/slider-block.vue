@@ -14,7 +14,7 @@
       </infinite-slide-bar>
       <div class="sb__card-mobile_wrapper">
         <div v-for="(item, i) in cardList" :key="i" class="sb__card-mobile">
-          <img :src="item.img" :alt="item.alt" class="sb__card-mobile_icon"/>
+          <img :src="item.img" :alt="item.alt" width="200" class="sb__card-mobile_icon"/>
         </div>
       </div>
     </div>
