@@ -113,7 +113,7 @@ export default class CustomModal extends Vue {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s;
+  transition: opacity 0.8s;
 }
 
 .fade-enter,

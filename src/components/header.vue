@@ -14,8 +14,7 @@
             :key="i"
             href="#"
             v-scroll-to="`${item.link}`"
-            >{{ item.title }}</a
-          >
+            >{{ item.title }}</a>
           <div
             :class="[
               'hamburger hamburger--emphatic js-hamburger',
@@ -41,7 +40,7 @@
            @click="isShow()"
         >{{linkBtn.title}}</a>
         <div class="mobile-menu-list_contact">
-          <img class="mobile-menu-list_contact-img" src="/img/contact-us/per-i.svg" />
+          <img class="mobile-menu-list_contact-img" src="/img/contact-us/per-i.svg" alt="Viktoria Samoilenko" />
           <p class="mobile-menu-list_contact-title">Viktoria Samoilenko</p>
           <p class="mobile-menu-list_contact-subtitle">Head of Engagement</p>
           <div class="mobile-menu-list_contact-links">
@@ -109,6 +108,7 @@ export default class HeaderBlock extends Vue {
 
   isShow() {
     this.isShowMobMenu = !this.isShowMobMenu;
+    this.isShowMobMenu ? document.body.classList.add('un-scroll') :  document.body.classList.remove('un-scroll');
   }
 }
 </script>
