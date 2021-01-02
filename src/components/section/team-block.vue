@@ -6,10 +6,10 @@
       <title-block :title="'Core Team'" :color-icon="'light'" />
       <div class="cr__card-container">
 
-        <custom-modal :is-open="isShowModal" :close="closeModal">
-          <div class="cr__modal">
+        <custom-modal :is-open="isShowModal" :close="closeModal" >
+          <div class="cr__modal" >
             <div class="cr__modal-container container">
-              <img v-if="dataModalCard.img" class="cr__modal-left" :src="dataModalCard.img" :alt="dataModalCard.alt" />
+              <img width="278" height="320"  v-if="dataModalCard.img" class="cr__modal-left" :src="dataModalCard.img" :alt="dataModalCard.alt" />
               <div class="cr__modal-right">
                 <div class="cr__modal-right_title">
                   {{dataModalCard.title}}
@@ -121,7 +121,6 @@ export default class CoreTeam extends Vue {
       max-height: 310px;
       transition: all 0.6s ease-out;
       position: relative;
-
 
       @media screen and (max-width: 1300px) {
         max-height: 240px;
@@ -311,12 +310,16 @@ export default class CoreTeam extends Vue {
 
     &-left {
       @include for-large() {
-        max-width: 180px;
+        width: 60%;
+        height: 60%;
+        //max-width: 180px;
         margin-bottom: 20px;
       }
 
       @include for-smallmedium() {
-        max-width: 120px;
+        width: 40%;
+        height: 60%;
+        //max-width: 120px;
       }
 
     }

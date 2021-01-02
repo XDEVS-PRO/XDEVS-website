@@ -47,8 +47,11 @@ section {
   @include for-middle() {
     max-width: 900px;
   }
+}
 
-  @media screen and (max-width: 767px){}
-
-  @media screen and (max-width: 560px) {}
+.un-scroll {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
 }
