@@ -825,12 +825,16 @@ svg:hover {
       }
 
       @include for-middle() {
-        transform: translate(18%, 74%) scale(0.4);
+        transform: translate(18%, 45%) scale(0.4);
       }
     }
 
     .item__phone {
-      transform: translate(-135%, -20%) scale(0.9);
+      transform: translate(-130%, -5%) scale(0.9);
+
+      .svg-phone {
+        transform: rotate(90deg);
+      }
 
       rect:last-of-type {
         fill: #f9f9f9;
@@ -838,6 +842,11 @@ svg:hover {
 
       &-text.text-desc {
         opacity: 1;
+        margin-top: -80px;
+
+        @include for-middle() {
+          transform: scale(1.5);
+        }
       }
 
       rect,
@@ -846,7 +855,7 @@ svg:hover {
       }
 
       @include for-middle() {
-        transform: translate(-15%, 25%) scale(0.5);
+        transform: translate(-15%, 25%) scale(0.4);
       }
     }
 
@@ -864,7 +873,7 @@ svg:hover {
       }
 
       @include for-middle() {
-        transform: translate(20%, -18%) scale(0.4);
+        transform: translate(20%, -18%) scale(0.35);
       }
     }
 
@@ -882,7 +891,7 @@ svg:hover {
       }
 
       @include for-middle() {
-        transform: translate(-18%, -60%) scale(0.4);
+        transform: translate(-20%, -60%) scale(0.35);
       }
     }
 

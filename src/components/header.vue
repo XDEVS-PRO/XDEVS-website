@@ -4,7 +4,7 @@
       <div class="header__inner">
         <div class="header__left">
           <a href="/">
-            <img class="header__left-img" src="/logo-header.svg" alt="XDEVS" />
+            <img class="header__left-img" src="/logo-header.svg" width="120px" alt="XDEVS" />
           </a>
         </div>
         <div class="header__right" v-if="headerList.length">
@@ -45,7 +45,7 @@
           <p class="mobile-menu-list_contact-subtitle">Head of Engagement</p>
           <div class="mobile-menu-list_contact-links">
             <a v-for="(item, i) in cardList" :href="item.link" :key="i">
-              <img v-if="item.img" :alt="item.alt" class="mobile-menu-list_contact-links-icon" :src="item.img"/>
+              <img v-if="item.img" :alt="item.alt" width="45" height="45" class="mobile-menu-list_contact-links-icon" :src="item.img"/>
             </a>
           </div>
         </div>

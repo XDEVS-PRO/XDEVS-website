@@ -27,7 +27,7 @@
 
         <div v-for="(item, i) in cardList" :key="i" class="cr__card-wrapper" >
           <div class="cr__card-icon">
-            <img v-if="item.img" :src="item.img" :alt="item.alt" class="cr__card-icon_preview"  />
+            <img v-if="item.img" :src="item.img" :alt="item.alt" width="270" class="cr__card-icon_preview"  />
             <p class="cr__card-icon_preview-text" @click="showModal(item)">profile</p>
           </div>
           <div class="cr__card-text">
