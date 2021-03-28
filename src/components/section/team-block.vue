@@ -64,8 +64,8 @@ export default class CoreTeam extends Vue {
   cardList: Array<any> = [
     {
       img: "/img/core-team/ct-1.svg",
-      alt: "Andrew Whalle",
-      title: "Andrew Whalle",
+      alt: "Xander Pokhylenko",
+      title: "Xander Pokhylenko",
       position: "Founder of company",
       desc:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
@@ -80,11 +80,11 @@ export default class CoreTeam extends Vue {
     },
     {
       img: "/img/core-team/ct-3.svg",
-      alt: "Vitaliy Sokolov",
-      title: "Vitaliy Sokolov",
-      position: "Developer",
+      alt: "Mark Harnichev",
+      title: "Mark Harnichev",
+      position: "Front-End Developer",
       desc:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        "Hi! \n I'm a Front-End developer. My job is to create the visual part of the app looks great and create interactive logic. You can see my work right now but some part is hidden in deep code. \n So, I started my way two years ago and now I really enjoin with my work. In Xdevs we have interesting tasks and time at a time it's tried and Improves my soft-skills and my development skills. It's not a simple way but I`m really happy to have the chance to join the tour group. \n Well, I hope we can see my work and it helps you with your business. "
     },
     {
       img: "/img/core-team/ct-4.svg",
@@ -312,16 +312,13 @@ export default class CoreTeam extends Vue {
       @include for-large() {
         width: 60%;
         height: 60%;
-        //max-width: 180px;
         margin-bottom: 20px;
       }
 
       @include for-smallmedium() {
         width: 40%;
         height: 60%;
-        //max-width: 120px;
       }
-
     }
   }
 }
