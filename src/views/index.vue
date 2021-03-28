@@ -1,13 +1,11 @@
 <template>
   <div>
-    <header-block />
     <first-block />
     <services-block />
     <core-team />
     <tech-stack />
     <slider-block />
     <contact-block />
-    <footer-block />
   </div>
 </template>
 
@@ -19,9 +17,7 @@ import CoreTeam from "@/components/section/team-block.vue";
 import TechStack from "@/components/section/tech-stack.vue";
 import ServicesBlock from "@/components/section/services-block.vue";
 import ContactBlock from "@/components/section/contact-block.vue";
-import FooterBlock from "@/components/footer.vue";
 import SliderBlock from "@/components/section/slider-block.vue";
-import HeaderBlock from "@/components/header.vue";
 
 @Component({
   components: {
@@ -30,9 +26,7 @@ import HeaderBlock from "@/components/header.vue";
     CoreTeam,
     TechStack,
     ServicesBlock,
-    FooterBlock,
-    SliderBlock,
-    HeaderBlock
+    SliderBlock
   }
 })
 export default class Index extends Vue {}
