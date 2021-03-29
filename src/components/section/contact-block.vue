@@ -54,12 +54,12 @@ export default class ContactBlock extends Vue {
     {
       img: "/img/contact-us/l-i.svg",
       alt: "LinkedIn",
-      link: "https://www.google.com"
+      link: "https://www.linkedin.com/in/xander-pokhylenko-9699b3161/"
     },
     {
       img: "/img/contact-us/p-i.svg",
       alt: "Post us",
-      link: "https://www.google.com"
+      link: "mailto:dev@xander.im"
     }
   ];
 }
