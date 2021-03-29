@@ -50,8 +50,7 @@
             />
           </svg>
           <p class="item__tabs-text text-desc">
-            here i add text for next desctiprion. here i add text for next
-            desctiprion.
+            The variety of backend languages and frameworks we know helps us to choose the best solution for your needs.
           </p>
           <div class="tabs-inner">
             <div class="tabs-inner-python">
@@ -104,8 +103,7 @@
             <circle cx="65" cy="16" r="6" stroke="#C4C4C4" stroke-width="2" />
           </svg>
           <p class="item__screen-text text-desc">
-            here i add text for next desctiprion. here i add text for next
-            desctiprion.
+            We use only well-known professional front-end frameworks.
           </p>
           <div class="screen-inner">
             <div class="screen-inner_angular">
@@ -154,8 +152,7 @@
             />
           </svg>
           <p class="item__phone-text text-desc">
-            here i add text for next desctiprion. here i add text for next
-            desctiprion.
+            We build mobile apps for both Android and IOS at once to save your time and money.
           </p>
           <div class="phone-inner">
             <img class="phone-inner_react" src="/img/tech-stack/react.svg" alt="React Native" width="52" />
@@ -199,8 +196,7 @@
             />
           </svg>
           <p class="item__cloud-text text-desc">
-            here i add text for next desctiprion. here i add text for next
-            desctiprion.
+            We ensure that our solution will be online 100% time. We use only tested hosting providers.
           </p>
           <div class="cloud-inner">
             <img src="/img/tech-stack/aws.svg" alt="AWS" width="52"/>
@@ -267,25 +263,25 @@ export default class TechStack extends Vue {
     {
       img: "/img/tech-stack/cloud-mob.svg",
       className: "cloud",
-      text: "CLOUD this just some what are you see if you clicked icon",
+      text: "We ensure that our solution will be online 100% time. We use only tested hosting providers.",
       textId: "cloud",
     },
     {
       img: "/img/tech-stack/phone-mob.svg",
       className: "phone",
-      text: "PHONE this just some what are you see if you clicked icon",
+      text: "We build mobile apps for both Android and IOS at once to save your time and money.",
       textId: "phone"
     },
     {
       img: "/img/tech-stack/screen-mob.svg",
       className: "screen",
-      text: "SCREEN this just some what are you see if you clicked icon",
+      text: "We use only well-known professional front-end frameworks.",
       textId: "screen"
     },
     {
       img: "/img/tech-stack/tabs-mob.svg",
       className: "tabs",
-      text: "TABS this just some what are you see if you clicked icon",
+      text: "The variety of backend languages and frameworks we know helps us to choose the best solution for your needs.",
       textId: "tabs"
     }
   ];

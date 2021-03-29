@@ -159,6 +159,14 @@ export default class PrivacyPolicy extends Vue {
 .privacy-policy {
   padding-top: 100px;
 
+  &__inner {
+    padding-bottom: 3rem;
+
+    @include for-small() {
+      padding-bottom: 0;
+    }
+  }
+
   @include for-average() {
     padding-top: 70px;
   }

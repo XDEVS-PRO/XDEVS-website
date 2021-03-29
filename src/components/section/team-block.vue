@@ -68,15 +68,15 @@ export default class CoreTeam extends Vue {
       title: "Xander Pokhylenko",
       position: "Founder of company",
       desc:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        "Skilled Senior Software Developer with more than 5 years of professional experience and a demonstrated history of working in the IT industry. Prefers challenging tasks and a complex approach in solving tasks.  Over the last 5 years developed dozens of projects and business solutions."
     },
     {
-      img: "/img/core-team/ct-2.svg",
-      alt: "Valentina Dialektova",
-      title: "Valentina Dialektova",
-      position: "UX/ UI Designer",
+      img: "/img/core-team/ct-3.svg",
+      alt: "Danila Kitsanenko",
+      title: "Danila Kitsanenko",
+      position: "Back-End developer",
       desc:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        "Hello. My name is Danila. I've been doing programming for 2 years. I'm Full Stack developer, but back end is my greatest love. I fond of working with data, creating server logic and write a beautiful code. I started learning programming with Python. It's my main language. Also, I'm coding in Golang. In Xdevs we work on projects that provide complex and interesting tasks. We look forward to building a strong business relationship in the future with our clients!"
     },
     {
       img: "/img/core-team/ct-3.svg",
