@@ -1,43 +1,66 @@
 <template>
-  <section class="cr" id="core-team">
-    <dark-bg />
-    <stripe-wrapper :color-strip="'dark'" />
+  <section class="cr"
+           id="core-team">
+    <dark-bg/>
+    <stripe-wrapper :color-strip="'dark'"/>
     <div class="cr__container container">
-      <title-block :title="'Core Team'" :color-icon="'light'" />
-      <div class="cr__card-container">
+      <title-block :title="'Core Team'"
+                   :color-icon="'light'"
+                   :desc-right="titleSubData"/>
 
-        <custom-modal :is-open="isShowModal" :close="closeModal" >
-          <div class="cr__modal" >
+      <h4 class="custom-description mobile">
+        {{ titleSubData }} </h4>
+
+      <div class="cr__card-container">
+        <custom-modal :is-open="isShowModal"
+                      :close="closeModal">
+          <div class="cr__modal">
             <div class="cr__modal-container container">
-              <img width="278" height="320"  v-if="dataModalCard.img" class="cr__modal-left" :src="dataModalCard.img" :alt="dataModalCard.alt" />
+              <img width="278"
+                   height="320"
+                   v-if="dataModalCard.img"
+                   class="cr__modal-left"
+                   :src="dataModalCard.img"
+                   :alt="dataModalCard.alt"/>
               <div class="cr__modal-right">
                 <div class="cr__modal-right_title">
-                  {{dataModalCard.title}}
+                  {{ dataModalCard.title }}
                 </div>
                 <div class="cr__modal-right_subtitle">
-                  {{dataModalCard.position}}
+                  {{ dataModalCard.position }}
                 </div>
                 <div class="cr__modal-right_desc">
-                  {{dataModalCard.desc}}
+                  {{ dataModalCard.desc }}
                 </div>
               </div>
             </div>
           </div>
         </custom-modal>
 
-        <div v-for="(item, i) in cardList" :key="i" class="cr__card-wrapper" >
+        <div v-for="(item, i) in cardList"
+             :key="i"
+             class="cr__card-wrapper">
           <div class="cr__card-icon">
-            <img v-if="item.img" :src="item.img" :alt="item.alt" width="270" class="cr__card-icon_preview"  />
-            <p class="cr__card-icon_preview-text" @click="showModal(item)">profile</p>
+            <img v-if="item.img"
+                 :src="item.img"
+                 :alt="item.alt"
+                 width="270"
+                 class="cr__card-icon_preview"/>
+            <p class="cr__card-icon_preview-text"
+               @click="showModal(item)">
+              profile </p>
           </div>
           <div class="cr__card-text">
-            <div v-if="item.title" class="cr__card-text-title">
+            <div v-if="item.title"
+                 class="cr__card-text-title">
               {{ item.title }}
             </div>
-            <div v-if="item.position" class="cr__card-text-desc">
+            <div v-if="item.position"
+                 class="cr__card-text-desc">
               {{ item.position }}
             </div>
-            <a class="cr__card-text-btn" @click="showModal(item)">profile</a>
+            <a class="cr__card-text-btn"
+               @click="showModal(item)">profile</a>
           </div>
         </div>
       </div>
@@ -46,11 +69,19 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import {Component, Vue} from "vue-property-decorator";
 import TitleBlock from "@/components/elements/title.vue";
 import StripeWrapper from "@/components/elements/strip-bg.vue";
 import DarkBg from "@/components/elements/dark-bg.vue";
 import CustomModal from "@/components/elements/custom-modal.vue";
+
+export interface Card {
+  img: string;
+  alt: string;
+  title: string;
+  position: string;
+  desc: string;
+}
 
 @Component({
   components: {
@@ -61,22 +92,22 @@ import CustomModal from "@/components/elements/custom-modal.vue";
   }
 })
 export default class CoreTeam extends Vue {
-  cardList: Array<any> = [
+  cardList: Array<Card> = [
     {
       img: "/img/core-team/ct-1.svg",
       alt: "Xander Pokhylenko",
       title: "Xander Pokhylenko",
       position: "Founder of company",
       desc:
-        "Skilled Senior Software Developer with more than 5 years of professional experience and a demonstrated history of working in the IT industry. Prefers challenging tasks and a complex approach in solving tasks.  Over the last 5 years developed dozens of projects and business solutions."
+          "Skilled Senior Software Developer with more than 5 years of professional experience and a demonstrated history of working in the IT industry. Prefers challenging tasks and a complex approach in solving tasks.  Over the last 5 years developed dozens of projects and business solutions."
     },
     {
-      img: "/img/core-team/ct-3.svg",
+      img: "/img/core-team/ct-5.svg",
       alt: "Danila Kitsanenko",
       title: "Danila Kitsanenko",
       position: "Back-End developer",
       desc:
-        "Hello. My name is Danila. I've been doing programming for 2 years. I'm Full Stack developer, but back end is my greatest love. I fond of working with data, creating server logic and write a beautiful code. I started learning programming with Python. It's my main language. Also, I'm coding in Golang. In Xdevs we work on projects that provide complex and interesting tasks. We look forward to building a strong business relationship in the future with our clients!"
+          "Hello. My name is Danila. I've been doing programming for 2 years. I'm Full Stack developer, but back end is my greatest love. I fond of working with data, creating server logic and write a beautiful code. I started learning programming with Python. It's my main language. Also, I'm coding in Golang. In Xdevs we work on projects that provide complex and interesting tasks. We look forward to building a strong business relationship in the future with our clients!"
     },
     {
       img: "/img/core-team/ct-3.svg",
@@ -84,7 +115,7 @@ export default class CoreTeam extends Vue {
       title: "Mark Harnichev",
       position: "Front-End Developer",
       desc:
-        "Hi! \n I'm a Front-End developer. My job is to create the visual part of the app looks great and create interactive logic. You can see my work right now but some part is hidden in deep code. \n So, I started my way two years ago and now I really enjoin with my work. In Xdevs we have interesting tasks and time at a time it's tried and Improves my soft-skills and my development skills. It's not a simple way but I`m really happy to have the chance to join the tour group. \n Well, I hope we can see my work and it helps you with your business. "
+          "Hi! \n I'm a Front-End developer. My job is to create the visual part of the app looks great and create interactive logic. You can see my work right now but some part is hidden in deep code. \n So, I started my way two years ago and now I really enjoin with my work. In Xdevs we have interesting tasks and time at a time it's tried and Improves my soft-skills and my development skills. It's not a simple way but I`m really happy to have the chance to join the tour group. \n Well, I hope we can see my work and it helps you with your business. "
     },
     {
       img: "/img/core-team/ct-4.svg",
@@ -92,13 +123,15 @@ export default class CoreTeam extends Vue {
       title: "Viktoria Moroz",
       position: "Copywriter",
       desc:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     }
   ];
 
   isShowModal = false;
   isCloseModal = false;
   dataModalCard = {};
+
+  titleSubData = "To stay on top of our game, every member of our team constantly works on self-improving his professional skills";
 
   showModal(item: any) {
     this.dataModalCard = item;
@@ -107,12 +140,13 @@ export default class CoreTeam extends Vue {
 
   closeModal() {
     this.dataModalCard = {};
-    return this.isShowModal = false;
+    return (this.isShowModal = false);
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss"
+       scoped>
 @import "src/assets/styles/variables";
 
 .cr {
@@ -166,6 +200,7 @@ export default class CoreTeam extends Vue {
 
       @media screen and (max-width: 1300px) {
         flex-wrap: wrap;
+        padding-top: 30px;
       }
     }
 
@@ -320,6 +355,19 @@ export default class CoreTeam extends Vue {
         height: 60%;
       }
     }
+  }
+}
+
+::v-deep .custom-description.right {
+  color: #6D6D6D;
+}
+
+.custom-description.mobile {
+  display: none;
+  color: #6D6D6D;
+  @include for-average() {
+    display: block;
+
   }
 }
 </style>

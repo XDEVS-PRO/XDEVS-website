@@ -3,12 +3,32 @@
 @import "variables";
 
 body {
-  font-family: "Gordita", sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
   font-size: 1.125rem;
 }
 
 section {
   position: relative;
+}
+
+.custom-description {
+  max-width: 300px;
+  padding-left: 30px;
+  color: $white-f;
+  position: relative;
+  font-size: 1rem;
+  line-height: 160%;
+  color: #EDEDED;
+  font-weight: 400;
+
+  &:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 2px;
+    left: -2px;
+    background: linear-gradient(87.58deg, #0085FF 0%, #11A9FF 100%);
+  }
 }
 
 .custom-link {
@@ -54,4 +74,11 @@ section {
   width: 100%;
   position: relative;
   overflow: hidden;
+}
+
+.x-btn {
+  background: linear-gradient(87.58deg, #0085FF 0%, #11A9FF 100%);
+  padding: 20px 40px;
+  color: $white-f;
+  display: inline-block;
 }

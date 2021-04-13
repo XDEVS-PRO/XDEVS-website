@@ -3,6 +3,8 @@
     <first-block />
     <services-block />
     <core-team />
+    <best-of />
+    <core-team />
     <tech-stack />
     <slider-block />
     <contact-block />
@@ -18,6 +20,7 @@ import TechStack from "@/components/section/tech-stack.vue";
 import ServicesBlock from "@/components/section/services-block.vue";
 import ContactBlock from "@/components/section/contact-block.vue";
 import SliderBlock from "@/components/section/slider-block.vue";
+import BestOf from "@/components/section/best-of.vue";
 
 @Component({
   components: {
@@ -26,7 +29,8 @@ import SliderBlock from "@/components/section/slider-block.vue";
     CoreTeam,
     TechStack,
     ServicesBlock,
-    SliderBlock
+    SliderBlock,
+    BestOf
   }
 })
 export default class Index extends Vue {}

@@ -6,19 +6,17 @@
   </div>
 </template>
 
-
 <script>
-import DefaultLayout from '@/layouts/default.vue';
+import DefaultLayout from "@/layouts/default.vue";
 
 export default {
   computed: {
     layout() {
-      return (this.$route.meta.layout || 'default-layout');
+      return this.$route.meta.layout || "default-layout";
     }
   },
   components: {
-    DefaultLayout,
+    DefaultLayout
   }
-}
-
+};
 </script>

@@ -2,9 +2,19 @@
   <section class="cb" id="contact-us">
     <stripe-wrapper />
     <div class="cb__container container">
-      <title-block :title="'Contact Us'" :color-icon="'dark'" class="title-mob"/>
+      <title-block
+        :title="'Contact Us'"
+        :color-icon="'dark'"
+        class="title-mob"
+      />
       <div class="cb__inner">
-        <title-block :title="'Contact Us'" :color-icon="'dark'" class="title-desc"/>
+
+        <title-block
+          :title="'Contact Us'"
+          :color-icon="'dark'"
+          class="title-desc"
+        />
+
         <div class="cb__info">
           <div class="cb__info-left">
             <div class="cb__info-left_name">
@@ -17,14 +27,26 @@
                 </div>
               </div>
               <div class="cb__info-left_social">
-                  <a v-for="(item, i) in cardList" :href="item.link" :key="i">
-                    <img v-if="item.img" :alt="item.alt" class="cb__info-left_social-icon" width="45" height="45" :src="item.img"/>
-                  </a>
+                <a v-for="(item, i) in cardList" :href="item.link" :key="i">
+                  <img
+                    v-if="item.img"
+                    :alt="item.alt"
+                    class="cb__info-left_social-icon"
+                    width="45"
+                    height="45"
+                    :src="item.img"
+                  />
+                </a>
               </div>
             </div>
           </div>
           <div class="cb__info-right">
-            <img class="cb__info-right-icon" width="389" alt="Contact Person" src="/img/contact-us/per-i.svg"/>
+            <img
+              class="cb__info-right-icon"
+              width="389"
+              alt="Contact Person"
+              src="/img/contact-us/per-i.svg"
+            />
           </div>
         </div>
       </div>
@@ -33,7 +55,7 @@
 </template>
 
 <script lang="ts">
-import {Component, Vue} from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
 import TitleBlock from "@/components/elements/title.vue";
 import StripeWrapper from "@/components/elements/strip-bg.vue";
 
@@ -43,7 +65,6 @@ import StripeWrapper from "@/components/elements/strip-bg.vue";
     StripeWrapper
   }
 })
-
 export default class ContactBlock extends Vue {
   cardList: Array<{ img: string; alt: string; link: string }> = [
     {
@@ -148,12 +169,12 @@ export default class ContactBlock extends Vue {
 
         &-icon {
           transition: all 0.3s ease;
-          box-shadow: 0vw 0vw 0 #B91F42;
+          box-shadow: 0vw 0vw 0 #b91f42;
           border-radius: 50%;
 
           &:hover {
             transform: translate(-4px, -4px);
-            box-shadow: 0.3vw 0.3vw 0 #B91F42;
+            box-shadow: 0.3vw 0.3vw 0 #b91f42;
           }
         }
       }

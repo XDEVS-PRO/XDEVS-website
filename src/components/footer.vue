@@ -6,7 +6,12 @@
       <div class="footer__inner">
         <div class="footer__left">
           <a href="/">
-            <img class="footer__left-img" src="/logo-header.svg" width="120" alt="XDEVS" />
+            <img
+              class="footer__left-img"
+              src="/logo-header.svg"
+              width="120"
+              alt="XDEVS"
+            />
           </a>
         </div>
         <div class="footer__center">
@@ -27,11 +32,12 @@ import { Component, Vue } from "vue-property-decorator";
 import StripeWrapper from "@/components/elements/strip-bg.vue";
 import DarkBg from "@/components/elements/dark-bg.vue";
 
-@Component({components: {
+@Component({
+  components: {
     StripeWrapper,
     DarkBg
-  }})
-
+  }
+})
 export default class FooterBlock extends Vue {}
 </script>
 
@@ -42,7 +48,6 @@ export default class FooterBlock extends Vue {}
   position: relative;
   color: $grey-f;
   font-weight: 300;
-
 
   &__inner {
     padding: 26px 0;

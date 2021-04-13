@@ -18,11 +18,11 @@ import { Component, Prop } from "vue-property-decorator";
 
 @Component({ components: {} })
 export default class CustomModal extends Vue {
-  @Prop() isOpen: any;
-  @Prop({ default: null }) className: any;
-  @Prop() close: any;
+  @Prop() isOpen!: boolean;
+  @Prop({ default: null }) className!: string;
+  @Prop() close!: any;
   @Prop({ default: true }) portal: boolean | undefined;
-  @Prop({ default: 'modal'}) to: string | undefined;
+  @Prop({ default: "modal" }) to: string | undefined;
 
   handleClose() {
     this.close();
@@ -48,9 +48,7 @@ export default class CustomModal extends Vue {
   vertical-align: middle;
   background-color: #191919;
   user-select: text;
-  border: 5px solid #F1325F;
-
-
+  border: 5px solid #f1325f;
 
   &__wrapper {
     position: fixed;
@@ -127,7 +125,7 @@ export default class CustomModal extends Vue {
   box-sizing: border-box;
   color: transparent;
   cursor: pointer;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   font-size: 8px;
   letter-spacing: 1.5px;
   line-height: 22px;
@@ -152,7 +150,7 @@ export default class CustomModal extends Vue {
 .modal__close-btn::before,
 .modal__close-btn::after {
   background-color: $white-f;
-  content: '';
+  content: "";
   display: block;
   height: 3px;
   left: 0;
@@ -178,9 +176,8 @@ export default class CustomModal extends Vue {
 }
 
 .modal__close-btn:hover {
-
   @media screen and (min-width: 660px) {
-    color: #8A2387;
+    color: #8a2387;
   }
 }
 
