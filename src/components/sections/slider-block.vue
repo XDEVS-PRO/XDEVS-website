@@ -15,8 +15,7 @@
       <div class="sb__right">
         <div v-for="(item, i) in cardList"
              :key="i"
-              class="sb__wrapper-img"
-        >
+             class="sb__wrapper-img">
           <img :src="item.img"
                :alt="item.alt"
                width="270"
@@ -33,8 +32,6 @@ import {Component, Vue} from "vue-property-decorator";
 import TitleBlock from "@/components/elements/title.vue";
 import DarkBg from "@/components/elements/dark-bg.vue";
 import StripeWrapper from "@/components/elements/strip-bg.vue";
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore
 
 @Component({
   components: {

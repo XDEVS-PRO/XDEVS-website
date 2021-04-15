@@ -7,6 +7,7 @@
       <router-view style="overflow: hidden" />
     </div>
     <footer-block />
+    <short-footer />
   </section>
 </template>
 
@@ -14,11 +15,13 @@
 import { Vue, Component } from "vue-property-decorator";
 import HeaderBlock from "@/components/header.vue";
 import FooterBlock from "@/components/footer.vue";
+import ShortFooter from "@/components/short-footer.vue";
 
 @Component({
   components: {
     HeaderBlock,
-    FooterBlock
+    FooterBlock,
+    ShortFooter
   }
 })
 export default class DefaultLayout extends Vue {}

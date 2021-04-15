@@ -93,6 +93,10 @@ export default class HeaderBlock extends Vue {
 
   headerList: Array<{ title: string; link: string }> = [
     {
+      title: "Our Projects",
+      link: "#our-projects"
+    },
+    {
       title: "Services",
       link: "#service"
     },
@@ -103,10 +107,6 @@ export default class HeaderBlock extends Vue {
     {
       title: "Tech Stack",
       link: "#tech-stack"
-    },
-    {
-      title: "Trusted by",
-      link: "#trusted-by"
     },
     {
       title: "Contact Us",
@@ -191,12 +191,10 @@ export default class HeaderBlock extends Vue {
     }
 
     &-link {
-      color: $grey-f;
+      color: #EDEDED;
+      font-size: 16px;
       text-decoration: none;
-
-      @include for-middle() {
-        font-size: 16px;
-      }
+      font-weight: 400;
 
       @include for-average() {
         display: none;

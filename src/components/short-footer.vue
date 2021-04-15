@@ -1,0 +1,78 @@
+<template>
+  <section class="sf">
+    <div class="sf__container container">
+      <p class="sf__left">
+        Copyright 2021 – X-DEVS©. All rights reserved. </p>
+      <div class="sf__right">
+        <a class="custom-link"
+           href="/">
+          Terms & Conditions
+        </a>
+
+        <a class="custom-link"
+           href="/privacy-policy">
+          Privacy Policy
+        </a>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script lang="ts">
+import {Vue, Component} from "vue-property-decorator";
+
+@Component({})
+export default class ShortFooter extends Vue {
+
+}
+</script>
+
+<style lang="scss"
+       scoped>
+@import "src/assets/styles/variables";
+
+.sf {
+  background-color: #111111;
+  padding: 24px 0;
+
+  &__container.container {
+    display: flex;
+    justify-content: space-between;
+
+    @include for-smallmedium() {
+      flex-direction: column-reverse;
+      text-align: center;
+    }
+  }
+
+  &__right,
+  &__left {
+    color: #6D6D6D;
+    width: 100%;
+  }
+
+  &__right {
+    .custom-link {
+      margin-left: 40px;
+      color: #6D6D6D;
+      font-size: 1rem;
+      font-weight: 300;
+      text-decoration: none;
+
+      @include for-smallmedium() {
+        margin: 0 20px 20px 20px;
+      }
+    }
+  }
+
+  &__left {
+    font-size: 16px;
+    font-weight: 300;
+    font-size: 1rem;
+
+    @include for-smallmedium() {
+      padding-top: 1rem;
+    }
+  }
+}
+</style>

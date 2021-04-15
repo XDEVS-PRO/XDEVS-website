@@ -23,11 +23,20 @@
                    :src="dataModalCard.img"
                    :alt="dataModalCard.alt"/>
               <div class="cr__modal-right">
-                <div class="cr__modal-right_title">
-                  {{ dataModalCard.title }}
-                </div>
-                <div class="cr__modal-right_subtitle">
-                  {{ dataModalCard.position }}
+                <div class="cr__modal-right_text">
+                  <div class="cr__modal-right_text-wrapper">
+                    <p class="cr__modal-right_title">
+                      {{ dataModalCard.title }} </p>
+                    <p class="cr__modal-right_subtitle">
+                      {{ dataModalCard.position }} </p>
+                  </div>
+                  <div class="cr__modal-right_social">
+                    <template v-for="(social, i) in dataModalCard.social">
+                      <a :href="social.link" :key="i">
+                        <img :src="social.src" :alt="social.alt">
+                      </a>
+                    </template>
+                  </div>
                 </div>
                 <div class="cr__modal-right_desc">
                   {{ dataModalCard.desc }}
@@ -76,6 +85,11 @@ import DarkBg from "@/components/elements/dark-bg.vue";
 import CustomModal from "@/components/elements/custom-modal.vue";
 
 export interface Card {
+  social: Array<{
+    alt: string,
+    link: string,
+    src: string
+  }>
   img: string;
   alt: string;
   title: string;
@@ -94,6 +108,18 @@ export interface Card {
 export default class CoreTeam extends Vue {
   cardList: Array<Card> = [
     {
+      social: [
+        {
+          alt: "linkedIn",
+          link: "https://www.linkedin.com/in/xander-pokhylenko-9699b3161/",
+          src: "/img/core-team/social/in.svg"
+        },
+        {
+          alt: "GitHub",
+          link: "https://github.com/xanderim",
+          src: "/img/core-team/social/git.svg"
+        }
+      ],
       img: "/img/core-team/ct-1.svg",
       alt: "Xander Pokhylenko",
       title: "Xander Pokhylenko",
@@ -102,6 +128,23 @@ export default class CoreTeam extends Vue {
           "Skilled Senior Software Developer with more than 5 years of professional experience and a demonstrated history of working in the IT industry. Prefers challenging tasks and a complex approach in solving tasks.  Over the last 5 years developed dozens of projects and business solutions."
     },
     {
+      social: [
+        {
+          alt: "linkedIn",
+          link: "https://www.linkedin.com/in/danila-kitsanenko-8bb3a11a2/",
+          src: "/img/core-team/social/in.svg"
+        },
+        {
+          alt: "GitHub",
+          link: "https://github.com/KiAlki",
+          src: "/img/core-team/social/git.svg"
+        },
+        {
+          alt: "Facebook",
+          link: "https://www.facebook.com/ki.alkiviad/",
+          src: "/img/core-team/social/fb.svg"
+        }
+      ],
       img: "/img/core-team/ct-5.svg",
       alt: "Danila Kitsanenko",
       title: "Danila Kitsanenko",
@@ -110,20 +153,29 @@ export default class CoreTeam extends Vue {
           "Hello. My name is Danila. I've been doing programming for 2 years. I'm Full Stack developer, but back end is my greatest love. I fond of working with data, creating server logic and write a beautiful code. I started learning programming with Python. It's my main language. Also, I'm coding in Golang. In Xdevs we work on projects that provide complex and interesting tasks. We look forward to building a strong business relationship in the future with our clients!"
     },
     {
+      social: [
+        {
+          alt: "linkedIn",
+          link: "https://www.linkedin.com/in/m-harnichev/",
+          src: "/img/core-team/social/in.svg"
+        },
+        {
+          alt: "GitHub",
+          link: "https://github.com/mharnichev",
+          src: "/img/core-team/social/git.svg"
+        },
+        {
+          alt: "Facebook",
+          link: "https://www.facebook.com/profile.php?id=100066305583531",
+          src: "/img/core-team/social/fb.svg"
+        }
+      ],
       img: "/img/core-team/ct-3.svg",
       alt: "Mark Harnichev",
       title: "Mark Harnichev",
       position: "Front-End Developer",
       desc:
           "Hi! \n I'm a Front-End developer. My job is to create the visual part of the app looks great and create interactive logic. You can see my work right now but some part is hidden in deep code. \n So, I started my way two years ago and now I really enjoin with my work. In Xdevs we have interesting tasks and time at a time it's tried and Improves my soft-skills and my development skills. It's not a simple way but I`m really happy to have the chance to join the tour group. \n Well, I hope we can see my work and it helps you with your business. "
-    },
-    {
-      img: "/img/core-team/ct-4.svg",
-      alt: "Viktoria Moroz",
-      title: "Viktoria Moroz",
-      position: "Copywriter",
-      desc:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     }
   ];
 
@@ -306,6 +358,21 @@ export default class CoreTeam extends Vue {
         padding-left: 0;
       }
 
+      &_text-wrapper {
+        padding-right: 10px;
+      }
+
+      &_social,
+      &_text {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      &_social {
+        max-width: 94px;
+        width: 100%;
+      }
+
       &_title,
       &_subtitle,
       &_desc {
@@ -315,8 +382,9 @@ export default class CoreTeam extends Vue {
 
       &_title {
         color: $white-f;
-        font-size: 20px;
-        padding-bottom: 8px;
+        font-size: 18px;
+        font-weight: 700;
+        padding-bottom: 10px;
 
         @include for-smallmedium() {
           padding: 0;
@@ -325,8 +393,11 @@ export default class CoreTeam extends Vue {
       }
 
       &_subtitle {
-        font-size: 18px;
+        font-size: 16px;
         padding-bottom: 30px;
+        font-weight: 300;
+        color: $white-f;
+        opacity: 0.5;
 
         @include for-smallmedium() {
           padding-bottom: 10px;
@@ -336,6 +407,9 @@ export default class CoreTeam extends Vue {
 
       &_desc {
         font-size: 16px;
+        opacity: 0.8;
+        color: $white-f;
+        font-weight: 300;
 
         @include for-smallmedium() {
           font-size: 14px;

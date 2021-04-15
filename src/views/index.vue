@@ -4,7 +4,7 @@
     <services-block />
     <core-team />
     <best-of />
-    <core-team />
+    <our-projects />
     <tech-stack />
     <slider-block />
     <contact-block />
@@ -14,13 +14,14 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 
-import FirstBlock from "@/components/section/first-block.vue";
-import CoreTeam from "@/components/section/team-block.vue";
-import TechStack from "@/components/section/tech-stack.vue";
-import ServicesBlock from "@/components/section/services-block.vue";
-import ContactBlock from "@/components/section/contact-block.vue";
-import SliderBlock from "@/components/section/slider-block.vue";
-import BestOf from "@/components/section/best-of.vue";
+import FirstBlock from "@/components/sections/first-block.vue";
+import CoreTeam from "@/components/sections/team-block.vue";
+import TechStack from "@/components/sections/tech-stack.vue";
+import ServicesBlock from "@/components/sections/services-block.vue";
+import ContactBlock from "@/components/sections/contact-block.vue";
+import SliderBlock from "@/components/sections/slider-block.vue";
+import BestOf from "@/components/sections/best-of.vue";
+import OurProjects from "@/components/sections/our-projects.vue";
 
 @Component({
   components: {
@@ -30,7 +31,8 @@ import BestOf from "@/components/section/best-of.vue";
     TechStack,
     ServicesBlock,
     SliderBlock,
-    BestOf
+    BestOf,
+    OurProjects
   }
 })
 export default class Index extends Vue {}
