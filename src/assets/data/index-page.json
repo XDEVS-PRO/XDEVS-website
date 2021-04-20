@@ -1,0 +1,28 @@
+{
+  "ourProjects": [
+    {
+      "create": "app",
+      "src": "/img/our-projects/ms-global.png",
+      "title": "MLS worldwide",
+      "link": "https://mlsworldwide.com/",
+      "desc": "MLS worldwide is a real estate website aimed to provide real estate services around the world.",
+      "id": "1"
+    },
+    {
+      "create": "app",
+      "src": "/img/our-projects/co.png",
+      "title": "Chargeback Optimizer",
+      "link": "http://chargebackoptimizer.com/",
+      "desc": "Chargeback Optimizer is a platform for quickly solving problems with cashless payments.\n\nKey features:\n- Automated processing of ATM logs, error detection\n- Detection and prevention of fraud in the early stages\n- Standardization and automation of reporting on disputed transactions\n- integration with Mastercard API.",
+      "id": "2"
+    },
+    {
+      "create": "app / design",
+      "src": "/img/our-projects/my-wish.png",
+      "title": "My Wish",
+      "link": "https://mywish.is/",
+      "desc": "Mywish.is  is an internal product of XDEVS team that was developed to satisfy the needs of every person around the globe to help fulfill their wishes.\n Key features:\n- create wishlists and gain a rating\n- add/delete/block friends\n- create stories based on the fulfilled wish and add comments\n- 3rd party API integrations",
+      "id": "3"
+    }
+  ]
+}

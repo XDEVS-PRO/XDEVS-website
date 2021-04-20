@@ -4,7 +4,7 @@
     <services-block />
     <core-team />
     <best-of />
-    <our-projects />
+    <our-projects :data="ourProjectList" :scroll="true" />
     <tech-stack />
     <slider-block />
     <contact-block />
@@ -22,6 +22,7 @@ import ContactBlock from "@/components/sections/contact-block.vue";
 import SliderBlock from "@/components/sections/slider-block.vue";
 import BestOf from "@/components/sections/best-of.vue";
 import OurProjects from "@/components/sections/our-projects.vue";
+import {ourProjects} from "@/assets/data/index-page.json";
 
 @Component({
   components: {
@@ -35,5 +36,11 @@ import OurProjects from "@/components/sections/our-projects.vue";
     OurProjects
   }
 })
-export default class Index extends Vue {}
+export default class Index extends Vue {
+  ourProjectList: Array<any> = [];
+
+  created() {
+    this.ourProjectList = ourProjects;
+  }
+}
 </script>

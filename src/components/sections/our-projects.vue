@@ -15,7 +15,7 @@
           <p class="our-projects__desc">
             {{ showProject.desc }} </p>
           <a class="our-projects__link"
-             href="/our-projects">Watch this case
+             :href="showProject.link">Watch this case
             <svg xmlns="http://www.w3.org/2000/svg"
                  width="7"
                  height="13"
@@ -36,8 +36,8 @@
             </svg>
           </a>
         </div>
-        <div class="our-projects__right">
-          <div class="our-projects__arrow">
+        <div  class="our-projects__right">
+          <div v-if="scroll" class="our-projects__arrow">
             <a class="our-projects__arrow-prev"
                @click="prev()">
               <svg width="14"
@@ -101,7 +101,7 @@
 </template>
 
 <script lang="ts">
-import {Vue, Component} from "vue-property-decorator";
+import {Vue, Component, Prop} from "vue-property-decorator";
 import TitleBlock from "@/components/elements/title.vue";
 import DarkBg from "@/components/elements/dark-bg.vue";
 import StripeWrapper from "@/components/elements/strip-bg.vue";
@@ -123,34 +123,16 @@ export interface Project {
 })
 
 export default class OurProjects extends Vue {
-  showProject: object = {};
+  @Prop() data: any;
+  @Prop({default: false}) scroll!: boolean;
+  showProject: object | undefined | any = {};
+
   countProject: any = "";
 
-  projectsList: Array<Project> = [
-    {
-      create: "app",
-      src: "/img/op-test.png",
-      title: "The Best mobile app ever #1",
-      desc: "Vel eleifend et duis nunc. Cras adipiscing nibh egestas a diam malesuada habitasse. At massa porttitor vestibulum, felis fringilla at montes, quam. Sit massa eget tellus accumsan. Sed vitae urna scelerisque tellus, sollicitudin quis viverra ipsum. Mattis etiam risus commodo arcu. Nisl.",
-      id: "1"
-    },
-    {
-      create: "app",
-      src: "/img/op-test.png",
-      title: "The Best mobile app ever #2",
-      desc: "Vel eleifend et duis nunc. Cras adipiscing nibh egestas a diam malesuada habitasse. At massa porttitor vestibulum, felis fringilla at montes, quam. Sit massa eget tellus accumsan. Sed vitae urna scelerisque tellus, sollicitudin quis viverra ipsum. Mattis etiam risus commodo arcu. Nisl.",
-      id: "2"
-    },
-    {
-      create: "app",
-      src: "/img/op-test.png",
-      title: "The Best mobile app ever #3",
-      desc: "Vel eleifend et duis nunc. Cras adipiscing nibh egestas a diam malesuada habitasse. At massa porttitor vestibulum, felis fringilla at montes, quam. Sit massa eget tellus accumsan. Sed vitae urna scelerisque tellus, sollicitudin quis viverra ipsum. Mattis etiam risus commodo arcu. Nisl.",
-      id: "3"
-    }
-  ];
+  projectsList: Array<Project> = [];
 
   created() {
+    this.projectsList = this.data;
     this.showProject = this.projectsList[0];
     this.countProject = this.showProject.id;
   }
