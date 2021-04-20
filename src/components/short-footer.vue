@@ -1,12 +1,11 @@
 <template>
   <section class="sf">
     <div class="sf__container container">
-      <p class="sf__left">
-        Copyright 2021 – XDEVS©. All rights reserved. </p>
+      <p class="sf__left">© 2021 XDEVS, ALL RIGHTS RESERVED</p>
       <div class="sf__right">
         <a class="custom-link"
-           href="/">
-          Terms & Conditions
+           href="/terms-of-use">
+          Terms of use
         </a>
 
         <a class="custom-link"
