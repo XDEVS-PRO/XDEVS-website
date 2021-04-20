@@ -2,7 +2,7 @@
   <section class="sf">
     <div class="sf__container container">
       <p class="sf__left">
-        Copyright 2021 – X-DEVS©. All rights reserved. </p>
+        Copyright 2021 – XDEVS©. All rights reserved. </p>
       <div class="sf__right">
         <a class="custom-link"
            href="/">
