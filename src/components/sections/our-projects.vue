@@ -15,7 +15,7 @@
           <p class="our-projects__desc">
             {{ showProject.desc }} </p>
           <a class="our-projects__link"
-             :href="showProject.link">Watch this case
+             href="/our-projects">Watch this case
             <svg xmlns="http://www.w3.org/2000/svg"
                  width="7"
                  height="13"
