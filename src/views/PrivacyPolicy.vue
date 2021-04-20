@@ -9,7 +9,7 @@
             :color-icon="'dark'"
             class="title-desc"
           />
-          <h2>Privacy Policy for XDEVS</h2>
+          <h2>Privacy Policy</h2>
           <p>
             At XDEVS, accessible from https://xdevs.pro/, one of our main
             priorities is the privacy of our visitors. This Privacy Policy
@@ -25,13 +25,7 @@
             valid for visitors to our website with regards to the information
             that they shared and/or collect in XDEVS. This policy is not
             applicable to any information collected offline or via channels
-            other than this website. Our Privacy Policy was created with the
-            help of the
-            <a
-              class="custom-link"
-              href="https://www.privacypolicygenerator.org/"
-              >Free Privacy Policy Generator</a
-            >.
+            other than this website.
           </p>
         </div>
 
@@ -108,14 +102,6 @@
             is used to optimize the users' experience by customizing our web
             page content based on visitors' browser type and/or other
             information.
-          </p>
-          <p>
-            For more general information on cookies, please read
-            <a
-              class="custom-link"
-              href="https://www.privacypolicyonline.com/what-are-cookies/"
-              >"What Are Cookies" from Cookie Consent</a
-            >.
           </p>
         </div>
 

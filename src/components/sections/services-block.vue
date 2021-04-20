@@ -72,7 +72,7 @@ export default class ServicesBlock extends Vue {
       alt: "Discovery phase",
       title: "Discovery phase",
       desc:
-        "Implement your business idea consulting Inoxoft experts and you get the best solutions ever to satisfy your target users’ needs."
+        "Implement your business idea consulting XDEVS experts and you get the best solutions ever to satisfy your target users’ needs."
     }
   ];
 }
