@@ -1,14 +1,14 @@
 <template>
   <a>
-    {{data}}
+    {{ data }}
   </a>
 </template>
 
 <script lang="ts">
-import {Vue, Prop} from "vue-property-decorator";
+import { Vue, Prop } from "vue-property-decorator";
 
 export default class CustomClose extends Vue {
-@Prop({default: "close"}) data!: string;
+  @Prop({ default: "close" }) data!: string;
 }
 </script>
 
@@ -19,7 +19,7 @@ button {
   box-sizing: border-box;
   color: transparent;
   cursor: pointer;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   font-size: 18px;
   left: 50%;
   letter-spacing: 1.5px;
@@ -38,7 +38,7 @@ button {
 button::before,
 button::after {
   background-color: white;
-  content: '';
+  content: "";
   display: block;
   height: 1px;
   left: 0;
@@ -60,7 +60,7 @@ button::after {
 }
 
 button:hover {
-  color: #8A2387;
+  color: #8a2387;
 }
 
 button:hover::before,

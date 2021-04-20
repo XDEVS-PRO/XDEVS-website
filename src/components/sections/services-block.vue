@@ -2,12 +2,18 @@
   <section class="sb" id="service">
     <stripe-wrapper />
     <div class="sb__container container">
-      <title-block :title="'Services'" :color-icon="'dark'"/>
+      <title-block :title="'Services'" :color-icon="'dark'" />
       <div class="sb__cards-container">
         <div v-for="(item, i) in cardList" :key="i" class="sb__card-wrapper">
-          <img v-if="item.img" class="sb__card-icon" :alt="item.alt" :src="item.img" width="52" />
-          <div v-if="item.title" class="sb__card-title">{{item.title}}</div>
-          <div v-if="item.desc" class="sb__card-desc">{{item.desc}}</div>
+          <img
+            v-if="item.img"
+            class="sb__card-icon"
+            :alt="item.alt"
+            :src="item.img"
+            width="52"
+          />
+          <div v-if="item.title" class="sb__card-title">{{ item.title }}</div>
+          <div v-if="item.desc" class="sb__card-desc">{{ item.desc }}</div>
         </div>
       </div>
     </div>
@@ -19,31 +25,34 @@ import { Component, Vue } from "vue-property-decorator";
 import TitleBlock from "@/components/elements/title.vue";
 import StripeWrapper from "@/components/elements/strip-bg.vue";
 
-@Component({components: {
+@Component({
+  components: {
     TitleBlock,
     StripeWrapper
-  }})
-
+  }
+})
 export default class ServicesBlock extends Vue {
-
-  cardList: Array<{img: string; alt: string; title: string; desc: string }> = [
+  cardList: Array<{ img: string; alt: string; title: string; desc: string }> = [
     {
       img: "/img/services/i-1.svg",
       alt: "Big Data Analytics",
       title: "Big Data Analytics",
-      desc: "Apply advanced analytics and data-driven decisions to leverage quality of processes."
+      desc:
+        "Apply advanced analytics and data-driven decisions to leverage quality of processes."
     },
     {
       img: "/img/services/i-2.svg",
       alt: "Mobile Application Development",
       title: "Mobile Application Development",
-      desc: "Transform lucrative ideas into original industry-specific mobile apps."
+      desc:
+        "Transform lucrative ideas into original industry-specific mobile apps."
     },
     {
       img: "/img/services/i-3.svg",
       alt: "Web Development",
       title: "Web Development",
-      desc: "Upgrade or build from scratch scalable, fully-functional web solutions."
+      desc:
+        "Upgrade or build from scratch scalable, fully-functional web solutions."
     },
     {
       img: "/img/services/i-4.svg",
@@ -55,15 +64,17 @@ export default class ServicesBlock extends Vue {
       img: "/img/services/i-5.svg",
       alt: "Quality Assurance",
       title: "Quality Assurance",
-      desc: "Turn to our experts to perform comprehensive, multi-stage testing and auditing of your software."
+      desc:
+        "Turn to our experts to perform comprehensive, multi-stage testing and auditing of your software."
     },
     {
       img: "/img/services/i-6.svg",
       alt: "Discovery phase",
       title: "Discovery phase",
-      desc: "Implement your business idea consulting Inoxoft experts and you get the best solutions ever to satisfy your target users’ needs."
+      desc:
+        "Implement your business idea consulting Inoxoft experts and you get the best solutions ever to satisfy your target users’ needs."
     }
-  ]
+  ];
 }
 </script>
 
@@ -88,7 +99,6 @@ export default class ServicesBlock extends Vue {
     flex: 1 1 160px;
     margin: 15px;
     padding: 44px 30px 40px 30px;
-    box-shadow: 0px 5px 50px rgba(0, 0, 0, 0.1);
     background-color: $white-f;
     align-items: flex-start;
     transition: box-shadow 0.5s ease-out;
@@ -111,7 +121,7 @@ export default class ServicesBlock extends Vue {
     }
 
     &:hover {
-      box-shadow: 15px 5px 70px 11px rgba(0, 0, 0, 0.15);
+      box-shadow: 0px 30px 40px -10px rgba(0, 133, 255, 0.2);
     }
   }
 
@@ -121,15 +131,18 @@ export default class ServicesBlock extends Vue {
 
   &__card-title {
     color: $dark-f;
+    font-weight: 700;
     margin-bottom: 15px;
-    font-size: 20px;
+    font-size: 18px;
     max-width: 280px;
   }
 
   &__card-desc {
-    color: $grey-f;
+    color: #42484F;
     font-size: 1rem;
     margin: 0 0 auto 0;
+    font-weight: 300;
+    line-height: 160%;
   }
 }
 </style>

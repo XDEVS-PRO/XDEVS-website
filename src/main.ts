@@ -8,7 +8,7 @@ import PortalVue from "portal-vue";
 // Add general styles
 import "../src/assets/styles/main.scss";
 // Add styles for slider
-import "../src/assets/styles/_swiper-styles.css"
+import "../src/assets/styles/_swiper-styles.css";
 
 import VueScrollTo from "vue-scrollto";
 

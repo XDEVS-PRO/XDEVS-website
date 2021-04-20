@@ -1,18 +1,24 @@
 <template>
-      <div class="strip-wrapper__bg">
-        <div class="strip-wrapper__grid">
-            <span class="strip-wrapper__line" :style="{'border-color': colorStrip === 'dark' ? '#28292a': '#e5e5e5' }" v-for="i in 4" :key="i"></span>
-        </div>
-      </div>
+  <div class="strip-wrapper__bg">
+    <div class="strip-wrapper__grid">
+      <span
+        class="strip-wrapper__line"
+        :style="{
+          'border-color': colorStrip === 'dark' ? '#28292a' : '#e5e5e5'
+        }"
+        v-for="i in 4"
+        :key="i"
+      ></span>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
 
 @Component({})
-
 export default class StripeWrapper extends Vue {
-  @Prop({ default: 'light' }) colorStrip!: string;
+  @Prop({ default: "light" }) colorStrip!: string;
 }
 </script>
 
@@ -58,7 +64,7 @@ export default class StripeWrapper extends Vue {
     flex: 0 0 auto;
     width: 0;
     height: 100%;
-    border-left: .0625rem solid;
+    border-left: 0.0625rem solid;
   }
 }
 </style>

@@ -1,54 +1,21 @@
 @font-face {
-  font-family: 'Gordita ';
-  src: local('Gordita  Light'), local('Gordita--Light'),
-  url('/fonts/Gordita-Light.woff2') format('woff2'),
-  url('/fonts/Gordita-Light.woff') format('woff'),
-  url('/fonts/Gordita-Light.ttf') format('truetype');
-  font-weight: 300;
+  font-family: 'Noto Sans';
+  src: url('/fonts/NotoSans-Bold.eot');
+  src: local('Noto Sans Bold'), local('NotoSans-Bold'),
+  url('/fonts/NotoSans-Bold.eot?#iefix') format('embedded-opentype'),
+  url('/fonts/NotoSans-Bold.woff') format('woff'),
+  url('/fonts/NotoSans-Bold.ttf') format('truetype');
+  font-weight: bold;
   font-style: normal;
-  font-display: swap;
 }
 
 @font-face {
-  font-family: 'Gordita ';
-  src: local('Gordita  Regular'), local('Gordita--Regular'),
-  url('/fonts/Gordita-Regular.woff2') format('woff2'),
-  url('/fonts/Gordita-Regular.woff') format('woff'),
-  url('/fonts/Gordita-Regular.ttf') format('truetype');
-  font-weight: 400;
+  font-family: 'Noto Sans';
+  src: url('/fonts/NotoSans.eot');
+  src: local('Noto Sans'), local('NotoSans'),
+  url('/fonts/NotoSans.eot?#iefix') format('embedded-opentype'),
+  url('/fonts/NotoSans.woff') format('woff'),
+  url('/fonts/NotoSans.ttf') format('truetype');
+  font-weight: normal;
   font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Gordita ';
-  src: local('Gordita  Medium'), local('Gordita--Medium'),
-  url('/fonts/Gordita-Medium.woff2') format('woff2'),
-  url('/fonts/Gordita-Medium.woff') format('woff'),
-  url('/fonts/Gordita-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Gordita ';
-  src: local('Gordita  Bold'), local('Gordita--Bold'),
-  url('/fonts/Gordita-Bold.woff2') format('woff2'),
-  url('/fonts/Gordita-Bold.woff') format('woff'),
-  url('/fonts/Gordita-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Gordita ';
-  src: local('Gordita  Black'), local('Gordita--Black'),
-  url('/fonts/Gordita-Black.woff2') format('woff2'),
-  url('/fonts/Gordita-Black.woff') format('woff'),
-  url('/fonts/Gordita-Black.ttf') format('truetype');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
 }

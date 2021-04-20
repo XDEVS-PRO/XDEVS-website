@@ -1,11 +1,25 @@
 <template>
-  <section class="cb" id="contact-us">
-    <stripe-wrapper />
+  <section class="cb"
+           id="contact-us">
+    <stripe-wrapper/>
     <div class="cb__container container">
-      <title-block :title="'Contact Us'" :color-icon="'dark'" class="title-mob"/>
       <div class="cb__inner">
-        <title-block :title="'Contact Us'" :color-icon="'dark'" class="title-desc"/>
-        <div class="cb__info">
+
+        <div class="cb__info-left_wrapper">
+          <title-block :title="'Contact Us'"
+                       :color-icon="'dark'"/>
+          <h4 class="custom-description">
+            Working with us you know exactly what every member of our team is working on. We provide only high-quality
+            battle-tested solutions </h4>
+
+          <a class="x-btn desc"
+             href="mailto:dev@xander.im"
+             target="_blank">
+            {{ btnText }}
+          </a>
+        </div>
+
+        <div class="cb__info-right_wrapper">
           <div class="cb__info-left">
             <div class="cb__info-left_name">
               <div class="cb__info-left_name_info">
@@ -17,16 +31,34 @@
                 </div>
               </div>
               <div class="cb__info-left_social">
-                  <a v-for="(item, i) in cardList" :href="item.link" :key="i">
-                    <img v-if="item.img" :alt="item.alt" class="cb__info-left_social-icon" width="45" height="45" :src="item.img"/>
-                  </a>
+                <a v-for="(item, i) in cardList"
+                   :href="item.link"
+                   :key="i"
+                   target="_blank">
+                  <img v-if="item.img"
+                       :alt="item.alt"
+                       class="cb__info-left_social-icon"
+                       width="24"
+                       height="24"
+                       :src="item.img"/>
+                </a>
               </div>
             </div>
           </div>
           <div class="cb__info-right">
-            <img class="cb__info-right-icon" width="389" alt="Contact Person" src="/img/contact-us/per-i.svg"/>
+            <img class="cb__info-right-icon"
+                 width="277"
+                 alt="Contact Person"
+                 src="/img/contact-us/per-i.svg"/>
           </div>
+
         </div>
+
+        <a class="x-btn mob"
+           href="mailto:dev@xander.im"
+           target="_blank">
+          {{ btnText }}
+        </a>
       </div>
     </div>
   </section>
@@ -43,13 +75,13 @@ import StripeWrapper from "@/components/elements/strip-bg.vue";
     StripeWrapper
   }
 })
-
 export default class ContactBlock extends Vue {
+  btnText = '<Let’s start your project>'
   cardList: Array<{ img: string; alt: string; link: string }> = [
     {
       img: "/img/contact-us/s-i.svg",
       alt: "Send us",
-      link: "https://www.google.com"
+      link: "https://join.skype.com/invite/i3BNLQjIFGzH"
     },
     {
       img: "/img/contact-us/l-i.svg",
@@ -65,7 +97,8 @@ export default class ContactBlock extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss"
+       scoped>
 @import "src/assets/styles/variables";
 
 .cb {
@@ -74,6 +107,19 @@ export default class ContactBlock extends Vue {
   &__inner {
     display: flex;
     justify-content: space-between;
+  }
+
+  &__inner {
+    max-width: 1055px;
+    padding-bottom: 120px;
+
+    @include for-smallmedium() {
+      flex-direction: column;
+      align-items: flex-start;
+      padding-bottom: 70px;
+    }
+
+
   }
 
   &__info {
@@ -91,8 +137,26 @@ export default class ContactBlock extends Vue {
       margin: 0 auto;
     }
 
+    &-right_wrapper {
+      display: flex;
+      padding-top: 140px;
+
+      @include for-average() {
+        padding-top: 40px;
+      }
+
+      @include for-smallmedium() {
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        padding-top: 0;
+      }
+    }
+
+    &-right {
+      align-self: center;
+    }
+
     &-left {
-      flex-direction: column;
       justify-content: flex-start;
       padding-right: 30px;
       text-align: right;
@@ -105,27 +169,33 @@ export default class ContactBlock extends Vue {
         padding: 20px 0 30px 0;
       }
 
+      @include for-smallmedium() {
+        width: 100%;
+        margin-left: 10px;
+      }
+
       &_name {
         display: flex;
         flex-direction: column;
-        flex: 1 1 auto;
+        align-self: center;
 
         @include for-small() {
           align-items: end;
         }
 
         &_info {
-          flex: 1 1 100%;
-          height: 100%;
+          padding-bottom: 40px;
 
           &-title {
-            font-size: 20px;
+            font-size: 18px;
             color: $dark-f;
+            font-weight: 700;
             padding-bottom: 5px;
           }
 
           &-desc {
-            color: $grey-f;
+            font-size: 1rem;
+            color: #42484F;
             font-weight: 300;
           }
         }
@@ -134,26 +204,25 @@ export default class ContactBlock extends Vue {
       &_social {
         flex: 1 1 auto;
         display: flex;
-        justify-content: space-between;
+        max-width: 124px;
+        align-self: flex-end;
+
+        a {
+          margin: 0 10px;
+        }
 
         @include for-small() {
           margin-top: 18px;
         }
 
-        a:nth-child(2) {
-          @include for-small() {
-            margin: 0 10px;
-          }
-        }
-
         &-icon {
           transition: all 0.3s ease;
-          box-shadow: 0vw 0vw 0 #B91F42;
+          box-shadow: 0vw 0vw 0 #b91f42;
           border-radius: 50%;
 
           &:hover {
             transform: translate(-4px, -4px);
-            box-shadow: 0.3vw 0.3vw 0 #B91F42;
+            box-shadow: 0.3vw 0.3vw 0 #b91f42;
           }
         }
       }
@@ -171,19 +240,38 @@ export default class ContactBlock extends Vue {
   }
 }
 
-.title {
-  &-desc {
-    padding-top: 175px;
+::v-deep .title {
+  padding: 120px 0 60px;
 
-    display: block;
-    @include for-middle() {
+  @include for-average() {
+    padding: 35px 0 40px;
+  }
+}
+
+.custom-description {
+  color: #42484F;
+  max-width: 420px;
+  margin-bottom: 60px;
+
+  @include for-smallmedium() {
+    margin-bottom: 30px;
+  }
+}
+
+.x-btn {
+
+  &.desc {
+    @include for-smallmedium() {
       display: none;
     }
   }
 
-  &-mob {
+  &.mob {
     display: none;
-    @include for-middle() {
+    max-width: 280px;
+    margin: 30px auto 0 auto;
+
+    @include for-smallmedium() {
       display: block;
     }
   }

@@ -1,20 +1,28 @@
 <template>
   <footer class="footer">
-    <stripe-wrapper :color-strip="'dark'" />
-    <dark-bg />
+    <stripe-wrapper :color-strip="'dark'"/>
+    <dark-bg/>
     <div class="footer__container container">
       <div class="footer__inner">
         <div class="footer__left">
           <a href="/">
-            <img class="footer__left-img" src="/logo-header.svg" width="120" alt="XDEVS" />
+            <img class="footer__left-img"
+                 src="/logo-header.svg"
+                 width="120"
+                 alt="XDEVS"/>
           </a>
+
+          <h4 class="footer__left-text">
+            Let's <span>create</span> a cool product <span>together</span>
+          </h4>
         </div>
         <div class="footer__center">
-          <a class="custom-link" href="/privacy-policy">Privacy Policy</a>
-        </div>
-        <div class="footer__right">
-          <div>
-            All rights reserved ©
+          <div class="footer__center-inner custom-description">
+            <a class="header__right-link custom-link"
+               v-for="(item, i) in headerList"
+               :key="i"
+               href="#"
+               v-scroll-to="`${item.link}`">{{ item.title }}</a>
           </div>
         </div>
       </div>
@@ -23,19 +31,48 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import {Component, Vue} from "vue-property-decorator";
 import StripeWrapper from "@/components/elements/strip-bg.vue";
 import DarkBg from "@/components/elements/dark-bg.vue";
 
-@Component({components: {
+@Component({
+  components: {
     StripeWrapper,
     DarkBg
-  }})
-
-export default class FooterBlock extends Vue {}
+  }
+})
+export default class FooterBlock extends Vue {
+  headerList: Array<{ title: string; link: string }> = [
+    {
+      title: "Our Projects",
+      link: "#our-projects"
+    },
+    {
+      title: "Services",
+      link: "#service"
+    },
+    {
+      title: "Core Team",
+      link: "#core-team"
+    },
+    {
+      title: "Tech Stack",
+      link: "#tech-stack"
+    },
+    {
+      title: "Trusted by",
+      link: "#trusted-by"
+    },
+    {
+      title: "Contact Us",
+      link: "#contact-us"
+    }
+  ];
+}
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss"
+       scoped>
 @import "src/assets/styles/variables";
 
 .footer {
@@ -43,20 +80,18 @@ export default class FooterBlock extends Vue {}
   color: $grey-f;
   font-weight: 300;
 
-
   &__inner {
-    padding: 26px 0;
+    padding: 120px 0;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+    @include for-average() {
+      align-items: center;
+      padding: 30px 0 40px 0;
+    }
 
     @include for-smallmedium() {
       flex-direction: column;
       align-items: initial;
-    }
-
-    @include for-average() {
-      align-items: center;
     }
   }
 
@@ -66,14 +101,34 @@ export default class FooterBlock extends Vue {}
     }
   }
 
-  &__center {
+  &__left {
     @include for-average() {
-      display: none;
+      padding-bottom: 30px;
+    }
+  }
+
+  &__center {
+    padding-left: 134px;
+
+    @include for-average() {
+      padding-left: 10px;
+    }
+
+    &-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 485px;
+
+      @include for-average() {
+        justify-content: initial;
+      }
     }
 
     a {
-      margin: 0 20px;
-      color: $grey-f;
+      font-size: 18px;
+      margin: 0 20px 40px 20px;
+      color: $white-f;
       text-decoration: none;
       display: inline-block;
       position: relative;
@@ -92,6 +147,29 @@ export default class FooterBlock extends Vue {}
     @include for-average() {
       display: none;
     }
+  }
+}
+
+.footer__left-text {
+  font-weight: 300;
+  font-size: 1rem;
+  padding-top: 10px;
+  color: #EDEDED;
+
+  span {
+    background: -webkit-linear-gradient(
+            87.58deg, #0085FF 0%, #11A9FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.custom-description {
+  //padding-left: 0;
+  height: 90px;
+
+  @include for-average() {
+    height: 100%;
   }
 }
 </style>

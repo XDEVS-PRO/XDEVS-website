@@ -1,10 +1,17 @@
 <template>
   <header class="header">
+    <dark-bg />
+    <stripe-wrapper :color-strip="'dark'" />
     <div class="header__container container">
       <div class="header__inner">
         <div class="header__left">
           <a href="/">
-            <img class="header__left-img" src="/logo-header.svg" width="120px" alt="XDEVS" />
+            <img
+              class="header__left-img"
+              src="/logo-header.svg"
+              width="120px"
+              alt="XDEVS"
+            />
           </a>
         </div>
         <div class="header__right" v-if="headerList.length">
@@ -14,7 +21,8 @@
             :key="i"
             href="#"
             v-scroll-to="`${item.link}`"
-            >{{ item.title }}</a>
+            >{{ item.title }}</a
+          >
           <div
             :class="[
               'hamburger hamburger--emphatic js-hamburger',
@@ -30,22 +38,35 @@
       </div>
     </div>
     <!--  mob menu -->
-    <div :class="['mobile-menu', { active: isShowMobMenu}]" >
+    <div :class="['mobile-menu', { active: isShowMobMenu }]">
       <div class="mobile-menu-list">
-        <a class="mobile-menu-list_link-to-block"
-           v-for="(linkBtn, linkIndex) in headerList"
-           :key="linkIndex"
-           href="#"
-           v-scroll-to="`${linkBtn.link}`"
-           @click="isShow()"
-        >{{linkBtn.title}}</a>
+        <a
+          class="mobile-menu-list_link-to-block"
+          v-for="(linkBtn, linkIndex) in headerList"
+          :key="linkIndex"
+          href="#"
+          v-scroll-to="`${linkBtn.link}`"
+          @click="isShow()"
+          >{{ linkBtn.title }}</a
+        >
         <div class="mobile-menu-list_contact">
-          <img class="mobile-menu-list_contact-img" src="/img/contact-us/per-i.svg" alt="Viktoria Samoilenko" />
+          <img
+            class="mobile-menu-list_contact-img"
+            src="/img/contact-us/per-i.svg"
+            alt="Viktoria Samoilenko"
+          />
           <p class="mobile-menu-list_contact-title">Viktoria Samoilenko</p>
           <p class="mobile-menu-list_contact-subtitle">Head of Engagement</p>
           <div class="mobile-menu-list_contact-links">
             <a v-for="(item, i) in cardList" :href="item.link" :key="i">
-              <img v-if="item.img" :alt="item.alt" width="45" height="45" class="mobile-menu-list_contact-links-icon" :src="item.img"/>
+              <img
+                v-if="item.img"
+                :alt="item.alt"
+                width="45"
+                height="45"
+                class="mobile-menu-list_contact-links-icon"
+                :src="item.img"
+              />
             </a>
           </div>
         </div>
@@ -58,14 +79,23 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import StripeWrapper from "@/components/elements/strip-bg.vue";
+import DarkBg from "@/components/elements/dark-bg.vue";
 
 @Component({
-  components: {}
+  components: {
+    StripeWrapper,
+    DarkBg
+  }
 })
 export default class HeaderBlock extends Vue {
   isShowMobMenu = false;
 
-  headerList: Array<{title: string; link: string}> = [
+  headerList: Array<{ title: string; link: string }> = [
+    {
+      title: "Our Projects",
+      link: "#our-projects"
+    },
     {
       title: "Services",
       link: "#service"
@@ -79,16 +109,12 @@ export default class HeaderBlock extends Vue {
       link: "#tech-stack"
     },
     {
-      title: "Trusted by",
-      link: "#trusted-by"
-    },
-    {
       title: "Contact Us",
       link: "#contact-us"
     }
   ];
 
-  cardList: Array<{img: string; alt: string; link: string}> = [
+  cardList: Array<{ img: string; alt: string; link: string }> = [
     {
       img: "/img/contact-us/s-i.svg",
       alt: "Send us",
@@ -108,7 +134,9 @@ export default class HeaderBlock extends Vue {
 
   isShow() {
     this.isShowMobMenu = !this.isShowMobMenu;
-    this.isShowMobMenu ? document.body.classList.add('un-scroll') :  document.body.classList.remove('un-scroll');
+    this.isShowMobMenu
+      ? document.body.classList.add("un-scroll")
+      : document.body.classList.remove("un-scroll");
   }
 }
 </script>
@@ -163,12 +191,10 @@ export default class HeaderBlock extends Vue {
     }
 
     &-link {
-      color: $grey-f;
+      color: #EDEDED;
+      font-size: 16px;
       text-decoration: none;
-
-      @include for-middle() {
-        font-size: 16px;
-      }
+      font-weight: 400;
 
       @include for-average() {
         display: none;
