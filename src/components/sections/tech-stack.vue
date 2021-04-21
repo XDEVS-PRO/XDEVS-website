@@ -1,5 +1,5 @@
 <template>
-  <section class="ts" id="tech-stack">
+  <section class="ts" id="#tech-stack">
     <stripe-wrapper :color-strip="'ling'" />
     <div class="ts__container container">
       <title-block :title="'Tech Stack'" :color-icon="'dark'" />

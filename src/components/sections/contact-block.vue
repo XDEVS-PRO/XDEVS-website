@@ -1,6 +1,6 @@
 <template>
   <section class="cb"
-           id="contact-us">
+           id="#contact-us">
     <stripe-wrapper/>
     <div class="cb__container container">
       <div class="cb__inner">
@@ -31,7 +31,7 @@
                 </div>
               </div>
               <div class="cb__info-left_social">
-                <a v-for="(item, i) in cardList"
+                <a v-for="(item, i) in contactUs"
                    :href="item.link"
                    :key="i"
                    target="_blank">
@@ -68,6 +68,7 @@
 import {Component, Vue} from "vue-property-decorator";
 import TitleBlock from "@/components/elements/title.vue";
 import StripeWrapper from "@/components/elements/strip-bg.vue";
+import {contactUs} from "@/assets/data/index-page.json";
 
 @Component({
   components: {
@@ -77,23 +78,11 @@ import StripeWrapper from "@/components/elements/strip-bg.vue";
 })
 export default class ContactBlock extends Vue {
   btnText = '<Let’s start your project>'
-  cardList: Array<{ img: string; alt: string; link: string }> = [
-    {
-      img: "/img/contact-us/s-i.svg",
-      alt: "Send us",
-      link: "https://join.skype.com/invite/i3BNLQjIFGzH"
-    },
-    {
-      img: "/img/contact-us/l-i.svg",
-      alt: "LinkedIn",
-      link: "https://www.linkedin.com/in/xander-pokhylenko-9699b3161/"
-    },
-    {
-      img: "/img/contact-us/p-i.svg",
-      alt: "Post us",
-      link: "mailto:dev@xander.im"
-    }
-  ];
+  contactUs: Array<{ img: string; alt: string; link: string }> = [];
+
+  created() {
+    this.contactUs = contactUs;
+  }
 }
 </script>
 

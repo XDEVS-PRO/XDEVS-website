@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Mixins } from "vue-property-decorator";
 
 import FirstBlock from "@/components/sections/first-block.vue";
 import CoreTeam from "@/components/sections/team-block.vue";
@@ -23,6 +23,7 @@ import SliderBlock from "@/components/sections/slider-block.vue";
 import BestOf from "@/components/sections/best-of.vue";
 import OurProjects from "@/components/sections/our-projects.vue";
 import {ourProjects} from "@/assets/data/index-page.json";
+import PageMixin from "@/mixins/page.ts";
 
 @Component({
   components: {
@@ -34,7 +35,8 @@ import {ourProjects} from "@/assets/data/index-page.json";
     SliderBlock,
     BestOf,
     OurProjects
-  }
+  },
+  mixins: [PageMixin]
 })
 export default class Index extends Vue {
   ourProjectList: Array<any> = [];

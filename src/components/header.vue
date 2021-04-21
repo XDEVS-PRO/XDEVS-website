@@ -1,35 +1,37 @@
 <template>
   <header class="header">
-    <dark-bg />
-    <stripe-wrapper :color-strip="'dark'" />
+    <dark-bg/>
+    <stripe-wrapper :color-strip="'dark'"/>
     <div class="header__container container">
       <div class="header__inner">
         <div class="header__left">
           <a href="/">
-            <img
-              class="header__left-img"
-              src="/logo-header.svg"
-              width="120px"
-              alt="XDEVS"
-            />
+            <img class="header__left-img"
+                 src="/logo-header.svg"
+                 width="120px"
+                 alt="XDEVS"/>
           </a>
         </div>
-        <div class="header__right" v-if="headerList.length">
-          <a
-            class="header__right-link custom-link"
-            v-for="(item, i) in headerList"
-            :key="i"
-            href="#"
-            v-scroll-to="`${item.link}`"
-            >{{ item.title }}</a
-          >
-          <div
-            :class="[
+        <div class="header__right"
+             v-if="headerList.length">
+          <template v-if="!isNotIndex">
+            <a  class="header__right-link custom-link"
+                v-for="(item, i) in headerList"
+                :key="i"
+                :href="item.link">{{ item.title }}</a>
+          </template>
+          <template v-else>
+            <a  class="header__right-link custom-link"
+                v-for="(item, i) in headerList"
+                :key="i"
+                :href="`/${item.link}`">{{ item.title }}</a>
+          </template>
+
+          <div :class="[
               'hamburger hamburger--emphatic js-hamburger',
               { active: isShowMobMenu }
             ]"
-            @click="isShow()"
-          >
+               @click="isShow()">
             <div class="hamburger-box">
               <div class="hamburger-inner"></div>
             </div>
@@ -40,33 +42,37 @@
     <!--  mob menu -->
     <div :class="['mobile-menu', { active: isShowMobMenu }]">
       <div class="mobile-menu-list">
-        <a
-          class="mobile-menu-list_link-to-block"
-          v-for="(linkBtn, linkIndex) in headerList"
-          :key="linkIndex"
-          href="#"
-          v-scroll-to="`${linkBtn.link}`"
-          @click="isShow()"
-          >{{ linkBtn.title }}</a
-        >
+        <template v-if="!isNotIndex">
+          <a  class="mobile-menu-list_link-to-block"
+              @click="isShow()"
+              v-for="(linkBtn, linkIndex) in headerList"
+              :key="linkIndex"
+              :href="linkBtn.link">{{ linkBtn.title }}</a>
+        </template>
+        <template v-else>
+          <a  class="mobile-menu-list_link-to-block"
+              @click="isShow()"
+              v-for="(linkBtn, linkIndex) in headerList"
+              :key="linkIndex"
+              :href="`/${linkBtn.link}`">{{ linkBtn.title }}</a>
+        </template>
+
         <div class="mobile-menu-list_contact">
-          <img
-            class="mobile-menu-list_contact-img"
-            src="/img/contact-us/per-i.svg"
-            alt="Viktoria Samoilenko"
-          />
+          <img class="mobile-menu-list_contact-img"
+               src="/img/contact-us/per-i.svg"
+               alt="Viktoria Samoilenko"/>
           <p class="mobile-menu-list_contact-title">Viktoria Samoilenko</p>
           <p class="mobile-menu-list_contact-subtitle">Head of Engagement</p>
           <div class="mobile-menu-list_contact-links">
-            <a v-for="(item, i) in cardList" :href="item.link" :key="i">
-              <img
-                v-if="item.img"
-                :alt="item.alt"
-                width="45"
-                height="45"
-                class="mobile-menu-list_contact-links-icon"
-                :src="item.img"
-              />
+            <a v-for="(item, i) in contactUs"
+               :href="item.link"
+               :key="i">
+              <img v-if="item.img"
+                   :alt="item.alt"
+                   width="45"
+                   height="45"
+                   class="mobile-menu-list_contact-links-icon"
+                   :src="item.img"/>
             </a>
           </div>
         </div>
@@ -78,70 +84,44 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import {Component, Vue} from "vue-property-decorator";
 import StripeWrapper from "@/components/elements/strip-bg.vue";
 import DarkBg from "@/components/elements/dark-bg.vue";
+import ScrollTo from "@/components/elements/scroll-to.vue";
+import {headerList} from "@/assets/data/header.json";
+import {contactUs} from "@/assets/data/index-page.json";
 
 @Component({
   components: {
     StripeWrapper,
-    DarkBg
+    DarkBg,
+    ScrollTo
   }
 })
 export default class HeaderBlock extends Vue {
   isShowMobMenu = false;
+  isNotIndex = false;
 
-  headerList: Array<{ title: string; link: string }> = [
-    {
-      title: "Our Projects",
-      link: "#our-projects"
-    },
-    {
-      title: "Services",
-      link: "#service"
-    },
-    {
-      title: "Core Team",
-      link: "#core-team"
-    },
-    {
-      title: "Tech Stack",
-      link: "#tech-stack"
-    },
-    {
-      title: "Contact Us",
-      link: "#contact-us"
-    }
-  ];
-
-  cardList: Array<{ img: string; alt: string; link: string }> = [
-    {
-      img: "/img/contact-us/s-i.svg",
-      alt: "Send us",
-      link: "https://www.google.com"
-    },
-    {
-      img: "/img/contact-us/l-i.svg",
-      alt: "LinkedIn",
-      link: "https://www.google.com"
-    },
-    {
-      img: "/img/contact-us/p-i.svg",
-      alt: "Post us",
-      link: "https://www.google.com"
-    }
-  ];
+  headerList: Array<{ title: string; link: string }> = [];
+  contactUs: Array<{ img: string; alt: string; link: string }> = [];
 
   isShow() {
     this.isShowMobMenu = !this.isShowMobMenu;
     this.isShowMobMenu
-      ? document.body.classList.add("un-scroll")
-      : document.body.classList.remove("un-scroll");
+        ? document.body.classList.add("un-scroll")
+        : document.body.classList.remove("un-scroll");
+  }
+
+  created() {
+    this.contactUs = contactUs;
+    this.headerList = headerList;
+    if (this.$route.fullPath !== '/') this.isNotIndex = true;
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss"
+       scoped>
 @import "src/assets/styles/variables";
 
 .header {
@@ -274,7 +254,7 @@ export default class HeaderBlock extends Vue {
 .hamburger--emphatic .hamburger-inner:before {
   left: 0;
   transition: transform 0.125s cubic-bezier(0.6, 0.04, 0.98, 0.335),
-    top 0.05s linear 0.125s, left 0.125s ease-in 0.175s;
+  top 0.05s linear 0.125s, left 0.125s ease-in 0.175s;
 }
 
 .hamburger-inner:after {
@@ -285,7 +265,7 @@ export default class HeaderBlock extends Vue {
   top: 10px;
   right: 0;
   transition: transform 0.125s cubic-bezier(0.6, 0.04, 0.98, 0.335),
-    top 0.05s linear 0.125s, right 0.125s ease-in 0.175s;
+  top 0.05s linear 0.125s, right 0.125s ease-in 0.175s;
 }
 
 // active state for hamburger
@@ -305,7 +285,7 @@ export default class HeaderBlock extends Vue {
   top: -80px;
   left: -80px;
   transition: left 0.125s ease-out, top 0.05s linear 0.125s,
-    transform 0.125s cubic-bezier(0.075, 0.82, 0.165, 1) 0.175s;
+  transform 0.125s cubic-bezier(0.075, 0.82, 0.165, 1) 0.175s;
   transform: translate3d(80px, 80px, 0) rotate(45deg);
 }
 
@@ -319,7 +299,7 @@ export default class HeaderBlock extends Vue {
   top: -80px;
   right: -80px;
   transition: right 0.125s ease-out, top 0.05s linear 0.125s,
-    transform 0.125s cubic-bezier(0.075, 0.82, 0.165, 1) 0.175s;
+  transform 0.125s cubic-bezier(0.075, 0.82, 0.165, 1) 0.175s;
   transform: translate3d(-80px, 80px, 0) rotate(-45deg);
 }
 

@@ -1,6 +1,6 @@
 <template>
   <section class="sb shadow-bg"
-           id="trusted-by">
+           id="#trusted-by">
     <dark-bg/>
     <stripe-wrapper :color-strip="'dark'"/>
     <div class="sb__container container">

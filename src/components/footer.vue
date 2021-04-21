@@ -18,11 +18,18 @@
         </div>
         <div class="footer__center">
           <div class="footer__center-inner custom-description">
-            <a class="header__right-link custom-link"
-               v-for="(item, i) in headerList"
-               :key="i"
-               href="#"
-               v-scroll-to="`${item.link}`">{{ item.title }}</a>
+            <template v-if="!isNotIndex">
+              <a  class="header__right-link custom-link 123"
+                  v-for="(item, i) in headerList"
+                  :key="i"
+                  :href="item.link">{{ item.title }}</a>
+            </template>
+            <template v-else>
+              <a  class="header__right-link custom-link"
+                  v-for="(item, i) in headerList"
+                  :key="i"
+                  :href="`/${item.link}`">{{ item.title }}</a>
+            </template>
           </div>
         </div>
       </div>
@@ -31,43 +38,25 @@
 </template>
 
 <script lang="ts">
-import {Component, Vue} from "vue-property-decorator";
+import {Component, Vue, Mixins} from "vue-property-decorator";
 import StripeWrapper from "@/components/elements/strip-bg.vue";
 import DarkBg from "@/components/elements/dark-bg.vue";
+import {headerList} from "@/assets/data/header.json";
 
 @Component({
   components: {
     StripeWrapper,
     DarkBg
-  }
+  },
 })
 export default class FooterBlock extends Vue {
-  headerList: Array<{ title: string; link: string }> = [
-    {
-      title: "Our Projects",
-      link: "#our-projects"
-    },
-    {
-      title: "Services",
-      link: "#service"
-    },
-    {
-      title: "Core Team",
-      link: "#core-team"
-    },
-    {
-      title: "Tech Stack",
-      link: "#tech-stack"
-    },
-    {
-      title: "Trusted by",
-      link: "#trusted-by"
-    },
-    {
-      title: "Contact Us",
-      link: "#contact-us"
-    }
-  ];
+  isNotIndex = false;
+  headerList: Array<{ title: string; link: string }> = [];
+
+  created() {
+    this.headerList = headerList;
+    if (this.$route.fullPath !== '/') this.isNotIndex = true;
+  }
 }
 </script>
 
