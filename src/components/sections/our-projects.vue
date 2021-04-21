@@ -1,6 +1,6 @@
 <template>
   <section class="our-projects"
-           id="our-projects">
+           id="#our-projects">
     <dark-bg/>
     <stripe-wrapper :color-strip="'dark'"/>
     <div class="our-projects__container container">

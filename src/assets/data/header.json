@@ -1,0 +1,28 @@
+{
+  "headerList": [
+    {
+      "title": "Our Projects",
+      "link": "#to_our-projects"
+    },
+    {
+      "title": "Services",
+      "link": "#to_service"
+    },
+    {
+      "title": "Core Team",
+      "link": "#to_core-team"
+    },
+    {
+      "title": "Tech Stack",
+      "link": "#to_tech-stack"
+    },
+    {
+      "title": "Trusted by",
+      "link": "#to_trusted-by"
+    },
+    {
+      "title": "Contact Us",
+      "link": "#to_contact-us"
+    }
+  ]
+}

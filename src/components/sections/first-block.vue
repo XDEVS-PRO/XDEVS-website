@@ -1,5 +1,5 @@
 <template>
-  <section class="fb">
+  <section id="#fb" class="fb">
     <dark-bg />
     <stripe-wrapper :color-strip="'dark'" />
     <div class="fb__container container">
@@ -14,7 +14,7 @@
             We deliver first-class software products. Grow faster with the right
             talents by your side.
           </h4>
-          <a v-scroll-to="'#contact-us'" class="x-btn">{{btnText}}</a>
+          <a href="#contact-us" class="x-btn">{{btnText}}</a>
         </div>
       </div>
       <img class="fb__bg-img" alt="XDEVS developers" src="/img/first-block/bg-developers.svg" />

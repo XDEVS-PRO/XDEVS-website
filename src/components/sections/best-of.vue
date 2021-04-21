@@ -1,5 +1,5 @@
 <template>
-  <section class="best-of">
+  <section id="#best-of" class="best-of">
     <stripe-wrapper/>
     <div class="best-of__container container">
       <h4 class="best-of__text">
@@ -7,7 +7,7 @@
         the latest techniques for software development and best practices that were earned over the last 20 years
       </h4>
       <div class="best-of__inner">
-        <a class="x-btn" v-scroll-to="'#contact-us'">{{btnData}}</a>
+        <a class="x-btn" href="#contact-us">{{btnData}}</a>
         <p class="best-of__desc custom-description">
           We believe in utilizing Software Architecture Design patterns to create a solid ground for your future success
         </p>
