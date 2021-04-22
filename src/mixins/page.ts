@@ -3,6 +3,7 @@ import {Vue, Component} from "vue-property-decorator";
 @Component({})
 
 export default class PegaMixin extends Vue {
+    initElementListenersTimeout: any = null;
     scrollingLinks: any = [];
     test: any = [];
     isNotIndex = false;
@@ -10,17 +11,33 @@ export default class PegaMixin extends Vue {
     mounted() {
         this.scrollToHash();
 
-        this.scrollingLinks = document.querySelectorAll(
-            "a[href^='#to_'], section[id]"
+        this.clearElementsListeners();
+
+        this.initElementListenersTimeout = setTimeout(() => {
+            this.scrollingLinks = document.querySelectorAll(
+                "a[href^='#to_'], section[id]"
+            );
+
+            this.scrollingLinks.forEach((item: any) => {
+                item.addEventListener("click", this.notChangedHash);
+            });
+
+            window.addEventListener("hashchange", (e) => {
+                this.scrollToHash();
+            })
+        }, 200)
+
+    }
+
+    clearElementsListeners() {
+        this.scrollingLinks &&
+        this.scrollingLinks.forEach((item: any) =>
+            item.removeEventListener("click", this.notChangedHash)
         );
 
-        this.scrollingLinks.forEach((item: any) => {
-            item.addEventListener("click", this.notChangedHash);
-        });
+        window.removeEventListener("hashchange", this.notChangedHash);
 
-        window.addEventListener("hashchange", (e) => {
-            this.scrollToHash();
-        })
+        clearTimeout(this.initElementListenersTimeout);
     }
 
     notChangedHash(e: any) {
@@ -28,10 +45,6 @@ export default class PegaMixin extends Vue {
             e.preventDefault();
             this.scrollToHash();
         }
-
-        // if (e === 'hashchange') {
-        //     this.scrollToHash();
-        // }
     }
 
     scrollToHash() {
