@@ -1,48 +1,51 @@
 <template>
   <section class="privacy-policy">
-    <stripe-wrapper/>
+    <stripe-wrapper />
     <div class="privacy-policy__container container">
       <div class="privacy-policy__inner">
         <div class="privacy-policy__article">
           <title-block
-              :title="'Privacy Policy for XDEVS'"
-              :color-icon="'dark'"
-              class="title-desc"
+            :title="'Privacy Policy for XDEVS'"
+            :color-icon="'dark'"
+            class="title-desc"
           />
           <h2>TERMS OF USE</h2>
           <p>
-            This website contains the original content such as the texts, templates, charts, and diagrams which are
-            under the protection of the copyright that is reserved to XDEVS. This means that the use of any indicated
-            content is strictly prohibited and in order to receive a specific permission, it is obligatory to address
-            the XDEVS company through our e-mail – contact@xdevs.com. The materials placed on this website cannot be
-            used in any other personal or commercial website without an official permission of XDEVS company. Using
-            the web content would be taken as a violation of the trademark and copyright.
-
-            The content on this website, including the illustrations, texts, and documents, might include the misprints
-            and technical inaccuracies. XDEVS has a legal right to correct, change, and enhance the website content
-            with no prior notifications.
+            This website contains the original content such as the texts,
+            templates, charts, and diagrams which are under the protection of
+            the copyright that is reserved to XDEVS. This means that the use of
+            any indicated content is strictly prohibited and in order to receive
+            a specific permission, it is obligatory to address the XDEVS company
+            through our e-mail – contact@xdevs.com. The materials placed on this
+            website cannot be used in any other personal or commercial website
+            without an official permission of XDEVS company. Using the web
+            content would be taken as a violation of the trademark and
+            copyright. The content on this website, including the illustrations,
+            texts, and documents, might include the misprints and technical
+            inaccuracies. XDEVS has a legal right to correct, change, and
+            enhance the website content with no prior notifications.
           </p>
         </div>
 
         <div class="privacy-policy__article">
-          <h2>Third Party Sites Links
-          </h2>
+          <h2>Third Party Sites Links</h2>
           <p>
-            We place the external links to the third parties for the convenience of our clients. Nevertheless, this does
-            not mean that XDEVS supports the particular site or location, as well as its content. XDEVS does not
-            take the responsibility and liability for any information at any other source information
+            We place the external links to the third parties for the convenience
+            of our clients. Nevertheless, this does not mean that XDEVS supports
+            the particular site or location, as well as its content. XDEVS does
+            not take the responsibility and liability for any information at any
+            other source information
           </p>
         </div>
 
         <div class="privacy-policy__article">
           <h2>Liability limitations</h2>
           <p>
-            XDEVS is not liable for the following stances:
-
-            Direct or indirect, intended or unintended damages caused by the reliance on this website
-            Loss of business opportunity, loss of programs, in case of negligence or tort
-
-            XDEVS saves the right to introduce this Copyright Statement with no prior notification.
+            XDEVS is not liable for the following stances: Direct or indirect,
+            intended or unintended damages caused by the reliance on this
+            website Loss of business opportunity, loss of programs, in case of
+            negligence or tort XDEVS saves the right to introduce this Copyright
+            Statement with no prior notification.
           </p>
         </div>
       </div>
@@ -51,15 +54,14 @@
 </template>
 
 <script lang="ts">
-import {Component, Vue} from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
 import StripeWrapper from "@/components/elements/strip-bg.vue";
 import TitleBlock from "@/components/elements/title.vue";
 
 @Component({
-  components: {StripeWrapper, TitleBlock}
+  components: { StripeWrapper, TitleBlock }
 })
-export default class PrivacyPolicy extends Vue {
-}
+export default class PrivacyPolicy extends Vue {}
 </script>
 
 <style lang="scss" scoped>

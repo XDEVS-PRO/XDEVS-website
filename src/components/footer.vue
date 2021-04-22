@@ -1,15 +1,17 @@
 <template>
   <footer class="footer">
-    <stripe-wrapper :color-strip="'dark'"/>
-    <dark-bg/>
+    <stripe-wrapper :color-strip="'dark'" />
+    <dark-bg />
     <div class="footer__container container">
       <div class="footer__inner">
         <div class="footer__left">
           <a href="/">
-            <img class="footer__left-img"
-                 src="/logo-header.svg"
-                 width="120"
-                 alt="XDEVS"/>
+            <img
+              class="footer__left-img"
+              src="/logo-header.svg"
+              width="120"
+              alt="XDEVS"
+            />
           </a>
 
           <h4 class="footer__left-text">
@@ -19,16 +21,22 @@
         <div class="footer__center">
           <div class="footer__center-inner custom-description">
             <template v-if="!isNotIndex">
-              <a  class="header__right-link custom-link 123"
-                  v-for="(item, i) in headerList"
-                  :key="i"
-                  :href="item.link">{{ item.title }}</a>
+              <a
+                class="header__right-link custom-link 123"
+                v-for="(item, i) in headerList"
+                :key="i"
+                :href="item.link"
+                >{{ item.title }}</a
+              >
             </template>
             <template v-else>
-              <a  class="header__right-link custom-link"
-                  v-for="(item, i) in headerList"
-                  :key="i"
-                  :href="`/${item.link}`">{{ item.title }}</a>
+              <a
+                class="header__right-link custom-link"
+                v-for="(item, i) in headerList"
+                :key="i"
+                :href="`/${item.link}`"
+                >{{ item.title }}</a
+              >
             </template>
           </div>
         </div>
@@ -38,16 +46,16 @@
 </template>
 
 <script lang="ts">
-import {Component, Vue, Mixins} from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
 import StripeWrapper from "@/components/elements/strip-bg.vue";
 import DarkBg from "@/components/elements/dark-bg.vue";
-import {headerList} from "@/assets/data/header.json";
+import { headerList } from "@/assets/data/header.json";
 
 @Component({
   components: {
     StripeWrapper,
     DarkBg
-  },
+  }
 })
 export default class FooterBlock extends Vue {
   isNotIndex = false;
@@ -55,13 +63,12 @@ export default class FooterBlock extends Vue {
 
   created() {
     this.headerList = headerList;
-    if (this.$route.fullPath !== '/') this.isNotIndex = true;
+    if (this.$route.fullPath !== "/") this.isNotIndex = true;
   }
 }
 </script>
 
-<style lang="scss"
-       scoped>
+<style lang="scss" scoped>
 @import "src/assets/styles/variables";
 
 .footer {
@@ -143,11 +150,10 @@ export default class FooterBlock extends Vue {
   font-weight: 300;
   font-size: 1rem;
   padding-top: 10px;
-  color: #EDEDED;
+  color: #ededed;
 
   span {
-    background: -webkit-linear-gradient(
-            87.58deg, #0085FF 0%, #11A9FF 100%);
+    background: -webkit-linear-gradient(87.58deg, #0085ff 0%, #11a9ff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }

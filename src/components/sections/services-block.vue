@@ -138,7 +138,7 @@ export default class ServicesBlock extends Vue {
   }
 
   &__card-desc {
-    color: #42484F;
+    color: #42484f;
     font-size: 1rem;
     margin: 0 0 auto 0;
     font-weight: 300;

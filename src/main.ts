@@ -10,26 +10,9 @@ import "../src/assets/styles/main.scss";
 // Add styles for slider
 import "../src/assets/styles/_swiper-styles.css";
 
-import VueScrollTo from "vue-scrollto";
 
 Vue.use(VueAwesomeSwiper);
-Vue.use(VueScrollTo);
 Vue.use(PortalVue);
-
-// You can also pass in the default options
-Vue.use(VueScrollTo, {
-  container: "body",
-  duration: 500,
-  easing: "ease-in",
-  offset: 0,
-  force: true,
-  cancelable: true,
-  onStart: false,
-  onDone: false,
-  onCancel: false,
-  x: false,
-  y: true
-});
 
 Vue.config.productionTip = false;
 

@@ -1,15 +1,17 @@
 <template>
   <section id="#best-of" class="best-of">
-    <stripe-wrapper/>
+    <stripe-wrapper />
     <div class="best-of__container container">
       <h4 class="best-of__text">
         <span>We use the best of two worlds:</span>
-        the latest techniques for software development and best practices that were earned over the last 20 years
+        the latest techniques for software development and best practices that
+        were earned over the last 20 years
       </h4>
       <div class="best-of__inner">
-        <a class="x-btn" href="#contact-us">{{btnData}}</a>
+        <a class="x-btn" href="#contact-us">{{ btnData }}</a>
         <p class="best-of__desc custom-description">
-          We believe in utilizing Software Architecture Design patterns to create a solid ground for your future success
+          We believe in utilizing Software Architecture Design patterns to
+          create a solid ground for your future success
         </p>
       </div>
     </div>
@@ -17,7 +19,7 @@
 </template>
 
 <script lang="ts">
-import {Vue, Prop, Component} from "vue-property-decorator";
+import { Vue, Component } from "vue-property-decorator";
 import StripeWrapper from "@/components/elements/strip-bg.vue";
 
 @Component({
@@ -26,7 +28,6 @@ import StripeWrapper from "@/components/elements/strip-bg.vue";
   }
 })
 export default class BestOf extends Vue {
-
   btnData = "<Hire us now>";
 }
 </script>
@@ -54,8 +55,7 @@ export default class BestOf extends Vue {
     }
 
     span {
-      background: -webkit-linear-gradient(
-              87.58deg, #F52C68 0%, #FF4874 100%);
+      background: -webkit-linear-gradient(87.58deg, #f52c68 0%, #ff4874 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -73,13 +73,11 @@ export default class BestOf extends Vue {
   }
 }
 .x-btn {
-  background: linear-gradient(87.58deg, #F52C68 0%, #FF4874 100%);
-
-
+  background: linear-gradient(87.58deg, #f52c68 0%, #ff4874 100%);
 }
 
 .best-of__desc.custom-description {
-  color: #42484F;
+  color: #42484f;
   font-weight: 300;
 
   @include for-smallmedium() {
@@ -87,7 +85,7 @@ export default class BestOf extends Vue {
   }
 
   &:before {
-    background: linear-gradient(87.58deg, #F52C68 0%, #FF4874 100%);
+    background: linear-gradient(87.58deg, #f52c68 0%, #ff4874 100%);
   }
 }
 </style>

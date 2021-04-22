@@ -14,10 +14,14 @@
             We deliver first-class software products. Grow faster with the right
             talents by your side.
           </h4>
-          <a href="#contact-us" class="x-btn">{{btnText}}</a>
+          <a href="#contact-us" class="x-btn">{{ btnText }}</a>
         </div>
       </div>
-      <img class="fb__bg-img" alt="XDEVS developers" src="/img/first-block/bg-developers.svg" />
+      <img
+        class="fb__bg-img"
+        alt="XDEVS developers"
+        src="/img/first-block/bg-developers.svg"
+      />
     </div>
   </section>
 </template>
@@ -34,7 +38,7 @@ import DarkBg from "@/components/elements/dark-bg.vue";
   }
 })
 export default class FirstBlock extends Vue {
-  btnText = '<Discuss your project>'
+  btnText = "<Discuss your project>";
 }
 </script>
 
@@ -86,7 +90,7 @@ export default class FirstBlock extends Vue {
     }
 
     span {
-      background: -webkit-linear-gradient(87.58deg, #0085FF 0%, #11A9FF 100%);
+      background: -webkit-linear-gradient(87.58deg, #0085ff 0%, #11a9ff 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
