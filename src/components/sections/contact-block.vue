@@ -1,20 +1,16 @@
 <template>
-  <section class="cb"
-           id="#contact-us">
-    <stripe-wrapper/>
+  <section class="cb" id="#contact-us">
+    <stripe-wrapper />
     <div class="cb__container container">
       <div class="cb__inner">
-
         <div class="cb__info-left_wrapper">
-          <title-block :title="'Contact Us'"
-                       :color-icon="'dark'"/>
+          <title-block :title="'Contact Us'" :color-icon="'dark'" />
           <h4 class="custom-description">
-            Working with us you know exactly what every member of our team is working on. We provide only high-quality
-            battle-tested solutions </h4>
+            Working with us you know exactly what every member of our team is
+            working on. We provide only high-quality battle-tested solutions
+          </h4>
 
-          <a class="x-btn desc"
-             href="mailto:dev@xander.im"
-             target="_blank">
+          <a class="x-btn desc" href="mailto:dev@xander.im" target="_blank">
             {{ btnText }}
           </a>
         </div>
@@ -31,32 +27,35 @@
                 </div>
               </div>
               <div class="cb__info-left_social">
-                <a v-for="(item, i) in contactUs"
-                   :href="item.link"
-                   :key="i"
-                   target="_blank">
-                  <img v-if="item.img"
-                       :alt="item.alt"
-                       class="cb__info-left_social-icon"
-                       width="24"
-                       height="24"
-                       :src="item.img"/>
+                <a
+                  v-for="(item, i) in contactUs"
+                  :href="item.link"
+                  :key="i"
+                  target="_blank"
+                >
+                  <img
+                    v-if="item.img"
+                    :alt="item.alt"
+                    class="cb__info-left_social-icon"
+                    width="24"
+                    height="24"
+                    :src="item.img"
+                  />
                 </a>
               </div>
             </div>
           </div>
           <div class="cb__info-right">
-            <img class="cb__info-right-icon"
-                 width="277"
-                 alt="Contact Person"
-                 src="/img/contact-us/per-i.svg"/>
+            <img
+              class="cb__info-right-icon"
+              width="277"
+              alt="Contact Person"
+              src="/img/contact-us/per-i.svg"
+            />
           </div>
-
         </div>
 
-        <a class="x-btn mob"
-           href="mailto:dev@xander.im"
-           target="_blank">
+        <a class="x-btn mob" href="mailto:dev@xander.im" target="_blank">
           {{ btnText }}
         </a>
       </div>
@@ -65,10 +64,10 @@
 </template>
 
 <script lang="ts">
-import {Component, Vue} from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
 import TitleBlock from "@/components/elements/title.vue";
 import StripeWrapper from "@/components/elements/strip-bg.vue";
-import {contactUs} from "@/assets/data/index-page.json";
+import { contactUs } from "@/assets/data/index-page.json";
 
 @Component({
   components: {
@@ -77,7 +76,7 @@ import {contactUs} from "@/assets/data/index-page.json";
   }
 })
 export default class ContactBlock extends Vue {
-  btnText = '<Let’s start your project>'
+  btnText = "<Let’s start your project>";
   contactUs: Array<{ img: string; alt: string; link: string }> = [];
 
   created() {
@@ -86,8 +85,7 @@ export default class ContactBlock extends Vue {
 }
 </script>
 
-<style lang="scss"
-       scoped>
+<style lang="scss" scoped>
 @import "src/assets/styles/variables";
 
 .cb {
@@ -107,8 +105,6 @@ export default class ContactBlock extends Vue {
       align-items: flex-start;
       padding-bottom: 70px;
     }
-
-
   }
 
   &__info {
@@ -184,7 +180,7 @@ export default class ContactBlock extends Vue {
 
           &-desc {
             font-size: 1rem;
-            color: #42484F;
+            color: #42484f;
             font-weight: 300;
           }
         }
@@ -238,7 +234,7 @@ export default class ContactBlock extends Vue {
 }
 
 .custom-description {
-  color: #42484F;
+  color: #42484f;
   max-width: 420px;
   margin-bottom: 60px;
 
@@ -248,7 +244,6 @@ export default class ContactBlock extends Vue {
 }
 
 .x-btn {
-
   &.desc {
     @include for-smallmedium() {
       display: none;

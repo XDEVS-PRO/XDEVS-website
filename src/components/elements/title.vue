@@ -21,9 +21,9 @@
         {{ title }}
       </div>
       <h4 v-if="descRight" class="custom-description right">
-        {{descRight}}
+        {{ descRight }}
       </h4>
-      <h4 v-if="descBottom"> </h4>
+      <h4 v-if="descBottom"></h4>
     </div>
     <div
       v-if="subTitle"
@@ -83,7 +83,6 @@ export default class TitleBlock extends Vue {
         font-size: 28px;
         margin-left: 20px;
       }
-
 
       &_subtitle {
         color: $white-f;

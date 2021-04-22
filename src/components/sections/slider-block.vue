@@ -1,34 +1,27 @@
 <template>
-  <section class="sb shadow-bg"
-           id="#trusted-by">
-    <dark-bg/>
-    <stripe-wrapper :color-strip="'dark'"/>
+  <section class="sb shadow-bg" id="#trusted-by">
+    <dark-bg />
+    <stripe-wrapper :color-strip="'dark'" />
     <div class="sb__container container">
-
       <div class="sb__left">
-        <title-block :title="'Trusted By'"
-                     :color-icon="'light'"/>
+        <title-block :title="'Trusted By'" :color-icon="'light'" />
         <h4 class="custom-description">
-          <span>XDEVS</span> is a <span>web/mobile development</span> team built upon our friendship and exceptional
-          professionalism. We value each other and our clients value us </h4>
+          <span>XDEVS</span> is a <span>web/mobile development</span> team built
+          upon our friendship and exceptional professionalism. We value each
+          other and our clients value us
+        </h4>
       </div>
       <div class="sb__right">
-        <div v-for="(item, i) in cardList"
-             :key="i"
-             class="sb__wrapper-img">
-          <img :src="item.img"
-               :alt="item.alt"
-               width="270"
-               class="sb__card"/>
+        <div v-for="(item, i) in cardList" :key="i" class="sb__wrapper-img">
+          <img :src="item.img" :alt="item.alt" width="270" class="sb__card" />
         </div>
       </div>
     </div>
   </section>
 </template>
 
-<script lang="ts"
-        scoped>
-import {Component, Vue} from "vue-property-decorator";
+<script lang="ts" scoped>
+import { Component, Vue } from "vue-property-decorator";
 import TitleBlock from "@/components/elements/title.vue";
 import DarkBg from "@/components/elements/dark-bg.vue";
 import StripeWrapper from "@/components/elements/strip-bg.vue";
@@ -76,8 +69,7 @@ export default class SliderBlock extends Vue {
 }
 </script>
 
-<style lang="scss"
-       scoped>
+<style lang="scss" scoped>
 @import "src/assets/styles/variables";
 
 .sb {
@@ -172,12 +164,11 @@ export default class SliderBlock extends Vue {
 }
 
 .custom-description {
-  color: #6D6D6D;
+  color: #6d6d6d;
   max-width: 400px;
 
   span {
-    background: -webkit-linear-gradient(
-            87.58deg, #0085FF 0%, #11A9FF 100%);
+    background: -webkit-linear-gradient(87.58deg, #0085ff 0%, #11a9ff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }

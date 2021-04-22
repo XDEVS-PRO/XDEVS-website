@@ -3,13 +3,11 @@
     <div class="sf__container container">
       <p class="sf__left">© 2021 XDEVS, ALL RIGHTS RESERVED</p>
       <div class="sf__right">
-        <a class="custom-link"
-           href="/terms-of-use">
+        <a class="custom-link" href="/terms-of-use">
           Terms of use
         </a>
 
-        <a class="custom-link"
-           href="/privacy-policy">
+        <a class="custom-link" href="/privacy-policy">
           Privacy Policy
         </a>
       </div>
@@ -18,16 +16,13 @@
 </template>
 
 <script lang="ts">
-import {Vue, Component} from "vue-property-decorator";
+import { Vue, Component } from "vue-property-decorator";
 
 @Component({})
-export default class ShortFooter extends Vue {
-
-}
+export default class ShortFooter extends Vue {}
 </script>
 
-<style lang="scss"
-       scoped>
+<style lang="scss" scoped>
 @import "src/assets/styles/variables";
 
 .sf {
@@ -46,14 +41,14 @@ export default class ShortFooter extends Vue {
 
   &__right,
   &__left {
-    color: #6D6D6D;
+    color: #6d6d6d;
     width: 100%;
   }
 
   &__right {
     .custom-link {
       margin-left: 40px;
-      color: #6D6D6D;
+      color: #6d6d6d;
       font-size: 1rem;
       font-weight: 300;
       text-decoration: none;
