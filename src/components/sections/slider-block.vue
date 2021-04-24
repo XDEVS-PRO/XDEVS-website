@@ -8,7 +8,7 @@
         <h4 class="custom-description">
           <span>XDEVS</span> is a <span>web/mobile development</span> team built
           upon our friendship and exceptional professionalism. We value each
-          other and our clients value us
+          other and our clients value us.
         </h4>
       </div>
       <div class="sb__right">

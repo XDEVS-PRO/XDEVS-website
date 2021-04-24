@@ -150,7 +150,7 @@ export default class CoreTeam extends Vue {
       img: "/img/core-team/ct-5.svg",
       alt: "Danila Kitsanenko",
       title: "Danila Kitsanenko",
-      position: "Back-End developer",
+      position: "Full-Stack developer",
       desc:
         "Hello. My name is Danila. I've been doing programming for 2 years. I'm Full Stack developer, but back end is my greatest love. I fond of working with data, creating server logic and write a beautiful code. I started learning programming with Python. It's my main language. Also, I'm coding in Golang. In Xdevs we work on projects that provide complex and interesting tasks. We look forward to building a strong business relationship in the future with our clients!"
     },
