@@ -1,7 +1,7 @@
 {
   "ourProjects": [
     {
-      "create": "app",
+      "create": "Web application",
       "src": "/img/our-projects/ms-global.png",
       "title": "MLS worldwide",
       "link": "https://mlsworldwide.com/",
@@ -9,7 +9,7 @@
       "id": "1"
     },
     {
-      "create": "app",
+      "create": "Web application",
       "src": "/img/our-projects/co.png",
       "title": "Chargeback Optimizer",
       "link": "http://chargebackoptimizer.com/",
@@ -17,7 +17,7 @@
       "id": "2"
     },
     {
-      "create": "app / design",
+      "create": "Web application / design",
       "src": "/img/our-projects/my-wish.png",
       "title": "My Wish",
       "link": "https://mywish.is/",
