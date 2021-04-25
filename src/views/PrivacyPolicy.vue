@@ -5,7 +5,7 @@
       <div class="privacy-policy__inner">
         <div class="privacy-policy__article">
           <title-block
-            :title="'Privacy Policy for XDEVS'"
+            :title="'Privacy Policy'"
             :color-icon="'dark'"
             class="title-desc"
           />

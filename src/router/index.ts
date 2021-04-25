@@ -21,7 +21,8 @@ const routes: Array<RouteConfig> = [
     name: "Privacy policy",
     component: PrivacyPolicy,
     meta: {
-      layout: "default-layout"
+      layout: "default-layout",
+      title: "XDEVS: Privacy"
     }
   },
   {
@@ -29,7 +30,8 @@ const routes: Array<RouteConfig> = [
     name: "Terms of use",
     component: Terms,
     meta: {
-      layout: "default-layout"
+      layout: "default-layout",
+      title: "XDEVS: Terms of use"
     }
   },
   {
@@ -46,6 +48,15 @@ const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes
+});
+
+const DEFAULT_TITLE = "XDEVS: evolve with us";
+router.afterEach((to, from) => {
+  // Use next tick to handle router history correctly
+  // see: https://github.com/vuejs/vue-router/issues/914#issuecomment-384477609
+  Vue.nextTick(() => {
+    document.title = to.meta.title || DEFAULT_TITLE;
+  });
 });
 
 export default router;

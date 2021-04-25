@@ -1,4 +1,4 @@
-# xveds
+# XDEVS
 
 ## Project setup
 ```
