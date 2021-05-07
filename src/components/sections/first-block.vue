@@ -85,11 +85,12 @@ export default class FirstBlock extends Vue {
     padding-bottom: 60px;
 
     @include for-middle() {
-      font-size: 28px;
+      font-size: 24px;
       padding-bottom: 30px;
     }
 
     span {
+      white-space: nowrap;
       background: -webkit-linear-gradient(87.58deg, #0085ff 0%, #11a9ff 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
