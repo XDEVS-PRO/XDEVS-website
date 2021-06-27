@@ -73,13 +73,6 @@
         </template>
 
         <div class="mobile-menu-list_contact">
-          <img
-            class="mobile-menu-list_contact-img"
-            src="/img/contact-us/per-i-mob.svg"
-            alt="Viktoria Samoilenko"
-          />
-          <p class="mobile-menu-list_contact-title">Viktoria Samoilenko</p>
-          <p class="mobile-menu-list_contact-subtitle">Head of Engagement</p>
           <div class="mobile-menu-list_contact-links">
             <a v-for="(item, i) in contactUs" :href="item.link" :key="i">
               <img
@@ -390,12 +383,8 @@ export default class HeaderBlock extends Vue {
       color: $dark-f;
       font-weight: 600;
       letter-spacing: 0.5px;
-      padding-bottom: 10px;
-      font-size: 26px;
-
-      @include for-verysmall() {
-        font-size: 18px;
-      }
+      padding-bottom: 24px;
+      font-size: 32px;
     }
 
     &_contact {
@@ -439,7 +428,11 @@ export default class HeaderBlock extends Vue {
         }
 
         &-icon {
-          margin: 5px 8px;
+          margin: 5px 10px;
+
+          @include for-verysmall() {
+            margin: 5px 20px 5px 0;
+          }
         }
       }
     }
