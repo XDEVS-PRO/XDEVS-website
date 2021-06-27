@@ -56,7 +56,6 @@ router.afterEach((to, from) => {
   // see: https://github.com/vuejs/vue-router/issues/914#issuecomment-384477609
   Vue.nextTick(() => {
     document.title = to.meta?.title !== undefined ? to.meta.title : DEFAULT_TITLE
-    console.log(document.title)
   });
 });
 
