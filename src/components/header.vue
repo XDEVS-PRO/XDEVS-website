@@ -75,7 +75,7 @@
         <div class="mobile-menu-list_contact">
           <img
             class="mobile-menu-list_contact-img"
-            src="/img/contact-us/per-i.svg"
+            src="/img/contact-us/per-i-mob.svg"
             alt="Viktoria Samoilenko"
           />
           <p class="mobile-menu-list_contact-title">Viktoria Samoilenko</p>
