@@ -22,9 +22,12 @@
 
 <script lang="ts" scoped>
 import { Component, Vue } from "vue-property-decorator";
-import TitleBlock from "@/components/elements/title.vue";
-import DarkBg from "@/components/elements/dark-bg.vue";
-import StripeWrapper from "@/components/elements/strip-bg.vue";
+import TitleBlock from "../elements/title.vue";
+import DarkBg from "../elements/dark-bg.vue";
+import StripeWrapper from "../elements/strip-bg.vue";
+
+//imgs
+import imgs from '../../../public/img/slider';
 
 @Component({
   components: {
@@ -36,32 +39,32 @@ import StripeWrapper from "@/components/elements/strip-bg.vue";
 export default class SliderBlock extends Vue {
   cardList: Array<{ img: string; link: string; alt: string }> = [
     {
-      img: "/img/trusted-by/tab-1.svg",
+      img: imgs.tab1,
       link: "https://www.google.com",
       alt: "INOXOFT"
     },
     {
-      img: "/img/trusted-by/tab-2.svg",
+      img: imgs.tab2,
       link: "https://www.google.com",
       alt: "Octopus"
     },
     {
-      img: "/img/trusted-by/tab-3.svg",
+      img: imgs.tab3,
       link: "https://www.google.com",
       alt: "Singlead"
     },
     {
-      img: "/img/trusted-by/tab-4.svg",
+      img: imgs.tab4,
       link: "https://www.google.com",
       alt: "zitemedia"
     },
     {
-      img: "/img/trusted-by/tab-5.svg",
+      img: imgs.tab5,
       link: "https://www.google.com",
       alt: "chargeback"
     },
     {
-      img: "/img/trusted-by/tab-6.svg",
+      img: imgs.tab6,
       link: "https://www.google.com",
       alt: "DevLogics"
     }
@@ -170,6 +173,7 @@ export default class SliderBlock extends Vue {
   span {
     background: -webkit-linear-gradient(87.58deg, #0085ff 0%, #11a9ff 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 }

@@ -4,14 +4,14 @@
       <div class="title__inner-icon">
         <img
           v-if="colorIcon === 'dark'"
-          src="/img/dark-logo.svg"
+          src="@@/public/img/dark-logo.svg"
           width="43"
           height="48"
           alt="XDEVS"
         />
         <img
           v-else-if="colorIcon === 'light'"
-          src="/img/light-logo.svg"
+          src="@@/public/img/light-logo.svg"
           width="43"
           height="48"
           alt="XDEVS"

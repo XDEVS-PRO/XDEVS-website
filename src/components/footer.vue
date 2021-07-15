@@ -8,7 +8,7 @@
           <a href="/">
             <img
               class="footer__left-img"
-              src="/logo-header.svg"
+              src="../../public/logo-header.svg"
               width="120"
               alt="XDEVS"
             />
@@ -47,9 +47,9 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import StripeWrapper from "@/components/elements/strip-bg.vue";
-import DarkBg from "@/components/elements/dark-bg.vue";
-import { headerList } from "@/assets/data/header.json";
+import StripeWrapper from "../components/elements/strip-bg.vue";
+import DarkBg from "../components/elements/dark-bg.vue";
+import { headerList } from "../assets/data/header.json";
 
 @Component({
   components: {
@@ -63,7 +63,7 @@ export default class FooterBlock extends Vue {
 
   created() {
     this.headerList = headerList;
-    if (this.$route.fullPath !== "/") this.isNotIndex = true;
+    // if (this.$route.fullPath !== "/") this.isNotIndex = true;
   }
 }
 </script>
@@ -155,6 +155,7 @@ export default class FooterBlock extends Vue {
   span {
     background: -webkit-linear-gradient(87.58deg, #0085ff 0%, #11a9ff 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 }

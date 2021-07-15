@@ -17,10 +17,10 @@
           <a href="#contact-us" class="x-btn">{{ btnText }}</a>
         </div>
       </div>
-      <img
+       <img
         class="fb__bg-img"
         alt="XDEVS developers"
-        src="/img/first-block/bg-developers.svg"
+        src="@@/public/img/first-block/bg-developers.svg"
       />
     </div>
   </section>
@@ -28,8 +28,9 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import StripeWrapper from "@/components/elements/strip-bg.vue";
-import DarkBg from "@/components/elements/dark-bg.vue";
+import StripeWrapper from "../elements/strip-bg.vue";
+import DarkBg from "../elements/dark-bg.vue";
+
 
 @Component({
   components: {
@@ -93,6 +94,7 @@ export default class FirstBlock extends Vue {
       white-space: nowrap;
       background: -webkit-linear-gradient(87.58deg, #0085ff 0%, #11a9ff 100%);
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
     }
   }

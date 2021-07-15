@@ -55,15 +55,15 @@
           </p>
           <div class="tabs-inner">
             <div class="tabs-inner-python">
-              <img src="/img/tech-stack/python.svg" alt="Python" width="44" />
+              <img src="@@/public/img/tech-stack/python.svg" alt="Python" width="44" />
               <p>Python</p>
             </div>
             <div class="tabs-inner-nodejs">
-              <img src="/img/tech-stack/node.svg" alt="NodeJS" width="52" />
+              <img src="@@/public/img/tech-stack/node.svg" alt="NodeJS" width="52" />
               <p>NodeJs</p>
             </div>
             <div class="tabs-inner-golang">
-              <img src="/img/tech-stack/gl.svg" alt="Golang" width="52" />
+              <img src="@@/public/img/tech-stack/gl.svg" alt="Golang" width="52" />
               <p>Golang</p>
             </div>
           </div>
@@ -108,15 +108,15 @@
           </p>
           <div class="screen-inner">
             <div class="screen-inner_angular">
-              <img src="/img/tech-stack/angular.svg" alt="Angular" width="53" />
+              <img src="@@/public/img/tech-stack/angular.svg" alt="Angular" width="53" />
               <p>Angular</p>
             </div>
             <div class="screen-inner_react">
-              <img src="/img/tech-stack/react.svg" alt="React" width="52" />
+              <img src="@@/public/img/tech-stack/react.svg" alt="React" width="52" />
               <p>React</p>
             </div>
             <div class="screen-inner_vue">
-              <img src="/img/tech-stack/vue.svg" alt="Vue" width="70" />
+              <img src="@@/public/img/tech-stack/vue.svg" alt="Vue" width="70" />
               <p>Vue</p>
             </div>
           </div>
@@ -159,14 +159,14 @@
           <div class="phone-inner">
             <img
               class="phone-inner_react"
-              src="/img/tech-stack/react.svg"
+              src="@@/public/img/tech-stack/react.svg"
               alt="React Native"
               width="52"
             />
             <p class="phone-inner_react-text">React Native</p>
             <img
               class="phone-inner_flutter"
-              src="/img/tech-stack/flutter.svg"
+              src="@@/public/img/tech-stack/flutter.svg"
               alt="Flutter"
               width="52"
             />
@@ -207,7 +207,7 @@
             tested hosting providers.
           </p>
           <div class="cloud-inner">
-            <img src="/img/tech-stack/aws.svg" alt="AWS" width="52" />
+            <img src="@@/public/img/tech-stack/aws.svg" alt="AWS" width="52" />
             <p>AWS</p>
           </div>
         </div>
@@ -258,9 +258,10 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import TitleBlock from "@/components/elements/title.vue";
-import StripeWrapper from "@/components/elements/strip-bg.vue";
-import CustomModal from "@/components/elements/custom-modal.vue";
+import TitleBlock from "../elements/title.vue";
+import StripeWrapper from "../elements/strip-bg.vue";
+import CustomModal from "../elements/custom-modal.vue";
+import imgs from '../../../public/img/tech-stack'
 
 @Component({
   components: {
@@ -277,27 +278,27 @@ export default class TechStack extends Vue {
     textId: string;
   }> = [
     {
-      img: "/img/tech-stack/cloud-mob.svg",
+      img: imgs.cloud,
       className: "cloud",
       text:
         "We ensure that our solution will be online 100% time. We use only tested hosting providers.",
       textId: "cloud"
     },
     {
-      img: "/img/tech-stack/phone-mob.svg",
+      img: imgs.phone,
       className: "phone",
       text:
         "We build mobile apps for both Android and IOS at once to save your time and money.",
       textId: "phone"
     },
     {
-      img: "/img/tech-stack/screen-mob.svg",
+      img: imgs.screen,
       className: "screen",
       text: "We use only well-known professional front-end frameworks.",
       textId: "screen"
     },
     {
-      img: "/img/tech-stack/tabs-mob.svg",
+      img: imgs.tabs,
       className: "tabs",
       text:
         "The variety of backend languages and frameworks we know helps us to choose the best solution for your needs.",

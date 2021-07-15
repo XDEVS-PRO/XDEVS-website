@@ -1,10 +1,10 @@
 <template>
   <section class="check">
     <header-block />
-    <portal-target name="tech-block"></portal-target>
-    <portal-target name="modal"></portal-target>
+    <!-- <portal-target name="tech-block"></portal-target>
+    <portal-target name="modal"></portal-target> -->
     <div id="root-wrapper">
-      <router-view style="overflow: hidden" />
+      <nuxt />
     </div>
     <footer-block />
     <short-footer />
@@ -13,11 +13,11 @@
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
-import HeaderBlock from "@/components/header.vue";
-import FooterBlock from "@/components/footer.vue";
-import ShortFooter from "@/components/short-footer.vue";
-
+import HeaderBlock from "../src/components/header.vue";
+import FooterBlock from "../src/components/footer.vue";
+import ShortFooter from "../src/components/short-footer.vue";
 @Component({
+
   components: {
     HeaderBlock,
     FooterBlock,
@@ -34,7 +34,6 @@ export default class DefaultLayout extends Vue {}
   flex-direction: column;
   margin: 0;
 }
-
 #root-wrapper {
   display: flex;
   flex-direction: column;

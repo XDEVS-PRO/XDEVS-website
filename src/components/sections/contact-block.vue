@@ -50,7 +50,7 @@
               class="cb__info-right-icon"
               width="277"
               alt="Contact Person"
-              src="/img/contact-us/per-i.svg"
+              src="@@/public/img/contact-us/per-i.svg"
             />
           </div>
         </div>
@@ -65,9 +65,9 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import TitleBlock from "@/components/elements/title.vue";
-import StripeWrapper from "@/components/elements/strip-bg.vue";
-import { contactUs } from "@/assets/data/index-page.json";
+import TitleBlock from "../elements/title.vue";
+import StripeWrapper from "../elements/strip-bg.vue";
+import { contactUs } from "../../assets/data/index-page.json";
 
 @Component({
   components: {

@@ -1,5 +1,5 @@
 <template>
-  <portal v-if="portal" :to="to">
+  <div v-if="portal" :to="to">
     <transition name="fade">
       <div v-if="isOpen" class="modal__wrapper" :class="className">
         <div class="modal__overlay" @click="close()"></div>
@@ -9,7 +9,7 @@
         </div>
       </div>
     </transition>
-  </portal>
+  </div>
 </template>
 
 <script lang="ts">

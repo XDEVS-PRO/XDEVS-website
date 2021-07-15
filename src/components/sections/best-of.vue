@@ -20,7 +20,7 @@
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
-import StripeWrapper from "@/components/elements/strip-bg.vue";
+import StripeWrapper from "../elements/strip-bg.vue";
 
 @Component({
   components: {
@@ -57,6 +57,7 @@ export default class BestOf extends Vue {
     span {
       background: -webkit-linear-gradient(87.58deg, #f52c68 0%, #ff4874 100%);
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
     }
   }

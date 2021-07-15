@@ -15,8 +15,8 @@
           <p class="our-projects__desc">
             {{ showProject.desc }}
           </p>
-          <a class="our-projects__link" href="/our-projects"
-            >Watch this case
+          <nuxt-link to="OurProjects" class="our-projects__link" > 
+            Watch this case
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="7"
@@ -40,7 +40,7 @@
                 </linearGradient>
               </defs>
             </svg>
-          </a>
+          </nuxt-link>
         </div>
         <div class="our-projects__right">
           <div v-if="scroll" class="our-projects__arrow">
@@ -114,9 +114,9 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from "vue-property-decorator";
-import TitleBlock from "@/components/elements/title.vue";
-import DarkBg from "@/components/elements/dark-bg.vue";
-import StripeWrapper from "@/components/elements/strip-bg.vue";
+import TitleBlock from "../elements/title.vue";
+import DarkBg from "../elements/dark-bg.vue";
+import StripeWrapper from "../elements/strip-bg.vue";
 
 export interface Project {
   src: string;
@@ -130,7 +130,7 @@ export interface Project {
   components: {
     TitleBlock,
     DarkBg,
-    StripeWrapper
+    StripeWrapper,
   }
 })
 export default class OurProjects extends Vue {
@@ -273,7 +273,7 @@ export default class OurProjects extends Vue {
       z-index: -1;
       right: 0px;
       bottom: -30px;
-      background-image: url(/img/bg-section.svg);
+      background-image: url(../../../public/img/bg-section.svg);
 
       @include for-middle() {
         display: none;
@@ -284,6 +284,7 @@ export default class OurProjects extends Vue {
   &__link {
     background: -webkit-linear-gradient(87.58deg, #0085ff 0%, #11a9ff 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     text-decoration: none;
 

@@ -1,0 +1,49 @@
+<template>
+  <div>
+    <first-block />
+    <services-block />
+    <core-team />
+    <best-of />
+    <our-projects :data="ourProjectList" :scroll="true" />
+    <tech-stack />
+    <slider-block />
+    <contact-block />
+  </div>
+</template>
+
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+
+import FirstBlock from "../src/components/sections/first-block.vue";
+import CoreTeam from "../src/components/sections/team-block.vue";
+import TechStack from "../src/components/sections/tech-stack.vue";
+import ServicesBlock from "../src/components/sections/services-block.vue";
+import ContactBlock from "../src/components/sections/contact-block.vue";
+import SliderBlock from "../src/components/sections/slider-block.vue";
+import BestOf from "../src/components/sections/best-of.vue";
+import OurProjects from "../src/components/sections/our-projects.vue";
+import { ourProjects } from "../src/assets/data/index-page.json";
+import PageMixin from "../src/mixins/page"; // May go wrong
+
+
+@Component({
+  components: {
+    FirstBlock,
+    ContactBlock,
+    CoreTeam,
+    TechStack,
+    ServicesBlock,
+    SliderBlock,
+    BestOf,
+    OurProjects
+  },
+  mixins: [PageMixin]
+})
+export default class Index extends Vue {
+  ourProjectList: Array<any> = [];
+
+  created() {
+    this.ourProjectList = ourProjects;
+  }
+}
+</script>

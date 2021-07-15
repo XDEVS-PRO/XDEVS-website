@@ -8,7 +8,7 @@
           <a href="/">
             <img
               class="header__left-img"
-              src="/logo-header.svg"
+              src="../../public/logo-header.svg"
               width="120px"
               alt="XDEVS"
             />
@@ -95,11 +95,11 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import StripeWrapper from "@/components/elements/strip-bg.vue";
-import DarkBg from "@/components/elements/dark-bg.vue";
-import ScrollTo from "@/components/elements/scroll-to.vue";
-import { headerList } from "@/assets/data/header.json";
-import { contactUs } from "@/assets/data/index-page.json";
+import StripeWrapper from "../components/elements/strip-bg.vue";
+import DarkBg from "../components/elements/dark-bg.vue";
+import ScrollTo from "../components/elements/scroll-to.vue";
+import { headerList } from "../assets/data/header.json";
+import { contactUs } from "../assets/data/index-page.json";
 
 @Component({
   components: {

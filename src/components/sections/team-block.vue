@@ -81,10 +81,11 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import TitleBlock from "@/components/elements/title.vue";
-import StripeWrapper from "@/components/elements/strip-bg.vue";
-import DarkBg from "@/components/elements/dark-bg.vue";
-import CustomModal from "@/components/elements/custom-modal.vue";
+import TitleBlock from "../elements/title.vue";
+import StripeWrapper from "../elements/strip-bg.vue";
+import DarkBg from "../elements/dark-bg.vue";
+import CustomModal from "../elements/custom-modal.vue";
+import imgs from '../../../public/img/core-team'
 
 export interface Card {
   social: Array<{
@@ -114,15 +115,15 @@ export default class CoreTeam extends Vue {
         {
           alt: "linkedIn",
           link: "https://www.linkedin.com/in/xander-pokhylenko-9699b3161/",
-          src: "/img/core-team/social/in.svg"
+          src: imgs.social.linked
         },
         {
           alt: "GitHub",
           link: "https://github.com/xanderim",
-          src: "/img/core-team/social/git.svg"
+          src: imgs.social.git
         }
       ],
-      img: "/img/core-team/ct-1.svg",
+      img: imgs.img1,
       alt: "Xander Pokhylenko",
       title: "Xander Pokhylenko",
       position: "Founder of company",
@@ -134,20 +135,20 @@ export default class CoreTeam extends Vue {
         {
           alt: "linkedIn",
           link: "https://www.linkedin.com/in/danila-kitsanenko-8bb3a11a2/",
-          src: "/img/core-team/social/in.svg"
+          src: imgs.social.linked
         },
         {
           alt: "GitHub",
           link: "https://github.com/KiAlki",
-          src: "/img/core-team/social/git.svg"
+          src: imgs.social.git
         },
         {
           alt: "Facebook",
           link: "https://www.facebook.com/ki.alkiviad/",
-          src: "/img/core-team/social/fb.svg"
+          src: imgs.social.fb
         }
       ],
-      img: "/img/core-team/ct-5.svg",
+      img: imgs.img5,
       alt: "Danila Kitsanenko",
       title: "Danila Kitsanenko",
       position: "Full-Stack developer",
@@ -159,20 +160,20 @@ export default class CoreTeam extends Vue {
         {
           alt: "linkedIn",
           link: "https://www.linkedin.com/in/m-harnichev/",
-          src: "/img/core-team/social/in.svg"
+          src: imgs.social.linked
         },
         {
           alt: "GitHub",
           link: "https://github.com/mharnichev",
-          src: "/img/core-team/social/git.svg"
+          src: imgs.social.git
         },
         {
           alt: "Facebook",
           link: "https://www.facebook.com/profile.php?id=100066305583531",
-          src: "/img/core-team/social/fb.svg"
+          src: imgs.social.fb
         }
       ],
-      img: "/img/core-team/ct-3.svg",
+      img: imgs.img3,
       alt: "Mark Harnichev",
       title: "Mark Harnichev",
       position: "Front-End Developer",
