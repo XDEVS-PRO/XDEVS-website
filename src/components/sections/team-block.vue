@@ -85,7 +85,7 @@ import TitleBlock from "../elements/title.vue";
 import StripeWrapper from "../elements/strip-bg.vue";
 import DarkBg from "../elements/dark-bg.vue";
 import CustomModal from "../elements/custom-modal.vue";
-import imgs from '../../../public/img/core-team'
+import imgs from '~/assets/core-team'
 
 export interface Card {
   social: Array<{

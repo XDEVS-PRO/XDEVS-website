@@ -4,14 +4,14 @@
       <div class="title__inner-icon">
         <img
           v-if="colorIcon === 'dark'"
-          src="@@/public/img/dark-logo.svg"
+          src="~/assets/dark-logo.svg"
           width="43"
           height="48"
           alt="XDEVS"
         />
         <img
           v-else-if="colorIcon === 'light'"
-          src="@@/public/img/light-logo.svg"
+          src="~/assets/light-logo.svg"
           width="43"
           height="48"
           alt="XDEVS"
@@ -35,6 +35,7 @@
 </template>
 
 <script lang="ts">
+
 import { Component, Vue, Prop } from "vue-property-decorator";
 
 @Component({})

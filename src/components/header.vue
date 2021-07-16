@@ -8,7 +8,7 @@
           <a href="/">
             <img
               class="header__left-img"
-              src="../../public/logo-header.svg"
+              src="~/assets/logo-header.svg"
               width="120px"
               alt="XDEVS"
             />

@@ -25,7 +25,7 @@ import { Component, Vue } from "vue-property-decorator";
 import TitleBlock from "../elements/title.vue";
 import StripeWrapper from "../elements/strip-bg.vue";
 
-import imgs from '../../../public/img/services/index'
+import imgs from '~/assets/services/index'
 
 @Component({
   components: {

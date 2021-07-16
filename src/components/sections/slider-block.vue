@@ -27,7 +27,7 @@ import DarkBg from "../elements/dark-bg.vue";
 import StripeWrapper from "../elements/strip-bg.vue";
 
 //imgs
-import imgs from '../../../public/img/slider';
+import imgs from '~/assets/slider';
 
 @Component({
   components: {

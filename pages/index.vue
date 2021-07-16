@@ -23,7 +23,7 @@ import SliderBlock from "../src/components/sections/slider-block.vue";
 import BestOf from "../src/components/sections/best-of.vue";
 import OurProjects from "../src/components/sections/our-projects.vue";
 import { ourProjects } from "../src/assets/data/index-page.json";
-import PageMixin from "../src/mixins/page"; // May go wrong
+import PageMixin from "../src/mixins/page"; 
 
 
 @Component({

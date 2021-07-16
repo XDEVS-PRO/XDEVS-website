@@ -2,7 +2,7 @@
   "ourProjects": [
     {
       "create": "Web application",
-      "src": "/png/our-projects/ms-global.png",
+      "src": "our-projects/ms-global.png",
       "title": "MLS worldwide",
       "link": "https://mlsworldwide.com/",
       "desc": "MLS worldwide is a real estate website aimed to provide real estate services around the world. \n Our key role was to finish MVP, work closely with the SEO team to improve the ranking of the website, and attract new users by sending mass emails.\n ",
@@ -10,15 +10,15 @@
     },
     {
       "create": "Web application",
-      "src": "/png/our-projects/co.png",
+      "src": "our-projects/co.png",
       "title": "Chargeback Optimizer",
-      "link": "../../public/img/our-projects/ms-global.png",
+      "link": "~/assets/our-projects/ms-global.png",
       "desc": "Chargeback Optimizer is a platform for quickly solving problems with cashless payments.\n\nKey features:\n- Automated processing of ATM logs, error detection\n- Detection and prevention of fraud in the early stages\n- Standardization and automation of reporting on disputed transactions\n- integration with Mastercard API. \n \n The client needed an MVP in a really short period of time. In less than 1.5 months we built an astonishing application that helped our client get new investors.  ",
       "id": "2"
     },
     {
       "create": "Web application / design",
-      "src": "/png/our-projects/my-wish.png",
+      "src": "our-projects/my-wish.png",
       "title": "My Wish",
       "link": "https://mywish.is/",
       "desc": "Mywish.is  is an internal product of XDEVS team that was developed to satisfy the needs of every person around the globe to help fulfill their wishes.\n Key features:\n- create wishlists and gain a rating\n- add/delete/block friends\n- create stories based on the fulfilled wish and add comments\n- 3rd party API integrations",
@@ -27,17 +27,17 @@
   ],
   "contactUs": [
     {
-      "img": "svg/contact-us/s-i.svg",
+      "img": "contact-us/s-i.svg",
       "alt": "Send us",
       "link": "skype:live:.cid.d75c78905bc2d085\n"
     },
     {
-      "img": "svg/contact-us/l-i.svg",
+      "img": "contact-us/l-i.svg",
       "alt": "LinkedIn",
       "link": "https://www.linkedin.com/in/xander-pokhylenko-9699b3161/"
     },
     {
-      "img": "svg/contact-us/p-i.svg",
+      "img": "contact-us/p-i.svg",
       "alt": "Post us",
       "link": "mailto:dev@xander.im"
     }

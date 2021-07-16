@@ -273,7 +273,7 @@ export default class OurProjects extends Vue {
       z-index: -1;
       right: 0px;
       bottom: -30px;
-      background-image: url(../../../public/img/bg-section.svg);
+      background-image: url(~/assets/bg-section.svg);
 
       @include for-middle() {
         display: none;

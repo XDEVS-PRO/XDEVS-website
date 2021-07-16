@@ -55,15 +55,15 @@
           </p>
           <div class="tabs-inner">
             <div class="tabs-inner-python">
-              <img src="@@/public/img/tech-stack/python.svg" alt="Python" width="44" />
+              <img src="~/assets/tech-stack/python.svg" alt="Python" width="44" />
               <p>Python</p>
             </div>
             <div class="tabs-inner-nodejs">
-              <img src="@@/public/img/tech-stack/node.svg" alt="NodeJS" width="52" />
+              <img src="~/assets/tech-stack/node.svg" alt="NodeJS" width="52" />
               <p>NodeJs</p>
             </div>
             <div class="tabs-inner-golang">
-              <img src="@@/public/img/tech-stack/gl.svg" alt="Golang" width="52" />
+              <img src="~/assets/tech-stack/gl.svg" alt="Golang" width="52" />
               <p>Golang</p>
             </div>
           </div>
@@ -108,15 +108,15 @@
           </p>
           <div class="screen-inner">
             <div class="screen-inner_angular">
-              <img src="@@/public/img/tech-stack/angular.svg" alt="Angular" width="53" />
+              <img src="~/assets/tech-stack/angular.svg" alt="Angular" width="53" />
               <p>Angular</p>
             </div>
             <div class="screen-inner_react">
-              <img src="@@/public/img/tech-stack/react.svg" alt="React" width="52" />
+              <img src="~/assets/tech-stack/react.svg" alt="React" width="52" />
               <p>React</p>
             </div>
             <div class="screen-inner_vue">
-              <img src="@@/public/img/tech-stack/vue.svg" alt="Vue" width="70" />
+              <img src="~/assets/tech-stack/vue.svg" alt="Vue" width="70" />
               <p>Vue</p>
             </div>
           </div>
@@ -159,14 +159,14 @@
           <div class="phone-inner">
             <img
               class="phone-inner_react"
-              src="@@/public/img/tech-stack/react.svg"
+              src="~/assets/tech-stack/react.svg"
               alt="React Native"
               width="52"
             />
             <p class="phone-inner_react-text">React Native</p>
             <img
               class="phone-inner_flutter"
-              src="@@/public/img/tech-stack/flutter.svg"
+              src="~/assets/tech-stack/flutter.svg"
               alt="Flutter"
               width="52"
             />
@@ -207,7 +207,7 @@
             tested hosting providers.
           </p>
           <div class="cloud-inner">
-            <img src="@@/public/img/tech-stack/aws.svg" alt="AWS" width="52" />
+            <img src="~/assets/tech-stack/aws.svg" alt="AWS" width="52" />
             <p>AWS</p>
           </div>
         </div>
@@ -261,7 +261,7 @@ import { Component, Vue } from "vue-property-decorator";
 import TitleBlock from "../elements/title.vue";
 import StripeWrapper from "../elements/strip-bg.vue";
 import CustomModal from "../elements/custom-modal.vue";
-import imgs from '../../../public/img/tech-stack'
+import imgs from '~/assets/tech-stack'
 
 @Component({
   components: {

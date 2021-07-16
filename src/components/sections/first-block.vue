@@ -20,7 +20,7 @@
        <img
         class="fb__bg-img"
         alt="XDEVS developers"
-        src="@@/public/img/first-block/bg-developers.svg"
+        src="~/assets/first-block/bg-developers.svg"
       />
     </div>
   </section>
