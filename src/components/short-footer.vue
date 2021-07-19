@@ -3,13 +3,13 @@
     <div class="sf__container container">
       <p class="sf__left">© 2021 XDEVS, ALL RIGHTS RESERVED</p>
       <div class="sf__right">
-        <a class="custom-link" href="/terms-of-use">
+        <nuxt-link to='/Terms' class="custom-link">
           Terms of use
-        </a>
-
-        <a class="custom-link" href="/privacy-policy">
+        </nuxt-link>
+        
+        <nuxt-link to='/PrivacyPolicy' class="custom-link">
           Privacy Policy
-        </a>
+        </nuxt-link>
       </div>
     </div>
   </section>
