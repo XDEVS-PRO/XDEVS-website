@@ -65,9 +65,9 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import TitleBlock from "../elements/title.vue";
-import StripeWrapper from "../elements/strip-bg.vue";
-import { contactUs } from "../../assets/data/index-page.json";
+import TitleBlock from "~/src/components/elements/title.vue";
+import StripeWrapper from "~/src/components/elements/strip-bg.vue";
+import { contactUs } from "~/src/assets/data/index-page.json";
 
 @Component({
   components: {

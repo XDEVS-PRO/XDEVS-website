@@ -47,9 +47,9 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import StripeWrapper from "../components/elements/strip-bg.vue";
-import DarkBg from "../components/elements/dark-bg.vue";
-import { headerList } from "../assets/data/header.json";
+import StripeWrapper from "~/src/components/elements/strip-bg.vue";
+import DarkBg from "~/src/components/elements/dark-bg.vue";
+import { headerList } from "~/src/assets/data/header.json";
 
 @Component({
   components: {

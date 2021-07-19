@@ -20,7 +20,7 @@
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
-import StripeWrapper from "../elements/strip-bg.vue";
+import StripeWrapper from "~/src/components/elements/strip-bg.vue";
 
 @Component({
   components: {

@@ -22,8 +22,8 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import TitleBlock from "../elements/title.vue";
-import StripeWrapper from "../elements/strip-bg.vue";
+import TitleBlock from "~/src/components/elements/title.vue";
+import StripeWrapper from "~/src/components/elements/strip-bg.vue";
 
 import imgs from '~/assets/services/index'
 

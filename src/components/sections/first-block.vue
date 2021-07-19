@@ -28,8 +28,8 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import StripeWrapper from "../elements/strip-bg.vue";
-import DarkBg from "../elements/dark-bg.vue";
+import StripeWrapper from "~/src/components/elements/strip-bg.vue";
+import DarkBg from "~/src/components/elements/dark-bg.vue";
 
 
 @Component({
