@@ -12,7 +12,7 @@
       "create": "Web application",
       "src": "our-projects/co.png",
       "title": "Chargeback Optimizer",
-      "link": "~/assets/our-projects/ms-global.png",
+      "link": "http://chargebackoptimizer.com/",
       "desc": "Chargeback Optimizer is a platform for quickly solving problems with cashless payments.\n\nKey features:\n- Automated processing of ATM logs, error detection\n- Detection and prevention of fraud in the early stages\n- Standardization and automation of reporting on disputed transactions\n- integration with Mastercard API. \n \n The client needed an MVP in a really short period of time. In less than 1.5 months we built an astonishing application that helped our client get new investors.  ",
       "id": "2"
     },
