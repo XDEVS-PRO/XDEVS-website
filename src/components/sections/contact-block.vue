@@ -50,7 +50,7 @@
               class="cb__info-right-icon"
               width="277"
               alt="Contact Person"
-              src="~/assets/contact-us/per-i.svg"
+              src="~/static/contact-us/per-i.svg"
             />
           </div>
         </div>
