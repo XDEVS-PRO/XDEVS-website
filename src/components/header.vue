@@ -5,14 +5,14 @@
     <div class="header__container container">
       <div class="header__inner">
         <div class="header__left">
-          <a href="/">
+          <nuxt-link to='/'>
             <img
               class="header__left-img"
               src="~/assets/logo-header.svg"
               width="120px"
               alt="XDEVS"
             />
-          </a>
+          </nuxt-link>
         </div>
         <div class="header__right" v-if="headerList.length">
           <template v-if="!isNotIndex">
