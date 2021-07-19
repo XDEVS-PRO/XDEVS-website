@@ -14,16 +14,16 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 
-import FirstBlock from "../src/components/sections/first-block.vue";
-import CoreTeam from "../src/components/sections/team-block.vue";
-import TechStack from "../src/components/sections/tech-stack.vue";
-import ServicesBlock from "../src/components/sections/services-block.vue";
-import ContactBlock from "../src/components/sections/contact-block.vue";
-import SliderBlock from "../src/components/sections/slider-block.vue";
-import BestOf from "../src/components/sections/best-of.vue";
-import OurProjects from "../src/components/sections/our-projects.vue";
-import { ourProjects } from "../src/assets/data/index-page.json";
-import PageMixin from "../src/mixins/page"; 
+import FirstBlock from "~/src/components/sections/first-block.vue";
+import CoreTeam from "~/src/components/sections/team-block.vue";
+import TechStack from "~/src/components/sections/tech-stack.vue";
+import ServicesBlock from "~/src/components/sections/services-block.vue";
+import ContactBlock from "~/src/components/sections/contact-block.vue";
+import SliderBlock from "~/src/components/sections/slider-block.vue";
+import BestOf from "~/src/components/sections/best-of.vue";
+import OurProjects from "~/src/components/sections/our-projects.vue";
+import { ourProjects } from "~/src/assets/data/index-page.json";
+import PageMixin from "~/src/mixins/page"; 
 
 
 @Component({
