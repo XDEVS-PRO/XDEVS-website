@@ -63,7 +63,7 @@ export default class FooterBlock extends Vue {
 
   created() {
     this.headerList = headerList;
-    // if (this.$route.fullPath !== "/") this.isNotIndex = true;
+    if (this.$nuxt.$route.fullPath !== "/") this.isNotIndex = true;
   }
 }
 </script>

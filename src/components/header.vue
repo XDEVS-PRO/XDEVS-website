@@ -125,7 +125,7 @@ export default class HeaderBlock extends Vue {
   created() {
     this.contactUs = contactUs;
     this.headerList = headerList;
-    if (this.$route.fullPath !== "/") this.isNotIndex = true;
+    if (this.$nuxt.$route.fullPath !== "/") this.isNotIndex = true;
   }
 }
 </script>
