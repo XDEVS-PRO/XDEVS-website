@@ -1,8 +1,6 @@
 <template>
   <section class="check">
     <header-block />
-    <!-- <portal-target name="tech-block"></portal-target>
-    <portal-target name="modal"></portal-target> -->
     <div id="root-wrapper">
       <nuxt />
     </div>
@@ -13,9 +11,9 @@
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
-import HeaderBlock from "../src/components/header.vue";
-import FooterBlock from "../src/components/footer.vue";
-import ShortFooter from "../src/components/short-footer.vue";
+import HeaderBlock from "~/src/components/header.vue";
+import FooterBlock from "~/src/components/footer.vue";
+import ShortFooter from "~/src/components/short-footer.vue";
 @Component({
 
   components: {
