@@ -11,9 +11,9 @@
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
-import HeaderBlock from "~/src/components/header.vue";
-import FooterBlock from "~/src/components/footer.vue";
-import ShortFooter from "~/src/components/short-footer.vue";
+import HeaderBlock from "~/components/header.vue";
+import FooterBlock from "~/components/footer.vue";
+import ShortFooter from "~/components/short-footer.vue";
 @Component({
 
   components: {
