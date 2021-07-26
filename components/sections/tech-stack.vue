@@ -258,9 +258,9 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import TitleBlock from "~/src/components/elements/title.vue";
-import StripeWrapper from "~/src/components/elements/strip-bg.vue";
-import CustomModal from "~/src/components/elements/custom-modal.vue";
+import TitleBlock from "~/components/elements/title.vue";
+import StripeWrapper from "~/components/elements/strip-bg.vue";
+import CustomModal from "~/components/elements/custom-modal.vue";
 import imgs from '~/assets/tech-stack'
 
 @Component({

@@ -114,9 +114,9 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from "vue-property-decorator";
-import TitleBlock from "~/src/components/elements/title.vue";
-import DarkBg from "~/src/components/elements/dark-bg.vue";
-import StripeWrapper from "~/src/components/elements/strip-bg.vue";
+import TitleBlock from "~/components/elements/title.vue";
+import DarkBg from "~/components/elements/dark-bg.vue";
+import StripeWrapper from "~/components/elements/strip-bg.vue";
 
 export interface Project {
   src: string;

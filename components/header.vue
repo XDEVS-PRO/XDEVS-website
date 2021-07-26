@@ -95,9 +95,9 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import StripeWrapper from "~/src/components/elements/strip-bg.vue";
-import DarkBg from "~/src/components/elements/dark-bg.vue";
-import ScrollTo from "~/src/components/elements/scroll-to.vue";
+import StripeWrapper from "~/components/elements/strip-bg.vue";
+import DarkBg from "~/components/elements/dark-bg.vue";
+import ScrollTo from "~/components/elements/scroll-to.vue";
 import { headerList } from "~/src/assets/data/header.json";
 import { contactUs } from "~/src/assets/data/index-page.json";
 
