@@ -3,7 +3,7 @@ export default {
 
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
 
-  ssr: false,
+  ssr: true,
 
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -30,7 +30,7 @@ export default {
   css: [
     "./src/assets/styles/_swiper-styles",
     "./src/assets/styles/main",
-  ], 
+  ],
 
 
 
@@ -52,10 +52,13 @@ export default {
   modules: [
     '@nuxt/content'
   ],
+  content: {
+    liveEdit: false
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   },
-  
+
 
 }
