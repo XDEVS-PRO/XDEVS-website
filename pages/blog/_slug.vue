@@ -74,7 +74,7 @@
         </ul>
       </nav>
       <!-- content from markdown -->
-      <nuxt-content :document="article" />
+      <!-- <nuxt-content :document="article" /> -->
       <!-- content author component -->
       <author :author="article.author" />
       <!-- prevNext component -->
@@ -124,7 +124,7 @@ export default {
   font-size: 22px;
 }
 .icon.icon-link {
-  background-image: url('~assets/svg/icon-hashtag.svg');
+  /* background-image: url('~assets/svg/icon-hashtag.svg'); */
   display: inline-block;
   width: 20px;
   height: 20px;
