@@ -38,6 +38,7 @@
     "dist"
   ],
   "include": [
-    "./custom.d.ts"
+    "./custom.d.ts",
+    "./src/mixins/page.ts"
   ],
 }
