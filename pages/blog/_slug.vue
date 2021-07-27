@@ -74,7 +74,7 @@
         </ul>
       </nav>
       <!-- content from markdown -->
-      <!-- <nuxt-content :document="article" /> -->
+      <nuxt-content :document="article" />
       <!-- content author component -->
       <author :author="article.author" />
       <!-- prevNext component -->

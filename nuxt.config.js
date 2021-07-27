@@ -1,9 +1,7 @@
 export default {
-
-
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
 
-  ssr: true,
+  ssr: false,
 
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -46,6 +44,7 @@ export default {
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     "@nuxtjs/svg",
+    '@nuxtjs/router-extras',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -53,7 +52,7 @@ export default {
     '@nuxt/content'
   ],
   content: {
-    liveEdit: false
+    liveEdit: true
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

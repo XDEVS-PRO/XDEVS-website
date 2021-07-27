@@ -8,9 +8,9 @@
 </template>
 
 <router> 
-{
-  path: '/our-projects'
-} 
+  {
+    path: '/our-projects'
+  } 
 </router>
 
 <script lang="ts">
