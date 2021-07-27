@@ -7,6 +7,12 @@
   </div>
 </template>
 
+<router> 
+{
+  path: '/our-projects'
+} 
+</router>
+
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import ContactBlock from "~/components/sections/contact-block.vue";
@@ -26,6 +32,7 @@ export default class OurProjects extends Vue {
     this.ourProjectList = ourProjects;
   }
 }
+
 </script>
 
 <style lang="scss" scoped>
