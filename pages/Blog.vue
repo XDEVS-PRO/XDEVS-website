@@ -116,6 +116,7 @@ ul {
 .article__img {
   width: 100%;
   height: 192px;
+  object-fit: cover;
 }
 
 .article__title {
@@ -138,6 +139,7 @@ ul {
 }
 
 .article__content {
+  min-height: 139px;
   padding: 25px;
   border: 1px solid lightgray;
   border-top: none;
@@ -169,10 +171,32 @@ ul {
 }
 
 @media screen and (min-width: 400px) {
-  
   .container {
     padding-left: 65px;
     padding-right: 65px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+  .container {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .article-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .article {
+    max-width: 320px;
+  }
+}
+
+@media screen and (min-width: 820px) {
+  .article-list {
+    justify-content: space-around;
   }
 }
 </style>
