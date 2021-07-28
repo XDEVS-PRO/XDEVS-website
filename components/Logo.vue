@@ -1,4 +1,5 @@
 <template>
+<nuxt-link to='/'> 
 <svg width="43" height="48" viewBox="0 0 43 48" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M22.1257 15.8359L17.644 8.94354H7.95394L16.1905 20.9641L22.1257 15.8359Z" fill="#232323"/>
 <path d="M24.4271 30.8923L28.9087 37.7025H38.5988L30.6449 26.0923L24.4271 30.8923Z" fill="#232323"/>
@@ -18,4 +19,5 @@
 </linearGradient>
 </defs>
 </svg>
+</nuxt-link>
 </template>

@@ -1,67 +1,51 @@
 <template>
-  <div class="m-8">
+  <div class="container">
     <TheHeader />
-
-    <h1 class="font-bold text-4xl">Blog Posts</h1>
-    <ul class="flex flex-wrap">
+    <h1 class="title">Blog Posts</h1>
+    <ul class="article-list">
       <li
         v-for="article of articles"
         :key="article.slug"
-        class="xs:w-full md:w-1/2 px-2 xs:mb-6 md:mb-12 article-card"
+        class="article"
       >
         <NuxtLink
           :to="{ name: 'blog-slug', params: { slug: article.slug } }"
-          class="flex transition-shadow duration-150 ease-in-out shadow-sm hover:shadow-md xxlmax:flex-col"
+          class="article__link"
         >
           <img
             v-if="article.img"
-            class="h-48 xxlmin:w-1/2 xxlmax:w-full object-cover"
+            class="article__img"
             :src="article.img"
           />
-
-          <div
-            class="p-6 flex flex-col justify-between xxlmin:w-1/2 xxlmax:w-full"
-          >
-            <h2 class="font-bold">{{ article.title }}</h2>
-            <p>by {{ article.author.name }}</p>
-            <p class="font-bold text-gray-600 text-sm">
+          <div class="article__content">
+            <h2 class="article__title">{{ article.title }}</h2>
+            <p class="article__author">by {{ article.author.name }}</p>
+            <p class="article__description">
               {{ article.description }}
             </p>
           </div>
         </NuxtLink>
       </li>
     </ul>
-    <h3 class="mb-4 font-bold text-2xl uppercase text-center">Topics</h3>
-    <ul class="flex flex-wrap mb-4 text-center">
+    <h3 class="topics">Topics</h3>
+    <ul class="tags-list">
       <li
         v-for="tag of tags"
         :key="tag.slug"
-        class="xs:w-full md:w-1/3 lg:flex-1 px-2 text-center"
+        class="tag"
       >
-        <NuxtLink :to="`/blog/tag/${tag.slug}`" class="">
+        <NuxtLink :to="`/blog/tag/${tag.slug}`" class="tag__link">
           <p
-            class="font-bold text-gray-600 uppercase tracking-wider font-medium text-ss"
+            class="tag__name"
           >
             {{ tag.name }}
           </p>
         </NuxtLink>
       </li>
     </ul>
-    <footer class="flex justify-center border-gray-500 border-t-2">
-      <p class="mt-4">
-        Created by
-        <a
-          href="https://twitter.com/debs_obrien"
-          class="font-bold hover:underline"
-          >Debbie O'Brien</a
-        >
-        at NuxtJS. See the
-        <a
-          href="https://nuxtjs.org/blog/creating-blog-with-nuxt-content"
-          class="font-bold hover:underline"
-          >tutorial</a
-        >
-        for how to build it.
+    <footer class="footer">
+      <p>
+        xdevs blog
       </p>
     </footer>
   </div>
@@ -87,15 +71,108 @@ export default {
 }
 </script>
 
-<style class="postcss">
-.article-card {
-  border-radius: 8px;
+<style class="css" scoped>
+
+* {
+  box-sizing: border-box;
 }
-.article-card a {
-  background-color: #fff;
-  border-radius: 8px;
+
+a {
+  text-decoration: none;
 }
-.article-card img div {
-  border-radius: 8px 0 0 8px;
+
+ul {
+  list-style-type: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  line-height: 1.25;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 2.25rem;
+  margin: 10px 0 10px 0;
+}
+
+.article-list{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.article {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.article__img {
+  width: 100%;
+  height: 192px;
+}
+
+.article__title {
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: black;
+}
+
+.article__author {
+  color: black;
+  font-weight: 300;
+}
+
+.article__description {
+  color: gray;
+  line-height: 1.3;
+  margin-top: 5px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.article__content {
+  padding: 25px;
+  border: 1px solid lightgray;
+  border-top: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.topics {
+  align-self: center;
+}
+
+.tags-list {
+  text-align: center;
+}
+
+.tag {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 10px;
+}
+
+.tag__name {
+  color: gray;
+  text-transform: uppercase;
+}
+
+.footer {
+  margin-top: 15px;
+}
+
+@media screen and (min-width: 400px) {
+  
+  .container {
+    padding-left: 65px;
+    padding-right: 65px;
+  }
 }
 </style>

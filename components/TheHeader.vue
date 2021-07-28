@@ -1,5 +1,5 @@
 <template>
-  <header class="flex">
+  <header class="container">
     <NuxtLink to="/Blog"><Logo class="logo" /></NuxtLink>
     <AppSearchInput class="search" />
   </header>
@@ -9,6 +9,15 @@
 
 </script>
 <style scoped>
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
 .logo {
   margin-bottom: 4px;
 }
