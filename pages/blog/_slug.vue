@@ -113,6 +113,7 @@ export default {
   layout: 'blogLayout'
 }
 </script>
+
 <style>
 .nuxt-content p {
   margin-bottom: 20px;

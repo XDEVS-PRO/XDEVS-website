@@ -173,7 +173,7 @@ export default class CoreTeam extends Vue {
       title: "Nik Tov",
       position: "Front-End Developer",
       desc:
-        "Hi! \n I'm a Front-End developer. My job is to create the visual part of the app looks great and create interactive logic. You can see my work right now but some part is hidden in deep code. \n So, I started my way two years ago and now I really enjoin with my work. In Xdevs we have interesting tasks and time at a time it's tried and Improves my soft-skills and my development skills. It's not a simple way but I`m really happy to have the chance to join the tour group. \n Well, I hope we can see my work and it helps you with your business. "
+        "Hey! \n Need a website? Not a problem, I'm developing websites for more than two years. Our team will provide complex solutions using all our knowledge and experience to help your business stay on top!"
     }
   ];
 
