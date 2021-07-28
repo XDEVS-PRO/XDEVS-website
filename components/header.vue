@@ -108,6 +108,7 @@ import { contactUs } from "~/src/assets/data/index-page.json";
     ScrollTo
   }
 })
+
 export default class HeaderBlock extends Vue {
   isShowMobMenu = false;
   isNotIndex = false;
@@ -128,6 +129,12 @@ export default class HeaderBlock extends Vue {
     if (this.$nuxt.$route.fullPath !== "/") this.isNotIndex = true;
   }
 }
+
+// export default {
+//   components: {
+    
+//   }
+// }
 </script>
 
 <style lang="scss" scoped>

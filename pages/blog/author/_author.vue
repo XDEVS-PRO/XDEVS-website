@@ -83,6 +83,7 @@ export default {
       const options = { year: 'numeric', month: 'long', day: 'numeric' }
       return new Date(date).toLocaleDateString('en', options)
     }
-  }
+  },
+  layout: 'blogLayout'
 }
 </script>

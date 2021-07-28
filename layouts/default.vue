@@ -9,20 +9,18 @@
   </section>
 </template>
 
-<script lang="ts">
-import { Vue, Component } from "vue-property-decorator";
+ <script lang="ts">
 import HeaderBlock from "~/components/header.vue";
 import FooterBlock from "~/components/footer.vue";
 import ShortFooter from "~/components/short-footer.vue";
-@Component({
 
+export default {
   components: {
     HeaderBlock,
     FooterBlock,
     ShortFooter
   }
-})
-export default class DefaultLayout extends Vue {}
+}
 </script>
 
 <style lang="scss" scoped>

@@ -82,7 +82,8 @@ export default {
       articles,
       tags
     }
-  }
+  },
+  layout: 'blogLayout'
 }
 </script>
 
