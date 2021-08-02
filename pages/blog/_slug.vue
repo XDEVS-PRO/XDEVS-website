@@ -1,58 +1,45 @@
 <template>
-  <article
-    class="flex lg:h-screen w-screen lg:overflow-hidden xs:flex-col lg:flex-row"
-  >
-    <div class="relative lg:w-1/2 xs:w-full xs:h-84 lg:h-full post-left">
-      <img
-        :src="article.img"
-        :alt="article.alt"
-        class="absolute h-full w-full object-cover"
-      />
-      <div class="overlay"></div>
-      <div class="absolute top-32 left-32 text-white">
-        <NuxtLink to="/"><Logo /></NuxtLink>
-        <div class="mt-16 -mb-3 flex uppercase text-sm">
-          <p class="mr-3">
+<section class="container-main-slug"> 
+  <div class="img-content">
+    <img :src="article.img"
+         :alt="article.alt"
+         class="img-main" />
+    <div class="img-content__container">
+        <h1 class="img-content__title">
+          {{ article.title }} 
+        </h1>
+        <p class="img-content__date">
             {{ formatDate(article.updatedAt) }}
-          </p>
-          <span class="mr-3">•</span>
-          <p>{{ article.author.name }}</p>
-        </div>
-        <h1 class="text-6xl font-bold">{{ article.title }}</h1>
-        <span v-for="(tag, id) in article.tags" :key="id">
+        </p>
+        <p class="img-content__author">
+         by {{article.author.name}}
+        </p>
+      <span v-for="(tag, id) in article.tags" :key="id" 
+      class="tags-list">
           <NuxtLink :to="`/blog/tag/${tags[tag].slug}`">
             <span
-              class="truncate uppercase tracking-wider font-medium text-ss px-2 py-1 rounded-full mr-2 mb-2 border border-light-border dark:border-dark-border transition-colors duration-300 ease-linear"
+              class="tag"
             >
               {{ tags[tag].name }}
             </span>
           </NuxtLink>
-        </span>
-      </div>
-      <div class="flex absolute top-3rem right-3rem">
-        <NuxtLink
-          to="/"
-          class="mr-8 self-center text-white font-bold hover:underline"
-        >
-          All articles
-        </NuxtLink>
-        <a
-          href="https://nuxtjs.org/blog/creating-blog-with-nuxt-content"
-          class="mr-8 self-center text-white font-bold hover:underline"
-        >
-          Tutorial
-        </a>
-        <AppSearchInput />
-      </div>
+      </span>
     </div>
-    <div
-      class="relative xs:py-8 xs:px-8 lg:py-32 lg:px-16 lg:w-1/2 xs:w-full h-full overflow-y-scroll markdown-body post-right custom-scroll"
-    >
-      <h1 class="font-bold text-4xl">{{ article.title }}</h1>
-      <p>{{ article.description }}</p>
-      <p class="pb-4">Post last updated: {{ formatDate(article.updatedAt) }}</p>
-      <!-- table of contents -->
-      <nav class="pb-6">
+  </div>
+  <div class="info-content">
+    <div class="info-content__about">
+      <h2 class="info-content__title">
+      {{article.title}}
+    </h2>
+    <p class="info-content__description">
+      {{article.description}}
+    </p>
+    <p class="info-content__updated">
+      Post last updated at: 
+      {{ formatDate(article.updatedAt) }}
+    </p>
+    </div>
+    <nav class="info-content__nav">
         <ul>
           <li
             v-for="link of article.toc"
@@ -63,13 +50,13 @@
           >
             <nuxtLink
               :to="`#${link.id}`"
-              class="hover:underline"
+              class="info-content__nav-item"
               :class="{
-                'py-2': link.depth === 2,
-                'ml-2 pb-2': link.depth === 3
+                'link-padding': link.depth === 2,
+                'link-nested-margin': link.depth === 3
               }"
-              >{{ link.text }}</nuxtLink
-            >
+              >#{{ link.text }}
+            </nuxtLink>
           </li>
         </ul>
       </nav>
@@ -78,9 +65,10 @@
       <!-- content author component -->
       <author :author="article.author" />
       <!-- prevNext component -->
-      <PrevNext :prev="prev" :next="next" class="mt-8" />
-    </div>
-  </article>
+      <PrevNext :prev="prev" :next="next" class="prev-next" />
+
+  </div>
+</section>
 </template>
 
 <script>
@@ -115,17 +103,49 @@ export default {
 </script>
 
 <style>
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
 .nuxt-content p {
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
+
 .nuxt-content h2 {
+  margin-bottom: 5px;
   font-weight: bold;
-  font-size: 28px;
+  font-size: 1.6rem;
 }
+
 .nuxt-content h3 {
   font-weight: bold;
-  font-size: 22px;
+  font-size: 1.3rem;
 }
+
+.tags-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+}
+
+.tag {
+  font-size: 1.2rem;
+  color: white;
+  border: 1px solid white;
+  border-radius: 16px;
+  padding: 5px 7px 5px 7px;
+}
+
 .icon.icon-link {
   /* background-image: url('~assets/svg/icon-hashtag.svg'); */
   display: inline-block;
@@ -133,4 +153,214 @@ export default {
   height: 20px;
   background-size: 20px 20px;
 }
+
+.container-main-slug {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.img-content {
+  position: relative
+} 
+
+.img-content__container {
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  color: white;
+  font-size: 2.25rem;
+  align-self: center;
+}
+
+.img-content__author {
+  font-size: 1.375rem;
+  font-weight: 300;
+  margin-top: 30px;
+}
+
+.img-main {
+  width: 100%;
+  object-fit: cover;
+  filter: brightness(50%);
+  min-height: 360px;
+}
+
+.img-content__date {
+  font-size: 1.25rem;
+}
+
+.info-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.info-content__about {
+  margin-bottom: 25px;
+}
+
+.info-content__title {
+  font-size: 2rem;
+  margin-top: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.info-content__description {
+  margin-top: 25px;
+  max-width: 80%;
+}
+
+.info-content__updated {
+  margin-top: 15px;
+  font-size: 1rem;
+}
+
+.info-content__nav {
+  margin-top: 25px;
+  display: flex;
+  text-align: center;
+}
+
+.info-content__nav-item {
+  color: black;
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-top: 10px;
+  line-height: 1.4;
+  align-self: center;
+}
+
+.link-nested-margin {
+  margin-left: 8px;
+  font-size: 1.1rem;
+}
+
+.nuxt-content {
+  margin: 20px 0 0 0;
+  text-align: center;
+  align-self: center;
+}
+
+.nuxt-content-container {
+  max-width: 100%;
+}
+
+.nuxt-content p {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.nuxt-content h2 {
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.nuxt-content h3 {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.nuxt-content-highlight {
+  max-width: 100%;
+}
+
+.prev-next {
+  margin-top: 10px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.4;
+}
+
+@media screen and (min-width: 600px) {
+ .img-content__container {
+    font-size: 60px;
+  }
+
+  .img-content__author {
+    font-size: 28px;
+  }
+
+  .info-content__date {
+    font-size: 24px;
+  }
+
+  .img-content__title {
+    margin-bottom: 15px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+  .img-content__container {
+    top: 12%;
+    font-size: 76px;
+  }
+
+  .img-content__author {
+    font-size: 32px;
+  }
+
+  .info-content__date {
+    font-size: 28px;
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+
+  .container-main-slug {
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 100%;
+    font-size: 20px;
+  }
+  
+  .img-content {
+    width: 50%;
+    max-height: 100vh;
+  }
+
+  .img-main {
+    height: 100vh;
+  }
+
+  .info-content {
+    overflow: scroll;
+    height: 100vh;
+    width: 50%;
+  }
+
+  .info-content__title {
+    margin-top: 70px;
+  }
+  
+  .tags-list  {
+    flex-direction: row;
+  }
+}
+  @media screen and (min-width: 1400px) {
+    
+    .container-main-slug {
+      font-size: 23px;
+    }
+    
+  }
+
+   @media screen and (min-width: 1600px) {
+    
+    .container-main-slug {
+      font-size: 25px;
+    }
+    
+  }
+
 </style>
