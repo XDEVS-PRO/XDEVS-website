@@ -133,7 +133,7 @@ ul {
 }
 
 .article__description {
-  color: gray;
+  color: #718096;
   line-height: 1.3;
   margin-top: 15px;
   font-size: 0.9rem;

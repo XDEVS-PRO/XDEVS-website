@@ -281,6 +281,7 @@ a {
 }
 
 @media screen and (min-width: 600px) {
+
  .img-content__container {
     font-size: 60px;
   }
@@ -360,7 +361,5 @@ a {
     .container-main-slug {
       font-size: 25px;
     }
-    
   }
-
 </style>

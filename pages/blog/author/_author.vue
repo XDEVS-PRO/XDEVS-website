@@ -176,7 +176,7 @@ a {
 }
 
 .article__content-description {
-  color: lightgray;
+  color: #718096;
   font-weight: bold;
   font-size: 0.8rem;
   margin: 5px 0 5px 0;

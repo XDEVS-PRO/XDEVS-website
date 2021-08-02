@@ -153,7 +153,7 @@ a {
 }
 
 .article-description {
-  color: gray;
+  color: #718096;
   line-height: 1.3;
   margin-top: 15px;
   margin-bottom: 15px;
