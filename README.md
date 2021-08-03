@@ -67,3 +67,32 @@ More information about the usage of this directory in [the documentation](https:
 This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+
+## Creating Articles
+
+When adding new article, create .md file into content/articles. 
+For a fast way, just copy all content in the beginning of the file from another article. 
+Change title, description e.t.c.
+ When you're adding tags be sure that tag existing in the content/tags directory.
+After second --- you can write the body of your article.
+Use "#" as heading of the article.
+"#" = h1
+"##" = h2
+"###" = h3
+e.t.c.
+You can include HTML tags into your article like 
+"<div>" "<p>".
+
+Also, you can use components into .md, but be sure they are included into components/global.
+If you need to write a code into the article, use that syntax:
+"```js[exampleFile.js]
+let counter = 0;
+counter++;
+```"
+By including of Prism into the project, all syntax will be highlighted.
+Just specify extension after "```" for example js or html.
+Then you can write file name into [ ] (if needed).
+
+If you want to know more about .md look at this: https://www.markdownguide.org/basic-syntax/
+
+ 
