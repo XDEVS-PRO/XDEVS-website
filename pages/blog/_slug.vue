@@ -247,6 +247,7 @@ a {
   margin: 20px 0 0 0;
   text-align: center;
   align-self: center;
+  line-height: 1.4;
 }
 
 .nuxt-content-container {
