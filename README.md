@@ -78,10 +78,14 @@ Change title, description e.t.c.
 When you're adding tags be sure that tag existing in the content/tags directory.
 
 After second --- you can write the body of your article.
-Use "#" as heading of the article.
-"#" = h1
-"##" = h2
-"###" = h3
+Use "#" as heading of the article.  
+
+"#" = h1  
+
+"##" = h2  
+
+"###" = h3  
+
 e.t.c.
 You can include HTML tags into your article like 
 `<div>` or `<p>`
@@ -92,10 +96,16 @@ Also, you can use components into .md, but be sure they are included into compon
 If you need to write a code into the article, use that syntax:
 
 ` ```js[exampleFile.js]
+
+
 let counter = 0;
+
+
 counter++;
 ``` `
 By including of Prism into the project, all syntax will be highlighted.
+
+
 Just specify extension after "```" for example js or html.
 Then you can write file name into [ ] (if needed).
 
