@@ -71,8 +71,7 @@ More information about the usage of this directory in [the documentation](https:
 ## Creating Articles
 
 When adding new article, create .md file into content/articles. 
-For a fast way, just copy all content in the beginning of the file from another article. 
-
+For a fast way, just copy all content in the beginning of the file from another article.  
 
 Change title, description e.t.c.
 When you're adding tags be sure that tag existing in the content/tags directory.
@@ -86,7 +85,8 @@ Use "#" as heading of the article.
 
 "###" = h3  
 
-e.t.c.
+e.t.c. 
+
 You can include HTML tags into your article like 
 `<div>` or `<p>`
 
@@ -103,6 +103,10 @@ By including of Prism into the project, all syntax will be highlighted.
 Just specify extension after "```" for example js or html.
 Then you can write file name into [ ] (if needed).
 
-If you want to know more about .md look at <a href="https://www.markdownguide.org/basic-syntax/">this</a>
+If you want to know more about .md look at <a href="https://www.markdownguide.org/basic-syntax/">this</a>.
 
- 
+## Edit Article
+
+When you need to edit article the most easiest way is open project in dev mode via `npm run dev` then go the page with article and double click on it to open text-area. 
+
+There you can easly edit .md.
