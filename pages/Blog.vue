@@ -46,7 +46,7 @@
     </ul>
     <footer class="footer">
       <p>
-        xdevs blog
+        <NuxtLink to="/" class="footer__link">xdevs</NuxtLink> blog
       </p>
     </footer>
   </div>
@@ -178,6 +178,10 @@ ul {
 
 .footer {
   margin-top: 15px;
+}
+
+.footer__link {
+  color: black;
 }
 
 @media screen and (min-width: 768px) {

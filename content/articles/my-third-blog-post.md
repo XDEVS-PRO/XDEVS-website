@@ -16,7 +16,7 @@ tags:
 
 ## This is a heading
 This is some more info
-<div class="bg-blue-500 text-white p-4 mb-4">
+<div class="blue-bg">
   This is HTML inside markdown that has a class some classes
 </div>
 

@@ -45,7 +45,7 @@ a {
   max-width: 420px;
   width: 60%;
   height: 280px;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .author__container {

@@ -18,7 +18,7 @@
       class="tags-list">
           <NuxtLink :to="`/blog/tag/${tags[tag].slug}`">
             <span
-              class="tag"
+              class="tag-item"
             >
               {{ tags[tag].name }}
             </span>
@@ -55,7 +55,7 @@
                 'link-padding': link.depth === 2,
                 'link-nested-margin': link.depth === 3
               }"
-              >#{{ link.text }}
+              >{{ link.text }}
             </nuxtLink>
           </li>
         </ul>
@@ -138,7 +138,7 @@ a {
   align-items: flex-start;
 }
 
-.tag {
+.tag-item {
   font-size: 1.2rem;
   color: white;
   border: 1px solid white;
