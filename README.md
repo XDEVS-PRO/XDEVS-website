@@ -90,25 +90,19 @@ e.t.c.
 You can include HTML tags into your article like 
 `<div>` or `<p>`
 
-Also, you can use components into .md, but be sure they are included into components/global.
-
+Also, you can use components into .md, but be sure they are included into components/global. 
 
 If you need to write a code into the article, use that syntax:
 
-` ```js[exampleFile.js]
-
-
-let counter = 0;
-
-
-counter++;
+` ```js[exampleFile.js] 
+let counter = 0; 
+counter++; 
 ``` `
-By including of Prism into the project, all syntax will be highlighted.
-
+By including of Prism into the project, all syntax will be highlighted. 
 
 Just specify extension after "```" for example js or html.
 Then you can write file name into [ ] (if needed).
 
-If you want to know more about .md look at this: https://www.markdownguide.org/basic-syntax/
+If you want to know more about .md look at <a href="https://www.markdownguide.org/basic-syntax/">this</a>
 
  
