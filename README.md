@@ -91,10 +91,10 @@ Also, you can use components into .md, but be sure they are included into compon
 
 If you need to write a code into the article, use that syntax:
 
-```js[exampleFile.js]
+` ```js[exampleFile.js]
 let counter = 0;
 counter++;
-```
+``` `
 By including of Prism into the project, all syntax will be highlighted.
 Just specify extension after "```" for example js or html.
 Then you can write file name into [ ] (if needed).
