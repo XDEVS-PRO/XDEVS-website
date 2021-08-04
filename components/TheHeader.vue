@@ -19,6 +19,7 @@
   align-items: center;
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
 .logo {

@@ -131,6 +131,11 @@ a {
   font-size: 1.3rem;
 }
 
+.nuxt-content img {
+  max-width: 80%;
+  object-fit: cover;
+}
+
 .tags-list {
   display: flex;
   flex-direction: column;

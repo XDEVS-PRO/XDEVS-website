@@ -130,11 +130,6 @@ export default class HeaderBlock extends Vue {
   }
 }
 
-// export default {
-//   components: {
-    
-//   }
-// }
 </script>
 
 <style lang="scss" scoped>

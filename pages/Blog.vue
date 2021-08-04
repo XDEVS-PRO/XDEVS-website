@@ -44,11 +44,6 @@
         </NuxtLink>
       </li>
     </ul>
-    <footer class="footer">
-      <p>
-        <NuxtLink to="/" class="footer__link">xdevs</NuxtLink> blog
-      </p>
-    </footer>
   </div>
 </template>
 
@@ -68,7 +63,6 @@ export default {
       tags
     }
   },
-  layout: 'blogLayout'
 }
 </script>
 
@@ -87,6 +81,7 @@ ul {
 }
 
 .container-main-blog{
+  margin-top: 120px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -98,7 +93,7 @@ ul {
 .title {
   font-weight: 700;
   font-size: 2.25rem;
-  margin: 20px 0 20px 0;
+  margin: 30px 0 35px 0;
 }
 
 .article-list{
@@ -123,20 +118,22 @@ ul {
 
 .article__title {
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: black;
+  line-height: 1.2;
 }
 
 .article__author {
   color: black;
+  margin-top: 5px;
   font-weight: 300;
 }
 
 .article__description {
   color: #718096;
-  line-height: 1.3;
-  margin-top: 15px;
-  font-size: 0.9rem;
+  line-height: 1.2;
+  margin-top: 12px;
+  font-size: 0.8rem;
   font-weight: bold;
 }
 

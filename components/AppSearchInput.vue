@@ -1,10 +1,11 @@
 <template>
-  <div>
+  <div class="search-content">
     <input
       v-model="searchQuery"
       type="search"
       autocomplete="off"
       placeholder="Search Articles"
+      class="input"
     />
     <ul
       v-if="articles.length"
@@ -20,6 +21,7 @@
     </ul>
   </div>
 </template>
+
 <script>
 export default {
   data() {
@@ -62,4 +64,5 @@ ul {
   margin-top: 12px;
   font-size: 18px;
 }
+
 </style>
