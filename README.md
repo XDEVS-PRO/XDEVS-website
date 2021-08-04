@@ -110,3 +110,8 @@ If you want to know more about .md look at <a href="https://www.markdownguide.or
 When you need to edit article the most easiest way is open project in dev mode via `npm run dev` then go the page with article and double click on it to open text-area. 
 
 There you can easly edit .md.
+
+## Add image into Article
+
+You can't just use `<img />` tag in nuxt-content. 
+Use ArticleImg component in your articles.
