@@ -62,6 +62,4 @@ export default {
   build: {
     
   },
-
-
 }

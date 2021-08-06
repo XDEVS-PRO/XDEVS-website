@@ -5,7 +5,7 @@
     <div class="header__container container">
       <div class="header__inner">
         <div class="header__left">
-          <nuxt-link to='/'>
+          <nuxt-link to="/">
             <img
               class="header__left-img"
               src="~/assets/logo-header.svg"
@@ -14,30 +14,43 @@
             />
           </nuxt-link>
         </div>
+
         <div class="header__right" v-if="headerList.length">
-          <template v-if="!isNotIndex">
-            <a
-              class="header__right-link custom-link"
-              v-for="(item, i) in headerList"
-              :key="i"
-              :href="item.link"
-              >{{ item.title }}</a
-            >
+          <template v-if="isOnIndex()">
+            <template v-for="(item, i) in headerList">
+              <a
+                class="header__right-link custom-link"
+                v-if="item.hash"
+                :href="item.hash"
+                :key="i"
+              >
+                {{ item.title }}
+              </a>
+              <nuxt-link
+                v-else
+                class="header__right-link custom-link"
+                :key="i"
+                :to="{ path: item.link, hash: item.hash }"
+              >
+                {{ item.title }}
+              </nuxt-link>
+            </template>
           </template>
           <template v-else>
-            <a
-              class="header__right-link custom-link"
+            <nuxt-link
               v-for="(item, i) in headerList"
+              class="header__right-link custom-link"
               :key="i"
-              :href="`/${item.link}`"
-              >{{ item.title }}</a
+              :to="{ path: item.link, hash: item.hash }"
             >
+              {{ item.title }}
+            </nuxt-link>
           </template>
 
           <div
             :class="[
               'hamburger hamburger--emphatic js-hamburger',
-              { active: isShowMobMenu }
+              { active: isShowMobMenu },
             ]"
             @click="isShow()"
           >
@@ -48,29 +61,43 @@
         </div>
       </div>
     </div>
+
     <!--  mob menu -->
     <div :class="['mobile-menu', { active: isShowMobMenu }]">
       <div class="mobile-menu-list">
-        <template v-if="!isNotIndex">
-          <a
-            class="mobile-menu-list_link-to-block"
-            @click="isShow()"
-            v-for="(linkBtn, linkIndex) in headerList"
-            :key="linkIndex"
-            :href="linkBtn.link"
-            >{{ linkBtn.title }}</a
-          >
-        </template>
-        <template v-else>
-          <a
-            class="mobile-menu-list_link-to-block"
-            @click="isShow()"
-            v-for="(linkBtn, linkIndex) in headerList"
-            :key="linkIndex"
-            :href="`/${linkBtn.link}`"
-            >{{ linkBtn.title }}</a
-          >
-        </template>
+         <template v-if="isOnIndex()">
+            <template v-for="(item, i) in headerList">
+              <a
+                class="mobile-menu-list_link-to-block"
+                v-if="item.hash"
+                @click="isShow()"
+                :href="item.hash"
+                :key="i"
+              >
+                {{ item.title }}
+              </a>
+              <nuxt-link
+                v-else
+                @click.native="isShow()"
+                class="mobile-menu-list_link-to-block"
+                :key="i"
+                :to="{ path: item.link, hash: item.hash }"
+              >
+                {{ item.title }}
+              </nuxt-link>
+            </template>
+          </template>
+          <template v-else>
+            <nuxt-link
+              v-for="(item, i) in headerList"
+              @click.native="isShow()"
+              class="mobile-menu-list_link-to-block"
+              :key="i"
+              :to="{ path: item.link, hash: item.hash }"
+            >
+              {{ item.title }}
+            </nuxt-link>
+          </template >
 
         <div class="mobile-menu-list_contact">
           <div class="mobile-menu-list_contact-links">
@@ -105,16 +132,24 @@ import { contactUs } from "~/src/assets/data/index-page.json";
   components: {
     StripeWrapper,
     DarkBg,
-    ScrollTo
-  }
+    ScrollTo,
+  },
 })
-
 export default class HeaderBlock extends Vue {
   isShowMobMenu = false;
   isNotIndex = false;
 
-  headerList: Array<{ title: string; link: string }> = [];
-  contactUs: Array<{ img: string; alt: string; link: string }> = [];
+  headerList: Array<{
+    title: string;
+    link: string;
+    hash?: string;
+  }> = [];
+
+  contactUs: Array<{
+    img: string;
+    alt: string;
+    link: string;
+  }> = [];
 
   isShow() {
     this.isShowMobMenu = !this.isShowMobMenu;
@@ -123,13 +158,15 @@ export default class HeaderBlock extends Vue {
       : document.body.classList.remove("un-scroll");
   }
 
+  isOnIndex() {
+    return this.$nuxt.$route.name === "index";
+  }
+
   created() {
     this.contactUs = contactUs;
     this.headerList = headerList;
-    if (this.$nuxt.$route.fullPath !== "/") this.isNotIndex = true;
   }
 }
-
 </script>
 
 <style lang="scss" scoped>
