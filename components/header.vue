@@ -137,7 +137,6 @@ import { contactUs } from "~/src/assets/data/index-page.json";
 })
 export default class HeaderBlock extends Vue {
   isShowMobMenu = false;
-  isNotIndex = false;
 
   headerList: Array<{
     title: string;

@@ -20,23 +20,35 @@
         </div>
         <div class="footer__center">
           <div class="footer__center-inner custom-description">
-            <template v-if="!isNotIndex">
-              <a
-                class="header__right-link custom-link 123"
-                v-for="(item, i) in headerList"
-                :key="i"
-                :href="item.link"
-                >{{ item.title }}</a
-              >
+            <template v-if="isOnIndex()">
+              <template v-for="(item, i) in headerList">
+                <a
+                  class="header__right-link custom-link"
+                  v-if="item.hash"
+                  :href="item.hash"
+                  :key="i"
+                >
+                  {{ item.title }}
+                </a>
+                <nuxt-link
+                  v-else
+                  class="header__right-link custom-link"
+                  :key="i"
+                  :to="{ path: item.link, hash: item.hash }"
+                >
+                  {{ item.title }}
+                </nuxt-link>
+              </template>
             </template>
             <template v-else>
-              <a
-                class="header__right-link custom-link"
+              <nuxt-link
                 v-for="(item, i) in headerList"
+                class="header__right-link custom-link"
                 :key="i"
-                :href="`/${item.link}`"
-                >{{ item.title }}</a
+                :to="{ path: item.link, hash: item.hash }"
               >
+                {{ item.title }}
+              </nuxt-link>
             </template>
           </div>
         </div>
@@ -54,16 +66,22 @@ import { headerList } from "~/src/assets/data/header.json";
 @Component({
   components: {
     StripeWrapper,
-    DarkBg
-  }
+    DarkBg,
+  },
 })
 export default class FooterBlock extends Vue {
-  isNotIndex = false;
-  headerList: Array<{ title: string; link: string }> = [];
+  headerList: Array<{
+    title: string;
+    link: string;
+    hash?: string;
+  }> = [];
 
   created() {
     this.headerList = headerList;
-    if (this.$nuxt.$route.fullPath !== "/") this.isNotIndex = true;
+  }
+
+  isOnIndex() {
+    return this.$nuxt.$route.name === "index";
   }
 }
 </script>
