@@ -65,4 +65,14 @@ ul {
   font-size: 18px;
 }
 
+.input {
+  border: none;
+  border-bottom: 2px solid #718096;
+}
+
+@media screen and (min-width: 1024px) {
+  .input {
+    min-width: 320px;
+  }  
+}
 </style>
