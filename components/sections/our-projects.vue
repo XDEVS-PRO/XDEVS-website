@@ -217,6 +217,10 @@ export default class OurProjects extends Vue {
     }
   }
 
+   &__right {
+    margin-top: 60px;
+  }
+
   &__create {
     color: #f8f8f8;
     font-size: 1rem;
