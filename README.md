@@ -1,5 +1,5 @@
-# xdevs-nuxt
-
+# XDEVS-nuxt.js
+[![Netlify Status](https://api.netlify.com/api/v1/badges/52029687-c1a2-4082-8310-fe6563403e64/deploy-status)](https://app.netlify.com/sites/xdevs/deploys)
 ## Build Setup
 
 ```bash
@@ -67,51 +67,3 @@ More information about the usage of this directory in [the documentation](https:
 This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
-
-## Creating Articles
-
-When adding new article, create .md file into content/articles. 
-For a fast way, just copy all content in the beginning of the file from another article.  
-
-Change title, description e.t.c.
-When you're adding tags be sure that tag existing in the content/tags directory.
-
-After second --- you can write the body of your article.
-Use "#" as heading of the article.  
-
-"#" = h1  
-
-"##" = h2  
-
-"###" = h3  
-
-e.t.c. 
-
-You can include HTML tags into your article like 
-`<div>` or `<p>`
-
-Also, you can use components into .md, but be sure they are included into components/global. 
-
-If you need to write a code into the article, use that syntax:
-
-` ```js[exampleFile.js] 
-let counter = 0; 
-counter++; 
-``` `
-By including of Prism into the project, all syntax will be highlighted. 
-
-Just specify extension after "```" for example js or html.
-Then you can write file name into [ ] (if needed).
-
-If you want to know more about .md look at <a href="https://www.markdownguide.org/basic-syntax/">this</a>.
-
-## Edit Article
-
-When you need to edit article the most easiest way is open project in dev mode via `npm run dev` then go the page with article and double click on it to open text-area. 
-
-There you can easly edit .md.
-
-## Add image into Article
-
-You can't just use `<img />` tag in nuxt-content. 
-Use ArticleImg component in your articles.
