@@ -104,6 +104,7 @@
               class="our-projects__img-preview"
               v-if="showProject.src"
               :src="showProject.src"
+              alt="portfolio_image"
             />
           </div>
         </div>
@@ -131,7 +132,19 @@ export interface Project {
     TitleBlock,
     DarkBg,
     StripeWrapper,
-  }
+  },
+   head() {
+      return {
+        title: 'our-projects',
+        meta: [
+          {
+            hid: 'our-prj',
+            name: 'description',
+            content: 'our portfolio of amazing websites'
+          }
+        ]
+      }
+    }
 })
 export default class OurProjects extends Vue {
   @Prop() data: any;
@@ -215,6 +228,10 @@ export default class OurProjects extends Vue {
     @include for-average() {
       padding-right: 0;
     }
+  }
+
+   &__right {
+    margin-top: 60px;
   }
 
   &__create {
