@@ -1,6 +1,7 @@
 @import "normalizestyles";
 @import "fonts";
 @import "variables";
+@import "markdownStyles";
 
 body {
   font-family: 'Noto Sans JP', sans-serif;
@@ -84,4 +85,32 @@ section {
   display: inline-block;
   cursor: pointer;
   text-decoration: none;
+}
+
+@media screen and (min-width: 425px) {
+
+  html {
+    font-size: 17px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+  html {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+
+  html {
+    font-size: 19px;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+
+  html {
+    font-size: 21px;
+  }
 }
