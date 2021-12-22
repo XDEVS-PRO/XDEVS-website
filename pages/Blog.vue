@@ -1,7 +1,13 @@
 <template>
-  <div class="container-main-blog">
+  <section class="container-main-blog">
     <TheHeader />
-    <h1 class="title">Blog Posts</h1>
+
+    <ul class="article-topics">
+      <li v-for="(topic, index) in topicList" :key="index" :class="['article-topics__item custom-link', {'active-item': topic.includes('NUXTJS')}]" @click="initFilter">
+        {{topic}}
+      </li>
+    </ul>
+
     <ul class="article-list">
       <li
         v-for="article of articles"
@@ -44,11 +50,21 @@
         </NuxtLink>
       </li>
     </ul>
-  </div>
+  </section>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      topicList: ['JAVASCRIPT','LINKEDIN','NUXTJS', 'WEB DEVELOPMENT', 'REACTJS', 'NODEJS', 'FRONTEND', 'BACKEND',  'WEB DEVELOPMENT', 'REACTJS', 'NODEJS', 'FRONTEND', 'BACKEND']
+    }
+  },
+  methods: {
+    initFilter() {
+
+    }
+  },
   async asyncData({ $content, params }) {
     const articles = await $content('articles')
       .only(['title', 'description', 'img', 'slug', 'author'])
@@ -66,28 +82,19 @@ export default {
 }
 </script>
 
-<style class="css" scoped>
+<style lang="scss" scoped>
+@import "src/assets/styles/variables";
 
-* {
-  box-sizing: border-box;
-}
-
-a {
-  text-decoration: none;
-}
-
-ul {
-  list-style-type: none;
-}
-
-.container-main-blog{
-  margin-top: 120px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
+.container-main-blog {
+  padding: 0 1rem;
   line-height: 1.25;
+  width: 100%;
+  max-width: 1240px;
+  margin: 100px auto 0;
+
+  @include for-average() {
+    margin-top: 88px;
+  }
 }
 
 .title {
@@ -181,6 +188,46 @@ ul {
   color: black;
 }
 
+.article-topics {
+  display: flex;
+  flex-wrap: wrap;
+
+  @include for-middle() {
+    justify-content: center;
+  }
+
+  &__item {
+    margin: 0 40px 30px 0;
+    color: #BFBFBF;
+    font-size: 18px;
+    font-weight: 700;
+    transition: all 0.4s ease-out;
+    cursor: pointer;
+
+    @include for-middle() {
+      margin: 0 30px 20px 0;
+      font-size: 16px;
+    }
+  }
+
+  &__item.active-item {
+    background: -webkit-linear-gradient(
+            87.58deg, #0085ff 0%, #11a9ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    &:before {
+      width: 100%;
+      content: "";
+      border-bottom: 1px solid;
+      border-image-slice: 1;
+      border-width: 2px;
+      border-image-source: linear-gradient(87.58deg, #0085ff 0%, #11a9ff 100%);
+      background: initial;
+    }
+  }
+}
+
 @media screen and (min-width: 768px) {
   .article-list {
     grid-template-columns: 1fr 1fr;
@@ -212,6 +259,7 @@ ul {
     text-decoration: underline;
   }
 }
+
 
 @media screen and (min-width: 1200px) {
   .article-list {

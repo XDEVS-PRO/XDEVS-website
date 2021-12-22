@@ -931,8 +931,8 @@ svg:hover {
 
 .ts__inner-mob {
   display: none;
+
   @include for-smallmedium() {
-    display: block;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
