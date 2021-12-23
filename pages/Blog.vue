@@ -1,55 +1,47 @@
 <template>
   <section class="container-main-blog">
-    <TheHeader />
+    <TheHeader/>
 
     <ul class="article-topics">
-      <li v-for="(topic, index) in topicList" :key="index" :class="['article-topics__item custom-link', {'active-item': topic.includes('NUXTJS')}]" @click="initFilter">
-        {{topic}}
+      <li v-for="(topic, index) in topicList" :key="index"
+          :class="['article-topics__item custom-link', {'active-item': topic.includes('NUXTJS')}]" @click="initFilter">
+        {{ topic }}
       </li>
     </ul>
 
     <ul class="article-list">
-      <li
-        v-for="article of articles"
-        :key="article.slug"
-        class="article"
-      >
-        <NuxtLink
-          :to="{ name: 'blog-slug', params: { slug: article.slug } }"
-          class="article__link"
-        >
-          <img
-            v-if="article.img"
-            class="article__img"
-            :src="article.img"
-            :alt="article.title"
-          />
-          <div class="article__content">
-            <h2 class="article__title">{{ article.title }}</h2>
-            <p class="article__author">by {{ article.author.name }}</p>
-            <p class="article__description">
-              {{ article.description }}
-            </p>
-          </div>
-        </NuxtLink>
-      </li>
-    </ul>
-    <h3 class="topics">Topics</h3>
-    <ul class="tags-list">
-      <li
-        v-for="tag of tags"
-        :key="tag.slug"
-        class="tag"
-      >
-        <NuxtLink :to="`/blog/tag/${tag.slug}`" class="tag__link">
-          <p
-            class="tag__name"
+      <template v-for="article of articles">
+        <li class="article__wrapper">
+          <NuxtLink
+              :to="{ name: 'blog-slug', params: { slug: article.slug } }" :key="article.slug"
+              class="article__item"
           >
-            {{ tag.name }}
-          </p>
-        </NuxtLink>
-      </li>
+            <img
+                v-if="article.img"
+                class="article__img"
+                :src="article.img"
+                :alt="article.title"
+            />
+            <div class="article__content">
+              <div class="article__sub-title">
+                <span>24.06.2021</span>
+                <span>Linkedin</span>
+              </div>
+              <h2 class="article__title">{{ article.title }}</h2>
+              <p class="article__description">
+                {{ article.description }}
+              </p>
+              <p class="article__link-text">Go to the article <span class="article__arrow"/></p>
+            </div>
+          </NuxtLink>
+        </li>
+      </template>
     </ul>
+
+    <div class="upload__btn custom-link">
+      View more <span class="upload__plus" />
+    </div>
+
   </section>
 </template>
 
@@ -57,7 +49,7 @@
 export default {
   data() {
     return {
-      topicList: ['JAVASCRIPT','LINKEDIN','NUXTJS', 'WEB DEVELOPMENT', 'REACTJS', 'NODEJS', 'FRONTEND', 'BACKEND',  'WEB DEVELOPMENT', 'REACTJS', 'NODEJS', 'FRONTEND', 'BACKEND']
+      topicList: ['JAVASCRIPT', 'LINKEDIN', 'NUXTJS', 'WEB DEVELOPMENT', 'REACTJS', 'NODEJS', 'FRONTEND', 'BACKEND', 'WEB DEVELOPMENT', 'REACTJS', 'NODEJS', 'FRONTEND', 'BACKEND']
     }
   },
   methods: {
@@ -65,17 +57,19 @@ export default {
 
     }
   },
-  async asyncData({ $content, params }) {
+  async asyncData({$content, params}) {
     const articles = await $content('articles')
-      .only(['title', 'description', 'img', 'slug', 'author'])
-      .sortBy('createdAt', 'desc')
-      .fetch()
+        .only(['title', 'description', 'img', 'slug', 'author'])
+        .sortBy('createdAt', 'desc')
+        .fetch()
     const tags = await $content('tags')
-      .only(['name', 'description', 'img', 'slug'])
-      .sortBy('createdAt', 'asc')
-      .fetch()
+        .only(['name', 'description', 'img', 'slug'])
+        .sortBy('createdAt', 'asc')
+        .fetch()
+    const testGrid = [...articles, ...articles, ...articles, ...articles, ...articles, ...articles];
+    console.log(testGrid);
     return {
-      articles,
+      articles: testGrid,
       tags
     }
   },
@@ -103,89 +97,133 @@ export default {
   margin: 30px 0 35px 0;
 }
 
-.article-list{
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-  margin-bottom: 25px;
+.article__wrapper {
+  transition: all 0.4s ease-out;
+
+  &:hover {
+    background-color: #fff;
+    box-shadow: 0px 30px 40px -10px rgba(0, 133, 255, 0.2);
+  }
 }
 
-.article {
+.article-list {
+  display: grid;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(3, minmax(200px, 380px));
+  grid-gap: 30px;
+
+  @include for-middle() {
+    grid-gap: 1rem;
+  }
+
+  @include for-average() {
+    grid-template-columns: repeat(2, minmax(180px, 1fr));
+  }
+
+  @include for-small() {
+   grid-template-columns: minmax(180px, 1fr);
+  }
+}
+
+.article__item {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  max-width: 360px;
 }
 
 .article__img {
   width: 100%;
-  height: 192px;
+  height: 260px;
   object-fit: cover;
 }
 
 .article__title {
   font-weight: bold;
-  font-size: 1.2rem;
-  color: black;
-  line-height: 1.2;
+  font-size: 18px;
+  color: #232323;
+  line-height: 1.4;
+  padding-bottom: 15px;
+}
+
+.article__arrow {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='12' fill='none' xmlns:v='https://vecta.io/nano'%3E%3Cpath fill-rule='evenodd' d='M7.22.22A.75.75 0 0 1 7.75 0a.75.75 0 0 1 .53.22l5.25 5.25a.75.75 0 0 1 0 1.061l-5.25 5.25a.75.75 0 0 1-1.051-.009.75.75 0 0 1-.009-1.051l3.97-3.97H1A.75.75 0 0 1 .25 6 .75.75 0 0 1 1 5.25h10.19L7.22 1.28a.75.75 0 0 1 0-1.061z' fill='%230085ff'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.article__sub-title {
+  padding-bottom: 15px;
+
+  span {
+    color: #6D6D6D;
+    font-size: 14px;
+
+    &:first-of-type {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.article__link-text {
+  align-items: center;
+  color: #0085FF;
+  font-size: 16px;
+  font-weight: 600;
+  padding-bottom: 10px;
 }
 
 .article__author {
-  color: black;
+  color: #232323;
   margin-top: 5px;
   font-weight: 300;
 }
 
 .article__description {
-  color: #718096;
-  line-height: 1.2;
-  margin-top: 12px;
-  font-size: 0.8rem;
-  font-weight: bold;
+  color: #42484F;
+  padding-bottom: 20px;
+  font-size: 16px;
+  font-weight: 300;
 }
 
 .article__content {
+  background-color: #F9F9F9;
+  padding: 20px 30px;
+
+  @include for-middle() {
+    padding: 10px 20px;
+  }
+}
+
+.upload__btn {
+  margin: 60px auto;
+  max-width: 130px;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 20px;
-  height: 180px;
-  border: 1px solid lightgray;
-  border-top: none;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 16px;
+  color: #F52C68;
+  cursor: pointer;
+
+  &.custom-link::before {
+    background: linear-gradient(to right, #F52C68 0%, rgba(255, 255, 255, 0) 100%);
+  }
 }
 
-.topics {
-  align-self: center;
-  font-size: 1.5rem;
-  margin-bottom: 30px;
-}
 
-.tag {
-  font-weight: bold;
-  font-size: 1.3rem;
-  margin-bottom: 20px;
-  text-align: center;
-}
 
-.tag__name {
-  color: gray;
-  text-transform: uppercase;
-}
-
-.tags-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.footer {
-  margin-top: 15px;
-}
-
-.footer__link {
-  color: black;
+.upload__plus {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' xmlns:v='https://vecta.io/nano'%3E%3Cpath fill-rule='evenodd' d='M4.5 4a.5.5 0 0 0-.5.5v15a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5v-15a.5.5 0 0 0-.5-.5h-15zM2 4.5A2.5 2.5 0 0 1 4.5 2h15A2.5 2.5 0 0 1 22 4.5v15a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 19.5v-15zM12 7a1 1 0 0 1 1 1v3h3a1 1 0 1 1 0 2h-3v3a1 1 0 1 1-2 0v-3H8a1 1 0 1 1 0-2h3V8a1 1 0 0 1 1-1z' fill='%23f52c68'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-left: 20px;
 }
 
 .article-topics {
@@ -226,61 +264,5 @@ export default {
       background: initial;
     }
   }
-}
-
-@media screen and (min-width: 768px) {
-  .article-list {
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-  }  
-}
-
-@media screen and (min-width: 1024px) {
-  .article-list {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 45px;
-  }  
-
-  .article__content {
-    height: 220px;
-  }
-
-  .article__img {
-    height: 210px;
-  }
-
-  .tags-list {
-    width: 80%;
-    flex-direction: row;
-    justify-content: space-around;
-  }
-
-  .tag__name {
-    text-decoration: underline;
-  }
-}
-
-
-@media screen and (min-width: 1200px) {
-  .article-list {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 50px;
-    padding-left: 30px;
-    padding-right: 30px;
-  }  
-}
-
-@media screen and (min-width: 1440px) {
-  .article-list {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 60px;
-  }  
-}
-
-@media screen and (min-width: 1600px) {
-  .article-list {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 100px;
-  }  
 }
 </style>
