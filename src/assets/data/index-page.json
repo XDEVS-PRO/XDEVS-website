@@ -2,14 +2,6 @@
   "ourProjects": [
     {
       "create": "Web application",
-      "src": "our-projects/ms-global.png",
-      "title": "MLS worldwide",
-      "link": "https://mlsworldwide.com/",
-      "desc": "MLS worldwide is a real estate website aimed to provide real estate services around the world. \n Our key role was to finish MVP, work closely with the SEO team to improve the ranking of the website, and attract new users by sending mass emails.\n ",
-      "id": "1"
-    },
-    {
-      "create": "Web application",
       "src": "our-projects/co.png",
       "title": "Chargeback Optimizer",
       "link": "http://chargebackoptimizer.com/",
