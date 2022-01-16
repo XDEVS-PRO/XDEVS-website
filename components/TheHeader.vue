@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import CustomSelector from "@/components/elements/selector"
+import CustomSelector from "@/components/elements/custom-selector"
 
 export default {
   components: {
