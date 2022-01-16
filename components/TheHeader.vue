@@ -7,7 +7,7 @@
 
     <AppSearchInput class="search" />
 
-    <CustomSelector class="custom-selector" :options="options" default="All articles"  />
+    <CustomSelector class="custom-selector" :options="options" default="All articles" @input="$emit('input', $event)"  />
   </header>
 </template>
 
@@ -20,7 +20,7 @@ export default {
   },
   data() {
     return {
-      options: ['All articles', 'option-2', 'option-3', 'option-4']
+      options: ['All articles', 'Web development', 'Mobile development', 'Management']
     }
   }
 }
