@@ -9,6 +9,14 @@
       </li>
     </ul>
 
+    <div>
+      <div class="middle-border">
+        <p class="count-wrapper"><span>67</span> articles</p>
+        <CustomSelector class="custom-selector-order" :options="['Latest first', 'Newest first']" default="Latest first" :border="false" @input="$emit('input', $event)"  />
+      </div>
+      <span class="vertical-border" />
+    </div>
+
     <ul class="article-list">
       <template v-for="article of articles">
         <li class="article__wrapper">
@@ -46,7 +54,12 @@
 </template>
 
 <script>
+import CustomSelector from "@/components/elements/custom-selector";
+
 export default {
+  components: {
+    CustomSelector
+  },
   data() {
     return {
       topicList: ['JAVASCRIPT', 'LINKEDIN', 'NUXTJS', 'WEB DEVELOPMENT', 'REACTJS', 'NODEJS', 'FRONTEND', 'BACKEND', 'WEB DEVELOPMENT', 'REACTJS', 'NODEJS', 'FRONTEND', 'BACKEND']
@@ -263,6 +276,43 @@ export default {
       border-image-source: linear-gradient(87.58deg, #0085ff 0%, #11a9ff 100%);
       background: initial;
     }
+  }
+}
+
+.vertical-border {
+  height: 1px;
+  width: 100%;
+  display: block;
+  border: 1px solid #EDEDED;
+  margin: 0px 0 40px;
+}
+
+.middle-border {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.count-wrapper {
+  font-size: 16px;
+  color: #6d6d6d;
+
+  span {
+    background: -webkit-linear-gradient(
+            87.58deg, #0085ff 0%, #11a9ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+::v-deep .custom-selector-order {
+  line-height: 36px;
+  height: 36px;
+  max-width: 150px;
+
+  .items,
+  .selected {
+    border-color: transparent;
   }
 }
 </style>

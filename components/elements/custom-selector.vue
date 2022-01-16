@@ -37,7 +37,7 @@ export default {
       type: Number,
       required: false,
       default: 0,
-    },
+    }
   },
   data() {
     return {
@@ -98,6 +98,7 @@ export default {
   left: 0;
   right: 0;
   z-index: 1;
+  background-color: #fff;
 }
 
 .custom-select .items div {
