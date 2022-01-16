@@ -1,32 +1,40 @@
-<template >
-  <div class="layout-box">
-    <nuxt />
-  </div>
+<template>
+  <section>
+    <header-block :hide-stripes="true" />
+    <div id="root-wrapper">
+      <nuxt />
+    </div>
+    <footer-block />
+    <short-footer />
+  </section>
 </template>
 
-<style scoped>
+<script>
+import HeaderBlock from "~/components/header.vue";
+import FooterBlock from "~/components/footer.vue";
+import ShortFooter from "~/components/short-footer.vue";
 
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
+export default {
+  name: "BlogLayout",
+  components: {
+    HeaderBlock,
+    FooterBlock,
+    ShortFooter
+  }
 }
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+</script>
+
+<style lang="scss" scoped>
+#root-wrapper {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
   margin: 0;
 }
-
-.layout-box {
-  width: 100%;
+#root-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
 }
 </style>

@@ -1,371 +1,219 @@
 <template>
-<section class="container-main-slug"> 
-  <div class="img-content">
-    <img :src="article.img"
-         :alt="article.alt"
-         class="img-main" />
-    <div class="img-content__container">
-        <h1 class="img-content__title">
-          {{ article.title }} 
-        </h1>
-        <p class="img-content__date">
-            {{ formatDate(article.updatedAt) }}
-        </p>
-        <p class="img-content__author">
-         by {{article.author.name}}
-        </p>
-      <span v-for="(tag, id) in article.tags" :key="id" 
-      class="tags-list">
-          <NuxtLink :to="`/blog/tag/${tags[tag].slug}`">
-            <span
-              class="tag-item"
-            >
-              {{ tags[tag].name }}
-            </span>
-          </NuxtLink>
-      </span>
-    </div>
-  </div>
-  <div class="info-content">
-    <div class="info-content__about">
-      <h2 class="info-content__title">
-      {{article.title}}
-    </h2>
-    <p class="info-content__description">
-      {{article.description}}
-    </p>
-    <p class="info-content__updated">
-      Post last updated at: 
-      {{ formatDate(article.updatedAt) }}
-    </p>
-    </div>
-    <nav class="info-content__nav">
-        <ul>
-          <li
-            v-for="link of article.toc"
-            :key="link.id"
-            :class="{
-              'font-semibold': link.depth === 2
-            }"
-          >
-            <nuxtLink
-              :to="`#${link.id}`"
-              class="info-content__nav-item"
-              :class="{
-                'link-padding': link.depth === 2,
-                'link-nested-margin': link.depth === 3
-              }"
-              >{{ link.text }}
-            </nuxtLink>
-          </li>
-        </ul>
-      </nav>
-      <!-- content from markdown -->
-      <nuxt-content :document="article" />
-      <!-- content author component -->
-      <author :author="article.author" />
-      <!-- prevNext component -->
-      <PrevNext :prev="prev" :next="next" class="prev-next" />
+  <section class="blog-article">
+    <ArticleHeader v-if="Object.keys(headerData).length" :data="headerData" :bread-crumbs="getBreadcrumbs" />
 
-  </div>
-</section>
+    <div class="blog-container">
+      <article v-if="Object.keys(article).length">
+        <nuxt-content :document="article"/>
+      </article>
+    </div>
+
+    <ArticleFooter :data="footerData" />
+  </section>
 </template>
 
 <script>
+import ArticleHeader from "../BlogComponents/ArticleHeader";
+import ArticleFooter from "../BlogComponents/ArticleFooter";
+
 export default {
-  async asyncData({ $content, params }) {
-    const article = await $content('articles', params.slug).fetch()
-    const tagsList = await $content('tags')
-      .only(['name', 'slug'])
-      .where({ name: { $containsAny: article.tags } })
-      .fetch()
-    const tags = Object.assign({}, ...tagsList.map((s) => ({ [s.name]: s })))
-    const [prev, next] = await $content('articles')
-      .only(['title', 'slug'])
-      .sortBy('createdAt', 'asc')
-      .surround(params.slug)
-      .fetch()
+  components: {
+    ArticleHeader,
+    ArticleFooter
+  },
+  data() {
     return {
+      article: null,
+      headerData: null,
+      footerData: null
+    }
+  },
+  filters: {
+    time: function (value) {
+      const date = new Date(value);
+      return date.getFullYear() + '.' + (date.getMonth() + 1) + '.' + date.getDate();
+    }
+  },
+  async asyncData({$content, params}) {
+    const article = await $content('articles', params.slug).fetch();
+
+    const tagsList = await $content('tags')
+        .only(['name', 'slug'])
+        .where({name: {$containsAny: article.tags}})
+        .fetch()
+    const tags = Object.assign({}, ...tagsList.map((s) => ({[s.name]: s})))
+    const [prev, next] = await $content('articles')
+        .only(['title', 'slug'])
+        .sortBy('createdAt', 'asc')
+        .surround(params.slug)
+        .fetch()
+
+    const {author, img, createdAt, topic, title, path, breadcrumbs, description} = article;
+
+    const headerData = {img, createdAt, topic, author, description}
+    const footerData = {author};
+
+    return {
+      footerData,
+      headerData,
       article,
       tags,
       prev,
       next
     }
   },
+  created() {
+  },
+  computed: {
+    getBreadcrumbs() {
+      const crumbs = [];
+      crumbs.push(
+          {name: "Blog Posts", link: "/blog"},
+          {name: this.article.breadcrumbs, link: "/blog"},
+          {name: this.article.title, link: this.article.path}
+      );
+      return crumbs
+    }
+  },
   methods: {
     formatDate(date) {
-      const options = { year: 'numeric', month: 'long', day: 'numeric' }
+      const options = {year: 'numeric', month: 'long', day: 'numeric'}
       return new Date(date).toLocaleDateString('en', options)
     }
   },
   layout: 'blogLayout'
 }
+
 </script>
 
-<style>
+<style lang="scss">
+@import "src/assets/styles/variables";
 
-* {
-  box-sizing: border-box;
+.blog-article {
+  padding-top: 102px;
+
+  @include for-middle() {
+    padding-top: 88px;
+  }
 }
 
-ul {
-  list-style-type: none;
-}
-
-a {
-  text-decoration: none;
-}
-
-.nuxt-content p {
-  margin-bottom: 1.25rem;
-}
-
-.nuxt-content h2 {
-  margin-bottom: 5px;
-  font-weight: bold;
-  font-size: 1.6rem;
-}
-
-.nuxt-content h3 {
-  font-weight: bold;
-  font-size: 1.3rem;
-}
-
-.nuxt-content img {
-  max-width: 80%;
-  object-fit: cover;
-}
-
-.tags-list {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: flex-start;
-}
-
-.tag-item {
-  font-size: 1.2rem;
-  color: white;
-  border: 1px solid white;
-  border-radius: 16px;
-  padding: 5px 7px 5px 7px;
-}
-
-.icon.icon-link {
-  /* background-image: url('~assets/svg/icon-hashtag.svg'); */
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background-size: 20px 20px;
-}
-
-.container-main-slug {
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.blog-container {
+  padding: 60px 1rem 0;
+  max-width: 806px;
   width: 100%;
+  margin: 0 auto;
+
+  @include for-middle() {
+    padding-top: 30px;
+  }
 }
 
-.img-content {
-  position: relative
-} 
-
-.img-content__container {
-  position: absolute;
-  top: 20%;
-  left: 5%;
-  color: white;
-  font-size: 2.25rem;
-  align-self: center;
+.blog-breadcrumbs-container {
+  padding: 20px 0;
 }
 
-.img-content__author {
-  font-size: 1.375rem;
-  font-weight: 300;
-  margin-top: 30px;
+.blog-breadcrumbs-link {
+  font-size: 14px;
+  color: #BFBFBF;
+
+  span {
+    padding: 0 10px;
+  }
+
+  &:last-of-type {
+    color: #0085FF;
+  }
 }
 
-.img-main {
-  width: 100%;
-  object-fit: cover;
-  filter: brightness(50%);
-  min-height: 360px;
+.blog-time-topic {
+  padding: 60px 0 20px;
 }
 
-.img-content__date {
-  font-size: 1.25rem;
-}
-
-.info-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.info-content__about {
-  margin-bottom: 25px;
-}
-
-.info-content__title {
-  font-size: 2rem;
-  margin-top: 15px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.info-content__description {
-  margin-top: 25px;
-  max-width: 80%;
-}
-
-.info-content__updated {
-  margin-top: 15px;
-  font-size: 1rem;
-}
-
-.info-content__nav {
-  margin-top: 25px;
-  display: flex;
-  text-align: center;
-}
-
-.info-content__nav-item {
-  color: black;
-  font-weight: bold;
-  font-size: 1.25rem;
-  margin-top: 10px;
-  line-height: 1.4;
-  align-self: center;
-}
-
-.link-nested-margin {
-  margin-left: 8px;
-  font-size: 1.1rem;
-}
-
-.nuxt-content {
-  margin: 20px 0 0 0;
-  text-align: center;
-  align-self: center;
-  line-height: 1.4;
+.blog-author {
+  color: #EDEDED;
 }
 
 .nuxt-content-container {
-  max-width: 100%;
-}
+  h2 {
+    font-size: 36px;
+    color: #232323;
+    padding-bottom: 60px;
+    position: relative;
 
-.nuxt-content p {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.nuxt-content h2 {
-  font-weight: bold;
-  font-size: 1.6rem;
-}
-
-.nuxt-content h3 {
-  font-weight: bold;
-  font-size: 1.3rem;
-}
-
-.nuxt-content-highlight {
-  max-width: 100%;
-}
-
-.prev-next {
-  margin-top: 10px;
-  margin-bottom: 25px;
-  display: flex;
-  flex-direction: column;
-  line-height: 1.4;
-}
-
-@media screen and (min-width: 600px) {
-
- .img-content__container {
-    font-size: 60px;
-  }
-
-  .img-content__author {
-    font-size: 28px;
-  }
-
-  .info-content__date {
-    font-size: 24px;
-  }
-
-  .img-content__title {
-    margin-bottom: 15px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-
-  .img-content__container {
-    top: 12%;
-    font-size: 76px;
-  }
-
-  .img-content__author {
-    font-size: 32px;
-  }
-
-  .info-content__date {
-    font-size: 28px;
-  }
-
-}
-
-@media screen and (min-width: 1024px) {
-
-  .container-main-slug {
-    flex-direction: row;
-    justify-content: space-between;
-    max-width: 100%;
-    font-size: 20px;
-  }
-  
-  .img-content {
-    width: 50%;
-    max-height: 100vh;
-  }
-
-  .img-main {
-    height: 100vh;
-  }
-
-  .info-content {
-    overflow: scroll;
-    height: 100vh;
-    width: 50%;
-  }
-
-  .info-content__title {
-    margin-top: 70px;
-  }
-  
-  .tags-list  {
-    flex-direction: row;
-  }
-}
-  @media screen and (min-width: 1400px) {
-    
-    .container-main-slug {
-      font-size: 23px;
+    @include for-middle() {
+      padding-bottom: 30px;
     }
-    
-  }
 
-   @media screen and (min-width: 1600px) {
-    
-    .container-main-slug {
-      font-size: 25px;
+    &:after {
+      content: "";
+      border-bottom: 2px solid #0085FF;
+      width: 90px;
+      height: 2px;
+      position: absolute;
+      left: 0;
+      bottom: 30px;
+
+      @include for-middle() {
+        bottom: 15px;
+      }
     }
   }
+
+  h3 {
+    font-size: 18px;
+    color: #232323;
+    padding: 20px 0;
+  }
+
+  p {
+    color: #42484F;
+    font-size: 16px;
+    font-weight: 300;
+    padding-bottom: 20px;
+    line-height: 160%;
+  }
+
+  .quote {
+    background: #F9F9F9;
+    border-radius: 4px;
+    position: relative;
+    padding: 30px 30px 30px 80px;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 160%;
+    color: #42484F;
+    margin-bottom: 40px;
+
+    &:before {
+      content: "";
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='16' fill='none' xmlns:v='https://vecta.io/nano'%3E%3Cpath d='M.958 16C.319 13.242 0 10.849 0 8.82 0 5.906.692 3.72 2.076 2.263 3.459.754 5.482 0 8.143 0v3.122c-1.384 0-2.395.364-3.034 1.093-.585.728-.878 1.821-.878 3.278v1.795h3.992V16H.958zm10.777 0c-.639-2.758-.958-5.151-.958-7.18 0-2.914.692-5.099 2.076-6.556C14.237.754 16.259 0 18.92 0v3.122c-1.384 0-2.395.364-3.034 1.093-.585.728-.878 1.821-.878 3.278v1.795H19V16h-7.265z' fill='url(%23A)'/%3E%3Cdefs%3E%3ClinearGradient id='A' x1='0' y1='16' x2='19.754' y2='15.008' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23f52c68'/%3E%3Cstop offset='1' stop-color='%23ff4874'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 19px;
+      height: 16px;
+      position: absolute;
+      top: 30px;
+      left: 30px;
+    }
+
+    .author {
+      font-size: 16px;
+      font-weight: 600;
+      padding-bottom: 30px;
+      margin-top: -15px;
+      color: #42484F;
+    }
+  }
+}
+
+.article-image {
+  max-width: 770px;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.language-js.line-numbers {
+  border-radius: 4px;
+}
 </style>

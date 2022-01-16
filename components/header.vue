@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <dark-bg />
-    <stripe-wrapper :color-strip="'dark'" />
+    <stripe-wrapper v-if="!hideStripes" :color-strip="'dark'" />
     <div class="header__container container">
       <div class="header__inner">
         <div class="header__left">
@@ -121,7 +121,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import {Component, Prop, Vue} from "vue-property-decorator";
 import StripeWrapper from "~/components/elements/strip-bg.vue";
 import DarkBg from "~/components/elements/dark-bg.vue";
 import ScrollTo from "~/components/elements/scroll-to.vue";
@@ -136,6 +136,8 @@ import { contactUs } from "~/src/assets/data/index-page.json";
   },
 })
 export default class HeaderBlock extends Vue {
+  @Prop({ default: false }) hideStripes: boolean;
+
   isShowMobMenu = false;
 
   headerList: Array<{
@@ -221,7 +223,7 @@ export default class HeaderBlock extends Vue {
       color: #ededed;
       font-size: 16px;
       text-decoration: none;
-      font-weight: 400;
+      font-weight: 300;
 
       @include for-average() {
         display: none;
