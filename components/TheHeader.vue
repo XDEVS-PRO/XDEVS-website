@@ -5,7 +5,8 @@
       <h4>Blog Posts</h4>
     </div>
 
-    <AppSearchInput class="search" />
+    <AppSearchInput class="search" @input="$emit('input:search', $event)" />
+<!--    <AppSearchInput class="search" @input="TESTIM" />-->
 
     <CustomSelector class="custom-selector" :options="options" default="All articles" @input="$emit('input', $event)"  />
   </header>
@@ -21,6 +22,11 @@ export default {
   data() {
     return {
       options: ['All articles', 'Web development', 'Mobile development', 'Management']
+    }
+  },
+  methods: {
+    TESTIM(e) {
+      console.log(e.target.value);
     }
   }
 }
