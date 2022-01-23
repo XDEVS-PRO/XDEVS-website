@@ -1,4 +1,6 @@
 ---
+topic: linkedin
+
 title: Быстро раскручиваемся в Linkedin.
 description: Создаем востребованный профиль.
 img: https://img.etimg.com/thumb/msid-84858456,width-650,imgsize-563303,,resizemode-4,quality-100/untitled-6vrgr.jpg
