@@ -46,7 +46,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
-    "@nuxtjs/svg",
+    // "@nuxtjs/svg",
     '@nuxtjs/router-extras',
   ],
 

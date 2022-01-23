@@ -12,7 +12,7 @@
           <span v-if="data.topic" class="blog-topic">{{ data.topic }}</span>
         </p>
         <h1 v-if="data.description" class="blog-topic-name">{{data.description}}</h1>
-        <p v-if="data.author.name" class="blog-author">by {{ data.author.name }}</p>
+        <p v-if="data.author && data.author.name" class="blog-author">by {{ data.author.name }}</p>
       </div>
     </div>
   </div>
@@ -29,6 +29,12 @@ export default {
     breadCrumbs: {
       type: Array,
       default: []
+    }
+  },
+  filters: {
+    time: function (value) {
+      const date = new Date(value);
+      return date.getFullYear() + '.' + (date.getMonth() + 1) + '.' + date.getDate();
     }
   }
 }

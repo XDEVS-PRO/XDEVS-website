@@ -4,7 +4,8 @@
 
     <div class="blog-container">
       <article v-if="Object.keys(article).length">
-        <nuxt-content :document="article"/>
+<!--        <nuxt-content :document="article"/>-->
+        <pre>{{article}}</pre>
       </article>
     </div>
 

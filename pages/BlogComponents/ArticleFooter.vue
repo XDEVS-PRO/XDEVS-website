@@ -2,10 +2,10 @@
   <div class="blog-footer">
     <div class="blog-author-wrapper">
       <div class="blog-author-details">
-        <img v-if="data.author.img" :src="data.author.img" class="blog-author-image">
+        <img v-if="data.author && data.author.img" :src="data.author.img" class="blog-author-image">
         <div class="blog-author-description">
-          <h6 v-if="data.author.name" class="blog-author-name">{{data.author.name}}</h6>
-          <span v-if="data.author.bio" class="blog-author-position">{{data.author.bio}}</span>
+          <h6 v-if="data.author && data.author.name" class="blog-author-name">{{data.author.name}}</h6>
+          <span v-if="data.author && data.author.bio" class="blog-author-position">{{data.author.bio}}</span>
         </div>
       </div>
       <nuxt-link to="/" class="blog-author-link">Meet the author</nuxt-link>

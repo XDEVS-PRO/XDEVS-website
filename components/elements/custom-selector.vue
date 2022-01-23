@@ -2,7 +2,7 @@
   <div class="custom-select" :tabindex="tabindex" @blur="open = false">
     <span :class="['arrow', { open: open }]"/>
     <div class="selected" :class="{ open: open }" @click="open = !open">
-      {{ selected }}
+      {{ selected.label ? selected.label : selected }}
     </div>
     <div class="items" :class="{ selectHide: !open }">
       <div
@@ -14,7 +14,7 @@
           $emit('input', option);
         "
       >
-        {{ option }}
+        {{ option.label ? option.label : option }}
       </div>
     </div>
   </div>

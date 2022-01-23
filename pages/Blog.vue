@@ -1,18 +1,18 @@
 <template>
   <section class="container-main-blog">
-    <TheHeader/>
+    <TheHeader @input:search="searchArticles"/>
 
-    <ul class="article-topics">
+    <ul class="article-topics" v-if="topicList.length">
       <li v-for="(topic, index) in topicList" :key="index"
-          :class="['article-topics__item custom-link', {'active-item': topic.includes('NUXTJS')}]" @click="initFilter">
-        {{ topic }}
+          :class="['article-topics__item custom-link', {'active-item': topic.topic === activeTag}]" @click="initFilter(topic.topic)">
+        {{ topic.topic }}
       </li>
     </ul>
 
     <div>
       <div class="middle-border">
-        <p class="count-wrapper"><span>67</span> articles</p>
-        <CustomSelector class="custom-selector-order" :options="['Latest first', 'Newest first']" default="Latest first" :border="false" @input="$emit('input', $event)"  />
+        <p class="count-wrapper"><span>{{articles.length}}</span> articles</p>
+        <CustomSelector class="custom-selector-order" :options="[{label: 'Latest first', value: 'latest'}, {label: 'Newest first', value: 'newest'}]" default="Latest first" :border="false" @input="sortByType($event.value)"  />
       </div>
       <span class="vertical-border" />
     </div>
@@ -37,30 +37,61 @@ export default {
   },
   data() {
     return {
-      topicList: ['JAVASCRIPT', 'LINKEDIN', 'NUXTJS', 'WEB DEVELOPMENT', 'REACTJS', 'NODEJS', 'FRONTEND', 'BACKEND', 'WEB DEVELOPMENT', 'REACTJS', 'NODEJS', 'FRONTEND', 'BACKEND']
+      activeTag: "",
+      topicList: null,
+      articles: null
+    }
+  },
+  async asyncData({$content}) {
+    const articles = await $content('articles')
+        .fetch();
+
+    const topicList = await $content('articles').only(['topic']).fetch();
+    return {
+      topicList,
+      articles
     }
   },
   methods: {
-    initFilter() {
+   async searchArticles(query) {
+     if (!query) return false;
+     this.articles = await this.$content('articles').search('title', query).fetch()
+    },
+    checkActiveTag(tag) {
+      if (!this.activeTag) return this.activeTag = tag;
 
+     return this.activeTag === tag ? this.activeTag = "" : true
+    },
+    async addNewArticles() {
+      const limitNewArticles = 6;
+      this.articles = await this.$content('articles').skip(this.articles.length).limit(limitNewArticles).fetch();
+    },
+    async initFilter(topicName) {
+      if (!topicName) return true;
+      const topic = topicName.toLowerCase();
+
+      this.checkActiveTag(topic);
+      this.articles = await this.$content('articles')
+          .sortBy('topic')
+          .where({topic: `${topic}`})
+          .fetch();
+    },
+    sortByType(sortType) {
+      switch (sortType) {
+        case "latest":
+          this.articles = this.sortByDate(this.articles, 1)
+          break;
+        case "newest":
+          this.articles = this.sortByDate(this.articles, 2)
+          break;
+      }
+    },
+    sortByDate(array, firstCompareArgument) {
+      return array.sort((a,b)=>
+        firstCompareArgument === 1 ? new Date(a.updatedAt) - new Date(b.updatedAt) : new Date(b.updatedAt) - new Date(a.updatedAt)
+      )
     }
-  },
-  async asyncData({$content, params}) {
-    const articles = await $content('articles')
-        .only(['title', 'description', 'img', 'slug', 'author'])
-        .sortBy('createdAt', 'desc')
-        .fetch()
-    const tags = await $content('tags')
-        .only(['name', 'description', 'img', 'slug'])
-        .sortBy('createdAt', 'asc')
-        .fetch()
-    const testGrid = [...articles, ...articles, ...articles, ...articles, ...articles, ...articles];
-    console.log(testGrid);
-    return {
-      articles: testGrid,
-      tags
-    }
-  },
+  }
 }
 </script>
 
@@ -126,6 +157,7 @@ export default {
     font-weight: 700;
     transition: all 0.4s ease-out;
     cursor: pointer;
+    text-transform: uppercase;
 
     @include for-middle() {
       margin: 0 30px 20px 0;
