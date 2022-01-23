@@ -19,8 +19,10 @@
 
     <BlogCard :options="articles" />
 
-    <div v-if="articles.length > 6" class="upload__btn custom-link">
-      View more <span class="upload__plus" />
+    <div class="upload__btn custom-link">
+      <template  v-if="articles.length > 6">
+        View more <span class="upload__plus" />
+      </template>
     </div>
 
   </section>
