@@ -73,10 +73,9 @@ export default {
 
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "src/assets/styles/variables";
 
-::v-deep {
 .blog-article {
   padding-top: 102px;
 
@@ -203,6 +202,5 @@ export default {
 
 .language-js.line-numbers {
   border-radius: 4px;
-}
 }
 </style>
