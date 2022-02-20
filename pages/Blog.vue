@@ -2,7 +2,7 @@
   <section class="container-main-blog">
     <TheHeader @input:search="searchArticles"/>
 
-    <ul class="article-topics" v-if="topicList.length">
+    <ul class="article-topics" v-if="topicList && topicList.length">
       <li v-for="(topic, index) in topicList" :key="index"
           :class="['article-topics__item custom-link', {'active-item': topic.topic === activeTag}]" @click="initFilter(topic.topic)">
         {{ topic.topic }}
@@ -17,10 +17,10 @@
       <span class="vertical-border" />
     </div>
 
-    <BlogCard :options="articles" />
+    <BlogCard v-if="articles && articles.length" :options="articles" />
 
     <div class="upload__btn custom-link">
-      <template  v-if="articles.length > 6">
+      <template  v-if="articles && articles.length > 6">
         View more <span class="upload__plus" />
       </template>
     </div>
@@ -39,9 +39,7 @@ export default {
   },
   data() {
     return {
-      activeTag: "",
-      topicList: null,
-      articles: null
+      activeTag: ""
     }
   },
   async asyncData({$content}) {
@@ -56,7 +54,8 @@ export default {
   },
   methods: {
    async searchArticles(query) {
-     if (!query) return false;
+     if (!query) return this.articles = await this.$content('articles').fetch();
+
      this.articles = await this.$content('articles').search('title', query).fetch()
     },
     checkActiveTag(tag) {

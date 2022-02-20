@@ -1,11 +1,10 @@
 <template>
   <section class="blog-article">
-    <ArticleHeader v-if="Object.keys(headerData).length" :data="headerData" :bread-crumbs="getBreadcrumbs" />
+    <ArticleHeader :data="headerData" :bread-crumbs="getBreadcrumbs" />
 
     <div class="blog-container">
-      <article v-if="Object.keys(article).length">
+      <article>
         <nuxt-content :document="article"/>
-<!--        <pre>{{article}}</pre>-->
       </article>
     </div>
 
@@ -74,8 +73,10 @@ export default {
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "src/assets/styles/variables";
+::v-deep {
+
 
 .blog-article {
   padding-top: 102px;
@@ -203,5 +204,6 @@ export default {
 
 .language-js.line-numbers {
   border-radius: 4px;
+}
 }
 </style>
