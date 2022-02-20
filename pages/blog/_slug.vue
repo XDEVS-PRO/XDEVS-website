@@ -4,8 +4,8 @@
 
     <div class="blog-container">
       <article v-if="Object.keys(article).length">
-<!--        <nuxt-content :document="article"/>-->
-        <pre>{{article}}</pre>
+        <nuxt-content :document="article"/>
+<!--        <pre>{{article}}</pre>-->
       </article>
     </div>
 
@@ -21,13 +21,6 @@ export default {
   components: {
     ArticleHeader,
     ArticleFooter
-  },
-  data() {
-    return {
-      article: null,
-      headerData: null,
-      footerData: null
-    }
   },
   filters: {
     time: function (value) {
@@ -49,7 +42,7 @@ export default {
         .surround(params.slug)
         .fetch()
 
-    const {author, img, createdAt, topic, title, path, breadcrumbs, description} = article;
+    const {author, img, createdAt, topic, description} = article;
 
     const headerData = {img, createdAt, topic, author, description}
     const footerData = {author};
@@ -74,12 +67,6 @@ export default {
           {name: this.article.title, link: this.article.path}
       );
       return crumbs
-    }
-  },
-  methods: {
-    formatDate(date) {
-      const options = {year: 'numeric', month: 'long', day: 'numeric'}
-      return new Date(date).toLocaleDateString('en', options)
     }
   },
   layout: 'blogLayout'
