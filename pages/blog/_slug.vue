@@ -75,9 +75,8 @@ export default {
 
 <style lang="scss" scoped>
 @import "src/assets/styles/variables";
+
 ::v-deep {
-
-
 .blog-article {
   padding-top: 102px;
 
