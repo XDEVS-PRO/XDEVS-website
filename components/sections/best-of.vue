@@ -66,7 +66,7 @@ export default class BestOf extends Vue {
     display: flex;
     justify-content: space-between;
     max-width: 720px;
-    align-items: end;
+    align-items: flex-end;
 
     @include for-smallmedium() {
       flex-direction: column-reverse;

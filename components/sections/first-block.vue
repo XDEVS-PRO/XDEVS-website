@@ -39,7 +39,7 @@ import DarkBg from "~/components/elements/dark-bg.vue";
   }
 })
 export default class FirstBlock extends Vue {
-  btnText = "<Discuss your project>";
+  btnText = `<Discuss your project>`;
 }
 </script>
 
@@ -108,7 +108,7 @@ export default class FirstBlock extends Vue {
       display: flex;
       max-width: 778px;
       justify-content: space-between;
-      align-items: end;
+      align-items: flex-end;
 
       @include for-middle() {
         flex-direction: column;
