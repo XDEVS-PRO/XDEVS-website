@@ -7,7 +7,7 @@
         </nuxt-link>
       </div>
       <div class="blog-text">
-        <p class="blog-time-topic">
+        <p class="blog-time-topic dark-bg__img">
           <span v-if="data.createdAt" class="blog-time">{{ data.createdAt | time }}</span>
           <span v-if="data.topic" class="blog-topic">{{ data.topic }}</span>
         </p>
@@ -57,6 +57,7 @@ export default {
 }
 
 .blog-text {
+  padding-top: 40px;
   max-width: 625px;
   margin: 0 auto;
   display: flex;
@@ -66,15 +67,13 @@ export default {
 }
 
 .blog-time-topic {
-  padding-bottom: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-image: url(~/assets/bg-section.svg);
 
   span {
     color: #EDEDED;
     font-size: 16px;
-
-    &:first-of-type {
-      padding: 60px 0 20px 0;
-    }
   }
 }
 
@@ -83,6 +82,10 @@ export default {
   font-size: 48px;
   padding-bottom: 20px;
   color: #FFFFFE;
+
+  @include for-small() {
+    font-size: 24px;
+  }
 }
 
 .blog-author {

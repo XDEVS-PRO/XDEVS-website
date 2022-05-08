@@ -75,26 +75,27 @@ export default {
 
 <style lang="scss" scoped>
 @import "src/assets/styles/variables";
+.blog-article {
+  padding-top: 100px;
+
+  @include for-middle() {
+    padding-top: 88px;
+  }
+}
+
+.blog-container {
+  padding: 60px 1rem 0;
+  max-width: 806px;
+  width: 100%;
+  margin: 0 auto;
+
+  @include for-middle() {
+    padding-top: 30px;
+  }
+}
+
+
 ::v-deep {
-  .blog-article {
-    padding-top: 102px;
-
-    @include for-middle() {
-      padding-top: 88px;
-    }
-  }
-
-  .blog-container {
-    padding: 60px 1rem 0;
-    max-width: 806px;
-    width: 100%;
-    margin: 0 auto;
-
-    @include for-middle() {
-      padding-top: 30px;
-    }
-  }
-
   .blog-breadcrumbs-container {
     padding: 20px 0;
   }
@@ -110,10 +111,6 @@ export default {
     &:last-of-type {
       color: #0085FF;
     }
-  }
-
-  .blog-time-topic {
-    padding: 60px 0 20px;
   }
 
   .blog-author {
