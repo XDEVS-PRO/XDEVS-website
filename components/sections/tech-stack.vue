@@ -337,6 +337,7 @@ export default class TechStack extends Vue {
 
 <style lang="scss" scoped>
 @import "src/assets/styles/variables";
+
 rect {
   transition: all 0.4s ease-out;
 }
@@ -669,6 +670,7 @@ svg:hover {
 
     .item__back-to-default {
       opacity: 1;
+      cursor: pointer;
     }
   }
 
@@ -745,6 +747,7 @@ svg:hover {
 
     .item__back-to-default {
       opacity: 1;
+      cursor: pointer;
     }
   }
 
@@ -825,6 +828,7 @@ svg:hover {
 
     .item__back-to-default {
       opacity: 1;
+      cursor: pointer;
     }
   }
 
@@ -914,6 +918,7 @@ svg:hover {
 
     .item__back-to-default {
       opacity: 1;
+      cursor: pointer;
     }
   }
 }
@@ -991,8 +996,8 @@ svg:hover {
 // arrow + animation for arrow
 .arrow-round {
   position: relative;
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
   margin: 20px auto;
 
   border: 10px solid $dark-f;
@@ -1010,6 +1015,7 @@ svg:hover {
 .arrow-round::after {
   content: "";
   position: absolute;
+
   border: 20px solid #ffffff;
   top: -10px;
   left: 10px;
@@ -1035,7 +1041,6 @@ svg:hover {
   right: 0;
   text-align: center;
   font-size: 18px;
-  cursor: pointer;
   opacity: 0;
   transition: all 0.6s ease-out;
 
