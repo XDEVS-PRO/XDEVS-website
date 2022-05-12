@@ -1,9 +1,9 @@
 <template>
-  <section class="our-projects" id="#our-projects">
+  <section class="our-projects" id="#case-studies">
     <dark-bg/>
     <stripe-wrapper :color-strip="'dark'"/>
     <div class="our-projects__container container">
-      <title-block :title="'Our Projects'" :color-icon="'light'"/>
+      <title-block :title="'Case Studies'" :color-icon="'light'"/>
       <div class="our-projects__inner">
         <div class="our-projects__left">
           <h4 class="our-projects__create">
