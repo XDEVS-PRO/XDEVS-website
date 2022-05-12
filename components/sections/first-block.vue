@@ -19,10 +19,10 @@
           </a>
         </div>
       </div>
-       <img
+      <img
         class="fb__bg-img"
         alt="XDEVS developers"
-        src="~/assets/first-block/bg-developers.svg"
+        src="~/assets/first-block/xdevs-developers.jpg"
       />
     </div>
   </section>
