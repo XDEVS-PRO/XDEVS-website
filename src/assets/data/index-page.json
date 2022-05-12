@@ -20,7 +20,7 @@
   "contactUs": [
     {
       "img": "contact-us/s-i.svg",
-      "alt": "Send us",
+      "alt": "skype",
       "link": "skype:live:.cid.d75c78905bc2d085\n"
     },
     {
@@ -30,7 +30,7 @@
     },
     {
       "img": "contact-us/p-i.svg",
-      "alt": "Post us",
+      "alt": "email",
       "link": "mailto:xander@xdevs.pro"
     }
   ]

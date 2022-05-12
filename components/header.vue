@@ -65,10 +65,11 @@
     <!--  mob menu -->
     <div :class="['mobile-menu', { active: isShowMobMenu }]">
       <div class="mobile-menu-list">
-         <template v-if="isOnIndex()">
-            <template v-for="(item, i) in headerList">
+         <ul v-if="isOnIndex()">
+            <li  v-for="(item, i) in headerList"
+                 class="mobile-menu-list_link-to-block"
+            >
               <a
-                class="mobile-menu-list_link-to-block"
                 v-if="item.hash"
                 @click="isShow()"
                 :href="item.hash"
@@ -85,19 +86,21 @@
               >
                 {{ item.title }}
               </nuxt-link>
-            </template>
-          </template>
-          <template v-else>
-            <nuxt-link
-              v-for="(item, i) in headerList"
-              @click.native="isShow()"
-              class="mobile-menu-list_link-to-block"
-              :key="i"
-              :to="{ path: item.link, hash: item.hash }"
-            >
-              {{ item.title }}
-            </nuxt-link>
-          </template >
+            </li>
+          </ul>
+          <ul v-else>
+           <li v-for="(item, i) in headerList"
+               class="mobile-menu-list_link-to-block"
+           >
+             <nuxt-link
+                 @click.native="isShow()"
+                 :key="i"
+                 :to="{ path: item.link, hash: item.hash }"
+             >
+               {{ item.title }}
+             </nuxt-link>
+           </li>
+          </ul >
 
         <div class="mobile-menu-list_contact">
           <div class="mobile-menu-list_contact-links">
@@ -363,6 +366,10 @@ export default class HeaderBlock extends Vue {
     display: block;
   }
 
+  .mobile-menu-list {
+    margin-top: 2.5rem;
+  }
+
   &.active {
     transform: translateX(0);
     margin-right: 20px;
@@ -378,7 +385,7 @@ export default class HeaderBlock extends Vue {
   }
 
   &_bg {
-    background-color: #fbdd4b;
+    background-color: black;
     width: 493px;
     position: absolute;
     height: 740px;
@@ -419,12 +426,16 @@ export default class HeaderBlock extends Vue {
     }
 
     &_link-to-block {
-      text-decoration: none;
-      color: $dark-f;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      padding-bottom: 24px;
-      font-size: 32px;
+      padding-bottom: 2rem;
+
+      a {
+        margin-left: 0.8rem;
+        color: whitesmoke;
+        font-family: system-ui;
+        font-size: 1.5rem;
+        text-decoration: none;
+        letter-spacing: 0.5px;
+      }
     }
 
     &_contact {
@@ -459,6 +470,7 @@ export default class HeaderBlock extends Vue {
       }
 
       &-links {
+        margin-top: 2rem;
         flex: 1 1 auto;
         display: flex;
         justify-content: center;

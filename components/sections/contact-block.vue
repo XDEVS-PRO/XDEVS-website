@@ -101,7 +101,7 @@ import { contactUs } from '~/src/assets/data/index-page.json';
   }
 })
 export default class ContactBlock extends Vue {
-  btnText = '<Email Us>';
+  btnText = '<Drop an email>';
   contactUs: Array<{ img: string; alt: string; link: string }> = [];
 
   created() {
