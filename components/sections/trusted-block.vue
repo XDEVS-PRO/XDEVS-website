@@ -36,7 +36,7 @@ import imgs from '~/assets/slider';
     StripeWrapper
   }
 })
-export default class SliderBlock extends Vue {
+export default class TrustedBlock extends Vue {
   cardList: Array<{ img: string; link: string; alt: string }> = [
     {
       img: imgs.tab1,

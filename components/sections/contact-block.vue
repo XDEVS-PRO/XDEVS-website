@@ -1,16 +1,18 @@
 <template>
   <section class="cb" id="#contact-us">
-    <stripe-wrapper />
+    <stripe-wrapper/>
     <div class="cb__container container">
       <div class="cb__inner">
         <div class="cb__info-left_wrapper">
-          <title-block :title="'Contact Us'" :color-icon="'dark'" />
+          <title-block :title="'Contact Us'" :color-icon="'dark'"/>
           <h4 class="custom-description">
-            Working with us you know exactly what every member of our team is
-            working on. We provide only high-quality battle-tested solutions
+            Get a free consultation and friendly advice about your website or mobile application.
+            Depending on your case we will provide variants on how to build it in a short time, scalable, or extra cheap.
+            We build our own projects so we know all the underwater rocks and strategies
+            📨
           </h4>
 
-          <a class="x-btn desc" href="mailto:dev@xander.im" target="_blank">
+          <a class="x-btn desc" href="mailto:xander@xdevs.pro" target="_blank">
             {{ btnText }}
           </a>
         </div>
@@ -20,42 +22,65 @@
             <div class="cb__info-left_name">
               <div class="cb__info-left_name_info">
                 <div class="cb__info-left_name_info-title">
-                  Viktoria Samoilenko
+                  Xander Pokhylenko
                 </div>
                 <div class="cb__info-left_name_info-desc">
-                  Head of Engagement
+                  Founder
                 </div>
               </div>
               <div class="cb__info-left_social">
                 <a
-                  v-for="(item, i) in contactUs"
-                  :href="item.link"
-                  :key="i"
-                  target="_blank"
+                    v-for="(item, i) in contactUs"
+                    :href="item.link"
+                    :key="i"
+                    target="_blank"
                 >
                   <img
-                    v-if="item.img"
-                    :alt="item.alt"
-                    class="cb__info-left_social-icon"
-                    width="24"
-                    height="24"
-                    :src="item.img"
+                      v-if="item.img"
+                      :alt="item.alt"
+                      class="cb__info-left_social-icon"
+                      width="24"
+                      height="24"
+                      :src="item.img"
                   />
                 </a>
               </div>
             </div>
           </div>
           <div class="cb__info-right">
-            <img
-              class="cb__info-right-icon"
-              width="277"
-              alt="Contact Person"
-              src="~/static/contact-us/per-i.svg"
-            />
+
+            <picture>
+              <img
+                  class="cb__info-right-icon"
+                  width="200"
+                  alt="Contact Person"
+                  sizes="(max-width: 1400px) 100vw, 1400px"
+                  srcset="
+                    ~/assets/xander/_-136_cm15we_c_scale_w_200.png 200w,
+                    ~/assets/xander/_-136_cm15we_c_scale_w_391.png 391w,
+                    ~/assets/xander/_-136_cm15we_c_scale_w_542.png 542w,
+                    ~/assets/xander/_-136_cm15we_c_scale_w_636.png 636w,
+                    ~/assets/xander/_-136_cm15we_c_scale_w_717.png 717w,
+                    ~/assets/xander/_-136_cm15we_c_scale_w_803.png 803w,
+                    ~/assets/xander/_-136_cm15we_c_scale_w_872.png 872w,
+                    ~/assets/xander/_-136_cm15we_c_scale_w_940.png 940w,
+                    ~/assets/xander/_-136_cm15we_c_scale_w_996.png 996w,
+                    ~/assets/xander/_-136_cm15we_c_scale_w_1041.png 1041w,
+                    ~/assets/xander/_-136_cm15we_c_scale_w_1105.png 1105w,
+                    ~/assets/xander/_-136_cm15we_c_scale_w_1157.png 1157w,
+                    ~/assets/xander/_-136_cm15we_c_scale_w_1216.png 1216w,
+                    ~/assets/xander/_-136_cm15we_c_scale_w_1214.png 1214w,
+                    ~/assets/xander/_-136_cm15we_c_scale_w_1320.png 1320w,
+                    ~/assets/xander/_-136_cm15we_c_scale_w_1371.png 1371w,
+                    ~/assets/xander/_-136_cm15we_c_scale_w_1387.png 1387w,
+                    ~/assets/xander/_-136_cm15we_c_scale_w_1397.png 1397w,
+                    ~/assets/xander/_-136_cm15we_c_scale_w_1400.png 1400w"
+                  src="~/assets/xander/_-136_cm15we_c_scale_w_1400.png">
+            </picture>
           </div>
         </div>
 
-        <a class="x-btn mob" href="mailto:dev@xander.im" target="_blank">
+        <a class="x-btn mob" href="mailto:xander@xdevs.pro" target="_blank">
           {{ btnText }}
         </a>
       </div>
@@ -64,10 +89,10 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import TitleBlock from "~/components/elements/title.vue";
-import StripeWrapper from "~/components/elements/strip-bg.vue";
-import { contactUs } from "~/src/assets/data/index-page.json";
+import { Component, Vue } from 'vue-property-decorator';
+import TitleBlock from '~/components/elements/title.vue';
+import StripeWrapper from '~/components/elements/strip-bg.vue';
+import { contactUs } from '~/src/assets/data/index-page.json';
 
 @Component({
   components: {
@@ -76,7 +101,7 @@ import { contactUs } from "~/src/assets/data/index-page.json";
   }
 })
 export default class ContactBlock extends Vue {
-  btnText = "<Let’s start your project>";
+  btnText = '<Email Us>';
   contactUs: Array<{ img: string; alt: string; link: string }> = [];
 
   created() {
@@ -237,6 +262,13 @@ export default class ContactBlock extends Vue {
   color: #42484f;
   max-width: 420px;
   margin-bottom: 60px;
+
+  span {
+    background: -webkit-linear-gradient(87.58deg, #0085ff 0%, #11a9ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
   @include for-smallmedium() {
     margin-bottom: 30px;

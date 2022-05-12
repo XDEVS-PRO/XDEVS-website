@@ -1,5 +1,5 @@
 <template>
-  <section class="sb" id="#service">
+  <section class="sb" id="#services">
     <stripe-wrapper />
     <div class="sb__container container">
       <title-block :title="'Services'" :color-icon="'dark'" />
@@ -36,11 +36,18 @@ import imgs from '~/assets/services/index'
 export default class ServicesBlock extends Vue {
   cardList: Array<{ img: string; alt: string; title: string; desc: string }> = [
     {
-      img: imgs.img1,
-      alt: "Big Data Analytics",
-      title: "Big Data Analytics",
+      img: imgs.img6,
+      alt: "Discovery phase",
+      title: "Discovery phase",
       desc:
-        "Apply advanced analytics and data-driven decisions to leverage quality of processes."
+          "Implement your business idea consulting XDEVS experts and you get the best solutions ever to satisfy your target users needs."
+    },
+    {
+      img: imgs.img3,
+      alt: "Web Development",
+      title: "Web Development",
+      desc:
+          "Upgrade or build from scratch scalable, fully-functional web solutions."
     },
     {
       img: imgs.img2,
@@ -49,13 +56,7 @@ export default class ServicesBlock extends Vue {
       desc:
         "Transform lucrative ideas into original industry-specific mobile apps."
     },
-    {
-      img: imgs.img3,
-      alt: "Web Development",
-      title: "Web Development",
-      desc:
-        "Upgrade or build from scratch scalable, fully-functional web solutions."
-    },
+
     {
       img: imgs.img4,
       alt: "UI/UX design",
@@ -70,12 +71,12 @@ export default class ServicesBlock extends Vue {
         "Turn to our experts to perform comprehensive, multi-stage testing and auditing of your software."
     },
     {
-      img: imgs.img6,
-      alt: "Discovery phase",
-      title: "Discovery phase",
+      img: imgs.img1,
+      alt: "Costs optimization",
+      title: "Costs optimization",
       desc:
-        "Implement your business idea consulting XDEVS experts and you get the best solutions ever to satisfy your target users’ needs."
-    }
+          "Are you tired of growing expenses? Our team will analyze and suggest how to minimize costs without quality loss."
+    },
   ];
 }
 </script>

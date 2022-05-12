@@ -15,7 +15,7 @@
           </a>
 
           <h4 class="footer__left-text">
-            Let's <span>create</span> a cool product <span>together</span>
+           On  <span>🔥</span> since 2020
           </h4>
         </div>
         <div class="footer__center">

@@ -6,7 +6,7 @@
       <div :class="['ts__inner', `state-${classState}`]">
         <div @click="changeState('default')" class="item__back-to-default">
           <div class="arrow-round"></div>
-          <span>Come back</span>
+          <span>Go back</span>
         </div>
         <div class="item__tabs" @click="changeState('tabs')">
           <svg

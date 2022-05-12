@@ -10,7 +10,7 @@
       <div class="best-of__inner">
         <a class="x-btn" href="#contact-us">{{ btnData }}</a>
         <p class="best-of__desc custom-description">
-          We believe in utilizing Software Architecture Design patterns to
+          By utilizing Software Architecture Design patterns we
           create a solid ground for your future success
         </p>
       </div>
@@ -28,7 +28,7 @@ import StripeWrapper from "~/components/elements/strip-bg.vue";
   }
 })
 export default class BestOf extends Vue {
-  btnData = "<Hire us now>";
+  btnData = "<Disscuss your idea>";
 }
 </script>
 
