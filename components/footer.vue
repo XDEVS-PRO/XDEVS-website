@@ -141,15 +141,15 @@ export default class FooterBlock extends Vue {
 
     a {
       font-size: 18px;
-      margin: 0 20px 40px 20px;
+      //margin: 0 20px 40px 20px;
       color: $white-f;
       text-decoration: none;
       display: inline-block;
       position: relative;
 
-      @include for-smallmedium() {
-        margin: 20px 20px 20px 0;
-      }
+      //@include for-smallmedium() {
+      //  margin: 20px 20px 20px 0;
+      //}
     }
   }
 
@@ -179,11 +179,51 @@ export default class FooterBlock extends Vue {
 }
 
 .custom-description {
-  //padding-left: 0;
-  height: 90px;
-
   @include for-average() {
     height: 100%;
+  }
+}
+
+.footer__center-inner.custom-description {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 90px;
+  grid-row-gap: 40px;
+
+  @include for-average() {
+    max-width: initial;
+    padding-left: 0;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  @include for-small() {
+    grid-gap: 40px;
+  }
+
+  @include for-verysmall() {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  .header__right-link.custom-link {
+    white-space: nowrap;
+
+    @include for-average() {
+      font-size: 16px;
+    }
+  }
+}
+
+.footer__left {
+  @include for-average() {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 </style>

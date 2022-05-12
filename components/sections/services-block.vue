@@ -87,39 +87,33 @@ export default class ServicesBlock extends Vue {
   position: relative;
 
   &__cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    flex: 1 1 auto;
     padding-bottom: 55px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 15px;
+
+    @include for-smallmedium() {
+      grid-template-rows: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include for-small() {
+      grid-template-rows: repeat(4, 1fr);
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 
   &__card-wrapper {
     display: flex;
     flex-direction: column;
-    max-height: 296px;
-    max-width: 380px;
-    flex: 1 1 160px;
-    margin: 15px;
     padding: 44px 30px 40px 30px;
     background-color: $white-f;
     align-items: flex-start;
     transition: box-shadow 0.5s ease-out;
 
-    @media screen and (min-width: $breakpoint-lg) {
-      width: 100%;
-      flex: 1 1 280px;
-    }
-
     @include for-average() {
-      margin: 8px;
-    }
-
-    @include for-small() {
       padding: 30px;
-    }
-
-    @include for-verysmall() {
-      margin: 0 0 8px 0;
     }
 
     &:hover {
@@ -142,7 +136,7 @@ export default class ServicesBlock extends Vue {
   &__card-desc {
     color: #42484f;
     font-size: 1rem;
-    margin: 0 0 auto 0;
+    //margin: 0 0 auto 0;
     font-weight: 300;
     line-height: 160%;
   }
