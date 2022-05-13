@@ -22,7 +22,7 @@
       <img
         class="fb__bg-img"
         alt="XDEVS developers"
-        src="~/assets/first-block/xdevs-developers.jpg"
+        src="~/assets/first-block/team-photo.png"
       />
     </div>
   </section>
@@ -132,6 +132,7 @@ export default class FirstBlock extends Vue {
     top: 50%;
     transform: translateY(-50%);
     z-index: -2;
+    max-width: 742px;
 
     @include for-middle() {
       max-width: 480px;
