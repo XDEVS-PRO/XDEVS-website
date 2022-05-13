@@ -78,10 +78,19 @@ section {
 
 .x-btn {
   background: linear-gradient(87.58deg, #0085FF 0%, #11A9FF 100%);
+  background-size: 400% 400%;
   padding: 20px 40px;
   color: $white-f;
   font-size: 1rem;
   display: inline-block;
   cursor: pointer;
   text-decoration: none;
+  animation: gradient 15s ease infinite;
+  border: 0;
+}
+
+@keyframes gradient {
+  0%{background-position:0% 59%}
+  50%{background-position:100% 42%}
+  100%{background-position:0% 59%}
 }

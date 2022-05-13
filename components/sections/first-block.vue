@@ -5,19 +5,21 @@
     <div class="fb__container container">
       <div class="fb__text">
         <h3 class="fb__text-title">
-          We are a highly skilled professional
-          <span>web development</span>
-          team, located in Eastern Europe
+          We deliver first-class software products.
+          <span>Grow faster</span>
+          with the right talents by your side.
         </h3>
         <div class="fb__text-subtitle_container">
           <h4 class="fb__text-subtitle custom-description">
-            We deliver first-class software products. Grow faster with the right
-            talents by your side.
+            <span>XDEVS</span> offers development services to match your company's specific needs.
+            We listen. We care. We know how to make your product look top-notch and work as swiss clocks.
           </h4>
-          <a href="#contact-us" class="x-btn">{{ btnText }}</a>
+          <a href="#core-team">
+            <button class="x-btn">{{ btnText }}</button>
+          </a>
         </div>
       </div>
-       <img
+      <img
         class="fb__bg-img"
         alt="XDEVS developers"
         src="~/assets/first-block/team-photo.png"
@@ -39,7 +41,7 @@ import DarkBg from "~/components/elements/dark-bg.vue";
   }
 })
 export default class FirstBlock extends Vue {
-  btnText = "<Discuss your project>";
+  btnText = `<Meet the team>`;
 }
 </script>
 
@@ -108,11 +110,19 @@ export default class FirstBlock extends Vue {
       display: flex;
       max-width: 778px;
       justify-content: space-between;
-      align-items: end;
+      align-items: flex-end;
 
       @include for-middle() {
         flex-direction: column;
       }
+    }
+
+    span {
+      white-space: nowrap;
+      background: -webkit-linear-gradient(87.58deg, #0085ff 0%, #11a9ff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   }
 

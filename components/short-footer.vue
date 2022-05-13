@@ -1,12 +1,12 @@
 <template>
   <section class="sf">
     <div class="sf__container container">
-      <p class="sf__left">© 2021 XDEVS, ALL RIGHTS RESERVED</p>
+      <p class="sf__left">© {{new Date().getFullYear()}} XDEVS, ALL RIGHTS RESERVED</p>
       <div class="sf__right">
         <nuxt-link to='/Terms' class="custom-link">
           Terms of use
         </nuxt-link>
-        
+
         <nuxt-link to='/PrivacyPolicy' class="custom-link">
           Privacy Policy
         </nuxt-link>

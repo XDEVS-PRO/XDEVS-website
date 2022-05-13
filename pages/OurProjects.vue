@@ -7,16 +7,16 @@
   </div>
 </template>
 
-<router> 
+<router>
   {
     path: '/our-projects'
-  } 
+  }
 </router>
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import ContactBlock from "~/components/sections/contact-block.vue";
-import OurProject from "~/components/sections/our-projects.vue";
+import OurProject from "~/components/sections/case-studies.vue";
 import { ourProjects } from "~/src/assets/data/index-page.json";
 
 @Component({
