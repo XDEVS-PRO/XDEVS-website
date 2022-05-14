@@ -46,7 +46,7 @@ export default class FirstBlock extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/styles/variables";
+@import "/assets/styles/variables";
 
 .fb {
   padding: 260px 0;

@@ -87,7 +87,7 @@ export default class FooterBlock extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/styles/variables";
+@import "/assets/styles/variables";
 
 .footer {
   position: relative;

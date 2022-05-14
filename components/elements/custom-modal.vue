@@ -31,7 +31,7 @@ export default class CustomModal extends Vue {
 </script>
 
 <style scoped lang="scss">
-@import "src/assets/styles/variables";
+@import "/assets/styles/variables";
 
 .modal {
   position: relative;

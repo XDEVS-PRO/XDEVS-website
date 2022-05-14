@@ -111,7 +111,7 @@ export default class ContactBlock extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/styles/variables";
+@import "/assets/styles/variables";
 
 .cb {
   &__info-left,

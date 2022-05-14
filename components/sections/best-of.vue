@@ -33,7 +33,7 @@ export default class BestOf extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/styles/variables";
+@import "/assets/styles/variables";
 
 .best-of {
   padding: 120px 0;

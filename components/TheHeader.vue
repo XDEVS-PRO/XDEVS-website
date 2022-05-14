@@ -32,7 +32,7 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-@import "src/assets/styles/variables";
+@import "/assets/styles/variables";
 
 .container-main-header {
   display: flex;

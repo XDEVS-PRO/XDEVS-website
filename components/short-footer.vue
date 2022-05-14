@@ -23,7 +23,7 @@ export default class ShortFooter extends Vue {}
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/styles/variables";
+@import "/assets/styles/variables";
 
 .sf {
   background-color: #111111;

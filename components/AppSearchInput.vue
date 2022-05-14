@@ -37,7 +37,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "src/assets/styles/variables";
+@import "/assets/styles/variables";
 
 .link-item {
   margin-top: 12px;

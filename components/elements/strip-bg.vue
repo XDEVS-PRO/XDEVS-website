@@ -23,7 +23,7 @@ export default class StripeWrapper extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/styles/variables";
+@import "/assets/styles/variables";
 
 .strip-wrapper {
   &__bg {

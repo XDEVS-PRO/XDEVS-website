@@ -65,7 +65,7 @@ export default class PrivacyPolicy extends Vue {}
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/styles/variables";
+@import "/assets/styles/variables";
 
 .privacy-policy {
   padding-top: 100px;

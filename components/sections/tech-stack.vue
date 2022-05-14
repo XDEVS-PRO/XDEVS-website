@@ -336,7 +336,7 @@ export default class TechStack extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/styles/variables";
+@import "/assets/styles/variables";
 
 rect {
   transition: all 0.4s ease-out;

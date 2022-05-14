@@ -28,8 +28,8 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
 
   css: [
-    "./src/assets/styles/_swiper-styles",
-    "./src/assets/styles/main",
+    "~/assets/styles/_swiper-styles",
+    "~/assets/styles/main",
   ],
 
 
@@ -62,6 +62,6 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    
+
   },
 }

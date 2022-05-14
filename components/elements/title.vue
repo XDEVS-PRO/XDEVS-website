@@ -49,7 +49,7 @@ export default class TitleBlock extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/styles/variables";
+@import "/assets/styles/variables";
 
 .title {
   display: flex;
