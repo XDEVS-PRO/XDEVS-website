@@ -27,10 +27,11 @@
 </template>
 
 <script setup>
+// TODO: FIXME
   const searchQuery = ref('');
-  return {
-    searchQuery
-  }
+  // return {
+  //   searchQuery
+  // }
 </script>
 
 <style scoped lang="scss">
