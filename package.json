@@ -9,21 +9,18 @@
         "generate": "nuxi generate"
     },
     "dependencies": {
-        "@nuxt/kit": "npm:@nuxt/kit-edge@latest",
-        "core-js": "^3.15.1",
-        "css-loader": "^5.2.7",
+        "core-js": "^3.22.5",
+        "css-loader": "^6.7.1",
         "nuxt-edge": "latest",
         "vue-awesome-swiper": "^5.0.1",
         "vue-infinite-slide-bar": "^1.1.1"
     },
     "devDependencies": {
-        "@nuxt/bridge": "npm:@nuxt/bridge-edge@^3.0.0-27530716.c4f8671",
-        "@nuxt/types": "^2.15.7",
-        "@nuxt/typescript-build": "^2.1.0",
+        "@nuxt/bridge": "npm:@nuxt/bridge-edge",
         "@nuxtjs/router-extras": "^1.1.1",
         "@nuxtjs/svg": "^0.4.0",
         "fibers": "^5.0.0",
         "sass": "^1.35.2",
-        "sass-loader": "^10.2.0"
+        "sass-loader": "^12.6.0"
     }
 }
