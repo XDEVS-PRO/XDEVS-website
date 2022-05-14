@@ -67,7 +67,8 @@
       <div class="mobile-menu-list">
          <ul v-if="isOnIndex()">
             <li  v-for="(item, i) in headerList"
-                 class="mobile-menu-list_link-to-block"
+              v-bind:key="i"   
+              class="mobile-menu-list_link-to-block"
             >
               <a
                 v-if="item.hash"
@@ -91,6 +92,7 @@
           <ul v-else>
            <li v-for="(item, i) in headerList"
                class="mobile-menu-list_link-to-block"
+               v-bind:key="i"
            >
              <nuxt-link
                  @click.native="isShow()"
@@ -130,45 +132,64 @@ import DarkBg from "~/components/elements/dark-bg.vue";
 import ScrollTo from "~/components/elements/scroll-to.vue";
 import { headerList } from "~/src/assets/data/header.json";
 import { contactUs } from "~/src/assets/data/index-page.json";
+import { onMounted, ref, computed, Ref, toRef } from "vue";
 
-@Component({
+type HeaderListType = Array<{
+  title: string;
+  link: string;
+  hash?: string;
+}>;
+
+type ContactUsType =  Array<{
+  img: string;
+  alt: string;
+  link: string;
+}>;
+
+export default {
+  props: {
+    hideStripes: Boolean
+  },
+
   components: {
     StripeWrapper,
     DarkBg,
     ScrollTo,
   },
-})
-export default class HeaderBlock extends Vue {
-  @Prop({ default: false }) hideStripes: boolean;
+  
+  setup(props, context) {
+    const hideStripes = toRef(props, 'hideStripes');
 
-  isShowMobMenu = false;
+    const isShowMobMenu = ref(false);
 
-  headerList: Array<{
-    title: string;
-    link: string;
-    hash?: string;
-  }> = [];
+    const headerList: Ref<HeaderListType> | Ref<never[]> = ref([]);
 
-  contactUs: Array<{
-    img: string;
-    alt: string;
-    link: string;
-  }> = [];
+    const contactUs: Ref<ContactUsType> | Ref<never[]> = ref([]);
 
-  isShow() {
-    this.isShowMobMenu = !this.isShowMobMenu;
-    this.isShowMobMenu
-      ? document.body.classList.add("un-scroll")
-      : document.body.classList.remove("un-scroll");
-  }
+    const isShow = computed(() => {
+      isShowMobMenu.value = !isShowMobMenu.value;
+      isShowMobMenu.value
+        ? document.body.classList.add("un-scroll")
+        : document.body.classList.remove("un-scroll");
+    });
 
-  isOnIndex() {
-    return this.$nuxt.$route.name === "index";
-  }
+    const isOnIndex = computed(() => {
+      return context.$nuxt.$route.name === "index";
+    });
 
-  created() {
-    this.contactUs = contactUs;
-    this.headerList = headerList;
+    onMounted(() => {
+      contactUs.value = contactUs;
+      headerList.value = headerList;
+    })
+
+    return {
+      isShowMobMenu,
+      hideStripes,
+      headerList,
+      contactUs,
+      isOnIndex,
+      isShow
+    }
   }
 }
 </script>

@@ -19,16 +19,19 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "vue-property-decorator";
 import StripeWrapper from "~/components/elements/strip-bg.vue";
 
-@Component({
+export default {
   components: {
     StripeWrapper
+  }, 
+
+  setup() {
+    const btnData = "<Disscuss your idea>";
+    return {
+      btnData
+    }
   }
-})
-export default class BestOf extends Vue {
-  btnData = "<Disscuss your idea>";
 }
 </script>
 

@@ -58,30 +58,27 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { computed, onMounted } from 'vue';
 import StripeWrapper from "~/components/elements/strip-bg.vue";
 import DarkBg from "~/components/elements/dark-bg.vue";
 import { headerList } from "~/src/assets/data/header.json";
 
-@Component({
+export default {
   components: {
     StripeWrapper,
     DarkBg,
   },
-})
-export default class FooterBlock extends Vue {
-  headerList: Array<{
-    title: string;
-    link: string;
-    hash?: string;
-  }> = [];
 
-  created() {
-    this.headerList = headerList;
-  }
-
-  isOnIndex() {
-    return this.$nuxt.$route.name === "index";
+  setup() {
+    const headerList: Array<{
+      title: string;
+      link: string;
+      hash?: string;
+    }> = [];
+  
+    const isOnIndex = computed(() => {
+      return this.$nuxt.$route.name === "index";
+    })
   }
 }
 </script>

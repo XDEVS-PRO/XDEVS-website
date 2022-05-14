@@ -26,14 +26,11 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      searchQuery: ''
-    }
+<script setup>
+  const searchQuery = ref('');
+  return {
+    searchQuery
   }
-}
 </script>
 
 <style scoped lang="scss">
