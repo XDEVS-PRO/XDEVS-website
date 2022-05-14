@@ -114,10 +114,10 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
 import TitleBlock from '~/components/elements/title.vue';
 import DarkBg from '~/components/elements/dark-bg.vue';
 import StripeWrapper from '~/components/elements/strip-bg.vue';
+import { onMounted, ref, computed } from 'vue';
 
 export interface Project {
   src: string;
@@ -127,11 +127,16 @@ export interface Project {
   create: string;
 }
 
-@Component({
+export default {
   components: {
     TitleBlock,
     DarkBg,
     StripeWrapper,
+  },
+
+  props: {
+    data,
+    scroll: false,
   },
 
   head() {
@@ -145,57 +150,54 @@ export interface Project {
         }
       ]
     }
-  }
-})
-export default class OurProjects extends Vue {
-  @Prop() data: any;
-  @Prop({default: false}) scroll!: boolean;
-  showProject: object | undefined | any = {};
+  },
 
-  countProject: any = '';
+  setup(props) {
+    const showProject = ref({});
+    const countProject: any = ref('');
+    const projectsList = ref([]);
 
-  projectsList: Array<Project> = [];
+    onMounted(() => {
+      showProject.value = props.projectsList[0];
+      projectsList.value = props.data;
+      countProject.value = props.showProject.id;
+    })
 
-  created() {
-    this.projectsList = this.data;
-    this.showProject = this.projectsList[0];
-    this.countProject = this.showProject.id;
-  }
+    const next = computed(() => {
+      countProject.value++;
+      if (countProject.value > projectsList.value.length) {
+        countProject.value = 1;
+        showProject.value = projectsList.value.find(
+            item => Number.parseInt(item.id) === countProject.value
+        );
+      } else if (
+          countProject.value < projectsList.value.length ||
+          countProject.value === projectsList.value.length
+      ) {
+        showProject.value = projectsList.value.find(
+            item => Number.parseInt(item.id) === countProject.value
+        );
+      }
+    })
 
-  next(): void {
-    this.countProject++;
-    if (this.countProject > this.projectsList.length) {
-      this.countProject = 1;
-      this.showProject = this.projectsList.find(
-          item => Number.parseInt(item.id) === this.countProject
-      );
-    } else if (
-        this.countProject < this.projectsList.length ||
-        this.countProject === this.projectsList.length
-    ) {
-      this.showProject = this.projectsList.find(
-          item => Number.parseInt(item.id) === this.countProject
-      );
-    }
-  }
+    const prev = computed(() => {
+      countProject.value--;
 
-  prev(): void {
-    this.countProject--;
+      if (countProject.value < 1) {
+        countProject.value = projectsList.value.length;
 
-    if (this.countProject < 1) {
-      this.countProject = this.projectsList.length;
-
-      this.showProject = this.projectsList.find(
-          item => Number.parseInt(item.id) === this.countProject
-      );
-    } else if (
-        this.countProject < this.projectsList.length ||
-        this.countProject === this.projectsList.length
-    ) {
-      this.showProject = this.projectsList.find(
-          item => Number.parseInt(item.id) === this.countProject
-      );
-    }
+        showProject.value = projectsList.value.find(
+            item => Number.parseInt(item.id) === countProject.value
+        );
+      } else if (
+          countProject.value < projectsList.value.length ||
+          countProject.value === projectsList.value.length
+      ) {
+        showProject.value = projectsList.value.find(
+            item => Number.parseInt(item.id) === countProject.value
+        );
+      }
+    })
   }
 }
 </script>

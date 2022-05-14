@@ -25,6 +25,12 @@ export default {
       type: Object,
       required: true
     }
+  },
+  setup(props) {
+    const author = toRef(props.author);
+    return {
+      author
+    }
   }
 }
 </script>

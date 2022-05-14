@@ -13,24 +13,27 @@
 </template>
 
 <script>
-import CustomSelector from "@/components/elements/custom-selector"
+  import CustomSelector from "@/components/elements/custom-selector"
 
-export default {
-  components: {
-    CustomSelector
-  },
-  data() {
-    return {
-      options: ['All articles', 'Web development', 'Mobile development', 'Management']
-    }
-  },
-  methods: {
-    TESTIM(e) {
-      console.log(e.target.value);
+  export default {
+    components: {
+      CustomSelector
+    },
+
+    setup() {
+      return {
+        options: ['All articles', 'Web development', 'Mobile development', 'Management']
+      }
+    },
+
+    methods: {
+      TESTIM(e) {
+        console.log(e.target.value);
+      }
     }
   }
-}
 </script>
+
 <style scoped lang="scss">
 @import "/assets/styles/variables";
 
