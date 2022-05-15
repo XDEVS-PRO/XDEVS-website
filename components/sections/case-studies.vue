@@ -157,8 +157,6 @@ export default {
     const countProject: any = ref('');
     const projectsList = ref([]);
 
-    console.log(props)
-
     onMounted(() => {
       showProject.value = props.projectsList[0];
       projectsList.value = props.data;
