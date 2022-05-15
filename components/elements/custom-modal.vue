@@ -18,10 +18,10 @@ import { defineComponent } from '@nuxt/bridge/dist/runtime/capi.legacy';
 export default defineComponent ({
   props: {
     isOpen: {type: Boolean, required: true},
-    className: {type: String, required: true},
+    className: {type: String, required: false},
     portal: {type: Boolean | undefined, default: true},
     to: {type: String | undefined, default: "modal"},
-    close: {type: () => {}, required: true}
+    close: {type: undefined, required: true}
   },
 
   methods: {

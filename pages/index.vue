@@ -4,7 +4,7 @@
     <services-block />
     <core-team />
     <best-of />
-    <case-studies data="ourProjectList" :scroll="true" />
+    <case-studies :data="ourProjectList" :scroll="true" />
     <tech-stack />
     <slider-block />
     <contact-block />
@@ -52,8 +52,9 @@ export default defineComponent ({
   mixins: [PageMixin],
 
   setup() {
+    const ourProjectList = ourProjects;
     return {
-      ourProjects,
+      ourProjectList,
     }
   }
 })

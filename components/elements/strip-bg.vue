@@ -19,7 +19,7 @@ import { defineComponent } from '@nuxt/bridge/dist/runtime/capi.legacy';
 
 export default defineComponent ({
   props: {
-    colorStrip: {type: String, default: 'light', required: true}
+    colorStrip: {type: String, default: 'light'}
   }
 })
 </script>

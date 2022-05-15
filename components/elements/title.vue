@@ -41,11 +41,11 @@ import { defineComponent } from '@nuxt/bridge/dist/runtime/capi.legacy';
 
 export default defineComponent({
   props: {
-    title: {type: String, required: true},
-    subTitle: {type: String, required: true},
-    colorIcon: {type: String, required: true, default: 'light'},
-    descRight: {type: String, required: true},
-    descBottom: {type: String, required: true}
+    title: {type: String, required: false},
+    subTitle: {type: String, required: false},
+    colorIcon: {type: String, required: false, default: 'light'},
+    descRight: {type: String, required: false},
+    descBottom: {type: String, required: false}
   }
 
 })

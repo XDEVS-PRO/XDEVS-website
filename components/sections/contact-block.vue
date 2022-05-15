@@ -30,7 +30,7 @@
               </div>
               <div class="cb__info-left_social">
                 <a
-                    v-for="(item, i) in contactUs"
+                    v-for="(item, i) in contactUsData"
                     :href="item.link"
                     :key="i"
                     target="_blank"

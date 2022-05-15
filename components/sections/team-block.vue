@@ -51,7 +51,7 @@
           </div>
         </custom-modal>
 
-        <div v-for="(item, i) in cardList" :key="i" class="cr__card-wrapper">
+        <div v-for="(item, i) in cardsList" :key="i" class="cr__card-wrapper">
           <div class="cr__card-icon">
             <img
               v-if="item.img"

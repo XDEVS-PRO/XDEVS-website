@@ -161,8 +161,6 @@ export default defineComponent({
   setup(props, context) {
     const route = useRoute()
 
-    const hideStripes = toRef(props, 'hideStripes');
-
     const isShowMobMenu = ref(false);
 
     const headerList: Ref<HeaderListType> | Ref<never[]> = ref([]);
@@ -187,7 +185,6 @@ export default defineComponent({
 
     return {
       isShowMobMenu,
-      hideStripes,
       headerList,
       contactUs,
       isOnIndex,
