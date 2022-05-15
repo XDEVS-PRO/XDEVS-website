@@ -163,9 +163,9 @@ export default defineComponent({
 
     const isShowMobMenu = ref(false);
 
-    const headerList: Ref<HeaderListType> | Ref<never[]> = ref([]);
+    const headerListData: Ref<HeaderListType> | Ref<never[]> = ref([]);
 
-    const contactUs: Ref<ContactUsType> | Ref<never[]> = ref([]);
+    const contactUsData: Ref<ContactUsType> | Ref<never[]> = ref([]);
 
     const isShow = computed(() => {
       isShowMobMenu.value = !isShowMobMenu.value;
@@ -179,14 +179,14 @@ export default defineComponent({
     });
 
     onMounted(() => {
-      contactUs.value = contactUs;
-      headerList.value = headerList;
+      contactUsData.value = contactUs;
+      headerListData.value = headerList;
     })
 
     return {
       isShowMobMenu,
-      headerList,
-      contactUs,
+      headerList: headerListData,
+      contactUs: contactUsData,
       isOnIndex,
       isShow
     }
