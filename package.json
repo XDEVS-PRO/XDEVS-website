@@ -9,6 +9,7 @@
         "generate": "nuxi generate"
     },
     "dependencies": {
+        "@nuxt/content": "https://github.com/nuxt/content.git",
         "core-js": "^3.22.5",
         "css-loader": "^6.7.1",
         "nuxt-edge": "latest",
