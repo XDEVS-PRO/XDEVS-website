@@ -67,7 +67,7 @@
       <div class="mobile-menu-list">
          <ul v-if="isOnIndex()">
             <li  v-for="(item, i) in headerList"
-              v-bind:key="i"   
+              v-bind:key="i"
               class="mobile-menu-list_link-to-block"
             >
               <a
@@ -126,13 +126,13 @@
 </template>
 
 <script lang="ts">
-import {Component, Prop, Vue} from "vue-property-decorator";
 import StripeWrapper from "~/components/elements/strip-bg.vue";
 import DarkBg from "~/components/elements/dark-bg.vue";
 import ScrollTo from "~/components/elements/scroll-to.vue";
 import { headerList } from "~/src/assets/data/header.json";
 import { contactUs } from "~/src/assets/data/index-page.json";
 import { onMounted, ref, computed, Ref, toRef } from "vue";
+import { useRoute } from '@nuxt/bridge/dist/runtime';
 
 type HeaderListType = Array<{
   title: string;
@@ -156,8 +156,10 @@ export default {
     DarkBg,
     ScrollTo,
   },
-  
+
   setup(props, context) {
+    const route = useRoute()
+
     const hideStripes = toRef(props, 'hideStripes');
 
     const isShowMobMenu = ref(false);
@@ -174,7 +176,7 @@ export default {
     });
 
     const isOnIndex = computed(() => {
-      return context.$nuxt.$route.name === "index";
+      return route.name === "index";
     });
 
     onMounted(() => {

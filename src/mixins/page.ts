@@ -1,68 +1,78 @@
-import { Vue, Component } from "vue-property-decorator";
+import { ref, onMounted } from '@nuxt/bridge/dist/runtime';
 
-@Component({})
-export default class PegaMixin extends Vue {
-  initElementListenersTimeout: any = null;
-  scrollingLinks: any = [];
-  test: any = [];
-  isNotIndex = false;
+// TODO: Check if scroll works
+const PageMixin = {
 
-  mounted() {
-    this.scrollToHash();
-    this.clearElementsListeners();
-    this.initElementListenersTimeout = setTimeout(() => {
-      this.scrollingLinks = document.querySelectorAll(
-        "a[href^='#to_'], section[id]"
-      );
+   setup() {
+     let initElementListenersTimeout = null;
+     const scrollingLinks = ref<any>([]);
 
-      this.scrollingLinks.forEach((item: any) => {
-        item.addEventListener("click", this.notChangedHash);
-      });
+     function clearElementsListeners() {
+       scrollingLinks.value &&
+       scrollingLinks.value.forEach((item: any) =>
+         item.removeEventListener("click", notChangedHash)
+       );
 
-      window.addEventListener("hashchange", e => {
-        this.scrollToHash();
-      });
-    }, 200);
-  }
+       window.removeEventListener("hashchange", notChangedHash);
 
-  clearElementsListeners() {
-    this.scrollingLinks &&
-      this.scrollingLinks.forEach((item: any) =>
-        item.removeEventListener("click", this.notChangedHash)
-      );
+       clearTimeout(initElementListenersTimeout);
+     }
 
-    window.removeEventListener("hashchange", this.notChangedHash);
+     function notChangedHash(e) {
+       if (location.hash === e.currentTarget.getAttribute("href")) {
+         e.preventDefault();
+         scrollToHash();
+       }
+     }
 
-    clearTimeout(this.initElementListenersTimeout);
-  }
+     function scrollToHash() {
+       if (location.hash) {
+         setTimeout(() => {
+           const fullPath = this.$route.path.replace(/^\/[a-z]{2}\//, "/");
+           const replaceStr =
+             fullPath.indexOf("/help/manuals/") === 0 ? "#id" : "#to_";
+           const el = document.getElementById(
+             location.hash.replace(replaceStr, "#")
+           );
 
-  notChangedHash(e: any) {
-    if (location.hash === e.currentTarget.getAttribute("href")) {
-      e.preventDefault();
-      this.scrollToHash();
-    }
-  }
+           if (el) {
+             const headerSize = 90;
+             const viewportY = el.getBoundingClientRect().top;
+             const scrollTop = window.pageYOffset;
+             window.scrollTo({
+               top: viewportY + scrollTop,
+               behavior: "smooth"
+             });
+           }
+         }, 50);
+       }
+     }
 
-  scrollToHash() {
-    if (location.hash) {
-      setTimeout(() => {
-        const fullPath = this.$route.path.replace(/^\/[a-z]{2}\//, "/");
-        const replaceStr =
-          fullPath.indexOf("/help/manuals/") === 0 ? "#id" : "#to_";
-        const el = document.getElementById(
-          location.hash.replace(replaceStr, "#")
-        );
+     onMounted(() => {
+       scrollToHash();
+       clearElementsListeners();
+       initElementListenersTimeout = setTimeout(() => {
+         scrollingLinks.value = document.querySelectorAll(
+           "a[href^='#to_'], section[id]"
+         );
 
-        if (el) {
-          const headerSize = 90;
-          const viewportY = el.getBoundingClientRect().top;
-          const scrollTop = window.pageYOffset;
-          window.scrollTo({
-            top: viewportY + scrollTop,
-            behavior: "smooth"
-          });
-        }
-      }, 50);
-    }
-  }
+         scrollingLinks.value.forEach((item: any) => {
+           item.addEventListener("click", this.notChangedHash);
+         });
+
+         window.addEventListener("hashchange", e => {
+           scrollToHash();
+         });
+       }, 200);
+     })
+
+     return {
+       initElementListenersTimeout,
+       scrollingLinks,
+     }
+   }
+
+
 }
+
+export default PageMixin

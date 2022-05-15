@@ -13,21 +13,24 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import { Component, Prop } from "vue-property-decorator";
+import { defineComponent } from '@nuxt/bridge/dist/runtime/capi.legacy';
 
-@Component({ components: {} })
-export default class CustomModal extends Vue {
-  @Prop() isOpen!: boolean;
-  @Prop({ default: null }) className!: string;
-  @Prop() close!: any;
-  @Prop({ default: true }) portal: boolean | undefined;
-  @Prop({ default: "modal" }) to: string | undefined;
+export default defineComponent ({
+  props: {
+    isOpen: {type: Boolean, required: true},
+    className: {type: String, required: true},
+    portal: {type: Boolean | undefined, default: true},
+    to: {type: String | undefined, default: "modal"},
+    close: {type: () => {}, required: true}
+  },
 
-  handleClose() {
-    this.close();
-  }
-}
+  methods: {
+    handleClose() {
+      this.close();
+    }
+  },
+
+})
 </script>
 
 <style scoped lang="scss">

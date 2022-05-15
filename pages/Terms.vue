@@ -54,15 +54,15 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
 import StripeWrapper from "~/components/elements/strip-bg.vue";
 import TitleBlock from "~/components/elements/title.vue";
 
-@Component({
-  components: { StripeWrapper, TitleBlock }
-})
-export default class PrivacyPolicy extends Vue {}
-</script>
+export default {
+  components: {
+    StripeWrapper,
+    TitleBlock
+  }
+}</script>
 
 <style lang="scss" scoped>
 @import "/assets/styles/variables";

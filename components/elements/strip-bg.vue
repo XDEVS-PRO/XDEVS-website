@@ -14,12 +14,14 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from "vue-property-decorator";
 
-@Component({})
-export default class StripeWrapper extends Vue {
-  @Prop({ default: "light" }) colorStrip!: string;
-}
+import { defineComponent } from '@nuxt/bridge/dist/runtime/capi.legacy';
+
+export default defineComponent ({
+  props: {
+    colorStrip: {type: String, default: 'light', required: true}
+  }
+})
 </script>
 
 <style lang="scss" scoped>

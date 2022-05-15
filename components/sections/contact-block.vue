@@ -89,25 +89,28 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
 import TitleBlock from '~/components/elements/title.vue';
 import StripeWrapper from '~/components/elements/strip-bg.vue';
 import { contactUs } from '~/src/assets/data/index-page.json';
+import { defineComponent } from '@nuxt/bridge/dist/runtime/capi.legacy';
 
-@Component({
+export default defineComponent({
   components: {
     TitleBlock,
     StripeWrapper
-  }
-})
-export default class ContactBlock extends Vue {
-  btnText = '<Drop an email>';
-  contactUs: Array<{ img: string; alt: string; link: string }> = [];
+  },
 
-  created() {
-    this.contactUs = contactUs;
+  setup() {
+    const btnText = '<Drop an email>';
+    const contactUsData: Array<{ img: string; alt: string; link: string }> = contactUs;
+
+    return {
+      btnText,
+      contactUsData,
+    }
   }
-}
+
+})
 </script>
 
 <style lang="scss" scoped>

@@ -7,31 +7,22 @@
   </div>
 </template>
 
-<router>
-  {
-    path: '/our-projects'
-  }
-</router>
-
 <script lang="ts">
-import { Vue, Component } from "vue-property-decorator";
 import ContactBlock from "~/components/sections/contact-block.vue";
 import OurProject from "~/components/sections/case-studies.vue";
 import { ourProjects } from "~/src/assets/data/index-page.json";
+import { defineComponent } from '@nuxt/bridge/dist/runtime/capi.legacy';
 
-@Component({
+export default defineComponent({
   components: {
     ContactBlock,
     OurProject
+  },
+
+  setup() {
+    return ourProjects
   }
 })
-export default class OurProjects extends Vue {
-  ourProjectList: Array<any> = [];
-
-  created() {
-    this.ourProjectList = ourProjects;
-  }
-}
 
 </script>
 

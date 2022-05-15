@@ -62,6 +62,7 @@ import { computed, onMounted } from 'vue';
 import StripeWrapper from "~/components/elements/strip-bg.vue";
 import DarkBg from "~/components/elements/dark-bg.vue";
 import { headerList } from "~/src/assets/data/header.json";
+import { useRoute } from '@nuxt/bridge/dist/runtime';
 
 export default {
   components: {
@@ -70,15 +71,22 @@ export default {
   },
 
   setup() {
-    const headerList: Array<{
+    const route = useRoute()
+
+    const headerListData: Array<{
       title: string;
       link: string;
       hash?: string;
-    }> = [];
-  
+    }> = headerList;
+
     const isOnIndex = computed(() => {
-      return this.$nuxt.$route.name === "index";
+      return route.name === "index";
     })
+
+    return {
+      isOnIndex,
+      headerList: headerListData
+    }
   }
 }
 </script>

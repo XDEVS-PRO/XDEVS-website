@@ -135,7 +135,7 @@ export default {
   },
 
   props: {
-    data,
+    data: undefined,
     scroll: false,
   },
 

@@ -1,7 +1,7 @@
 <template>
   <section id="#fb" class="fb">
-    <dark-bg />
-    <stripe-wrapper :color-strip="'dark'" />
+    <dark-bg/>
+    <stripe-wrapper :color-strip="'dark'"/>
     <div class="fb__container container">
       <div class="fb__text">
         <h3 class="fb__text-title">
@@ -20,29 +20,30 @@
         </div>
       </div>
       <img
-        class="fb__bg-img"
-        alt="XDEVS developers"
-        src="~/assets/first-block/team-photo.png"
+          class="fb__bg-img"
+          alt="XDEVS developers"
+          src="~/assets/first-block/team-photo.png"
       />
     </div>
   </section>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import StripeWrapper from "~/components/elements/strip-bg.vue";
-import DarkBg from "~/components/elements/dark-bg.vue";
+import StripeWrapper from '~/components/elements/strip-bg.vue';
+import DarkBg from '~/components/elements/dark-bg.vue';
+import { defineComponent } from '@nuxt/bridge/dist/runtime/capi.legacy';
 
-
-@Component({
+export default defineComponent({
   components: {
     StripeWrapper,
     DarkBg
-  }
+  },
+  setup() {
+    return {
+      btnText: `<Meet the team>`
+    }
+  },
 })
-export default class FirstBlock extends Vue {
-  btnText = `<Meet the team>`;
-}
 </script>
 
 <style lang="scss" scoped>
