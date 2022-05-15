@@ -59,7 +59,7 @@ const PageMixin = {
          );
 
          scrollingLinks.value.forEach((item: any) => {
-           item.addEventListener("click", this.notChangedHash);
+           item.addEventListener("click", notChangedHash);
          });
 
          window.addEventListener("hashchange", e => {
