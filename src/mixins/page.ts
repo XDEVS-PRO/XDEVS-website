@@ -1,9 +1,11 @@
-import { ref, onMounted } from '@nuxt/bridge/dist/runtime';
+import { ref, onMounted, useRoute } from '@nuxt/bridge/dist/runtime';
 
 // TODO: Check if scroll works
 const PageMixin = {
 
    setup() {
+     const route = useRoute()
+
      let initElementListenersTimeout = null;
      const scrollingLinks = ref<any>([]);
 
@@ -28,7 +30,7 @@ const PageMixin = {
      function scrollToHash() {
        if (location.hash) {
          setTimeout(() => {
-           const fullPath = this.$route.path.replace(/^\/[a-z]{2}\//, "/");
+           const fullPath = route.path.replace(/^\/[a-z]{2}\//, "/");
            const replaceStr =
              fullPath.indexOf("/help/manuals/") === 0 ? "#id" : "#to_";
            const el = document.getElementById(
