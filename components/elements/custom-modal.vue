@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxt/bridge/dist/runtime/capi.legacy';
+import { defineComponent } from 'vue';
 
 export default defineComponent ({
   props: {
@@ -24,12 +24,14 @@ export default defineComponent ({
     close: {type: undefined, required: true}
   },
 
-  methods: {
-    handleClose() {
-      this.close();
+  setup(props) {
+    const close = () => {
+      props.close();
     }
-  },
-
+    return {
+      close
+    }
+  }
 })
 </script>
 

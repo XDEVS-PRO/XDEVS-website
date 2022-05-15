@@ -117,7 +117,7 @@
 import TitleBlock from '~/components/elements/title.vue';
 import DarkBg from '~/components/elements/dark-bg.vue';
 import StripeWrapper from '~/components/elements/strip-bg.vue';
-import { onMounted, ref, computed } from 'vue';
+import { onMounted, ref, computed, reactive } from 'vue';
 
 export interface Project {
   src: string;
@@ -153,9 +153,9 @@ export default {
   },
 
   setup(props) {
-    const showProject = ref({});
+    const showProject: any = ref({});
     const countProject: any = ref('');
-    const projectsList = ref([]);
+    const projectsList: any = ref([]);
 
     onMounted(() => {
       projectsList.value = props.data;

@@ -25,7 +25,7 @@ import TitleBlock from "~/components/elements/title.vue";
 import StripeWrapper from "~/components/elements/strip-bg.vue";
 
 import imgs from '~/assets/services/index'
-import { defineComponent } from '@nuxt/bridge/dist/runtime/capi.legacy';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   components: {

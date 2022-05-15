@@ -26,12 +26,15 @@
   </div>
 </template>
 
-<script setup>
-// TODO: FIXME
-  const searchQuery = ref('');
-  // return {
-  //   searchQuery
-  // }
+<script>
+export default {
+  setup() {
+    const searchQuery = ref('');
+    return {
+      searchQuery
+    }
+  }
+}
 </script>
 
 <style scoped lang="scss">

@@ -106,27 +106,27 @@ export default defineComponent({
 
     const cardsList = TeamBlockCards
 
+    function showModal(item: any) {
+      dataModalCard.value = item;
+      isShowModal.value = true;
+    };
+
+    function closeModal() {
+      dataModalCard.value = {};
+      return (isShowModal.value = false);
+    };
+
     return {
       isShowModal,
       isCloseModal,
       dataModalCard,
       titleSubData,
-      cardsList
+      cardsList,
+      closeModal,
+      showModal
     }
 
   },
-
-  methods: {
-    showModal(item: any) {
-      this.dataModalCard = item;
-      this.isShowModal = true;
-    },
-
-    closeModal() {
-      this.dataModalCard = {};
-      return (this.isShowModal = false);
-    },
-  }
 })
 </script>
 

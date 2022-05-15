@@ -4,7 +4,7 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from '@nuxt/bridge/dist/runtime/capi.legacy';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
 

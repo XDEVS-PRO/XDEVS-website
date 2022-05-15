@@ -27,7 +27,7 @@ export default {
     }
   },
   setup(props) {
-    const author = toRef(props.author);
+    const { author } = props;
     return {
       author
     }

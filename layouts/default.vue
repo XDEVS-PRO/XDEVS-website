@@ -10,17 +10,17 @@
 </template>
 
  <script lang="ts">
-import HeaderBlock from "~/components/header.vue";
-import FooterBlock from "~/components/footer.vue";
-import ShortFooter from "~/components/short-footer.vue";
+  import HeaderBlock from "~/components/header.vue";
+  import FooterBlock from "~/components/footer.vue";
+  import ShortFooter from "~/components/short-footer.vue";
 
-export default {
-  components: {
-    HeaderBlock,
-    FooterBlock,
-    ShortFooter
+  export default {
+    components: {
+      HeaderBlock,
+      FooterBlock,
+      ShortFooter
+    }
   }
-}
 </script>
 
 <style lang="scss" scoped>

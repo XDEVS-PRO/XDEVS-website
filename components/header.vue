@@ -133,7 +133,7 @@ import { headerList } from "~/src/assets/data/header.json";
 import { contactUs } from "~/src/assets/data/index-page.json";
 import { onMounted, ref, computed, Ref, toRef } from "vue";
 import { useRoute } from '@nuxt/bridge/dist/runtime';
-import { defineComponent } from '@nuxt/bridge/dist/runtime/capi.legacy';
+import { defineComponent } from 'vue';
 
 type HeaderListType = Array<{
   title: string;
@@ -158,7 +158,7 @@ export default defineComponent({
     ScrollTo,
   },
 
-  setup(props, context) {
+  setup() {
     const route = useRoute()
 
     const isShowMobMenu = ref(false);
@@ -167,16 +167,16 @@ export default defineComponent({
 
     const contactUsData: Ref<ContactUsType> | Ref<never[]> = ref([]);
 
-    const isShow = computed(() => {
+    const isShow = () => {
       isShowMobMenu.value = !isShowMobMenu.value;
       isShowMobMenu.value
         ? document.body.classList.add("un-scroll")
         : document.body.classList.remove("un-scroll");
-    });
+    };
 
-    const isOnIndex = computed(() => {
+    const isOnIndex = () => {
       return route.name === "index";
-    });
+    };
 
     onMounted(() => {
       contactUsData.value = contactUs;

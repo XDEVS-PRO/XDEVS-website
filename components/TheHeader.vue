@@ -21,16 +21,14 @@
     },
 
     setup() {
+      function TESTIM(e) {
+        console.log(e.target.value);
+      }
       return {
+        TESTIM,
         options: ['All articles', 'Web development', 'Mobile development', 'Management']
       }
     },
-
-    methods: {
-      TESTIM(e) {
-        console.log(e.target.value);
-      }
-    }
   }
 </script>
 

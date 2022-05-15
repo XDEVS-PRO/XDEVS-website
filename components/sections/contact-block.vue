@@ -92,7 +92,7 @@
 import TitleBlock from '~/components/elements/title.vue';
 import StripeWrapper from '~/components/elements/strip-bg.vue';
 import { contactUs } from '~/src/assets/data/index-page.json';
-import { defineComponent } from '@nuxt/bridge/dist/runtime/capi.legacy';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   components: {

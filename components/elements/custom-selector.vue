@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import { onMounted } from '@nuxt/bridge/dist/runtime';
 export default {
   name: "CustomSelector",
   props: {
@@ -39,19 +40,24 @@ export default {
       default: 0,
     }
   },
-  data() {
+  setup(props){
+    const selected = toRef(props.default
+          ? props.default
+          : props.options.length > 0
+              ? props.options[0]
+              : null);
+    
+    const open = ref(false);
+    
+    onMounted(() => {
+      $emit("input", selected)
+    });
+
     return {
-      selected: this.default
-          ? this.default
-          : this.options.length > 0
-              ? this.options[0]
-              : null,
-      open: false,
-    };
-  },
-  mounted() {
-    this.$emit("input", this.selected);
-  },
+      open, 
+      selected
+    }
+  }
 };
 </script>
 

@@ -71,7 +71,7 @@ export default {
   },
 
   setup() {
-    const route = useRoute()
+    const route = useRoute();
 
     const headerListData: Array<{
       title: string;
@@ -79,9 +79,9 @@ export default {
       hash?: string;
     }> = headerList;
 
-    const isOnIndex = computed(() => {
+    const isOnIndex = () => {
       return route.name === "index";
-    })
+    };
 
     return {
       isOnIndex,
