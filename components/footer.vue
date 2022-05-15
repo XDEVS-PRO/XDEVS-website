@@ -20,7 +20,7 @@
         </div>
         <div class="footer__center">
           <div class="footer__center-inner custom-description">
-            <template v-if="isOnIndex()">
+            <template v-if="isOnIndex">
               <template v-for="(item, i) in headerList">
                 <a
                   class="header__right-link custom-link"

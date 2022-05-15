@@ -16,7 +16,7 @@
         </div>
 
         <div class="header__right" v-if="headerList.length">
-          <template v-if="isOnIndex()">
+          <template v-if="isOnIndex">
             <template v-for="(item, i) in headerList">
               <a
                 class="header__right-link custom-link"
@@ -65,7 +65,7 @@
     <!--  mob menu -->
     <div :class="['mobile-menu', { active: isShowMobMenu }]">
       <div class="mobile-menu-list">
-         <ul v-if="isOnIndex()">
+         <ul v-if="isOnIndex">
             <li  v-for="(item, i) in headerList"
               v-bind:key="i"
               class="mobile-menu-list_link-to-block"
@@ -133,6 +133,7 @@ import { headerList } from "~/src/assets/data/header.json";
 import { contactUs } from "~/src/assets/data/index-page.json";
 import { onMounted, ref, computed, Ref, toRef } from "vue";
 import { useRoute } from '@nuxt/bridge/dist/runtime';
+import { defineComponent } from '@nuxt/bridge/dist/runtime/capi.legacy';
 
 type HeaderListType = Array<{
   title: string;
@@ -146,7 +147,7 @@ type ContactUsType =  Array<{
   link: string;
 }>;
 
-export default {
+export default defineComponent({
   props: {
     hideStripes: Boolean
   },
@@ -193,7 +194,7 @@ export default {
       isShow
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
