@@ -327,7 +327,7 @@ export default defineComponent({
     function isClosedModal() {
       dataModalCard.value = {};
       return (isShowModal.value = false);
-    },
+    }
 
     return {
       cardsMobile,
