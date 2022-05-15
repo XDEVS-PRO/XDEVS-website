@@ -158,9 +158,7 @@ export default {
     const projectsList = ref([]);
 
     onMounted(() => {
-      showProject.value = props.projectsList[0];
       projectsList.value = props.data;
-      countProject.value = props.showProject.id;
     })
 
     const next = computed(() => {
