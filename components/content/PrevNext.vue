@@ -7,7 +7,7 @@
     >
       {{ prev.title }}
     </NuxtLink>
-    <span v-else>&nbsp;</span>
+    <span v-else key="1">&nbsp;</span>
     <NuxtLink
       v-if="next"
       :to="{ name: 'blog-slug', params: { slug: next.slug } }"
@@ -15,7 +15,7 @@
     >
       {{ next.title }}
     </NuxtLink>
-    <span v-else>&nbsp;</span>
+    <span v-else key="2">&nbsp;</span>
   </div>
 </template>
 

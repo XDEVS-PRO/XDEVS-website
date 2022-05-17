@@ -4,7 +4,7 @@
 
     <div class="blog-container">
       <article>
-        <nuxt-content :document="article"/>
+        <Content :document="article"/>
       </article>
     </div>
 
@@ -27,8 +27,9 @@ export default {
       return date.getFullYear() + '.' + (date.getMonth() + 1) + '.' + date.getDate();
     }
   },
-  async asyncData({$content, params}) {
-    const article = await $content('articles', params.slug).fetch();
+  async asyncData({params}) {
+    // const article = await $content('articles', params.slug).fetch();
+    // const { data: article } = await useAsyncData('articles', () => queryContent('/').only(['title']).find())
 
     const tagsList = await $content('tags')
         .only(['name', 'slug'])

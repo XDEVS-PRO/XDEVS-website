@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { onMounted } from '@nuxt/bridge/dist/runtime';
+import { onMounted } from 'vue';
 export default {
   name: "CustomSelector",
   props: {
@@ -46,15 +46,15 @@ export default {
           : props.options.length > 0
               ? props.options[0]
               : null);
-    
+
     const open = ref(false);
-    
+
     onMounted(() => {
       $emit("input", selected)
     });
 
     return {
-      open, 
+      open,
       selected
     }
   }

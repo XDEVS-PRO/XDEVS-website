@@ -40,7 +40,7 @@
                 </nuxt-link>
               </template>
             </template>
-            <template v-else>
+            <template v-else key="2">
               <nuxt-link
                 v-for="(item, i) in headerList"
                 class="header__right-link custom-link"
@@ -62,7 +62,7 @@ import { computed, onMounted } from 'vue';
 import StripeWrapper from "~/components/elements/strip-bg.vue";
 import DarkBg from "~/components/elements/dark-bg.vue";
 import { headerList } from "~/src/assets/data/header.json";
-import { useRoute } from '@nuxt/bridge/dist/runtime';
+import { useRoute } from 'vue';
 
 export default {
   components: {

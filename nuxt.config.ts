@@ -1,14 +1,6 @@
-import { defineNuxtConfig } from '@nuxt/bridge';
+import { defineNuxtConfig } from 'nuxt';
 
 export default defineNuxtConfig({
-  // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
-  ssr: false,
-
-  // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
-  generate: {
-    fallback: true
-  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -41,16 +33,6 @@ export default defineNuxtConfig({
 
   ],
 
-  // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
-
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    // https://go.nuxtjs.dev/typescript
-    // "@nuxtjs/svg",
-    '@nuxtjs/router-extras',
-  ],
-
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxt/content'
@@ -65,4 +47,12 @@ export default defineNuxtConfig({
   build: {
 
   },
+  vite: {
+    logLevel: "info",
+    optimizeDeps: {
+      include: [
+        'vue', 'ufo'
+      ]
+    }
+  }
 })

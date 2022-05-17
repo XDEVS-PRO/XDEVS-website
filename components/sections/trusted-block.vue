@@ -27,7 +27,7 @@ import StripeWrapper from "~/components/elements/strip-bg.vue";
 
 //imgs
 import imgs from '~/assets/slider';
-import { defineComponent } from '@nuxt/bridge/dist/runtime/capi.legacy';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   components: {

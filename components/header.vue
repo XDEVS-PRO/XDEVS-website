@@ -36,7 +36,7 @@
               </nuxt-link>
             </template>
           </template>
-          <template v-else>
+          <template v-else key="2">
             <nuxt-link
               v-for="(item, i) in headerList"
               class="header__right-link custom-link"
@@ -89,7 +89,7 @@
               </nuxt-link>
             </li>
           </ul>
-          <ul v-else>
+          <ul v-else key="3">
            <li v-for="(item, i) in headerList"
                class="mobile-menu-list_link-to-block"
                v-bind:key="i"
@@ -132,7 +132,7 @@ import ScrollTo from "~/components/elements/scroll-to.vue";
 import { headerList } from "~/src/assets/data/header.json";
 import { contactUs } from "~/src/assets/data/index-page.json";
 import { onMounted, ref, computed, Ref, toRef } from "vue";
-import { useRoute } from '@nuxt/bridge/dist/runtime';
+import { useRoute } from 'vue';
 import { defineComponent } from 'vue';
 
 type HeaderListType = Array<{

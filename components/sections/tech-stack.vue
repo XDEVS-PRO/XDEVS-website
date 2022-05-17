@@ -262,7 +262,7 @@ import StripeWrapper from "~/components/elements/strip-bg.vue";
 import CustomModal from "~/components/elements/custom-modal.vue";
 import imgs from '~/assets/tech-stack'
 import { defineComponent } from 'vue';
-import { ref } from '@nuxt/bridge/dist/runtime';
+import { ref } from 'vue';
 
 export default defineComponent({
   components: {

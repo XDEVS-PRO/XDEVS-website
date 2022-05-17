@@ -4,96 +4,88 @@
 
     <ul class="article-topics" v-if="topicList && topicList.length">
       <li v-for="(topic, index) in topicList" :key="index"
-          :class="['article-topics__item custom-link', {'active-item': topic.topic === activeTag}]" @click="initFilter(topic.topic)">
+          :class="['article-topics__item custom-link', {'active-item': topic.topic === activeTag}]"
+          @click="initFilter(topic.topic)">
         {{ topic.topic }}
       </li>
     </ul>
 
     <div>
       <div class="middle-border">
-        <p class="count-wrapper"><span>{{articles.length}}</span> articles</p>
-        <CustomSelector class="custom-selector-order" :options="[{label: 'Latest first', value: 'latest'}, {label: 'Newest first', value: 'newest'}]" default="Latest first" :border="false" @input="sortByType($event.value)"  />
+        <p class="count-wrapper"><span>{{ articles.length }}</span> articles</p>
+        <CustomSelector class="custom-selector-order"
+                        :options="[{label: 'Latest first', value: 'latest'}, {label: 'Newest first', value: 'newest'}]"
+                        default="Latest first" :border="false" @input="sortByType($event.value)"/>
       </div>
-      <span class="vertical-border" />
+      <span class="vertical-border"/>
     </div>
 
-    <BlogCard v-if="articles && articles.length" :options="articles" />
+    <BlogCard v-if="articles && articles.length" :options="articles"/>
 
     <div class="upload__btn custom-link">
-      <template  v-if="articles && articles.length > 6">
-        View more <span class="upload__plus" />
+      <template v-if="articles && articles.length > 6">
+        View more <span class="upload__plus"/>
       </template>
     </div>
 
   </section>
 </template>
 
-<script>
+<script setup>
 import CustomSelector from "@/components/elements/custom-selector";
 import BlogCard from "@/pages/BlogComponents/BlogCard";
 
-export default {
-  components: {
-    CustomSelector,
-    BlogCard
-  },
-  data() {
-    return {
-      activeTag: ""
-    }
-  },
-  async asyncData({$content}) {
-    const articles = await $content('articles')
-        .fetch();
+const activeTag = ref("")
+const {data: articles} = await useAsyncData('articles', () => queryContent('/').find())
+console.log(articles)
+const topicList = await queryContent('articles').only(['topic']).find();
 
-    const topicList = await $content('articles').only(['topic']).fetch();
-    return {
-      topicList,
-      articles
-    }
-  },
-  methods: {
-   async searchArticles(query) {
-     if (!query) return this.articles = await this.$content('articles').fetch();
+function searchArticles(query) {
+  console.log(query)
+  if (!query) return this.articles = queryContent('articles').find();
 
-     this.articles = await this.$content('articles').search('title', query).fetch()
-    },
-    checkActiveTag(tag) {
-      if (!this.activeTag) return this.activeTag = tag;
+  this.articles = queryContent('articles').where({title: query}).find()
+}
 
-     return this.activeTag === tag ? this.activeTag = "" : true
-    },
-    async addNewArticles() {
-      const limitNewArticles = 6;
-      this.articles = await this.$content('articles').skip(this.articles.length).limit(limitNewArticles).fetch();
-    },
-    async initFilter(topicName) {
-      if (!topicName) return true;
-      const topic = topicName.toLowerCase();
+function checkActiveTag(tag) {
+  if (!activeTag.value) return activeTag.value = tag;
 
-      this.checkActiveTag(topic);
-      this.articles = await this.$content('articles')
-          .sortBy('topic')
-          .where({topic: `${topic}`})
-          .fetch();
-    },
-    sortByType(sortType) {
-      switch (sortType) {
-        case "latest":
-          this.articles = this.sortByDate(this.articles, 1)
-          break;
-        case "newest":
-          this.articles = this.sortByDate(this.articles, 2)
-          break;
-      }
-    },
-    sortByDate(array, firstCompareArgument) {
-      return array.sort((a,b)=>
-        firstCompareArgument === 1 ? new Date(a.updatedAt) - new Date(b.updatedAt) : new Date(b.updatedAt) - new Date(a.updatedAt)
-      )
-    }
+  return activeTag.value === tag ? activeTag.value = "" : true
+}
+
+function addNewArticles() {
+  const limitNewArticles = 6;
+  this.articles = queryContent('articles').skip(articles.value.length).limit(limitNewArticles).find();
+}
+
+function initFilter(topicName) {
+  if (!topicName) return true;
+  const topic = topicName.toLowerCase();
+
+  checkActiveTag(topic);
+  this.articles = queryContent('articles')
+  .sort({topic: 1})
+  .where({topic: `${topic}`})
+  .find();
+}
+
+function sortByType(sortType) {
+  switch (sortType) {
+    case "latest":
+      articles.value = sortByDate(articles.value, 1)
+      break;
+    case "newest":
+      articles.value = sortByDate(articles.value, 2)
+      break;
   }
 }
+
+function sortByDate(array, firstCompareArgument) {
+  return array.sort((a, b) =>
+      firstCompareArgument === 1 ? new Date(a.updatedAt) - new Date(b.updatedAt) : new Date(b.updatedAt) - new Date(a.updatedAt)
+  )
+}
+
 </script>
 
 <style lang="scss" scoped>

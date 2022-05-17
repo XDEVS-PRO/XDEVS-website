@@ -15,6 +15,7 @@
             width="43"
             height="48"
             alt="XDEVS"
+            key="1"
         />
       </div>
       <div :class="['title__inner-text', { dark: colorIcon === 'dark' }]">

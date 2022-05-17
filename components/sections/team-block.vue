@@ -84,8 +84,8 @@ import TitleBlock from '~/components/elements/title.vue';
 import StripeWrapper from '~/components/elements/strip-bg.vue';
 import DarkBg from '~/components/elements/dark-bg.vue';
 import CustomModal from '~/components/elements/custom-modal.vue';
-import { defineComponent } from '@nuxt/bridge/dist/runtime/capi.legacy';
-import { ref } from '@nuxt/bridge/dist/runtime';
+import { defineComponent } from 'vue';
+import { ref } from 'vue';
 import TeamBlockCards from './team-block-data';
 
 

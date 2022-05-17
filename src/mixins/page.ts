@@ -1,4 +1,4 @@
-import { ref, onMounted, useRoute } from '@nuxt/bridge/dist/runtime';
+import { ref, onMounted, useRoute } from 'vue';
 
 // TODO: Check if scroll works
 const PageMixin = {
