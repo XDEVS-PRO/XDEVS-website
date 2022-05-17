@@ -17,11 +17,11 @@
         "vue-infinite-slide-bar": "^1.1.1"
     },
     "devDependencies": {
-        "nuxt": "npm:nuxt3@latest",
         "@nuxtjs/router-extras": "^1.1.1",
         "@nuxtjs/svg": "^0.4.0",
         "fibers": "^5.0.0",
-        "sass": "^1.35.2",
+        "nuxt": "npm:nuxt3@latest",
+        "sass": "^1.51.0",
         "sass-loader": "^10.2.0"
     }
 }
