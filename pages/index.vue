@@ -2,10 +2,10 @@
   <div>
     <first-block/>
     <services-block/>
-<!--    <core-team/>-->
+    <core-team/>
     <best-of/>
     <case-studies :data="ourProjects" :scroll="true"/>
-<!--    <tech-stack/>-->
+    <tech-stack/>
     <slider-block/>
     <contact-block/>
   </div>

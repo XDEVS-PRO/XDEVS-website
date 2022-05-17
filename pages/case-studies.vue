@@ -1,29 +1,20 @@
 <template>
   <div>
-    <template v-for="(item, i) in ourProjectList">
-      <case-studies :data="[item]" :key="i" class="first-block" />
+    <template v-for="(item, i) in projects" :key="i">
+      <case-studies :data="[item]"  class="first-block" />
     </template>
     <contact-block />
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import ContactBlock from "~/components/sections/contact-block.vue";
 import CaseStudies from "~/components/sections/case-studies.vue";
 import { ourProjects } from "~/src/assets/data/index-page.json";
-import { defineComponent } from 'vue';
+import { ref } from 'vue';
 
-export default defineComponent({
-  components: {
-    ContactBlock,
-    CaseStudies
-  },
-
-  setup() {
-    return ourProjects
-  }
-})
-
+const projects = ref(ourProjects)
+console.log(projects)
 </script>
 
 <style lang="scss" scoped>

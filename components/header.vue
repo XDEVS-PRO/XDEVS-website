@@ -129,11 +129,11 @@
 import StripeWrapper from "~/components/elements/strip-bg.vue";
 import DarkBg from "~/components/elements/dark-bg.vue";
 import ScrollTo from "~/components/elements/scroll-to.vue";
-import { headerList } from "~/src/assets/data/header.json";
-import { contactUs } from "~/src/assets/data/index-page.json";
+import { headerList } from "~/assets/data/header.json";
+import { contactUs } from "~/assets/data/index-page.json";
 import { onMounted, ref, computed, Ref, toRef } from "vue";
-import { useRoute } from 'vue';
 import { defineComponent } from 'vue';
+import { useRoute } from 'nuxt/app';
 
 type HeaderListType = Array<{
   title: string;

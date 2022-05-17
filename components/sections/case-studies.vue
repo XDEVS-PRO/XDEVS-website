@@ -15,7 +15,7 @@
           <p class="our-projects__desc">
             {{ showProject.desc }}
           </p>
-          <nuxt-link to="our-projects" class="our-projects__link">
+          <nuxt-link to="case-studies" class="our-projects__link">
             Watch this case
             <svg
                 xmlns="http://www.w3.org/2000/svg"

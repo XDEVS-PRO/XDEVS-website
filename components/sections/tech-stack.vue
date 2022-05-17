@@ -238,19 +238,19 @@
           </p>
         </div>
 
-        <custom-modal
-          :is-open="isShowModal"
-          :close="isClosedModal"
-          :to="'tech-block'"
-        >
-          <div class="cr__modal">
-            <div class="cr__modal-container container">
-              <div class="cr__modal-right">
-                {{ dataModalCard.value.text }}
-              </div>
-            </div>
-          </div>
-        </custom-modal>
+<!--        <custom-modal-->
+<!--          :is-open="isShowModal"-->
+<!--          :close="isClosedModal"-->
+<!--          :to="'tech-block'"-->
+<!--        >-->
+<!--          <div class="cr__modal">-->
+<!--            <div class="cr__modal-container container">-->
+<!--              <div class="cr__modal-right">-->
+<!--                {{ dataModalCard.value.text }}-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </custom-modal>-->
       </div>
     </div>
   </section>

@@ -1,12 +1,12 @@
 <template>
   <section class="cr" id="#core-team">
-    <dark-bg />
-    <stripe-wrapper :color-strip="'dark'" />
+    <dark-bg/>
+    <stripe-wrapper :color-strip="'dark'"/>
     <div class="cr__container container">
       <title-block
-        :title="'Core Team'"
-        :color-icon="'light'"
-        :desc-right="titleSubData"
+          :title="'Core Team'"
+          :color-icon="'light'"
+          :desc-right="titleSubData"
       />
 
       <h4 class="custom-description mobile">
@@ -14,66 +14,68 @@
       </h4>
 
       <div class="cr__card-container">
-        <custom-modal :is-open="isShowModal" :close="closeModal">
-          <div class="cr__modal">
-            <div class="cr__modal-container container">
-              <img
-                width="278"
-                height="320"
-                v-if="dataModalCard.img"
-                class="cr__modal-left"
-                :src="dataModalCard.img"
-                :alt="dataModalCard.alt"
-              />
-              <div class="cr__modal-right">
-                <div class="cr__modal-right_text">
-                  <div class="cr__modal-right_text-wrapper">
-                    <p class="cr__modal-right_title">
-                      {{ dataModalCard.title }}
-                    </p>
-                    <p class="cr__modal-right_subtitle">
-                      {{ dataModalCard.position }}
-                    </p>
-                  </div>
-                  <div class="cr__modal-right_social">
-                    <template v-for="(social, i) in dataModalCard.social">
-                      <a :href="social.link" :key="i">
-                        <img :src="social.src" :alt="social.alt"/>
-                      </a>
-                    </template>
-                  </div>
-                </div>
-                <div class="cr__modal-right_desc">
-                  {{ dataModalCard.desc }}
-                </div>
-              </div>
-            </div>
-          </div>
-        </custom-modal>
+<!--        <custom-modal :is-open="isShowModal" :close="closeModal">-->
+<!--          <div class="cr__modal">-->
+<!--            <div class="cr__modal-container container">-->
+<!--              <img-->
+<!--                  width="278"-->
+<!--                  height="320"-->
+<!--                  v-if="dataModalCard.img"-->
+<!--                  class="cr__modal-left"-->
+<!--                  :src="dataModalCard.img"-->
+<!--                  :alt="dataModalCard.alt"-->
+<!--              />-->
+<!--              <div class="cr__modal-right">-->
+<!--                <div class="cr__modal-right_text">-->
+<!--                  <div class="cr__modal-right_text-wrapper">-->
+<!--                    <p class="cr__modal-right_title">-->
+<!--                      {{ dataModalCard.title }}-->
+<!--                    </p>-->
+<!--                    <p class="cr__modal-right_subtitle">-->
+<!--                      {{ dataModalCard.position }}-->
+<!--                    </p>-->
+<!--                  </div>-->
+<!--                  <div class="cr__modal-right_social">-->
+<!--                    <template v-for="(social, i) in dataModalCard.social">-->
+<!--                      <a :href="social.link">-->
+<!--                        <img :src="social.src" :alt="social.alt"/>-->
+<!--                      </a>-->
+<!--                    </template>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="cr__modal-right_desc">-->
+<!--                  {{ dataModalCard.desc }}-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </custom-modal>-->
 
-        <div v-for="(item, i) in cardsList" :key="i" class="cr__card-wrapper">
-          <div class="cr__card-icon">
-            <img
-              v-if="item.img"
-              :src="item.img"
-              :alt="item.alt"
-              width="270"
-              class="cr__card-icon_preview"
-            />
-            <p class="cr__card-icon_preview-text" @click="showModal(item)">
-              profile
-            </p>
-          </div>
-          <div class="cr__card-text">
-            <div v-if="item.title" class="cr__card-text-title">
-              {{ item.title }}
+        <template v-for="(item, i) in cardsList">
+          <div class="cr__card-wrapper">
+            <div class="cr__card-icon">
+              <img
+                  v-if="item.img"
+                  :src="item.img"
+                  :alt="item.alt"
+                  width="270"
+                  class="cr__card-icon_preview"
+              />
+              <p class="cr__card-icon_preview-text" @click="showModal(item)">
+                profile
+              </p>
             </div>
-            <div v-if="item.position" class="cr__card-text-desc">
-              {{ item.position }}
+            <div class="cr__card-text">
+              <div v-if="item.title" class="cr__card-text-title">
+                {{ item.title }}
+              </div>
+              <div v-if="item.position" class="cr__card-text-desc">
+                {{ item.position }}
+              </div>
+              <a class="cr__card-text-btn" @click="showModal(item)">profile</a>
             </div>
-            <a class="cr__card-text-btn" @click="showModal(item)">profile</a>
           </div>
-        </div>
+        </template>
       </div>
     </div>
   </section>
@@ -84,8 +86,7 @@ import TitleBlock from '~/components/elements/title.vue';
 import StripeWrapper from '~/components/elements/strip-bg.vue';
 import DarkBg from '~/components/elements/dark-bg.vue';
 import CustomModal from '~/components/elements/custom-modal.vue';
-import { defineComponent } from 'vue';
-import { ref } from 'vue';
+import { defineComponent, ref } from 'vue';
 import TeamBlockCards from './team-block-data';
 
 
