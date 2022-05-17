@@ -1,5 +1,5 @@
 <template>
-  <div v-if="portal" :to="to">
+  <Teleport :to="to">
     <transition name="fade">
       <div v-if="isOpen" class="modal__wrapper" :class="className">
         <div class="modal__overlay" @click="close()"></div>
@@ -9,30 +9,22 @@
         </div>
       </div>
     </transition>
-  </div>
+  </Teleport>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script lang="ts" setup>
 
-export default defineComponent ({
-  props: {
-    isOpen: {type: Boolean, required: true},
-    className: {type: String, required: false},
-    portal: {type: Boolean | undefined, default: true},
-    to: {type: String | undefined, default: "modal"},
-    close: {type: undefined, required: true}
-  },
-
-  setup(props) {
-    const close = () => {
-      props.close();
-    }
-    return {
-      close
-    }
-  }
+const props = defineProps({
+  isOpen: {type: Boolean, required: true},
+  className: {type: String, required: false},
+  portal: {type: Boolean, default: true},
+  to: {type: String, default: 'modal'},
+  close: {type: Function, required: true}
 })
+
+function close() {
+  props.close();
+}
 </script>
 
 <style scoped lang="scss">

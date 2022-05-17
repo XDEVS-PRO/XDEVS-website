@@ -14,42 +14,42 @@
       </h4>
 
       <div class="cr__card-container">
-<!--        <custom-modal :is-open="isShowModal" :close="closeModal">-->
-<!--          <div class="cr__modal">-->
-<!--            <div class="cr__modal-container container">-->
-<!--              <img-->
-<!--                  width="278"-->
-<!--                  height="320"-->
-<!--                  v-if="dataModalCard.img"-->
-<!--                  class="cr__modal-left"-->
-<!--                  :src="dataModalCard.img"-->
-<!--                  :alt="dataModalCard.alt"-->
-<!--              />-->
-<!--              <div class="cr__modal-right">-->
-<!--                <div class="cr__modal-right_text">-->
-<!--                  <div class="cr__modal-right_text-wrapper">-->
-<!--                    <p class="cr__modal-right_title">-->
-<!--                      {{ dataModalCard.title }}-->
-<!--                    </p>-->
-<!--                    <p class="cr__modal-right_subtitle">-->
-<!--                      {{ dataModalCard.position }}-->
-<!--                    </p>-->
-<!--                  </div>-->
-<!--                  <div class="cr__modal-right_social">-->
-<!--                    <template v-for="(social, i) in dataModalCard.social">-->
-<!--                      <a :href="social.link">-->
-<!--                        <img :src="social.src" :alt="social.alt"/>-->
-<!--                      </a>-->
-<!--                    </template>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--                <div class="cr__modal-right_desc">-->
-<!--                  {{ dataModalCard.desc }}-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </custom-modal>-->
+        <custom-modal :is-open="isShowModal" :close="closeModal">
+          <div class="cr__modal">
+            <div class="cr__modal-container container">
+              <img
+                  width="278"
+                  height="320"
+                  v-if="dataModalCard.img"
+                  class="cr__modal-left"
+                  :src="dataModalCard.img"
+                  :alt="dataModalCard.alt"
+              />
+              <div class="cr__modal-right">
+                <div class="cr__modal-right_text">
+                  <div class="cr__modal-right_text-wrapper">
+                    <p class="cr__modal-right_title">
+                      {{ dataModalCard.title }}
+                    </p>
+                    <p class="cr__modal-right_subtitle">
+                      {{ dataModalCard.position }}
+                    </p>
+                  </div>
+                  <div class="cr__modal-right_social">
+                    <template v-for="(social, i) in dataModalCard.social">
+                      <a :href="social.link">
+                        <img :src="social.src" :alt="social.alt"/>
+                      </a>
+                    </template>
+                  </div>
+                </div>
+                <div class="cr__modal-right_desc">
+                  {{ dataModalCard.desc }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </custom-modal>
 
         <template v-for="(item, i) in cardsList">
           <div class="cr__card-wrapper">
