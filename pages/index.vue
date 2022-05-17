@@ -22,19 +22,38 @@ import SliderBlock from '~/components/sections/trusted-block.vue';
 import BestOf from '~/components/sections/best-of.vue';
 import CaseStudies from '../components/sections/case-studies.vue';
 import { ourProjects } from "~/src/assets/data/index-page.json";
+import { onMounted, watch } from 'vue';
 
+const scrollPageTo = (elementId: string) => {
+  let element = document.querySelector(elementId);
+  element && element.scrollIntoView({ behavior: "smooth" });
+};
 
-definePageMeta({
-  title: 'main-page',
-  meta: [
-    {
-      hid: 'main-page',
-      name: 'description',
-      content: 'Xdevs is team of amazing professionals who can develop websites of any difficulty to help you bussines stay on top!'
-    }
-  ]
+watch(
+  () => location.hash,
+  (currValue, _) => {
+    console.log(currValue);
+    scrollPageTo(currValue);
+  }, { deep: true }
+)
+
+onMounted(() => {
+  alert('mounted')
+  if(location.hash) {
+    console.log(location.hash)
+    // scrollPageTo(location.hash);
+  }
 })
 
-// mixins: [PageMixin],
+// definePageMeta({
+//   title: 'main-page',
+//   meta: [
+//     {
+//       hid: 'main-page',
+//       name: 'description',
+//       content: 'Xdevs is team of amazing professionals who can develop websites of any difficulty to help you bussines stay on top!'
+//     }
+//   ]
+// })
 
 </script>
