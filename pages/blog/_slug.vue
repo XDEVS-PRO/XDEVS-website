@@ -96,7 +96,7 @@ export default {
 }
 
 
-::v-deep {
+:deep {
   .blog-breadcrumbs-container {
     padding: 20px 0;
   }

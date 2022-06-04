@@ -26,7 +26,7 @@
                   class="header__right-link custom-link"
                   v-if="item.hash"
                   :href="item.hash"
-                  :key="i"
+                  :key="item.has"
                 >
                   {{ item.title }}
                 </a>
@@ -58,11 +58,9 @@
 </template>
 
 <script lang="ts">
-import { computed, onMounted } from 'vue';
 import StripeWrapper from "~/components/elements/strip-bg.vue";
 import DarkBg from "~/components/elements/dark-bg.vue";
-import { headerList } from "~/src/assets/data/header.json";
-import { useRoute } from 'vue';
+import { headerList } from "~/assets/data/header.json";
 
 export default {
   components: {

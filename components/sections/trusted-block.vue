@@ -181,7 +181,7 @@ export default defineComponent({
   }
 }
 
-::v-deep .title {
+:deep(.title) {
   padding-bottom: 40px;
 }
 </style>

@@ -24,7 +24,7 @@ import StripeWrapper from "~/components/elements/strip-bg.vue";
 export default {
   components: {
     StripeWrapper
-  }, 
+  },
 
   setup() {
     const btnData = "<Disscuss your idea>";

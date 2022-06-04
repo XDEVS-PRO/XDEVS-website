@@ -202,7 +202,7 @@ function sortByDate(array, firstCompareArgument) {
   }
 }
 
-::v-deep .custom-selector-order {
+:deep(.custom-selector-order) {
   line-height: 36px;
   height: 36px;
   max-width: 150px;

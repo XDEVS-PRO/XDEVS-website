@@ -6,7 +6,6 @@
     </div>
 
     <AppSearchInput class="search" @input="$emit('input:search', $event)" />
-<!--    <AppSearchInput class="search" @input="TESTIM" />-->
 
     <CustomSelector class="custom-selector" :options="options" default="All articles" @input="$emit('input', $event)"  />
   </header>
@@ -64,7 +63,7 @@
   display: flex;
   align-self: center;
 
-  ::v-deep svg {
+  :deep(svg) {
     max-width: 32px;
     max-height: 36px;
   }

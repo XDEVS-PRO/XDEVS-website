@@ -365,7 +365,7 @@ export default defineComponent({
   }
 }
 
-::v-deep .custom-description.right {
+:deep(.custom-description.right) {
   color: #6d6d6d;
 }
 

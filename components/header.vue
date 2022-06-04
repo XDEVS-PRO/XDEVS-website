@@ -29,7 +29,7 @@
               <nuxt-link
                 v-else
                 class="header__right-link custom-link"
-                :key="i"
+                :key="1+ i"
                 :to="{ path: item.link, hash: item.hash }"
               >
                 {{ item.title }}
@@ -40,7 +40,7 @@
             <nuxt-link
               v-for="(item, i) in headerList"
               class="header__right-link custom-link"
-              :key="i"
+              :key="2 + i"
               :to="{ path: item.link, hash: item.hash }"
             >
               {{ item.title }}
@@ -82,7 +82,7 @@
                 v-else
                 @click.native="isShow()"
                 class="mobile-menu-list_link-to-block"
-                :key="i"
+                :key="1 + i"
                 :to="{ path: item.link, hash: item.hash }"
               >
                 {{ item.title }}
@@ -92,7 +92,7 @@
           <ul v-else key="3">
            <li v-for="(item, i) in headerList"
                class="mobile-menu-list_link-to-block"
-               v-bind:key="i"
+               v-bind:key="3+i"
            >
              <nuxt-link
                  @click.native="isShow()"
@@ -131,7 +131,7 @@ import DarkBg from "~/components/elements/dark-bg.vue";
 import ScrollTo from "~/components/elements/scroll-to.vue";
 import { headerList } from "~/assets/data/header.json";
 import { contactUs } from "~/assets/data/index-page.json";
-import { onMounted, ref, computed, Ref, toRef } from "vue";
+import { onMounted, ref, Ref } from "vue";
 import { defineComponent } from 'vue';
 import { useRoute } from 'nuxt/app';
 

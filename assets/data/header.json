@@ -2,27 +2,27 @@
   "headerList": [
     {
       "title": "Case studies",
-      "hash": "#to_case-studies",
+      "hash": "#case-studies",
       "link": "/"
     },
     {
       "title": "Services",
-      "hash": "#to_services",
+      "hash": "#services",
       "link": "/"
     },
     {
       "title": "Core Team",
-      "hash": "#to_core-team",
+      "hash": "#core-team",
       "link": "/"
     },
     {
       "title": "Tech Stack",
-      "hash": "#to_tech-stack",
+      "hash": "#tech-stack",
       "link": "/"
     },
     {
       "title": "Contact Us",
-      "hash": "#to_contact-us",
+      "hash": "#contact-us",
       "link": "/"
     },
     {

@@ -330,7 +330,7 @@ export default {
   }
 }
 
-::v-deep .title {
+:deep(.title) {
   padding-bottom: 30px;
 }
 </style>

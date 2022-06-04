@@ -21,27 +21,26 @@ import ContactBlock from '~/components/sections/contact-block.vue';
 import SliderBlock from '~/components/sections/trusted-block.vue';
 import BestOf from '~/components/sections/best-of.vue';
 import CaseStudies from '../components/sections/case-studies.vue';
-import { ourProjects } from "~/src/assets/data/index-page.json";
-import { onMounted, watch } from 'vue';
+import { ourProjects } from "~/assets/data/index-page.json";
+import { onMounted, ref, watch } from 'vue';
+
+const root = ref(null)
 
 const scrollPageTo = (elementId: string) => {
-  let element = document.querySelector(elementId);
+  let element = document.getElementById(elementId);
   element && element.scrollIntoView({ behavior: "smooth" });
 };
 
 watch(
   () => location.hash,
   (currValue, _) => {
-    console.log(currValue);
     scrollPageTo(currValue);
   }, { deep: true }
 )
 
 onMounted(() => {
-  alert('mounted')
   if(location.hash) {
-    console.log(location.hash)
-    // scrollPageTo(location.hash);
+    scrollPageTo(location.hash);
   }
 })
 
