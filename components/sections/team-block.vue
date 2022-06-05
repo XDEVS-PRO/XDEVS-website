@@ -51,7 +51,6 @@
           </div>
         </custom-modal>
 
-
         <swiper
             :modules="modules"
             :slides-per-view="2"
@@ -120,7 +119,6 @@ export default defineComponent({
     CustomModal,
     Swiper,
     SwiperSlide,
-    Scrollbar,
     Autoplay
   },
   setup() {

@@ -135,7 +135,6 @@ import { headerList } from "~/assets/data/header.json";
 import { contactUs } from "~/assets/data/index-page.json";
 import { onMounted, ref, Ref } from "vue";
 import { defineComponent } from 'vue';
-import { useRoute } from 'nuxt/app';
 
 type HeaderListType = Array<{
   title: string;

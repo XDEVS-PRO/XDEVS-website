@@ -2,6 +2,16 @@ import { defineNuxtConfig } from 'nuxt';
 
 export default defineNuxtConfig({
 
+  vue: {
+    compilerOptions: {
+      directiveTransforms: {
+        'smooth-scroll': () => ({
+          props: [],
+          needRuntime: true
+        })
+      }
+    }
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'XDEVS',
@@ -29,7 +39,6 @@ export default defineNuxtConfig({
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -44,7 +53,7 @@ export default defineNuxtConfig({
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-
+    transpile: ['swiper'],
   },
   vite: {
     logLevel: "info",

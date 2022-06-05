@@ -8,7 +8,7 @@
         were earned over the last 20 years
       </h4>
       <div class="best-of__inner">
-        <a class="x-btn" href="#contact-us">{{ btnData }}</a>
+        <a class="x-btn" href="#contact-us" v-smooth-scroll>{{ btnData }}</a>
         <p class="best-of__desc custom-description">
           By utilizing Software Architecture Design patterns we
           create a solid ground for your future success

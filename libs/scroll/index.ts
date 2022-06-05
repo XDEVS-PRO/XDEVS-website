@@ -1,7 +1,6 @@
 /**
  * https://github.com/laineus/vue3-smooth-scroll
  */
-import { NuxtApp } from 'nuxt/app';
 
 // We use requestAnimationFrame to be called by the browser before every repaint
 let requestAnimationFrame: ((callback: FrameRequestCallback) => number)
