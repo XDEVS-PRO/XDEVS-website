@@ -222,6 +222,7 @@ export default defineComponent({
       display: flex;
       flex-direction: column;
       transition: all 0.4s ease-out;
+      margin-bottom: 10px;
 
       @media screen and (max-width: 560px) {
         flex-direction: row;

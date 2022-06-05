@@ -113,11 +113,11 @@
   </section>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import TitleBlock from '~/components/elements/title.vue';
 import DarkBg from '~/components/elements/dark-bg.vue';
 import StripeWrapper from '~/components/elements/strip-bg.vue';
-import { onMounted, ref, computed, reactive } from 'vue';
+import { ref } from 'vue';
 
 export interface Project {
   src: string;
@@ -127,79 +127,29 @@ export interface Project {
   create: string;
 }
 
-export default {
-  components: {
-    TitleBlock,
-    DarkBg,
-    StripeWrapper,
-  },
+const props = defineProps({
+  data: {type: Array},
+  scroll: {default: false},
+})
 
-  props: {
-    data: undefined,
-    scroll: false,
-  },
+const showProject: any = ref(props.data[0]);
+let counter = 0
+const projectsList = props.data;
 
-  head() {
-    return {
-      title: 'Our Projects',
-      meta: [
-        {
-          hid: 'our-prj',
-          name: 'description',
-          content: 'our portfolio of amazing websites'
-        }
-      ]
+const next = () => {
+    counter++
+    if (projectsList[counter] === undefined) {
+      counter = 0
     }
-  },
+    showProject.value = projectsList[counter]
+}
 
-  setup(props) {
-    const showProject: any = ref({});
-    const countProject: any = ref('');
-    const projectsList: any = ref([]);
-
-    onMounted(() => {
-      projectsList.value = props.data;
-    })
-
-    const next = computed(() => {
-      countProject.value++;
-      if (countProject.value > projectsList.value.length) {
-        countProject.value = 1;
-        showProject.value = projectsList.value.find(
-            item => Number.parseInt(item.id) === countProject.value
-        );
-      } else if (
-          countProject.value < projectsList.value.length ||
-          countProject.value === projectsList.value.length
-      ) {
-        showProject.value = projectsList.value.find(
-            item => Number.parseInt(item.id) === countProject.value
-        );
-      }
-    })
-
-    const prev = computed(() => {
-      countProject.value--;
-
-      if (countProject.value < 1) {
-        countProject.value = projectsList.value.length;
-
-        showProject.value = projectsList.value.find(
-            item => Number.parseInt(item.id) === countProject.value
-        );
-      } else if (
-          countProject.value < projectsList.value.length ||
-          countProject.value === projectsList.value.length
-      ) {
-        showProject.value = projectsList.value.find(
-            item => Number.parseInt(item.id) === countProject.value
-        );
-      }
-    })
-    return {
-      showProject
-    }
+const prev = () => {
+  counter--
+  if (projectsList[counter] === undefined) {
+    counter = projectsList.length - 1
   }
+  showProject.value = projectsList[counter]
 }
 </script>
 
