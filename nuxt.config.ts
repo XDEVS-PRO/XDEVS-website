@@ -53,5 +53,10 @@ export default defineNuxtConfig({
         'vue', 'ufo'
       ]
     }
-  }
+  },
+  nitro: {
+    prerender: {
+      routes: ['/sitemap.xml']
+    }
+  },
 })
