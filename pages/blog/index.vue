@@ -1,6 +1,6 @@
 <template>
   <section class="container-main-blog">
-    <TheHeader @input:search="searchArticles"/>
+    <BlogHeader @input:search="searchArticles"/>
 
     <ul class="article-topics" v-if="topicList && topicList.length">
       <li v-for="(topic, index) in topicList" :key="index"
@@ -20,7 +20,7 @@
       <span class="vertical-border"/>
     </div>
 
-    <BlogCard v-if="articles && articles.length" :options="articles"/>
+    <BlogCard v-if="articles && articles.length" :articles="articles"/>
 
     <div class="upload__btn custom-link">
       <template v-if="articles && articles.length > 6">
@@ -32,16 +32,18 @@
 </template>
 
 <script setup>
-import CustomSelector from "@/components/elements/custom-selector";
-import BlogCard from "@/pages/BlogComponents/BlogCard";
+import CustomSelector from "~/components/elements/custom-selector";
+import BlogHeader from "~/components/BlogHeader";
+import BlogCard from "~/pages/BlogComponents/BlogCard";
 
 const activeTag = ref("")
-const {data: articles} = await useAsyncData('articles', () => queryContent('/').find())
-console.log(articles)
+const {data: articles} = await useAsyncData('articles',
+    () => queryContent('/articles').find()
+)
 const topicList = await queryContent('articles').only(['topic']).find();
 
 function searchArticles(query) {
-  console.log(query)
+  console.log('searchArticles', query)
   if (!query) return this.articles = queryContent('articles').find();
 
   this.articles = queryContent('articles').where({title: query}).find()

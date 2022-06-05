@@ -5,30 +5,22 @@
       <h4>Blog Posts</h4>
     </div>
 
-    <AppSearchInput class="search" @input="$emit('input:search', $event)" />
+    <AppSearchInput class="search" @input="$emit('input:search', $event)"/>
 
-    <CustomSelector class="custom-selector" :options="options" default="All articles" @input="$emit('input', $event)"  />
+    <CustomSelector
+        class="custom-selector"
+        :options="options"
+        default="All articles"
+        @input="$emit('input', $event)"
+    />
   </header>
 </template>
 
-<script>
-  import CustomSelector from "@/components/elements/custom-selector"
+<script lang="ts" setup>
+import CustomSelector from '@/components/elements/custom-selector'
 
-  export default {
-    components: {
-      CustomSelector
-    },
+const options = ['All articles', 'Web development', 'Mobile development', 'Management']
 
-    setup() {
-      function TESTIM(e) {
-        console.log(e.target.value);
-      }
-      return {
-        TESTIM,
-        options: ['All articles', 'Web development', 'Mobile development', 'Management']
-      }
-    },
-  }
 </script>
 
 <style scoped lang="scss">

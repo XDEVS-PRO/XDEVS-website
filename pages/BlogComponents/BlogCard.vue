@@ -1,9 +1,9 @@
 <template>
-  <ul class="article-list" v-if="options.length">
-    <template v-for="article of options">
+  <ul class="article-list" v-if="articles.length">
+    <template v-for="article of articles">
       <li class="article__wrapper">
         <NuxtLink
-            :to="{ name: 'blog-slug', params: { slug: article.slug } }" :key="article.slug"
+            :to="`/blog/${article._path.split('/').pop()}`" :key="article.slug"
             class="article__item"
         >
           <img
@@ -29,17 +29,13 @@
   </ul>
 </template>
 
-<script>
-
-export default {
-  name: "BlogCard",
-  props: {
-    options: {
+<script lang="ts" setup>
+  const props = defineProps({
+    articles: {
       type: Array,
       default: []
     }
-  }
-}
+  })
 </script>
 
 <style lang="scss" scoped>

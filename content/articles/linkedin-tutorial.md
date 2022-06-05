@@ -2,7 +2,7 @@
 topic: linkedin
 
 title: Быстро раскручиваемся в Linkedin.
-description: Создаем востребованный профиль.
+description: Создаем востребованный профиль в Linkedin.
 img: https://img.etimg.com/thumb/msid-84858456,width-650,imgsize-563303,,resizemode-4,quality-100/untitled-6vrgr.jpg
 alt: linkedin
 author: 

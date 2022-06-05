@@ -1,81 +1,75 @@
 <template>
   <section class="blog-article">
-    <ArticleHeader :data="headerData" :bread-crumbs="getBreadcrumbs" />
+    <ArticleHeader :data="headerData" :bread-crumbs="getBreadcrumbs"/>
 
     <div class="blog-container">
       <article>
-        <Content :document="article"/>
+        <ContentRenderer :value="article"/>
       </article>
     </div>
 
-    <ArticleFooter :data="footerData" />
+    <ArticleFooter :data="footerData"/>
   </section>
 </template>
 
-<script>
-import ArticleHeader from "../BlogComponents/ArticleHeader";
-import ArticleFooter from "../BlogComponents/ArticleFooter";
+<script lang="ts" setup>
+import ArticleHeader from '../BlogComponents/ArticleHeader';
+import ArticleFooter from '../BlogComponents/ArticleFooter';
 
-export default {
-  components: {
-    ArticleHeader,
-    ArticleFooter
-  },
-  filters: {
-    time: function (value) {
-      const date = new Date(value);
-      return date.getFullYear() + '.' + (date.getMonth() + 1) + '.' + date.getDate();
-    }
-  },
-  async asyncData({params}) {
-    // const article = await $content('articles', params.slug).fetch();
-    // const { data: article } = await useAsyncData('articles', () => queryContent('/').only(['title']).find())
+const {path} = useRoute()
 
-    const tagsList = await $content('tags')
-        .only(['name', 'slug'])
-        .where({name: {$containsAny: article.tags}})
-        .fetch()
-    const tags = Object.assign({}, ...tagsList.map((s) => ({[s.name]: s})))
-    const [prev, next] = await $content('articles')
-        .only(['title', 'slug'])
-        .sortBy('createdAt', 'asc')
-        .surround(params.slug)
-        .fetch()
+const articlePath = `/articles/${path.split('/').pop()}`
+console.log(articlePath)
 
-    const {author, img, createdAt, topic, description} = article;
 
-    const headerData = {img, createdAt, topic, author, description}
-    const footerData = {author};
+const {data: article} = await useAsyncData('articles',
+    () => queryContent('/articles')
+    .where({_path: articlePath})
+    .findOne())
+console.log(article)
 
-    return {
-      footerData,
-      headerData,
-      article,
-      tags,
-      prev,
-      next
-    }
-  },
-  created() {
-  },
-  computed: {
-    getBreadcrumbs() {
-      const crumbs = [];
-      crumbs.push(
-          {name: "Blog Posts", link: "/blog"},
-          {name: this.article.breadcrumbs, link: "/blog"},
-          {name: this.article.title, link: this.article.path}
-      );
-      return crumbs
-    }
-  },
-  layout: 'blogLayout'
-}
+const {data: tagsList} = await useAsyncData('tags', () =>
+    queryContent('/tags').only(['name', 'slug'])
+    .where({name: {$in: article.tags}})
+    .find()
+)
 
+const {author, img, createdAt, topic, description} = article;
+
+const headerData = {img, createdAt, topic, author, description}
+const footerData = {author};
+
+//  asyncData({params}) {
+//
+//   const [prev, next] = await $content('articles')
+//       .only(['title', 'slug'])
+//       .sortBy('createdAt', 'asc')
+//       .findSurround(params.slug)
+// }
+
+const time = computed(() => {
+  const date = new Date(value);
+  return date.getFullYear()+'.'+(date.getMonth()+1)+'.'+date.getDate();
+})
+
+const getBreadcrumbs = computed(() => {
+  const crumbs = [];
+  crumbs.push(
+      {name: 'Blog Posts', link: '/blog'},
+      {name: article.breadcrumbs, link: '/blog'},
+      {name: article.title, link: article._path}
+  );
+  return crumbs
+})
+
+definePageMeta({
+  layout: 'blogLayout',
+})
 </script>
 
 <style lang="scss" scoped>
 @import "/assets/styles/variables";
+
 .blog-article {
   padding-top: 100px;
 

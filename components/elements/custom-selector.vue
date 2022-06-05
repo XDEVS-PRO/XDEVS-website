@@ -20,11 +20,11 @@
   </div>
 </template>
 
-<script>
-import { onMounted } from 'vue';
-export default {
-  name: "CustomSelector",
-  props: {
+<script lang="ts" setup>
+
+const emit = defineEmits(['input'])
+
+  const props = defineProps({
     options: {
       type: Array,
       required: true,
@@ -39,26 +39,16 @@ export default {
       required: false,
       default: 0,
     }
-  },
-  setup(props){
-    const selected = toRef(props.default
-          ? props.default
-          : props.options.length > 0
-              ? props.options[0]
-              : null);
+  })
 
-    const open = ref(false);
+  const selected = toRef(props, 'default')
+  const open = ref(false);
 
-    onMounted(() => {
-      $emit("input", selected)
-    });
+  onMounted(() => {
+    emit("input", selected)
+  });
 
-    return {
-      open,
-      selected
-    }
-  }
-};
+
 </script>
 
 <style scoped lang="scss">
