@@ -37,7 +37,7 @@
                   </div>
                   <div class="cr__modal-right_social">
                     <template v-for="(social, i) in dataModalCard.social">
-                      <a :href="social.link">
+                      <a :href="social.link" target="_blank">
                         <img :src="social.src" :alt="social.alt"/>
                       </a>
                     </template>
@@ -51,31 +51,46 @@
           </div>
         </custom-modal>
 
-        <template v-for="(item, i) in cardsList">
-          <div class="cr__card-wrapper">
-            <div class="cr__card-icon">
-              <img
-                  v-if="item.img"
-                  :src="item.img"
-                  :alt="item.alt"
-                  width="270"
-                  class="cr__card-icon_preview"
-              />
-              <p class="cr__card-icon_preview-text" @click="showModal(item)">
-                profile
-              </p>
-            </div>
-            <div class="cr__card-text">
-              <div v-if="item.title" class="cr__card-text-title">
-                {{ item.title }}
+
+        <swiper
+            :modules="modules"
+            :slides-per-view="4"
+            :space-between="15"
+            :scrollbar="{ draggable: true }"
+            :loop="true"
+            :free-mode="true"
+            :speed="5000"
+            :autoplay="{
+              delay: 1,
+              pauseOnMouseEnter: true,
+            }"
+
+        >
+          <swiper-slide v-for="(item, i) in cardsList">
+            <div class="cr__card-wrapper">
+              <div class="cr__card-icon">
+                <img
+                    v-if="item.img"
+                    :src="item.img"
+                    :alt="item.alt"
+                    class="cr__card-icon_preview"
+                />
+                <p class="cr__card-icon_preview-text" @click="showModal(item)">
+                  profile
+                </p>
               </div>
-              <div v-if="item.position" class="cr__card-text-desc">
-                {{ item.position }}
+              <div class="cr__card-text">
+                <div v-if="item.title" class="cr__card-text-title">
+                  {{ item.title }}
+                </div>
+                <div v-if="item.position" class="cr__card-text-desc">
+                  {{ item.position }}
+                </div>
+                <a class="cr__card-text-btn" @click="showModal(item)">profile</a>
               </div>
-              <a class="cr__card-text-btn" @click="showModal(item)">profile</a>
             </div>
-          </div>
-        </template>
+          </swiper-slide>
+        </swiper>
       </div>
     </div>
   </section>
@@ -88,14 +103,24 @@ import DarkBg from '~/components/elements/dark-bg.vue';
 import CustomModal from '~/components/elements/custom-modal.vue';
 import { defineComponent, ref } from 'vue';
 import TeamBlockCards from './team-block-data';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Autoplay, FreeMode, Scrollbar } from 'swiper';
 
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/scrollbar';
+import 'swiper/css/autoplay';
 
 export default defineComponent({
   components: {
     TitleBlock,
     StripeWrapper,
     DarkBg,
-    CustomModal
+    CustomModal,
+    Swiper,
+    SwiperSlide,
+    Scrollbar,
+    Autoplay
   },
   setup() {
     const isShowModal = ref(false);
@@ -110,12 +135,12 @@ export default defineComponent({
     function showModal(item: any) {
       dataModalCard.value = item;
       isShowModal.value = true;
-    };
+    }
 
     function closeModal() {
       dataModalCard.value = {};
       return (isShowModal.value = false);
-    };
+    }
 
     return {
       isShowModal,
@@ -124,7 +149,8 @@ export default defineComponent({
       titleSubData,
       cardsList,
       closeModal,
-      showModal
+      showModal,
+      modules: [Autoplay, FreeMode]
     }
 
   },
@@ -133,6 +159,12 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 @import "/assets/styles/variables";
+
+:deep(.swiper-wrapper) {
+  -webkit-transition-timing-function: linear !important;
+  -o-transition-timing-function: linear !important;
+  transition-timing-function: linear !important;
+}
 
 .cr {
   &__card {

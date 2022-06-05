@@ -118,7 +118,7 @@ const TeamBlockCards: Array<Card> = [
         src: imgs.social.git
       }
     ],
-    img: null,
+    img: imgs.ivanImg,
     alt: 'Ivan Myasoyedov',
     title: 'Ivan Myasoyedov',
     position: 'Backend Developer',

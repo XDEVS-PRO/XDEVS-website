@@ -13,8 +13,7 @@
         "core-js": "^3.22.8",
         "css-loader": "^6.7.1",
         "nuxt3": "npm:nuxt3@3.0.0-rc.3-27571095.9379606",
-        "vue-awesome-swiper": "^5.0.1",
-        "vue-infinite-slide-bar": "^1.1.1"
+        "swiper": "^8.2.2"
     },
     "devDependencies": {
         "@nuxtjs/router-extras": "^1.1.1",
