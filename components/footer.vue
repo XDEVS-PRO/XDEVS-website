@@ -22,15 +22,14 @@
           <div class="footer__center-inner custom-description">
             <template v-if="isOnIndex">
               <template v-for="(item, i) in headerList">
-                <a
+                <NuxtLink
                   class="header__right-link custom-link"
                   v-if="item.hash"
-                  :href="item.hash"
+                  :to="{ path: item.link, hash: item.hash }"
                   :key="item.hash"
-                  v-smooth-scroll
                 >
                   {{ item.title }}
-                </a>
+                </NuxtLink>
                 <nuxt-link
                   v-else
                   class="header__right-link custom-link"

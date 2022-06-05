@@ -18,15 +18,15 @@
         <div class="header__right" v-if="headerList.length">
           <template v-if="isOnIndex">
             <template v-for="(item, i) in headerList">
-              <a
+              <NuxtLink
                 class="header__right-link custom-link"
                 v-if="item.hash"
-                :href="item.hash"
+                :to="{ path: item.link, hash: item.hash }"
                 :key="i"
-                v-smooth-scroll
+
               >
                 {{ item.title }}
-              </a>
+              </NuxtLink>
               <nuxt-link
                 v-else
                 class="header__right-link custom-link"
@@ -76,7 +76,7 @@
                 @click="isShow()"
                 :href="item.hash"
                 :key="i"
-                v-smooth-scroll
+
               >
                 {{ item.title }}
               </a>
@@ -132,7 +132,7 @@ import StripeWrapper from "~/components/elements/strip-bg.vue";
 import DarkBg from "~/components/elements/dark-bg.vue";
 import ScrollTo from "~/components/elements/scroll-to.vue";
 import { headerList } from "~/assets/data/header.json";
-import { contactUs } from "~/assets/data/index-page.json";
+import { contactUs } from "~/assets/data/projects.json";
 import { onMounted, ref, Ref } from "vue";
 import { defineComponent } from 'vue';
 

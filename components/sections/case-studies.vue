@@ -15,7 +15,7 @@
           <p class="our-projects__desc">
             {{ showProject.desc }}
           </p>
-          <nuxt-link to="/case-studies" class="our-projects__link">
+          <nuxt-link :to="`/case-studies`" class="our-projects__link" >
             Watch this case
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -121,6 +121,7 @@ import { ref } from 'vue';
 
 export interface Project {
   src: string;
+  hash: string;
   title: string;
   desc: string;
   id: string;
@@ -137,17 +138,16 @@ let counter = 0
 const projectsList = props.data;
 
 const next = () => {
-    counter++
-    if (projectsList[counter] === undefined) {
-      counter = 0
-    }
-    showProject.value = projectsList[counter]
+  counter++;
+  if (!projectsList[counter]) {
+    counter = 0;
+  }
+  showProject.value = projectsList[counter]
 }
-
 const prev = () => {
-  counter--
-  if (projectsList[counter] === undefined) {
-    counter = projectsList.length - 1
+  counter--;
+  if (!projectsList[counter]) {
+    counter = projectsList.length - 1;
   }
   showProject.value = projectsList[counter]
 }

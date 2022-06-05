@@ -14,7 +14,7 @@
             <span>XDEVS</span> offers development services to match your company's specific needs.
             We listen. We care. We know how to make your product look top-notch and work as swiss clocks.
           </h4>
-          <a href="#core-team" v-smooth-scroll>
+          <a href="#core-team" >
             <button class="x-btn">{{ btnText }}</button>
           </a>
         </div>

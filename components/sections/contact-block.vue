@@ -91,7 +91,7 @@
 <script lang="ts">
 import TitleBlock from '~/components/elements/title.vue';
 import StripeWrapper from '~/components/elements/strip-bg.vue';
-import { contactUs } from '~/assets/data/index-page.json';
+import { contactUs } from '~/assets/data/projects.json';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -101,7 +101,7 @@ export default defineComponent({
   },
 
   setup() {
-    const btnText = '<Drop email>';
+    const btnText = '<Drop an email>';
     const contactUsData: Array<{ img: string; alt: string; link: string }> = contactUs;
 
     return {

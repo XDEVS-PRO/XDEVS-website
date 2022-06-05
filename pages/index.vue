@@ -21,7 +21,7 @@ import ContactBlock from '~/components/sections/contact-block.vue';
 import SliderBlock from '~/components/sections/trusted-block.vue';
 import BestOf from '~/components/sections/best-of.vue';
 import CaseStudies from '../components/sections/case-studies.vue';
-import { ourProjects } from "~/assets/data/index-page.json";
+import { ourProjects } from "~/assets/data/projects.json";
 
 const scrollPageTo = (elementId: string) => {
   let element = document.getElementById(elementId);

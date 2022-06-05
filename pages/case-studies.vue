@@ -1,7 +1,7 @@
 <template>
   <div>
     <template v-for="(item, i) in projects" :key="i">
-      <case-studies :data="[item]"  class="first-block" />
+      <case-studies :data="[item]" :scroll="false" class="first-block" />
     </template>
     <contact-block />
   </div>
@@ -10,11 +10,10 @@
 <script lang="ts" setup>
 import ContactBlock from "~/components/sections/contact-block.vue";
 import CaseStudies from "~/components/sections/case-studies.vue";
-import { ourProjects } from "~/assets/data/index-page.json";
+import { ourProjects } from "~/assets/data/projects.json";
 import { ref } from 'vue';
 
 const projects = ref(ourProjects)
-console.log(projects)
 </script>
 
 <style lang="scss" scoped>
