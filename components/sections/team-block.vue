@@ -54,17 +54,19 @@
 
         <swiper
             :modules="modules"
-            :slides-per-view="4"
-            :space-between="15"
+            :slides-per-view="2"
+            :space-between="30"
             :scrollbar="{ draggable: true }"
             :loop="true"
             :free-mode="true"
-            :speed="5000"
+            :speed="10000"
             :autoplay="{
               delay: 1,
               pauseOnMouseEnter: true,
             }"
-
+            :breakpoints="{
+            560: {slidesPerView: 4,}
+            }"
         >
           <swiper-slide v-for="(item, i) in cardsList">
             <div class="cr__card-wrapper">
@@ -106,7 +108,6 @@ import TeamBlockCards from './team-block-data';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Autoplay, FreeMode, Scrollbar } from 'swiper';
 
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/scrollbar';
 import 'swiper/css/autoplay';
@@ -150,7 +151,7 @@ export default defineComponent({
       cardsList,
       closeModal,
       showModal,
-      modules: [Autoplay, FreeMode]
+      modules: [Autoplay, FreeMode, Scrollbar]
     }
 
   },
@@ -169,16 +170,13 @@ export default defineComponent({
 .cr {
   &__card {
     &-icon {
-      max-height: 310px;
       transition: all 0.6s ease-out;
       position: relative;
 
       @media screen and (max-width: 1300px) {
-        max-height: 240px;
       }
 
       @media screen and (max-width: 560px) {
-        max-width: 120px;
       }
 
       &:hover {
@@ -225,12 +223,10 @@ export default defineComponent({
     &-wrapper {
       display: flex;
       flex-direction: column;
-      padding: 0 30px 30px 0;
       transition: all 0.4s ease-out;
 
       @media screen and (max-width: 560px) {
         flex-direction: row;
-        padding: 0 0 20px 0;
         width: 100%;
       }
 
@@ -279,14 +275,10 @@ export default defineComponent({
     }
 
     &-icon_preview {
-      max-width: 270px;
-      max-height: 310px;
-
       cursor: pointer;
+      width: 100%;
 
       @media screen and (max-width: 1300px) {
-        max-width: 210px;
-        max-height: 240px;
       }
 
       @include for-small() {
