@@ -1,5 +1,5 @@
 <template>
-  <section class="our-projects" id="#case-studies">
+  <section class="our-projects" id="case-studies">
     <dark-bg/>
     <stripe-wrapper :color-strip="'dark'"/>
     <div class="our-projects__container container">

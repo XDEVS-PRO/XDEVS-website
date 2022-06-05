@@ -1,5 +1,5 @@
 <template>
-  <section id="#best-of" class="best-of">
+  <section id="best-of" class="best-of">
     <stripe-wrapper />
     <div class="best-of__container container">
       <h4 class="best-of__text">

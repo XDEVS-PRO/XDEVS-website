@@ -22,27 +22,11 @@ import SliderBlock from '~/components/sections/trusted-block.vue';
 import BestOf from '~/components/sections/best-of.vue';
 import CaseStudies from '../components/sections/case-studies.vue';
 import { ourProjects } from "~/assets/data/index-page.json";
-import { onMounted, ref, watch } from 'vue';
-
-const root = ref(null)
 
 const scrollPageTo = (elementId: string) => {
   let element = document.getElementById(elementId);
   element && element.scrollIntoView({ behavior: "smooth" });
 };
-
-watch(
-  () => location.hash,
-  (currValue, _) => {
-    scrollPageTo(currValue);
-  }, { deep: true }
-)
-
-onMounted(() => {
-  if(location.hash) {
-    scrollPageTo(location.hash);
-  }
-})
 
 // definePageMeta({
 //   title: 'main-page',

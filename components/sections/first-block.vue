@@ -1,5 +1,5 @@
 <template>
-  <section id="#fb" class="fb">
+  <section id="fb" class="fb">
     <dark-bg/>
     <stripe-wrapper :color-strip="'dark'"/>
     <div class="fb__container container">

@@ -1,5 +1,5 @@
 <template>
-  <section class="cr" id="#core-team">
+  <section class="cr" id="core-team">
     <dark-bg/>
     <stripe-wrapper :color-strip="'dark'"/>
     <div class="cr__container container">

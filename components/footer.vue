@@ -26,7 +26,8 @@
                   class="header__right-link custom-link"
                   v-if="item.hash"
                   :href="item.hash"
-                  :key="item.has"
+                  :key="item.hash"
+                  v-smooth-scroll
                 >
                   {{ item.title }}
                 </a>

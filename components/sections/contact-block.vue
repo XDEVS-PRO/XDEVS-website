@@ -1,5 +1,5 @@
 <template>
-  <section class="cb" id="#contact-us">
+  <section class="cb" id="contact-us">
     <stripe-wrapper/>
     <div class="cb__container container">
       <div class="cb__inner">

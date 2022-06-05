@@ -23,6 +23,7 @@
                 v-if="item.hash"
                 :href="item.hash"
                 :key="i"
+                v-smooth-scroll
               >
                 {{ item.title }}
               </a>
@@ -75,6 +76,7 @@
                 @click="isShow()"
                 :href="item.hash"
                 :key="i"
+                v-smooth-scroll
               >
                 {{ item.title }}
               </a>

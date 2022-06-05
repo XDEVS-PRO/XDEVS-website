@@ -1,5 +1,5 @@
 <template>
-  <section class="sb" id="#services">
+  <section class="sb" id="services">
     <stripe-wrapper />
     <div class="sb__container container">
       <title-block :title="'Services'" :color-icon="'dark'" />

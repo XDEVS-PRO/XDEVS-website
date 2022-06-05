@@ -1,6 +1,6 @@
 <template>
-  <Teleport :to="to">
-    <transition name="fade">
+  <Teleport :to="'body'">
+    <Transition name="fade">
       <div v-if="isOpen" class="modal__wrapper" :class="className">
         <div class="modal__overlay" @click="close()"></div>
         <div class="modal">
@@ -8,7 +8,7 @@
           <slot></slot>
         </div>
       </div>
-    </transition>
+    </Transition>
   </Teleport>
 </template>
 
