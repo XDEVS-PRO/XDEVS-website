@@ -2,16 +2,7 @@ import { defineNuxtConfig } from 'nuxt';
 
 export default defineNuxtConfig({
 
-  vue: {
-    compilerOptions: {
-      directiveTransforms: {
-        'smooth-scroll': () => ({
-          props: [],
-          needRuntime: true
-        })
-      }
-    }
-  },
+  ssr: false,
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'XDEVS',
