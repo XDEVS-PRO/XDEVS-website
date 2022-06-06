@@ -11,33 +11,25 @@
           <span v-if="data.createdAt" class="blog-time">{{ data.createdAt | time }}</span>
           <span v-if="data.topic" class="blog-topic">{{ data.topic }}</span>
         </p>
-        <h1 v-if="data.description" class="blog-topic-name">{{data.description}}</h1>
+        <h1 v-if="data.description" class="blog-topic-name">{{ data.description }}</h1>
         <p v-if="data.author && data.author.name" class="blog-author">by {{ data.author.name }}</p>
       </div>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  name: "ArticleHeader",
-  props: {
-    data: {
-      type: Object,
-      default: () => ({})
-    },
-    breadCrumbs: {
-      type: Array,
-      default: []
-    }
-  },
-  filters: {
-    time: function (value) {
-      const date = new Date(value);
-      return date.getFullYear() + '.' + (date.getMonth() + 1) + '.' + date.getDate();
-    }
-  }
+<script lang="ts" setup>
+interface Props {
+  data :  {img: string, breadCrumbs: [], topic: string, description: string, author: {}},
+  breadCrumbs:  string[],
 }
+
+const {data, breadCrumbs} = withDefaults(defineProps<Props>(), {breadCrumbs: []})
+
+const time = computed((value) => {
+  const date = new Date(value);
+  return date.getFullYear()+'.'+(date.getMonth()+1)+'.'+date.getDate();
+})
 </script>
 
 <style lang="scss" scoped>
@@ -53,7 +45,7 @@ export default {
   max-width: 1232px;
   width: 100%;
   margin: 0 auto;
-  padding: 0  16px 184px;
+  padding: 0 16px 184px;
 }
 
 .blog-text {

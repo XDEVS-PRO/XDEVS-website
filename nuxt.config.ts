@@ -1,8 +1,6 @@
 import { defineNuxtConfig } from 'nuxt';
 
 export default defineNuxtConfig({
-
-  ssr: false,
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'XDEVS',

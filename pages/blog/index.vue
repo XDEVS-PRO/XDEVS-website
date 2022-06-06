@@ -37,16 +37,27 @@ import BlogHeader from "~/components/BlogHeader";
 import BlogCard from "~/pages/BlogComponents/BlogCard";
 
 const activeTag = ref("")
-const {data: articles} = await useAsyncData('articles',
-    () => queryContent('/articles').find()
+
+let {data: articles} = await useAsyncData('articles',
+    () => queryContent('/articles').find(),
 )
-const topicList = await queryContent('articles').only(['topic']).find();
 
-function searchArticles(query) {
-  console.log('searchArticles', query)
-  if (!query) return this.articles = queryContent('articles').find();
+const {data: topicList} = await useAsyncData('topicList',
+    () => queryContent('articles')
+    .only(['topic'])
+    .find())
 
-  this.articles = queryContent('articles').where({title: query}).find()
+
+
+const searchArticles = async (query) => {
+  if (!query) {
+    const {data} = await useAsyncData('articles',
+    () => queryContent('articles').find())
+    articles = data
+  }
+
+  const {data} = await useAsyncData('searchArticles', () => queryContent('articles').where({title: query}).find())
+  articles = data
 }
 
 function checkActiveTag(tag) {
@@ -55,20 +66,26 @@ function checkActiveTag(tag) {
   return activeTag.value === tag ? activeTag.value = "" : true
 }
 
-function addNewArticles() {
+const addNewArticles = async () => {
   const limitNewArticles = 6;
-  this.articles = queryContent('articles').skip(articles.value.length).limit(limitNewArticles).find();
+  const {data} = await useAsyncData('articlesNext',
+      () => queryContent('articles')
+      .skip(articles.value.length)
+      .limit(limitNewArticles).find());
+  articles = data
 }
 
-function initFilter(topicName) {
+const initFilter = async (topicName) => {
   if (!topicName) return true;
   const topic = topicName.toLowerCase();
 
   checkActiveTag(topic);
-  this.articles = queryContent('articles')
-  .sort({topic: 1})
-  .where({topic: `${topic}`})
-  .find();
+  const {data} = await useAsyncData('filteredArticles',
+      () => queryContent('articles')
+      .sort({topic: 1})
+      .where({topic: `${topic}`})
+      .find())
+  articles = data
 }
 
 function sortByType(sortType) {

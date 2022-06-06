@@ -1,6 +1,6 @@
 <template>
   <section class="blog-article">
-    <ArticleHeader :data="headerData" :bread-crumbs="getBreadcrumbs"/>
+    <ArticleHeader :data="headerData" :bread-crumbs="crumbs"/>
 
     <div class="blog-container">
       <article>
@@ -17,21 +17,27 @@ import ArticleHeader from '../BlogComponents/ArticleHeader';
 import ArticleFooter from '../BlogComponents/ArticleFooter';
 
 const {path} = useRoute()
+const crumbs = ref([])
 
-const articlePath = `/articles/${path.split('/').pop()}`
-console.log(articlePath)
-
-
+const contentPath = `/articles/${path.split('/').pop()}`
+console.log(contentPath)
 const {data: article} = await useAsyncData('articles',
     () => queryContent('/articles')
-    .where({_path: articlePath})
-    .findOne())
+    .where({_path: contentPath})
+    .findOne(),
+)
 console.log(article)
 
-const {data: tagsList} = await useAsyncData('tags', () =>
-    queryContent('/tags').only(['name', 'slug'])
+crumbs.value = [
+  {name: 'Blog Posts', link: '/blog'},
+  {name: article.value.title, link: path}
+];
+
+
+const {data: tagsList} = await useAsyncData('tags',
+    () => queryContent('/tags').only(['name', 'slug'])
     .where({name: {$in: article.tags}})
-    .find()
+    .find(),
 )
 
 const {author, img, createdAt, topic, description} = article;
@@ -50,16 +56,6 @@ const footerData = {author};
 const time = computed(() => {
   const date = new Date(value);
   return date.getFullYear()+'.'+(date.getMonth()+1)+'.'+date.getDate();
-})
-
-const getBreadcrumbs = computed(() => {
-  const crumbs = [];
-  crumbs.push(
-      {name: 'Blog Posts', link: '/blog'},
-      {name: article.breadcrumbs, link: '/blog'},
-      {name: article.title, link: article._path}
-  );
-  return crumbs
 })
 
 definePageMeta({

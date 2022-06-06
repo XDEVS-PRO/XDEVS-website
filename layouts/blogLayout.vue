@@ -2,26 +2,18 @@
   <section>
     <header-block :hide-stripes="true" />
     <div id="root-wrapper">
-      <nuxt />
+      <slot />
     </div>
     <footer-block />
     <short-footer />
   </section>
 </template>
 
-<script>
+<script lang="ts" setup>
 import HeaderBlock from "~/components/header.vue";
 import FooterBlock from "~/components/footer.vue";
 import ShortFooter from "~/components/short-footer.vue";
-
-export default {
-  name: "BlogLayout",
-  components: {
-    HeaderBlock,
-    FooterBlock,
-    ShortFooter
-  }
-}
+console.log('blog layout')
 </script>
 
 <style lang="scss" scoped>

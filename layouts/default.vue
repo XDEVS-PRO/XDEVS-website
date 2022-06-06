@@ -9,10 +9,10 @@
   </section>
 </template>
 
- <script lang="ts" setup>
-  import HeaderBlock from "~/components/header.vue";
-  import FooterBlock from "~/components/footer.vue";
-  import ShortFooter from "~/components/short-footer.vue";
+<script lang="ts" setup>
+import HeaderBlock from "~/components/header.vue";
+import FooterBlock from "~/components/footer.vue";
+import ShortFooter from "~/components/short-footer.vue";
 
 </script>
 
