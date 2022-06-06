@@ -1,26 +1,11 @@
 <template class="article-img-container">
-  <img :src="imgSrc()" :alt="alt" class="article-image"/>
-  <slot />
+  <img :src="src" :alt="alt" class="article-image"/>
 </template>
 
 <script lang="ts" setup>
-const props = {
-  src: {
-    type: String,
-    required: true
-  },
-  alt: {
-    type: String,
-    required: true
-  }
+interface Props {
+  author :  {src: string, alt: string},
 }
+const {src, alt} = defineProps<Props>()
 
-const imgSrc = () => {
-  try {
-    return require(`~/assets/img-articles/${props.src}`)
-  } catch (error) {
-    console.log('Article-img error', error);
-    return null
-  }
-}
 </script>

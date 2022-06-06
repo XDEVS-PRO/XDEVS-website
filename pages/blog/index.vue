@@ -39,11 +39,11 @@ import BlogCard from "~/pages/BlogComponents/BlogCard";
 const activeTag = ref("")
 
 let {data: articles} = await useAsyncData('articles',
-    () => queryContent('/articles').find(),
+    () => queryContent('blog').find(),
 )
 
 const {data: topicList} = await useAsyncData('topicList',
-    () => queryContent('articles')
+    () => queryContent('blog')
     .only(['topic'])
     .find())
 
@@ -52,11 +52,11 @@ const {data: topicList} = await useAsyncData('topicList',
 const searchArticles = async (query) => {
   if (!query) {
     const {data} = await useAsyncData('articles',
-    () => queryContent('articles').find())
+    () => queryContent('blog').find())
     articles = data
   }
 
-  const {data} = await useAsyncData('searchArticles', () => queryContent('articles').where({title: query}).find())
+  const {data} = await useAsyncData('searchArticles', () => queryContent('blog').where({title: query}).find())
   articles = data
 }
 
@@ -69,7 +69,7 @@ function checkActiveTag(tag) {
 const addNewArticles = async () => {
   const limitNewArticles = 6;
   const {data} = await useAsyncData('articlesNext',
-      () => queryContent('articles')
+      () => queryContent('blog')
       .skip(articles.value.length)
       .limit(limitNewArticles).find());
   articles = data
@@ -81,7 +81,7 @@ const initFilter = async (topicName) => {
 
   checkActiveTag(topic);
   const {data} = await useAsyncData('filteredArticles',
-      () => queryContent('articles')
+      () => queryContent('blog')
       .sort({topic: 1})
       .where({topic: `${topic}`})
       .find())

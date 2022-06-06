@@ -2,10 +2,10 @@
   <div class="blog-footer">
     <div class="blog-author-wrapper">
       <div class="blog-author-details">
-        <img v-if="data.author && data.author.img" :src="data.author.img" class="blog-author-image">
+        <img v-if="author && author.img" :src="author.img" class="blog-author-image">
         <div class="blog-author-description">
-          <h6 v-if="data.author && data.author.name" class="blog-author-name">{{data.author.name}}</h6>
-          <span v-if="data.author && data.author.bio" class="blog-author-position">{{data.author.bio}}</span>
+          <h6 v-if="author && author.name" class="blog-author-name">{{ author.name }}</h6>
+          <span v-if="author && author.bio" class="blog-author-position">{{ author.bio }}</span>
         </div>
       </div>
       <nuxt-link to="/" class="blog-author-link">Meet the author</nuxt-link>
@@ -13,16 +13,12 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "ArticleFooter",
-  props: {
-    data: {
-      type: Object,
-      default: () => ({})
-    }
-  }
+<script lang="ts" setup>
+interface Props {
+  author: { img: string, name: string, bio: string },
 }
+
+const {author} = defineProps<Props>()
 </script>
 
 <style lang="scss" scoped>
@@ -41,11 +37,11 @@ export default {
   display: flex;
   justify-content: space-between;
 
-@include for-small() {
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+  @include for-small() {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .blog-author-details {
