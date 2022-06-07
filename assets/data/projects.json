@@ -30,17 +30,17 @@
   ],
   "contactUs": [
     {
-      "img": "contact-us/s-i.svg",
+      "img": "/contact-us/s-i.svg",
       "alt": "skype",
       "link": "skype:live:.cid.d75c78905bc2d085\n"
     },
     {
-      "img": "contact-us/l-i.svg",
+      "img": "/contact-us/l-i.svg",
       "alt": "LinkedIn",
       "link": "https://www.linkedin.com/in/xander-pokhylenko-9699b3161/"
     },
     {
-      "img": "contact-us/p-i.svg",
+      "img": "/contact-us/p-i.svg",
       "alt": "email",
       "link": "mailto:xander@xdevs.pro"
     }
