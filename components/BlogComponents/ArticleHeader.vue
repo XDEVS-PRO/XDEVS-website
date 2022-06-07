@@ -2,8 +2,12 @@
   <div class="blog-header" :style="{'background-image': `url(${data.img ? data.img : null})`}">
     <div class="blog-wrapper">
       <div class="blog-breadcrumbs-container" v-if="breadCrumbs.length">
-        <nuxt-link class="blog-breadcrumbs-link" v-for="(item, index) in breadCrumbs" :key="index" :to="item.link">
-          {{ item.name }} <span v-if="index !== breadCrumbs.length - 1">/</span>
+        <nuxt-link
+            v-for="(item, idx) in breadCrumbs"
+            :to="item.link"
+            class="blog-breadcrumbs-link"
+        >
+          {{ item.name }} <span v-if="idx !== breadCrumbs.length - 1">/</span>
         </nuxt-link>
       </div>
       <div class="blog-text">
@@ -21,11 +25,11 @@
 <script lang="ts" setup>
 interface Props {
   data :  {img: string, breadCrumbs: [], topic: string, description: string, author: {}},
-  breadCrumbs:  string[],
+  breadCrumbs: { name: string, link: string }[],
 }
 
 const {data, breadCrumbs} = withDefaults(defineProps<Props>(), {breadCrumbs: []})
-
+console.log('header', data, breadCrumbs)
 const time = computed((value) => {
   const date = new Date(value);
   return date.getFullYear()+'.'+(date.getMonth()+1)+'.'+date.getDate();

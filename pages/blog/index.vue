@@ -33,8 +33,8 @@
 
 <script setup>
 import CustomSelector from "~/components/elements/custom-selector";
-import BlogHeader from "~/components/BlogHeader";
-import BlogCard from "~/pages/BlogComponents/BlogCard";
+import BlogHeader from "~/components/BlogComponents/BlogHeader";
+import BlogCard from "~/components/BlogComponents/BlogCard";
 
 const activeTag = ref("")
 

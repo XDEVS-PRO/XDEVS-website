@@ -1,6 +1,6 @@
 <template>
   <section class="blog-article">
-    <!--    <ArticleHeader :data="headerData" :bread-crumbs="crumbs"/>-->
+    <ArticleHeader :data="headerData" :bread-crumbs="crumbs"/>
 
     <div class="blog-container">
       <article>
@@ -8,60 +8,53 @@
       </article>
     </div>
 
-    <!--    <ArticleFooter :author="author"/>-->
+    <ArticleFooter :author="author"/>
   </section>
 </template>
 
 <script lang="ts" setup>
+import ArticleHeader from '~/components/BlogComponents/ArticleHeader';
+import ArticleFooter from '~/components/BlogComponents/ArticleFooter';
 
-// const {path} = useRoute()
-// const crumbs = ref([])
-//
-// const contentPath = `/articles/${path.split('/').pop()}`
-// console.log(contentPath)
-//
-// const {data: article} = await useAsyncData('articles',
-//     () => queryContent('/articles')
-//     .where({_path: contentPath})
-//     .findOne(),
-// )
-// console.log(article)
-//
-// crumbs.value = [
-//   {name: 'Blog Posts', link: '/blog'},
-//   {name: article.value.title, link: path}
-// ];
-//
-//
+const route = useRoute()
+const crumbs = ref([])
+
+const {data: article} = await useAsyncData('articles',
+    () => queryContent('blog')
+    .where({_path: route.path})
+    .findOne(),
+)
+
+crumbs.value = [
+  {name: 'Blog Posts', link: '/blog'},
+  {name: article.title, link: route.path}
+];
 // const {data: tagsList} = await useAsyncData('tags',
 //     () => queryContent('/tags').only(['name', 'slug'])
 //     .where({name: {$in: article.tags}})
 //     .find(),
 // )
 //
-// const {author, img, createdAt, topic, description} = article;
+const {author, img, createdAt, topic, description} = article.value;
 //
-// const headerData = {img, createdAt, topic, author, description}
+const headerData = {img, createdAt, topic, author, description}
+
+console.log(headerData)
+//  asyncData({params}) {
 //
-// //  asyncData({params}) {
-// //
-// //   const [prev, next] = await $content('articles')
-// //       .only(['title', 'slug'])
-// //       .sortBy('createdAt', 'asc')
-// //       .findSurround(params.slug)
-// // }
-//
-// const time = computed(() => {
-//   const date = new Date(value);
-//   return date.getFullYear()+'.'+(date.getMonth()+1)+'.'+date.getDate();
-// })
+//   const [prev, next] = await $content('articles')
+//       .only(['title', 'slug'])
+//       .sortBy('createdAt', 'asc')
+//       .findSurround(params.slug)
+// }
+
 
 definePageMeta({
   layout: 'blogLayout',
 })
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 @import "/assets/styles/variables";
 
 .blog-article {
