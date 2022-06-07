@@ -1,4 +1,4 @@
-<template>
+<template v-if="data">
   <div class="blog-header" :style="{'background-image': `url(${data.img ? data.img : null})`}">
     <div class="blog-wrapper">
       <div class="blog-breadcrumbs-container" v-if="breadCrumbs.length">
@@ -24,7 +24,7 @@
 
 <script lang="ts" setup>
 interface Props {
-  data :  {img: string, breadCrumbs: [], topic: string, description: string, author: {}},
+  data :  {img: string, breadCrumbs: [], topic: string, description: string, author: {}, createdAt: string},
   breadCrumbs: { name: string, link: string }[],
 }
 

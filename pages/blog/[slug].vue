@@ -1,6 +1,6 @@
 <template>
   <section class="blog-article">
-    <ArticleHeader :data="headerData" :bread-crumbs="crumbs"/>
+    <ArticleHeader :data="article" :bread-crumbs="crumbs"/>
 
     <div class="blog-container">
       <article>
@@ -8,7 +8,7 @@
       </article>
     </div>
 
-    <ArticleFooter :author="author"/>
+    <ArticleFooter :author="article.author"/>
   </section>
 </template>
 
@@ -35,11 +35,10 @@ crumbs.value = [
 //     .find(),
 // )
 //
-const {author, img, createdAt, topic, description} = article.value;
+// const {author, img, createdAt, topic, description} = article.value;
 //
-const headerData = {img, createdAt, topic, author, description}
+// const headerData = {img, createdAt, topic, author, description}
 
-console.log(headerData)
 //  asyncData({params}) {
 //
 //   const [prev, next] = await $content('articles')
