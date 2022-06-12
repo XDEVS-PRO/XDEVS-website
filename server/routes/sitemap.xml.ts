@@ -12,6 +12,13 @@ export default defineEventHandler(async (event) => {
       changefreq: 'monthly'
     })
   }
+
+  // TODO: it would be nice to get routes dynamically
+  // case-studies page
+  sitemap.write({
+    url: '/case-studies',
+    changefreq: 'monthly'
+  })
   sitemap.end()
   return streamToPromise(sitemap)
 })
