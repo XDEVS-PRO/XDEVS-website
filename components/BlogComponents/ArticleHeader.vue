@@ -12,6 +12,7 @@
       </div>
       <div class="blog-text">
         <p class="blog-time-topic dark-bg__img">
+          <!--   FIX time-->
           <span v-if="data.createdAt" class="blog-time">{{ data.createdAt | time }}</span>
           <span v-if="data.topic" class="blog-topic">{{ data.topic }}</span>
         </p>

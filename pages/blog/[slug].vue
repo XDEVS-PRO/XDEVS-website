@@ -1,5 +1,5 @@
 <template>
-  <section class="blog-article">
+  <section v-if="!pending" class="blog-article">
     <ArticleHeader :data="article" :bread-crumbs="crumbs"/>
 
     <div class="blog-container">
@@ -19,12 +19,11 @@ import ArticleFooter from '~/components/BlogComponents/ArticleFooter';
 const route = useRoute()
 const crumbs = ref([])
 
-const {data: article} = await useAsyncData('articles',
+const {data: article, pending, error, refresh } = await useAsyncData('loadArticle',
     () => queryContent('blog')
     .where({_path: route.path})
     .findOne(),
 )
-
 crumbs.value = [
   {name: 'Blog Posts', link: '/blog'},
   {name: article.title, link: route.path}

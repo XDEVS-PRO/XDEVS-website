@@ -4,7 +4,8 @@
 
 <script lang="ts" setup>
 interface Props {
-  author :  {src: string, alt: string},
+  src: string
+  alt: string
 }
 const {src, alt} = defineProps<Props>()
 

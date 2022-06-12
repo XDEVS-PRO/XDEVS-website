@@ -2,7 +2,7 @@
   <div class="blog-footer">
     <div class="blog-author-wrapper">
       <div class="blog-author-details">
-        <img v-if="author && author.img" :src="author.img" class="blog-author-image">
+        <img v-if="author && author.img" :src="author.img" class="blog-author-image" alt="Author">
         <div class="blog-author-description">
           <h6 v-if="author && author.name" class="blog-author-name">{{ author.name }}</h6>
           <span v-if="author && author.bio" class="blog-author-position">{{ author.bio }}</span>
