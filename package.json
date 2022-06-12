@@ -18,7 +18,7 @@
         "core-js": "^3.22.8",
         "css-loader": "^6.7.1",
         "fibers": "^5.0.0",
-        "nuxt": "npm:nuxt3@latest",
+        "nuxt": "npm:nuxt3@3.0.0-rc.3-27571095.9379606",
         "sass": "^1.52.3",
         "sass-loader": "^13.0.0",
         "sitemap": "^7.1.1"
