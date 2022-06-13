@@ -1,14 +1,14 @@
 ---
-topic: Next.js vs. Remix
+topic: Next.js
 createdAt: 17.06.2022
 title: Next.js vs. Remix.
 description: Nowadays, a new React framework is no news. It seems like they are multiplying each day, so why are we focusing on Remix and Next.js today?
-img: https://img.etimg.com/thumb/msid-84858456,width-650,imgsize-563303,,resizemode-4,quality-100/untitled-6vrgr.jpg
+img: /blog/next.js_vs_remix/next.js_vs_remix.png
 alt: Next.js vs. Remix.
 author:
   name: Daniil Krutogolov
   bio: Front-end Developer
-  img: https://images.unsplash.com/photo-1506956191951-7a88da4435e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60
+  img: /assets/core-team/daniil.webp
 tags:
 - Next.js
 - Remix

@@ -6,15 +6,15 @@ description: Создаем востребованный профиль в Linke
 img: https://img.etimg.com/thumb/msid-84858456,width-650,imgsize-563303,,resizemode-4,quality-100/untitled-6vrgr.jpg
 alt: linkedin
 author: 
-  name: Nik
+  name: Nikita Tovstyga
   bio: Front-end Developer
-  img: https://images.unsplash.com/photo-1506956191951-7a88da4435e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60
+  img: /assets/core-team/nikita.webp
 tags: 
   - linkedin
 ---
 ## C Чего Начать?
 
-LinkedIin- популярная социальная сеть для работодателей и соискателей, станьте частью большого сообщества если вы еще это не сделали!
+LinkedIin - популярная социальная сеть для работодателей и соискателей, станьте частью большого сообщества если вы еще это не сделали!
 
 Для начала пройдите этап регистрации, так как ничего трудного в этом нет, мы не будет останавливаться на этом.
 
