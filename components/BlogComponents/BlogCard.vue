@@ -14,8 +14,8 @@
           />
           <div class="article__content">
             <div class="article__sub-title">
-              <span>24.06.2021</span>
-              <span>Linkedin</span>
+              <span>{{new Date(article.createdAt).toLocaleDateString('uk-UA') }}&nbsp;</span>
+              <span>{{article.topic}}</span>
             </div>
             <h2 v-if="article.title" class="article__title">{{ article.title }}</h2>
             <p v-if="article.description" class="article__description">

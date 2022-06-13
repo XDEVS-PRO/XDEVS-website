@@ -7,7 +7,7 @@
           autocomplete="off"
           placeholder="Search Articles"
           class="input"
-          @input="$emit('input', $event.target.value)"
+          @input="$emit('searchInput', $event.target.value)"
       />
       <span class="input-search" v-if="searchQuery.length === 0" />
     </div>
@@ -26,15 +26,12 @@
   </div>
 </template>
 
-<script>
-export default {
-  setup() {
-    const searchQuery = ref('');
-    return {
-      searchQuery
-    }
-  }
-}
+<script setup lang="ts">
+defineEmits<{
+  (e: 'searchInput', value: string): void
+}>()
+
+const searchQuery = ref('')
 </script>
 
 <style scoped lang="scss">

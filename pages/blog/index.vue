@@ -1,11 +1,11 @@
 <template>
   <section class="container-main-blog">
-    <BlogHeader @input:search="searchArticles"/>
+    <BlogHeader @searchInput="searchArticles" @category="filterByCategory"/>
 
     <ul class="article-topics" v-if="topicList && topicList.length">
       <li v-for="(topic, index) in topicList" :key="index"
-          :class="['article-topics__item custom-link', {'active-item': topic.topic === activeTag}]"
-          @click="initFilter(topic.topic)">
+          :class="['article-topics__item custom-link', {'active-item': topic.topic === activeTopic}]"
+          @click="filterByTopic(topic.topic)">
         {{ topic.topic }}
       </li>
     </ul>
@@ -14,8 +14,9 @@
       <div class="middle-border">
         <p class="count-wrapper"><span>{{ articles.length }}</span> articles</p>
         <CustomSelector class="custom-selector-order"
-                        :options="[{label: 'Latest first', value: 'latest'}, {label: 'Newest first', value: 'newest'}]"
-                        default="Latest first" :border="false" @input="sortByType($event.value)"/>
+                        :options="[{label: 'Latest first', value: 'latest'},{label: 'Newest first', value: 'newest'}]"
+                        defaultOption="Newest first"
+                        @selectOption="sortByDate($event.value)"/>
       </div>
       <span class="vertical-border"/>
     </div>
@@ -36,10 +37,10 @@ import CustomSelector from "~/components/elements/custom-selector";
 import BlogHeader from "~/components/BlogComponents/BlogHeader";
 import BlogCard from "~/components/BlogComponents/BlogCard";
 
-const activeTag = ref("")
+const activeTopic = ref(null)
 
 let {data: articles} = await useAsyncData('articles',
-    () => queryContent('blog').find(),
+    () => queryContent('blog').sort({createdAt: -1}).find(),
 )
 
 const {data: topicList} = await useAsyncData('topicList',
@@ -48,61 +49,32 @@ const {data: topicList} = await useAsyncData('topicList',
     .find())
 
 
-
 const searchArticles = async (query) => {
-  if (!query) {
-    const {data} = await useAsyncData('articles',
-    () => queryContent('blog').find())
-    articles = data
+  articles.value = await queryContent('blog').where({title: {$contains: query}}).find()
+}
+
+const filterByCategory = async (category) => {
+  if (category === 'All articles') {
+    category = null
   }
-
-  const {data} = await useAsyncData('searchArticles', () => queryContent('blog').where({title: query}).find())
-  articles = data
+  articles.value = await queryContent('blog').where({category: category}).find()
 }
 
-function checkActiveTag(tag) {
-  if (!activeTag.value) return activeTag.value = tag;
-
-  return activeTag.value === tag ? activeTag.value = "" : true
+const filterByTopic = async (topicName) => {
+  activeTopic.value = activeTopic.value === topicName ? null : topicName
+  articles.value = await queryContent('blog').where({topic: activeTopic.value}).find()
 }
 
-const addNewArticles = async () => {
-  const limitNewArticles = 6;
-  const {data} = await useAsyncData('articlesNext',
-      () => queryContent('blog')
-      .skip(articles.value.length)
-      .limit(limitNewArticles).find());
-  articles = data
-}
 
-const initFilter = async (topicName) => {
-  if (!topicName) return true;
-  const topic = topicName.toLowerCase();
-
-  checkActiveTag(topic);
-  const {data} = await useAsyncData('filteredArticles',
-      () => queryContent('blog')
-      .sort({topic: 1})
-      .where({topic: `${topic}`})
-      .find())
-  articles = data
-}
-
-function sortByType(sortType) {
+const sortByDate = async (sortType) => {
   switch (sortType) {
     case "latest":
-      articles.value = sortByDate(articles.value, 1)
+      articles.value = await queryContent('blog').sort({createdAt: 1}).find()
       break;
     case "newest":
-      articles.value = sortByDate(articles.value, 2)
+      articles.value = await queryContent('blog').sort({createdAt: -1}).find()
       break;
   }
-}
-
-function sortByDate(array, firstCompareArgument) {
-  return array.sort((a, b) =>
-      firstCompareArgument === 1 ? new Date(a.updatedAt) - new Date(b.updatedAt) : new Date(b.updatedAt) - new Date(a.updatedAt)
-  )
 }
 
 </script>

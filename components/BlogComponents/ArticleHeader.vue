@@ -12,8 +12,7 @@
       </div>
       <div class="blog-text">
         <p class="blog-time-topic dark-bg__img">
-          <!--   FIX time-->
-          <span v-if="data.createdAt" class="blog-time">{{ data.createdAt | time }}</span>
+          <span v-if="data.createdAt" class="blog-time">{{ new Date(data.createdAt).toLocaleDateString('uk-UA') }}&nbsp;</span>
           <span v-if="data.topic" class="blog-topic">{{ data.topic }}</span>
         </p>
         <h1 v-if="data.description" class="blog-topic-name">{{ data.description }}</h1>
@@ -31,10 +30,6 @@ interface Props {
 
 const {data, breadCrumbs} = withDefaults(defineProps<Props>(), {breadCrumbs: []})
 console.log('header', data, breadCrumbs)
-const time = computed((value) => {
-  const date = new Date(value);
-  return date.getFullYear()+'.'+(date.getMonth()+1)+'.'+date.getDate();
-})
 </script>
 
 <style lang="scss" scoped>

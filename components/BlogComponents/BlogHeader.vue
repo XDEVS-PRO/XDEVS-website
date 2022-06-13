@@ -5,20 +5,25 @@
       <h4>Blog Posts</h4>
     </div>
 
-    <AppSearchInput class="search" @input="$emit('input:search', $event)"/>
+    <AppSearchInput class="search" @searchInput="$emit('searchInput', $event)"/>
 
     <CustomSelector
         class="custom-selector"
         :options="options"
-        default="All articles"
-        @input="$emit('input', $event)"
+        :defaultOption="options[0]"
+        @selectOption="$emit('category', $event)"
     />
   </header>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import CustomSelector from '@/components/elements/custom-selector'
 
+defineEmits<{
+  (e: 'searchInput', value: string): void
+  (e: 'category', value: string): void
+
+}>()
 const options = ['All articles', 'Web development', 'Mobile development', 'Management']
 
 </script>
@@ -31,7 +36,6 @@ const options = ['All articles', 'Web development', 'Mobile development', 'Manag
   justify-content: space-between;
   align-items: center;
   margin: 0;
-  padding: 0;
   width: 100%;
   padding: 80px 0 60px;
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="custom-select" :tabindex="tabindex" @blur="open = false">
+  <div class="custom-select" :tabindex="tabIndex" @blur="open = false">
     <span :class="['arrow', { open: open }]"/>
     <div class="selected" :class="{ open: open }" @click="open = !open">
       {{ selected.label ? selected.label : selected }}
@@ -8,11 +8,7 @@
       <div
           v-for="(option, i) of options"
           :key="i"
-          @click="
-          selected = option;
-          open = false;
-          $emit('input', option);
-        "
+          @click="selectOption(option)"
       >
         {{ option.label ? option.label : option }}
       </div>
@@ -22,32 +18,27 @@
 
 <script lang="ts" setup>
 
-const emit = defineEmits(['input'])
+interface Props {
+  options: any[]
+  defaultOption?: string | null
+  tabIndex?: number
+}
+const props = withDefaults(defineProps<Props>(), {defaultOption: null, tabIndex: 0})
+const emit = defineEmits<{
+  (e: 'selectOption', value: string): void
+}>()
 
-  const props = defineProps({
-    options: {
-      type: Array,
-      required: true,
-    },
-    default: {
-      type: String,
-      required: false,
-      default: null,
-    },
-    tabindex: {
-      type: Number,
-      required: false,
-      default: 0,
-    }
-  })
+const {options, defaultOption, tabIndex} = props
 
-  const selected = toRef(props, 'default')
-  const open = ref(false);
+const open = ref(false);
+const selected = ref(defaultOption)
 
-  onMounted(() => {
-    emit("input", selected)
-  });
 
+const selectOption = (option) => {
+  selected.value = option;
+  open.value = false;
+  emit('selectOption', option);
+}
 
 </script>
 
