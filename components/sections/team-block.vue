@@ -51,58 +51,60 @@
           </div>
         </custom-modal>
 
-        <swiper
-            :modules="modules"
-            :slides-per-view="2"
-            :space-between="30"
-            :scrollbar="{ draggable: true }"
-            :loop="true"
-            :free-mode="true"
-            :speed="10000"
-            :autoplay="{
+        <ClientOnly>
+          <swiper
+              :modules="modules"
+              :slides-per-view="2"
+              :space-between="30"
+              :scrollbar="{ draggable: true }"
+              :loop="true"
+              :free-mode="true"
+              :speed="10000"
+              :autoplay="{
               delay: 1,
               pauseOnMouseEnter: true,
             }"
-            :breakpoints="{
+              :breakpoints="{
             560: {slidesPerView: 4,}
             }"
-        >
-          <swiper-slide v-for="(item, i) in cardsList">
-            <div class="cr__card-wrapper">
-              <div class="cr__card-icon">
-                <img
-                    v-if="item.img"
-                    :src="item.img"
-                    :alt="item.alt"
-                    class="cr__card-icon_preview"
-                />
-                <p class="cr__card-icon_preview-text" @click="showModal(item)">
-                  profile
-                </p>
-              </div>
-              <div class="cr__card-text">
-                <div v-if="item.title" class="cr__card-text-title">
-                  {{ item.title }}
+          >
+            <swiper-slide v-for="(item, i) in TeamBlockCards">
+              <div class="cr__card-wrapper">
+                <div class="cr__card-icon">
+                  <img
+                      v-if="item.img"
+                      :src="item.img"
+                      :alt="item.alt"
+                      class="cr__card-icon_preview"
+                  />
+                  <p class="cr__card-icon_preview-text" @click="showModal(item)">
+                    profile
+                  </p>
                 </div>
-                <div v-if="item.position" class="cr__card-text-desc">
-                  {{ item.position }}
+                <div class="cr__card-text">
+                  <div v-if="item.title" class="cr__card-text-title">
+                    {{ item.title }}
+                  </div>
+                  <div v-if="item.position" class="cr__card-text-desc">
+                    {{ item.position }}
+                  </div>
+                  <a class="cr__card-text-btn" @click="showModal(item)">profile</a>
                 </div>
-                <a class="cr__card-text-btn" @click="showModal(item)">profile</a>
               </div>
-            </div>
-          </swiper-slide>
-        </swiper>
+            </swiper-slide>
+          </swiper>
+        </ClientOnly>
       </div>
     </div>
   </section>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import TitleBlock from '~/components/elements/title.vue';
 import StripeWrapper from '~/components/elements/strip-bg.vue';
 import DarkBg from '~/components/elements/dark-bg.vue';
 import CustomModal from '~/components/elements/custom-modal.vue';
-import { defineComponent, ref } from 'vue';
+import { ref } from 'vue';
 import TeamBlockCards from './team-block-data';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Autoplay, FreeMode, Scrollbar } from 'swiper';
@@ -111,49 +113,24 @@ import 'swiper/css';
 import 'swiper/css/scrollbar';
 import 'swiper/css/autoplay';
 
-export default defineComponent({
-  components: {
-    TitleBlock,
-    StripeWrapper,
-    DarkBg,
-    CustomModal,
-    Swiper,
-    SwiperSlide,
-    Autoplay
-  },
-  setup() {
-    const isShowModal = ref(false);
-    const isCloseModal = ref(false);
-    const dataModalCard = ref({});
+const modules = [Autoplay, FreeMode, Scrollbar]
+const isShowModal = ref(false);
+const isCloseModal = ref(false);
+const dataModalCard = ref({});
 
-    const titleSubData =
-        'To stay on top of our game, every member of our team constantly works on self-improving his professional skills';
+const titleSubData =
+    'To stay on top of our game, every member of our team constantly works on self-improving his professional skills';
 
-    const cardsList = TeamBlockCards
 
-    function showModal(item: any) {
-      dataModalCard.value = item;
-      isShowModal.value = true;
-    }
+function showModal(item: any) {
+  dataModalCard.value = item;
+  isShowModal.value = true;
+}
 
-    function closeModal() {
-      dataModalCard.value = {};
-      return (isShowModal.value = false);
-    }
-
-    return {
-      isShowModal,
-      isCloseModal,
-      dataModalCard,
-      titleSubData,
-      cardsList,
-      closeModal,
-      showModal,
-      modules: [Autoplay, FreeMode, Scrollbar]
-    }
-
-  },
-})
+function closeModal() {
+  dataModalCard.value = {};
+  return (isShowModal.value = false);
+}
 </script>
 
 <style lang="scss" scoped>
