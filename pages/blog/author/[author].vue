@@ -1,5 +1,5 @@
 <template>
-  <div class="container-main-author"> 
+  <div class="container-main-author">
     <div class="container-img">
       <img :src="articles[0].author.img"
            :alt="articles[0].author.name"
@@ -78,7 +78,7 @@ export default {
       return new Date(date).toLocaleDateString('en', options)
     }
   },
-  layout: 'blogLayout'
+  layout: 'blog'
 }
 </script>
 
@@ -186,7 +186,7 @@ a {
 
   .container-info {
     font-size: 20px;
-  }  
+  }
 
   .container-img__content {
     max-width: 70%;
@@ -200,7 +200,7 @@ a {
     font-size: 1.5rem;
     width: 100%;
   }
- 
+
 }
 
 @media screen and (min-width: 1024px) {

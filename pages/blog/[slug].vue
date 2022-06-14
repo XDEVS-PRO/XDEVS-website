@@ -1,5 +1,5 @@
 <template>
-  <section v-if="!pending" class="blog-article">
+  <section class="blog-article">
     <ArticleHeader :data="article" :bread-crumbs="crumbs"/>
 
     <div class="blog-container">
@@ -16,10 +16,22 @@
 import ArticleHeader from '~/components/BlogComponents/ArticleHeader';
 import ArticleFooter from '~/components/BlogComponents/ArticleFooter';
 
+definePageMeta({
+  layout: 'blog',
+  // title: article.title,
+  // meta: [
+  //   {
+  //     hid: article.title,
+  //     name: 'description',
+  //     content: article.description
+  //   }
+  // ]
+})
+
 const route = useRoute()
 const crumbs = ref([])
 
-const {data: article, pending, error, refresh } = await useAsyncData('loadArticle',
+const {data: article } = await useAsyncData('loadArticle',
     () => queryContent('blog')
     .where({_path: route.path})
     .findOne(),
@@ -28,28 +40,8 @@ crumbs.value = [
   {name: 'Blog Posts', link: '/blog'},
   {name: article.title, link: route.path}
 ];
-// const {data: tagsList} = await useAsyncData('tags',
-//     () => queryContent('/tags').only(['name', 'slug'])
-//     .where({name: {$in: article.tags}})
-//     .find(),
-// )
-//
-// const {author, img, createdAt, topic, description} = article.value;
-//
-// const headerData = {img, createdAt, topic, author, description}
-
-//  asyncData({params}) {
-//
-//   const [prev, next] = await $content('articles')
-//       .only(['title', 'slug'])
-//       .sortBy('createdAt', 'asc')
-//       .findSurround(params.slug)
-// }
 
 
-definePageMeta({
-  layout: 'blogLayout',
-})
 </script>
 
 <style lang="scss">

@@ -7,8 +7,8 @@
         class="main-img"
       />
     <div class="img-container__content">
-      <h1 class="tag__name"> 
-        {{tag.name}} 
+      <h1 class="tag__name">
+        {{tag.name}}
       </h1>
       <h2 class="tag__description">
         {{tag.description}}
@@ -80,7 +80,7 @@ export default {
       return new Date(date).toLocaleDateString('en', options)
     }
   },
-  layout: 'blogLayout'
+  layout: 'blog'
 }
 </script>
 
@@ -177,7 +177,7 @@ a {
   align-items: center;
 }
 
-@media screen and (min-width: 550px) { 
+@media screen and (min-width: 550px) {
   .tag__name {
     font-size: 2.9rem;
   }
@@ -224,6 +224,6 @@ a {
     width: 100%;
     height: 100%;
   }
-  
+
 }
 </style>

@@ -37,6 +37,18 @@ import CustomSelector from "~/components/elements/custom-selector";
 import BlogHeader from "~/components/BlogComponents/BlogHeader";
 import BlogCard from "~/components/BlogComponents/BlogCard";
 
+definePageMeta({
+  layout: 'blog',
+  // title: article.title,
+  // meta: [
+  //   {
+  //     hid: article.title,
+  //     name: 'description',
+  //     content: article.description
+  //   }
+  // ]
+})
+
 const activeTopic = ref(null)
 
 let {data: articles} = await useAsyncData('articles',

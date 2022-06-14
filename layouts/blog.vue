@@ -1,11 +1,11 @@
 <template>
   <section>
-    <header-block :hide-stripes="true" />
+    <HeaderBlock :hide-stripes="true" />
     <div id="root-wrapper">
       <slot />
     </div>
-    <footer-block />
-    <short-footer />
+    <FooterBlock />
+    <ShortFooter />
   </section>
 </template>
 

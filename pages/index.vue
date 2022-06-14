@@ -28,15 +28,15 @@ const scrollPageTo = (elementId: string) => {
   element && element.scrollIntoView({ behavior: "smooth" });
 };
 
-// definePageMeta({
-//   title: 'main-page',
-//   meta: [
-//     {
-//       hid: 'main-page',
-//       name: 'description',
-//       content: 'Xdevs is team of amazing professionals who can develop websites of any difficulty to help you bussines stay on top!'
-//     }
-//   ]
-// })
+definePageMeta({
+  title: 'XDEVS Team',
+  meta: [
+    {
+      hid: 'main-page',
+      name: 'description',
+      content: 'Xdevs is team of amazing professionals who can develop websites of any difficulty to help you bussines stay on top!'
+    }
+  ]
+})
 
 </script>
