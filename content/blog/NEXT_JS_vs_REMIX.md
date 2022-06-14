@@ -180,7 +180,7 @@ export default function DescriptionForm() {
 
 Next.js supports ``styled-jsx`` as a CSS-in-JS solution by default. It also has built-in support for CSS modules and Vanilla CSS out of the box. You can also add any other styling library, like ``styled-components``, with a few lines of configurations.
 
-The primary way to style in Remix is by linking to traditional CSS style sheets placed in the “styles” directory by exporting a Links function in a component. The <Links/> function is used to inject whatever stylesheet which needs to be loaded for a specific route module and the styles are fetched in parallel when loading the route. This stylesheet is then automatically removed when we leave the route to optimize the amount of CSS you’re sending per page.
+The primary way to style in Remix is by linking to traditional CSS style sheets placed in the “styles” directory by exporting a Links function in a component. The `<Links/>` function is used to inject whatever stylesheet which needs to be loaded for a specific route module and the styles are fetched in parallel when loading the route. This stylesheet is then automatically removed when we leave the route to optimize the amount of CSS you’re sending per page.
 
 As a result, styling in Remix boils down to using CSS files that can be attached to the website via the ``<link rel="stylesheet">``. There’s support for CSS frameworks and libraries right out of the box, but not those that require bundler or compiler integration. Only those that can generate actual CSS files that can be linked to your remix application. Additionally, Remix supports runtime CSS frameworks like styled-components, which are evaluated at runtime but need no bundler integration.
 
