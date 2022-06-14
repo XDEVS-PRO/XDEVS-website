@@ -91,6 +91,10 @@ definePageMeta({
     border-spacing: 1rem;
   }
 
+  .blog-header {
+    background-image: linear-gradient(#eb01a5, #d13531)
+  }
+
   #other-comparisons ~ table {
     td {
       text-align: center;
