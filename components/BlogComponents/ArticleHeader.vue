@@ -1,5 +1,5 @@
 <template v-if="data">
-  <div class="blog-header" :style="{'background-image': `${data.imgStyle || null}`}">
+  <div class="blog-header" :style="{'background-image': `${data.imgStyle || data.img || null}`}">
     <div class="blog-wrapper">
       <div class="blog-breadcrumbs-container" v-if="breadCrumbs.length">
         <nuxt-link
