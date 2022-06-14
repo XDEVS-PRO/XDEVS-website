@@ -73,10 +73,39 @@ definePageMeta({
     padding-top: 30px;
   }
 
+  li {
+    list-style-type: circle;
+    margin-top: 5px;
+    margin-left: 20px;
+
+    a {
+      color: #232323;
+    }
+
+    li {
+      margin-left: 10px;
+    }
+  }
+
+  table {
+    border-spacing: 1rem;
+  }
+
+  #other-comparisons ~ table {
+    td {
+      text-align: center;
+    }
+
+    td:first-of-type {
+      text-align: left;
+    }
+  }
+
   h2 {
     position: relative;
     padding-bottom: 60px;
     font-size: 36px;
+    margin-top: 36px;
 
     a {
       color: #232323;

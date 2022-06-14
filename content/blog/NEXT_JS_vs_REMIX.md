@@ -18,27 +18,27 @@ tags:
 Nowadays, a new React framework is no news. It seems like they are multiplying each day, so why are we focusing on Remix and Next.js today? Well, Next.js is definitely the most popular choice for building SSR and SSG React applications, and Remix might be the next developer's favorite React framework. They have a lot in common and a lot more differences.
 
 In this article we will talk about:
-- Story of the two frameworks
-    - Next.js
-    - Remix
-- Comparison of Next.js and Remix
-    - Routing
-        - Nested Routes
-        - Dynamic Routes
-    - Data Loading
-    - Sessions and Cookies
-    - Working with Forms
-    - Styling
-    - SEO
-    - Other Comparisons
-- Conclusion
+* [Story of the two frameworks](#story-of-the-two)
+  * [Next.js](#nextjs)
+  * [Remix](#remix)
+* [Comparison of Next.js and Remix](#comparison-of-remix-and-nextjs)
+  * [Routing](#routing)
+    * [Nested Routes](#nested-routes)
+    * [Dynamic Routes](#dynamic-routes)
+  * [Data Loading](#data-loading)
+  * [Sessions and Cookies](#sessions-and-cookies)
+  * [Working with Forms](#working-with-forms)
+  * [Styling](#styling)
+  * [SEO](#seo)
+  * [Other Comparisons](#other-comparisons)
+* [Conclusion](#conclusion)
 
 ## Story of the two
 To better understand the competition between the two, let's first look into their story.
 ### Next.js
 Next.js was first released as an open-source project on GitHub on October 25, 2016. It is a project of the Vercel (ex-ZEIT) company. Google has donated to the Next.js project, contributing 43 pull requests in 2019, where they helped in pruning unused JavaScript, reducing the loading time, and adding improved metrics. As of March 2020, the framework is used by many large websites, including Netflix, GitHub, Uber, Ticketmaster, and Starbucks. As of now, 12 major versions of the framework were released. Next.js has 86.5k stars on GitHub and 2,541,419 weekly downloads. 
 ### Remix
-Remix's earliest commits on GitHub are dated to early July of 2020. Remix wasn't open-source from the start, but the strategy changed in late 2021 when Remix became fully open-source. Even though Remix is a relatively new framework, because of its core principles and ideas, it showed great growth in popularity. Remix has 16.2k likes on GitHub and 20,858 weekly downloads.
+Remix is a framework which was made by the same people, who made React Router. Remix's earliest commits on GitHub are dated to early July of 2020. It wasn't open-source from the start, but the strategy changed in late 2021 when Remix became fully open-source. Even though Remix is a relatively new framework, because of its core principles and ideas, it showed great growth in popularity. Remix has 16.2k likes on GitHub and 20,858 weekly downloads.
 
 # Comparison of Remix and Next.js
 Remix and Next.js are both React frameworks, that allow you to do server-side rendering, which means that both backend and frontend are implemented in the same application. Render happens on the side of a server and the pages are sent to the client with minimal use of JavaScript. However, by the time of writing, Remix doesn't support static site generation. 
@@ -93,7 +93,7 @@ We will only talk about SSR here, because, as said above, Remix doesn't support 
 
 #### Next.js
 In Next.js we have a ``getServerSideProps`` function, which does the job of loading data on a server, sending it to a React component and rendering it with the data. This data is sent via props.
-```JS
+```js
 export const getServerSideProps = async ({ params, query }) => { 
   // abstract API calls
   const userData = await API.getUser(params.id);
@@ -105,7 +105,7 @@ export default function UserPage(props) {
   return ( 
       <> 
         <p> User ID: {props.id} </p>
-      ﻿  <p> User Name: {props.name} </p> 
+        <p> User Name: {props.name} </p> 
       </> 
   );
 }
