@@ -16,30 +16,23 @@
 import ArticleHeader from '~/components/BlogComponents/ArticleHeader';
 import ArticleFooter from '~/components/BlogComponents/ArticleFooter';
 
-definePageMeta({
-  layout: 'blog',
-  // title: article.title,
-  // meta: [
-  //   {
-  //     hid: article.title,
-  //     name: 'description',
-  //     content: article.description
-  //   }
-  // ]
-})
-
 const route = useRoute()
-const crumbs = ref([])
+const crumbs = ref(null)
 
-const {data: article } = await useAsyncData('loadArticle',
+const {data: article } = await useAsyncData(route.path,
     () => queryContent('blog')
     .where({_path: route.path})
     .findOne(),
 )
+
 crumbs.value = [
   {name: 'Blog Posts', link: '/blog'},
-  {name: article.title, link: route.path}
+  {name: article.value.title, link: route.path}
 ];
+
+definePageMeta({
+  layout: 'blog',
+})
 
 
 </script>

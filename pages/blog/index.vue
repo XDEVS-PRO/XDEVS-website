@@ -37,16 +37,19 @@ import CustomSelector from "~/components/elements/custom-selector";
 import BlogHeader from "~/components/BlogComponents/BlogHeader";
 import BlogCard from "~/components/BlogComponents/BlogCard";
 
+useHead({
+  title: 'XDEVS Team Blog 📚',
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content: 'In XDEVS blog we share any kind of information that can be useful for developers, companies and startups.'
+    },
+  ]
+})
+
 definePageMeta({
   layout: 'blog',
-  // title: article.title,
-  // meta: [
-  //   {
-  //     hid: article.title,
-  //     name: 'description',
-  //     content: article.description
-  //   }
-  // ]
 })
 
 const activeTopic = ref(null)

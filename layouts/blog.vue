@@ -13,7 +13,6 @@
 import HeaderBlock from "~/components/header.vue";
 import FooterBlock from "~/components/footer.vue";
 import ShortFooter from "~/components/short-footer.vue";
-console.log('blog layout')
 </script>
 
 <style lang="scss" scoped>

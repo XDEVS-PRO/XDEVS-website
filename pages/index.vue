@@ -25,17 +25,18 @@ import { ourProjects } from "~/assets/data/projects.json";
 
 const scrollPageTo = (elementId: string) => {
   let element = document.getElementById(elementId);
-  element && element.scrollIntoView({ behavior: "smooth" });
+  element && element.scrollIntoView({behavior: 'smooth'});
 };
 
-definePageMeta({
-  title: 'XDEVS Team',
+
+useHead({
   meta: [
     {
-      hid: 'main-page',
+      hid: 'description',
       name: 'description',
-      content: 'Xdevs is team of amazing professionals who can develop websites of any difficulty to help you bussines stay on top!'
-    }
+      content: 'XDEVS is a team of developers that provides ONLY high-quality solutions.'+
+          'We have been in-game since 2020 helping startups and products with any tech solution they may need'
+    },
   ]
 })
 
