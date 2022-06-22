@@ -9,16 +9,16 @@
         "generate": "nuxi generate"
     },
     "dependencies": {
-        "swiper": "^8.2.3"
+        "swiper": "^8.2.4"
     },
     "devDependencies": {
         "@nuxt/content": "^2.0.1",
         "@nuxtjs/router-extras": "^1.1.1",
         "@nuxtjs/svg": "^0.4.0",
-        "core-js": "^3.22.8",
+        "core-js": "^3.23.2",
         "css-loader": "^6.7.1",
         "fibers": "^5.0.0",
-        "nuxt": "npm:nuxt3@3.0.0-rc.3-27571095.9379606",
+        "nuxt": "npm:nuxt3@3.0.0-rc.4-27588443.cf25525",
         "sass": "^1.52.3",
         "sass-loader": "^13.0.0",
         "sitemap": "^7.1.1"
