@@ -28,7 +28,6 @@ const scrollPageTo = (elementId: string) => {
   element && element.scrollIntoView({behavior: 'smooth'});
 };
 
-
 useHead({
   meta: [
     {

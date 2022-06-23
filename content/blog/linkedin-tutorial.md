@@ -4,7 +4,8 @@ createdAt: 1628550000000
 category: Management
 title: Быстро раскручиваемся в Linkedin.
 description: Создаем востребованный профиль в Linkedin.
-image: https://img.etimg.com/thumb/msid-84858456,width-650,imgsize-563303,,resizemode-4,quality-100/untitled-6vrgr.jpg
+image: /blog/linkedin/linkedin-header.png
+head.image: '/blog/linkedin/linkedin-header.png'
 alt: linkedin
 author: 
   name: Nikita Tovstyga

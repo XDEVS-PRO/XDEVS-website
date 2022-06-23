@@ -10,10 +10,19 @@
 <script lang="ts" setup>
 import ContactBlock from "~/components/sections/contact-block.vue";
 import CaseStudies from "~/components/sections/case-studies.vue";
-import { ourProjects } from "~/assets/data/projects.json";
-import { ref } from 'vue';
+import { ourProjects as projects } from "~/assets/data/projects.json";
 
-const projects = ref(ourProjects)
+
+useHead({
+  title: 'XDEVS Case Studies – our latest projects and achievements 🏆',
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content: 'XDEVS latest Case Studies – Fintech website, Wishlist with social aspects, Real Estate website and much more ...'
+    },
+  ]
+})
 </script>
 
 <style lang="scss" scoped>

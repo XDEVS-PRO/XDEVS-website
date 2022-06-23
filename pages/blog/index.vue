@@ -38,7 +38,7 @@ import BlogHeader from "~/components/BlogComponents/BlogHeader";
 import BlogCard from "~/components/BlogComponents/BlogCard";
 
 useHead({
-  title: 'XDEVS Team Blog 📚',
+  title: 'XDEVS Team Blog – our latest articles 📚',
   meta: [
     {
       hid: 'description',
