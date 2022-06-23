@@ -14,16 +14,18 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from "vue-property-decorator";
 
-@Component({})
-export default class StripeWrapper extends Vue {
-  @Prop({ default: "light" }) colorStrip!: string;
-}
+import { defineComponent } from 'vue';
+
+export default defineComponent ({
+  props: {
+    colorStrip: {type: String, default: 'light'}
+  }
+})
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/styles/variables";
+@import "/assets/styles/variables";
 
 .strip-wrapper {
   &__bg {

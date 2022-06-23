@@ -1,7 +1,7 @@
 <template>
-  <section id="#fb" class="fb">
-    <dark-bg />
-    <stripe-wrapper :color-strip="'dark'" />
+  <section id="fb" class="fb">
+    <dark-bg/>
+    <stripe-wrapper :color-strip="'dark'"/>
     <div class="fb__container container">
       <div class="fb__text">
         <h3 class="fb__text-title">
@@ -14,39 +14,40 @@
             <span>XDEVS</span> offers development services to match your company's specific needs.
             We listen. We care. We know how to make your product look top-notch and work as swiss clocks.
           </h4>
-          <a href="#core-team">
+          <a href="#core-team" >
             <button class="x-btn">{{ btnText }}</button>
           </a>
         </div>
       </div>
       <img
-        class="fb__bg-img"
-        alt="XDEVS developers"
-        src="~/assets/first-block/team-photo.png"
+          class="fb__bg-img"
+          alt="XDEVS developers"
+          src="~/assets/first-block/team-photo.png"
       />
     </div>
   </section>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import StripeWrapper from "~/components/elements/strip-bg.vue";
-import DarkBg from "~/components/elements/dark-bg.vue";
+import StripeWrapper from '~/components/elements/strip-bg.vue';
+import DarkBg from '~/components/elements/dark-bg.vue';
+import { defineComponent } from 'vue';
 
-
-@Component({
+export default defineComponent({
   components: {
     StripeWrapper,
     DarkBg
-  }
+  },
+  setup() {
+    return {
+      btnText: `<Meet the team>`
+    }
+  },
 })
-export default class FirstBlock extends Vue {
-  btnText = `<Meet the team>`;
-}
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/styles/variables";
+@import "/assets/styles/variables";
 
 .fb {
   padding: 260px 0;

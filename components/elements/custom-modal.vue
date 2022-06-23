@@ -1,6 +1,6 @@
 <template>
-  <div v-if="portal" :to="to">
-    <transition name="fade">
+  <Teleport :to="'body'">
+    <Transition name="fade">
       <div v-if="isOpen" class="modal__wrapper" :class="className">
         <div class="modal__overlay" @click="close()"></div>
         <div class="modal">
@@ -8,30 +8,27 @@
           <slot></slot>
         </div>
       </div>
-    </transition>
-  </div>
+    </Transition>
+  </Teleport>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
-import { Component, Prop } from "vue-property-decorator";
+<script lang="ts" setup>
 
-@Component({ components: {} })
-export default class CustomModal extends Vue {
-  @Prop() isOpen!: boolean;
-  @Prop({ default: null }) className!: string;
-  @Prop() close!: any;
-  @Prop({ default: true }) portal: boolean | undefined;
-  @Prop({ default: "modal" }) to: string | undefined;
+const props = defineProps({
+  isOpen: {type: Boolean, required: true},
+  className: {type: String, required: false},
+  portal: {type: Boolean, default: true},
+  to: {type: String, default: 'modal'},
+  close: {type: Function, required: true}
+})
 
-  handleClose() {
-    this.close();
-  }
+function close() {
+  props.close();
 }
 </script>
 
 <style scoped lang="scss">
-@import "src/assets/styles/variables";
+@import "/assets/styles/variables";
 
 .modal {
   position: relative;

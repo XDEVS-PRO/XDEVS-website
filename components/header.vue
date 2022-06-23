@@ -16,31 +16,32 @@
         </div>
 
         <div class="header__right" v-if="headerList.length">
-          <template v-if="isOnIndex()">
+          <template v-if="isOnIndex">
             <template v-for="(item, i) in headerList">
-              <a
+              <NuxtLink
                 class="header__right-link custom-link"
                 v-if="item.hash"
-                :href="item.hash"
+                :to="{ path: item.link, hash: item.hash }"
                 :key="i"
+
               >
                 {{ item.title }}
-              </a>
+              </NuxtLink>
               <nuxt-link
                 v-else
                 class="header__right-link custom-link"
-                :key="i"
+                :key="1+ i"
                 :to="{ path: item.link, hash: item.hash }"
               >
                 {{ item.title }}
               </nuxt-link>
             </template>
           </template>
-          <template v-else>
+          <template v-else key="2">
             <nuxt-link
               v-for="(item, i) in headerList"
               class="header__right-link custom-link"
-              :key="i"
+              :key="2 + i"
               :to="{ path: item.link, hash: item.hash }"
             >
               {{ item.title }}
@@ -65,15 +66,17 @@
     <!--  mob menu -->
     <div :class="['mobile-menu', { active: isShowMobMenu }]">
       <div class="mobile-menu-list">
-         <ul v-if="isOnIndex()">
+         <ul v-if="isOnIndex">
             <li  v-for="(item, i) in headerList"
-                 class="mobile-menu-list_link-to-block"
+              v-bind:key="i"
+              class="mobile-menu-list_link-to-block"
             >
               <a
                 v-if="item.hash"
                 @click="isShow()"
                 :href="item.hash"
                 :key="i"
+
               >
                 {{ item.title }}
               </a>
@@ -81,16 +84,17 @@
                 v-else
                 @click.native="isShow()"
                 class="mobile-menu-list_link-to-block"
-                :key="i"
+                :key="1 + i"
                 :to="{ path: item.link, hash: item.hash }"
               >
                 {{ item.title }}
               </nuxt-link>
             </li>
           </ul>
-          <ul v-else>
+          <ul v-else key="3">
            <li v-for="(item, i) in headerList"
                class="mobile-menu-list_link-to-block"
+               v-bind:key="3+i"
            >
              <nuxt-link
                  @click.native="isShow()"
@@ -124,57 +128,75 @@
 </template>
 
 <script lang="ts">
-import {Component, Prop, Vue} from "vue-property-decorator";
 import StripeWrapper from "~/components/elements/strip-bg.vue";
 import DarkBg from "~/components/elements/dark-bg.vue";
 import ScrollTo from "~/components/elements/scroll-to.vue";
-import { headerList } from "~/src/assets/data/header.json";
-import { contactUs } from "~/src/assets/data/index-page.json";
+import { headerList } from "~/assets/data/header.json";
+import { contactUs } from "~/assets/data/projects.json";
+import { onMounted, ref, Ref } from "vue";
+import { defineComponent } from 'vue';
 
-@Component({
+type HeaderListType = Array<{
+  title: string;
+  link: string;
+  hash?: string;
+}>;
+
+type ContactUsType =  Array<{
+  img: string;
+  alt: string;
+  link: string;
+}>;
+
+export default defineComponent({
+  props: {
+    hideStripes: Boolean
+  },
+
   components: {
     StripeWrapper,
     DarkBg,
     ScrollTo,
   },
+
+  setup() {
+    const route = useRoute()
+
+    const isShowMobMenu = ref(false);
+
+    const headerListData: Ref<HeaderListType> | Ref<never[]> = ref([]);
+
+    const contactUsData: Ref<ContactUsType> | Ref<never[]> = ref([]);
+
+    const isShow = () => {
+      isShowMobMenu.value = !isShowMobMenu.value;
+      isShowMobMenu.value
+        ? document.body.classList.add("un-scroll")
+        : document.body.classList.remove("un-scroll");
+    };
+
+    const isOnIndex = () => {
+      return route.name === "index";
+    };
+
+    onMounted(() => {
+      contactUsData.value = contactUs;
+      headerListData.value = headerList;
+    })
+
+    return {
+      isShowMobMenu,
+      headerList: headerListData,
+      contactUs: contactUsData,
+      isOnIndex,
+      isShow
+    }
+  }
 })
-export default class HeaderBlock extends Vue {
-  @Prop({ default: false }) hideStripes: boolean;
-
-  isShowMobMenu = false;
-
-  headerList: Array<{
-    title: string;
-    link: string;
-    hash?: string;
-  }> = [];
-
-  contactUs: Array<{
-    img: string;
-    alt: string;
-    link: string;
-  }> = [];
-
-  isShow() {
-    this.isShowMobMenu = !this.isShowMobMenu;
-    this.isShowMobMenu
-      ? document.body.classList.add("un-scroll")
-      : document.body.classList.remove("un-scroll");
-  }
-
-  isOnIndex() {
-    return this.$nuxt.$route.name === "index";
-  }
-
-  created() {
-    this.contactUs = contactUs;
-    this.headerList = headerList;
-  }
-}
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/styles/variables";
+@import "/assets/styles/variables";
 
 .header {
   position: absolute;

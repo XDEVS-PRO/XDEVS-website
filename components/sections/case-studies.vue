@@ -1,5 +1,5 @@
 <template>
-  <section class="our-projects" id="#case-studies">
+  <section class="our-projects" id="case-studies">
     <dark-bg/>
     <stripe-wrapper :color-strip="'dark'"/>
     <div class="our-projects__container container">
@@ -15,7 +15,7 @@
           <p class="our-projects__desc">
             {{ showProject.desc }}
           </p>
-          <nuxt-link to="our-projects" class="our-projects__link">
+          <nuxt-link :to="`/case-studies`" class="our-projects__link" >
             Watch this case
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -113,95 +113,48 @@
   </section>
 </template>
 
-<script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+<script lang="ts" setup>
 import TitleBlock from '~/components/elements/title.vue';
 import DarkBg from '~/components/elements/dark-bg.vue';
 import StripeWrapper from '~/components/elements/strip-bg.vue';
+import { ref } from 'vue';
 
 export interface Project {
   src: string;
+  hash: string;
   title: string;
   desc: string;
   id: string;
   create: string;
 }
 
-@Component({
-  components: {
-    TitleBlock,
-    DarkBg,
-    StripeWrapper,
-  },
-
-  head() {
-    return {
-      title: 'Our Projects',
-      meta: [
-        {
-          hid: 'our-prj',
-          name: 'description',
-          content: 'our portfolio of amazing websites'
-        }
-      ]
-    }
-  }
+const props = defineProps({
+  data: {type: Array},
+  scroll: {default: false},
 })
-export default class OurProjects extends Vue {
-  @Prop() data: any;
-  @Prop({default: false}) scroll!: boolean;
-  showProject: object | undefined | any = {};
 
-  countProject: any = '';
+const showProject: any = ref(props.data[0]);
+let counter = 0
+const projectsList = props.data;
 
-  projectsList: Array<Project> = [];
-
-  created() {
-    this.projectsList = this.data;
-    this.showProject = this.projectsList[0];
-    this.countProject = this.showProject.id;
+const next = () => {
+  counter++;
+  if (!projectsList[counter]) {
+    counter = 0;
   }
-
-  next(): void {
-    this.countProject++;
-    if (this.countProject > this.projectsList.length) {
-      this.countProject = 1;
-      this.showProject = this.projectsList.find(
-          item => Number.parseInt(item.id) === this.countProject
-      );
-    } else if (
-        this.countProject < this.projectsList.length ||
-        this.countProject === this.projectsList.length
-    ) {
-      this.showProject = this.projectsList.find(
-          item => Number.parseInt(item.id) === this.countProject
-      );
-    }
+  showProject.value = projectsList[counter]
+}
+const prev = () => {
+  counter--;
+  if (!projectsList[counter]) {
+    counter = projectsList.length - 1;
   }
-
-  prev(): void {
-    this.countProject--;
-
-    if (this.countProject < 1) {
-      this.countProject = this.projectsList.length;
-
-      this.showProject = this.projectsList.find(
-          item => Number.parseInt(item.id) === this.countProject
-      );
-    } else if (
-        this.countProject < this.projectsList.length ||
-        this.countProject === this.projectsList.length
-    ) {
-      this.showProject = this.projectsList.find(
-          item => Number.parseInt(item.id) === this.countProject
-      );
-    }
-  }
+  showProject.value = projectsList[counter]
 }
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/styles/variables";
+@import "/assets/styles/variables";
 
 .our-projects {
   padding-bottom: 160px;
@@ -327,7 +280,7 @@ export default class OurProjects extends Vue {
   }
 }
 
-::v-deep .title {
+:deep(.title) {
   padding-bottom: 30px;
 }
 </style>

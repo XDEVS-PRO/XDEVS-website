@@ -4,22 +4,26 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { Component, Prop } from "vue-property-decorator";
+import { defineComponent } from 'vue';
 
-@Component({})
-export default class ScrollTo extends Vue {
-  @Prop() link: any;
+export default defineComponent({
 
-  scrollToBlock(item: any) {
-    const el = document.getElementById(item.replace("#to_", ""));
-    if (el) {
-      location.hash = item;
+  props: {
+    link: String
+  },
 
-      const viewportY = el.getBoundingClientRect().top;
-      const scrolltop = window.pageYOffset;
-      window.scrollTo({ top: viewportY + scrolltop - 80, behavior: "smooth" });
+  methods: {
+    scrollToBlock(item: any) {
+      const el = document.getElementById(item.replace("#to_", ""));
+      if (el) {
+        location.hash = item;
+
+        const viewportY = el.getBoundingClientRect().top;
+        const scrolltop = window.pageYOffset;
+        window.scrollTo({ top: viewportY + scrolltop - 80, behavior: "smooth" });
+      }
     }
-  }
-}
+  },
+
+})
 </script>

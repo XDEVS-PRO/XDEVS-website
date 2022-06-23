@@ -5,11 +5,14 @@
 </template>
 
 <script lang="ts">
-import { Vue, Prop } from "vue-property-decorator";
 
-export default class CustomClose extends Vue {
-  @Prop({ default: "close" }) data!: string;
-}
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  props: {
+    data: { default: "close", required: true, type: String }
+  }
+})
 </script>
 
 <style lang="scss" scoped>

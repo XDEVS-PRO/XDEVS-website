@@ -1,5 +1,5 @@
 <template>
-  <section class="ts" id="#tech-stack">
+  <section class="ts" id="tech-stack">
     <stripe-wrapper :color-strip="'ling'" />
     <div class="ts__container container">
       <title-block :title="'Tech Stack'" :color-icon="'dark'" />
@@ -246,7 +246,7 @@
           <div class="cr__modal">
             <div class="cr__modal-container container">
               <div class="cr__modal-right">
-                {{ dataModalCard.text }}
+                {{ dataModalCard.value.text }}
               </div>
             </div>
           </div>
@@ -257,86 +257,97 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
 import TitleBlock from "~/components/elements/title.vue";
 import StripeWrapper from "~/components/elements/strip-bg.vue";
 import CustomModal from "~/components/elements/custom-modal.vue";
 import imgs from '~/assets/tech-stack'
+import { defineComponent } from 'vue';
+import { ref } from 'vue';
 
-@Component({
+export default defineComponent({
   components: {
     TitleBlock,
     StripeWrapper,
     CustomModal
-  }
-})
-export default class TechStack extends Vue {
-  cardsMobile: Array<{
-    img: string;
-    className: string;
-    text: string;
-    textId: string;
-  }> = [
-    {
-      img: imgs.cloud,
-      className: "cloud",
-      text:
-        "We ensure that our solution will be online 100% time. We use only tested hosting providers.",
-      textId: "cloud"
-    },
-    {
-      img: imgs.phone,
-      className: "phone",
-      text:
-        "We build mobile apps for both Android and IOS at once to save your time and money.",
-      textId: "phone"
-    },
-    {
-      img: imgs.screen,
-      className: "screen",
-      text: "We use only well-known professional front-end frameworks.",
-      textId: "screen"
-    },
-    {
-      img: imgs.tabs,
-      className: "tabs",
-      text:
-        "The variety of backend languages and frameworks we know helps us to choose the best solution for your needs.",
-      textId: "tabs"
+  },
+
+  setup() {
+    const classState = ref("default");
+    const isShowText = ref(false);
+    const isShowTextId = ref(null);
+
+    const isShowModal = ref(false);
+    const isCloseModal = ref(false);
+    const dataModalCard = ref({});
+
+    const cardsMobile = [
+      {
+        img: imgs.cloud,
+        className: "cloud",
+        text:
+            "We ensure that our solution will be online 100% time. We use only tested hosting providers.",
+        textId: "cloud"
+      },
+      {
+        img: imgs.phone,
+        className: "phone",
+        text:
+            "We build mobile apps for both Android and IOS at once to save your time and money.",
+        textId: "phone"
+      },
+      {
+        img: imgs.screen,
+        className: "screen",
+        text: "We use only well-known professional front-end frameworks.",
+        textId: "screen"
+      },
+      {
+        img: imgs.tabs,
+        className: "tabs",
+        text:
+            "The variety of backend languages and frameworks we know helps us to choose the best solution for your needs.",
+        textId: "tabs"
+      }
+    ];
+
+    function changeState(state: any = "default") {
+      classState.value = state;
+    };
+
+    function showText(item: any) {
+      isShowTextId.value = item;
+      isShowText.value = !isShowText.value;
+    };
+
+    function isShowingModal(item: any) {
+      dataModalCard.value = item;
+      isShowModal.value = true;
+    };
+
+    function isClosedModal() {
+      dataModalCard.value = {};
+      return (isShowModal.value = false);
     }
-  ];
 
-  classState = "default";
-  isShowText = false;
-  isShowTextId = null;
-
-  isShowModal = false;
-  isCloseModal = false;
-  dataModalCard = {};
-
-  changeState(state: any = "default") {
-    this.classState = state;
-  }
-
-  showText(item: any) {
-    this.isShowTextId = item;
-    this.isShowText = !this.isShowText;
-  }
-
-  isShowingModal(item: any) {
-    this.dataModalCard = item;
-    this.isShowModal = true;
-  }
-
-  isClosedModal() {
-    this.dataModalCard = {};
-    return (this.isShowModal = false);
-  }
-}
+    return {
+      cardsMobile,
+      classState,
+      isShowText,
+      isShowTextId,
+      isShowModal,
+      isCloseModal,
+      dataModalCard,
+      changeState,
+      showText,
+      isShowingModal,
+      isClosedModal,
+    }
+  },
+})
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/styles/variables";
+@import "/assets/styles/variables";
 
 rect {
   transition: all 0.4s ease-out;

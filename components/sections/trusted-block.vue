@@ -1,5 +1,5 @@
 <template>
-  <section class="sb shadow-bg" id="#trusted-by">
+  <section class="sb shadow-bg" id="trusted-by">
     <dark-bg />
     <stripe-wrapper :color-strip="'dark'" />
     <div class="sb__container container">
@@ -21,59 +21,62 @@
 </template>
 
 <script lang="ts" scoped>
-import { Component, Vue } from "vue-property-decorator";
 import TitleBlock from "~/components/elements/title.vue";
 import DarkBg from "~/components/elements/dark-bg.vue";
 import StripeWrapper from "~/components/elements/strip-bg.vue";
 
 //imgs
 import imgs from '~/assets/slider';
+import { defineComponent } from 'vue';
 
-@Component({
+export default defineComponent({
   components: {
     TitleBlock,
     DarkBg,
     StripeWrapper
+  },
+  setup() {
+    const cardList = [
+      {
+        img: imgs.tab1,
+        link: "https://www.google.com",
+        alt: "INOXOFT"
+      },
+      {
+        img: imgs.tab2,
+        link: "https://www.google.com",
+        alt: "Octopus"
+      },
+      {
+        img: imgs.tab3,
+        link: "https://www.google.com",
+        alt: "Singlead"
+      },
+      {
+        img: imgs.tab4,
+        link: "https://www.google.com",
+        alt: "zitemedia"
+      },
+      {
+        img: imgs.tab5,
+        link: "https://www.google.com",
+        alt: "chargeback"
+      },
+      {
+        img: imgs.tab6,
+        link: "https://www.google.com",
+        alt: "DevLogics"
+      }
+    ];
+    return {
+      cardList
+    }
   }
 })
-export default class TrustedBlock extends Vue {
-  cardList: Array<{ img: string; link: string; alt: string }> = [
-    {
-      img: imgs.tab1,
-      link: "https://www.google.com",
-      alt: "INOXOFT"
-    },
-    {
-      img: imgs.tab2,
-      link: "https://www.google.com",
-      alt: "Octopus"
-    },
-    {
-      img: imgs.tab3,
-      link: "https://www.google.com",
-      alt: "Singlead"
-    },
-    {
-      img: imgs.tab4,
-      link: "https://www.google.com",
-      alt: "zitemedia"
-    },
-    {
-      img: imgs.tab5,
-      link: "https://www.google.com",
-      alt: "chargeback"
-    },
-    {
-      img: imgs.tab6,
-      link: "https://www.google.com",
-      alt: "DevLogics"
-    }
-  ];
-}
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/styles/variables";
+@import "/assets/styles/variables";
 
 .sb {
   &__container.container {
@@ -178,7 +181,7 @@ export default class TrustedBlock extends Vue {
   }
 }
 
-::v-deep .title {
+:deep(.title) {
   padding-bottom: 40px;
 }
 </style>

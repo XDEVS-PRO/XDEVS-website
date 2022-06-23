@@ -3,18 +3,19 @@
     <div class="title__inner">
       <div class="title__inner-icon">
         <img
-          v-if="colorIcon === 'dark'"
-          src="~/assets/dark-logo.svg"
-          width="43"
-          height="48"
-          alt="XDEVS"
+            v-if="colorIcon === 'dark'"
+            src="~/assets/dark-logo.svg"
+            width="43"
+            height="48"
+            alt="XDEVS"
         />
         <img
-          v-else-if="colorIcon === 'light'"
-          src="~/assets/light-logo.svg"
-          width="43"
-          height="48"
-          alt="XDEVS"
+            v-else-if="colorIcon === 'light'"
+            src="~/assets/light-logo.svg"
+            width="43"
+            height="48"
+            alt="XDEVS"
+            key="1"
         />
       </div>
       <div :class="['title__inner-text', { dark: colorIcon === 'dark' }]">
@@ -26,8 +27,8 @@
       <h4 v-if="descBottom"></h4>
     </div>
     <div
-      v-if="subTitle"
-      :class="['title__inner-text_subtitle', { dark: colorIcon === 'dark' }]"
+        v-if="subTitle"
+        :class="['title__inner-text_subtitle', { dark: colorIcon === 'dark' }]"
     >
       {{ subTitle }}
     </div>
@@ -36,20 +37,23 @@
 
 <script lang="ts">
 
-import { Component, Vue, Prop } from "vue-property-decorator";
 
-@Component({})
-export default class TitleBlock extends Vue {
-  @Prop() title!: string;
-  @Prop() subTitle!: string;
-  @Prop({ default: "light" }) colorIcon!: string;
-  @Prop() descRight!: string;
-  @Prop() descBottom!: string;
-}
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  props: {
+    title: {type: String, required: false},
+    subTitle: {type: String, required: false},
+    colorIcon: {type: String, required: false, default: 'light'},
+    descRight: {type: String, required: false},
+    descBottom: {type: String, required: false}
+  }
+
+})
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/styles/variables";
+@import "/assets/styles/variables";
 
 .title {
   display: flex;

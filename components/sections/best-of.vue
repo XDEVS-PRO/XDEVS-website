@@ -1,5 +1,5 @@
 <template>
-  <section id="#best-of" class="best-of">
+  <section id="best-of" class="best-of">
     <stripe-wrapper />
     <div class="best-of__container container">
       <h4 class="best-of__text">
@@ -8,7 +8,7 @@
         were earned over the last 20 years
       </h4>
       <div class="best-of__inner">
-        <a class="x-btn" href="#contact-us">{{ btnData }}</a>
+        <a class="x-btn" href="#contact-us" >{{ btnData }}</a>
         <p class="best-of__desc custom-description">
           By utilizing Software Architecture Design patterns we
           create a solid ground for your future success
@@ -19,21 +19,24 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "vue-property-decorator";
 import StripeWrapper from "~/components/elements/strip-bg.vue";
 
-@Component({
+export default {
   components: {
     StripeWrapper
+  },
+
+  setup() {
+    const btnData = "<Disscuss your idea>";
+    return {
+      btnData
+    }
   }
-})
-export default class BestOf extends Vue {
-  btnData = "<Disscuss your idea>";
 }
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/styles/variables";
+@import "/assets/styles/variables";
 
 .best-of {
   padding: 120px 0;

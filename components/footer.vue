@@ -20,16 +20,16 @@
         </div>
         <div class="footer__center">
           <div class="footer__center-inner custom-description">
-            <template v-if="isOnIndex()">
+            <template v-if="isOnIndex">
               <template v-for="(item, i) in headerList">
-                <a
+                <NuxtLink
                   class="header__right-link custom-link"
                   v-if="item.hash"
-                  :href="item.hash"
-                  :key="i"
+                  :to="{ path: item.link, hash: item.hash }"
+                  :key="item.hash"
                 >
                   {{ item.title }}
-                </a>
+                </NuxtLink>
                 <nuxt-link
                   v-else
                   class="header__right-link custom-link"
@@ -40,7 +40,7 @@
                 </nuxt-link>
               </template>
             </template>
-            <template v-else>
+            <template v-else key="2">
               <nuxt-link
                 v-for="(item, i) in headerList"
                 class="header__right-link custom-link"
@@ -58,36 +58,39 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
 import StripeWrapper from "~/components/elements/strip-bg.vue";
 import DarkBg from "~/components/elements/dark-bg.vue";
-import { headerList } from "~/src/assets/data/header.json";
+import { headerList } from "~/assets/data/header.json";
 
-@Component({
+export default {
   components: {
     StripeWrapper,
     DarkBg,
   },
-})
-export default class FooterBlock extends Vue {
-  headerList: Array<{
-    title: string;
-    link: string;
-    hash?: string;
-  }> = [];
 
-  created() {
-    this.headerList = headerList;
-  }
+  setup() {
+    const route = useRoute();
 
-  isOnIndex() {
-    return this.$nuxt.$route.name === "index";
+    const headerListData: Array<{
+      title: string;
+      link: string;
+      hash?: string;
+    }> = headerList;
+
+    const isOnIndex = () => {
+      return route.name === "index";
+    };
+
+    return {
+      isOnIndex,
+      headerList: headerListData
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/styles/variables";
+@import "/assets/styles/variables";
 
 .footer {
   position: relative;

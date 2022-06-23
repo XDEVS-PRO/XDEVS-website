@@ -1,5 +1,5 @@
 <template>
-  <section class="cb" id="#contact-us">
+  <section class="cb" id="contact-us">
     <stripe-wrapper/>
     <div class="cb__container container">
       <div class="cb__inner">
@@ -30,7 +30,7 @@
               </div>
               <div class="cb__info-left_social">
                 <a
-                    v-for="(item, i) in contactUs"
+                    v-for="(item, i) in contactUsData"
                     :href="item.link"
                     :key="i"
                     target="_blank"
@@ -89,29 +89,32 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
 import TitleBlock from '~/components/elements/title.vue';
 import StripeWrapper from '~/components/elements/strip-bg.vue';
-import { contactUs } from '~/src/assets/data/index-page.json';
+import { contactUs } from '~/assets/data/projects.json';
+import { defineComponent } from 'vue';
 
-@Component({
+export default defineComponent({
   components: {
     TitleBlock,
     StripeWrapper
-  }
-})
-export default class ContactBlock extends Vue {
-  btnText = '<Drop an email>';
-  contactUs: Array<{ img: string; alt: string; link: string }> = [];
+  },
 
-  created() {
-    this.contactUs = contactUs;
+  setup() {
+    const btnText = '<Drop an email>';
+    const contactUsData: Array<{ img: string; alt: string; link: string }> = contactUs;
+
+    return {
+      btnText,
+      contactUsData,
+    }
   }
-}
+
+})
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/styles/variables";
+@import "/assets/styles/variables";
 
 .cb {
   &__info-left,
@@ -250,7 +253,7 @@ export default class ContactBlock extends Vue {
   }
 }
 
-::v-deep .title {
+:deep(.title) {
   padding: 120px 0 60px;
 
   @include for-average() {

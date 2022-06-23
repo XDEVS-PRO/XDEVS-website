@@ -1,12 +1,12 @@
 <template>
-  <section class="cr" id="#core-team">
-    <dark-bg />
-    <stripe-wrapper :color-strip="'dark'" />
+  <section class="cr" id="core-team">
+    <dark-bg/>
+    <stripe-wrapper :color-strip="'dark'"/>
     <div class="cr__container container">
       <title-block
-        :title="'Core Team'"
-        :color-icon="'light'"
-        :desc-right="titleSubData"
+          :title="'Core Team'"
+          :color-icon="'light'"
+          :desc-right="titleSubData"
       />
 
       <h4 class="custom-description mobile">
@@ -18,12 +18,12 @@
           <div class="cr__modal">
             <div class="cr__modal-container container">
               <img
-                width="278"
-                height="320"
-                v-if="dataModalCard.img"
-                class="cr__modal-left"
-                :src="dataModalCard.img"
-                :alt="dataModalCard.alt"
+                  width="278"
+                  height="320"
+                  v-if="dataModalCard.img"
+                  class="cr__modal-left"
+                  :src="dataModalCard.img"
+                  :alt="dataModalCard.alt"
               />
               <div class="cr__modal-right">
                 <div class="cr__modal-right_text">
@@ -37,8 +37,8 @@
                   </div>
                   <div class="cr__modal-right_social">
                     <template v-for="(social, i) in dataModalCard.social">
-                      <a :href="social.link" :key="i">
-                        <img :src="social.src" :alt="social.alt" />
+                      <a :href="social.link" target="_blank">
+                        <img :src="social.src" :alt="social.alt"/>
                       </a>
                     </template>
                   </div>
@@ -51,167 +51,107 @@
           </div>
         </custom-modal>
 
-        <div v-for="(item, i) in cardList" :key="i" class="cr__card-wrapper">
-          <div class="cr__card-icon">
-            <img
-              v-if="item.img"
-              :src="item.img"
-              :alt="item.alt"
-              width="270"
-              class="cr__card-icon_preview"
-            />
-            <p class="cr__card-icon_preview-text" @click="showModal(item)">
-              profile
-            </p>
-          </div>
-          <div class="cr__card-text">
-            <div v-if="item.title" class="cr__card-text-title">
-              {{ item.title }}
-            </div>
-            <div v-if="item.position" class="cr__card-text-desc">
-              {{ item.position }}
-            </div>
-            <a class="cr__card-text-btn" @click="showModal(item)">profile</a>
-          </div>
-        </div>
+        <ClientOnly>
+          <swiper
+              :modules="modules"
+              :slides-per-view="2"
+              :space-between="30"
+              :scrollbar="{ draggable: true }"
+              :loop="true"
+              :free-mode="true"
+              :speed="10000"
+              :autoplay="{
+              delay: 1,
+              pauseOnMouseEnter: true,
+            }"
+              :breakpoints="{
+            560: {slidesPerView: 4,}
+            }"
+          >
+            <swiper-slide v-for="(item, i) in TeamBlockCards">
+              <div class="cr__card-wrapper">
+                <div class="cr__card-icon">
+                  <img
+                      v-if="item.img"
+                      :src="item.img"
+                      :alt="item.alt"
+                      class="cr__card-icon_preview"
+                  />
+                  <p class="cr__card-icon_preview-text" @click="showModal(item)">
+                    profile
+                  </p>
+                </div>
+                <div class="cr__card-text">
+                  <div v-if="item.title" class="cr__card-text-title">
+                    {{ item.title }}
+                  </div>
+                  <div v-if="item.position" class="cr__card-text-desc">
+                    {{ item.position }}
+                  </div>
+                  <a class="cr__card-text-btn" @click="showModal(item)">profile</a>
+                </div>
+              </div>
+            </swiper-slide>
+          </swiper>
+        </ClientOnly>
       </div>
     </div>
   </section>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import TitleBlock from "~/components/elements/title.vue";
-import StripeWrapper from "~/components/elements/strip-bg.vue";
-import DarkBg from "~/components/elements/dark-bg.vue";
-import CustomModal from "~/components/elements/custom-modal.vue";
-import imgs from '~/assets/core-team'
+<script setup lang="ts">
+import TitleBlock from '~/components/elements/title.vue';
+import StripeWrapper from '~/components/elements/strip-bg.vue';
+import DarkBg from '~/components/elements/dark-bg.vue';
+import CustomModal from '~/components/elements/custom-modal.vue';
+import { ref } from 'vue';
+import TeamBlockCards from './team-block-data';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Autoplay, FreeMode, Scrollbar } from 'swiper';
 
-export interface Card {
-  social: Array<{
-    alt: string;
-    link: string;
-    src: string;
-  }>;
-  img: string;
-  alt: string;
-  title: string;
-  position: string;
-  desc: string;
+import 'swiper/css';
+import 'swiper/css/scrollbar';
+import 'swiper/css/autoplay';
+
+const modules = [Autoplay, FreeMode, Scrollbar]
+const isShowModal = ref(false);
+const isCloseModal = ref(false);
+const dataModalCard = ref({});
+
+const titleSubData =
+    'To stay on top of our game, every member of our team constantly works on self-improving his professional skills';
+
+
+function showModal(item: any) {
+  dataModalCard.value = item;
+  isShowModal.value = true;
 }
 
-@Component({
-  components: {
-    TitleBlock,
-    StripeWrapper,
-    DarkBg,
-    CustomModal
-  }
-})
-export default class CoreTeam extends Vue {
-  cardList: Array<Card> = [
-    {
-      social: [
-        {
-          alt: "linkedIn",
-          link: "https://www.linkedin.com/in/xander-pokhylenko-9699b3161/",
-          src: imgs.social.linked
-        },
-        {
-          alt: "GitHub",
-          link: "https://github.com/xanderim",
-          src: imgs.social.git
-        }
-      ],
-      img: imgs.img1,
-      alt: "Xander Pokhylenko",
-      title: "Xander Pokhylenko",
-      position: "Founder of company",
-      desc:
-        "Skilled Senior Software Developer with more than 5 years of professional experience and a demonstrated history of working in the IT industry. Prefers challenging tasks and a complex approach in solving tasks.  Over the last 5 years developed dozens of projects and business solutions."
-    },
-    {
-      social: [
-        {
-          alt: "linkedIn",
-          link: "https://www.linkedin.com/in/danila-kitsanenko-8bb3a11a2/",
-          src: imgs.social.linked
-        },
-        {
-          alt: "GitHub",
-          link: "https://github.com/KiAlki",
-          src: imgs.social.git
-        },
-        {
-          alt: "Facebook",
-          link: "https://www.facebook.com/ki.alkiviad/",
-          src: imgs.social.fb
-        }
-      ],
-      img: imgs.img5,
-      alt: "Danila Kitsanenko",
-      title: "Danila Kitsanenko",
-      position: "Full-Stack developer",
-      desc:
-        "Hello. My name is Danila. I've been doing programming for 2 years. I'm Full Stack developer, but back end is my greatest love. I fond of working with data, creating server logic and write a beautiful code. I started learning programming with Python. It's my main language. Also, I'm coding in Golang. In Xdevs we work on projects that provide complex and interesting tasks. We look forward to building a strong business relationship in the future with our clients!"
-    },
-    {
-      social: [
-        {
-          alt: "linkedIn",
-          link: "https://www.linkedin.com/in/nktovs/",
-          src: imgs.social.linked
-        },
-        {
-          alt: "GitHub",
-          link: "https://github.com/NikTovs",
-          src: imgs.social.git
-        }
-      ],
-      img: imgs.img3,
-      alt: "Nik Tov",
-      title: "Nik Tov",
-      position: "Front-End Developer",
-      desc:
-        "Hey! \n Need a website? Not a problem, I'm developing websites for more than two years. Our team will provide complex solutions using all our knowledge and experience to help your business stay on top!"
-    }
-  ];
-
-  isShowModal = false;
-  isCloseModal = false;
-  dataModalCard = {};
-
-  titleSubData =
-    "To stay on top of our game, every member of our team constantly works on self-improving his professional skills";
-
-  showModal(item: any) {
-    this.dataModalCard = item;
-    this.isShowModal = true;
-  }
-
-  closeModal() {
-    this.dataModalCard = {};
-    return (this.isShowModal = false);
-  }
+function closeModal() {
+  dataModalCard.value = {};
+  return (isShowModal.value = false);
 }
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/styles/variables";
+@import "/assets/styles/variables";
+
+:deep(.swiper-wrapper) {
+  -webkit-transition-timing-function: linear !important;
+  -o-transition-timing-function: linear !important;
+  transition-timing-function: linear !important;
+}
 
 .cr {
   &__card {
     &-icon {
-      max-height: 310px;
       transition: all 0.6s ease-out;
       position: relative;
 
       @media screen and (max-width: 1300px) {
-        max-height: 240px;
       }
 
       @media screen and (max-width: 560px) {
-        max-width: 120px;
       }
 
       &:hover {
@@ -258,12 +198,11 @@ export default class CoreTeam extends Vue {
     &-wrapper {
       display: flex;
       flex-direction: column;
-      padding: 0 30px 30px 0;
       transition: all 0.4s ease-out;
+      margin-bottom: 10px;
 
       @media screen and (max-width: 560px) {
         flex-direction: row;
-        padding: 0 0 20px 0;
         width: 100%;
       }
 
@@ -312,14 +251,10 @@ export default class CoreTeam extends Vue {
     }
 
     &-icon_preview {
-      max-width: 270px;
-      max-height: 310px;
-
       cursor: pointer;
+      width: 100%;
 
       @media screen and (max-width: 1300px) {
-        max-width: 210px;
-        max-height: 240px;
       }
 
       @include for-small() {
@@ -430,7 +365,7 @@ export default class CoreTeam extends Vue {
   }
 }
 
-::v-deep .custom-description.right {
+:deep(.custom-description.right) {
   color: #6d6d6d;
 }
 

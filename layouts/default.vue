@@ -1,26 +1,19 @@
 <template>
   <section class="check">
-    <header-block />
+    <HeaderBlock />
     <div id="root-wrapper">
-      <nuxt />
+      <slot />
     </div>
-    <footer-block />
-    <short-footer />
+    <FooterBlock />
+    <ShortFooter />
   </section>
 </template>
 
- <script lang="ts">
+<script lang="ts" setup>
 import HeaderBlock from "~/components/header.vue";
 import FooterBlock from "~/components/footer.vue";
 import ShortFooter from "~/components/short-footer.vue";
 
-export default {
-  components: {
-    HeaderBlock,
-    FooterBlock,
-    ShortFooter
-  }
-}
 </script>
 
 <style lang="scss" scoped>

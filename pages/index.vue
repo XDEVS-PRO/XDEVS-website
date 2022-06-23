@@ -1,61 +1,42 @@
 <template>
   <div>
-    <first-block />
-    <services-block />
-    <core-team />
-    <best-of />
-    <our-projects :data="ourProjectList" :scroll="true" />
-    <tech-stack />
-    <slider-block />
-    <contact-block />
+    <first-block/>
+    <services-block/>
+    <core-team/>
+    <best-of/>
+    <case-studies :data="ourProjects" :scroll="true"/>
+    <tech-stack/>
+    <slider-block/>
+    <contact-block/>
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+<script lang="ts" setup>
 
-import FirstBlock from "~/components/sections/first-block.vue";
-import CoreTeam from "~/components/sections/team-block.vue";
-import TechStack from "~/components/sections/tech-stack.vue";
-import ServicesBlock from "~/components/sections/services-block.vue";
-import ContactBlock from "~/components/sections/contact-block.vue";
-import SliderBlock from "~/components/sections/trusted-block.vue";
-import BestOf from "~/components/sections/best-of.vue";
-import OurProjects from "~/components/sections/case-studies.vue";
-import { ourProjects } from "~/src/assets/data/index-page.json";
-import PageMixin from "~/src/mixins/page";
+import FirstBlock from '~/components/sections/first-block.vue';
+import CoreTeam from '~/components/sections/team-block.vue';
+import TechStack from '~/components/sections/tech-stack.vue';
+import ServicesBlock from '~/components/sections/services-block.vue';
+import ContactBlock from '~/components/sections/contact-block.vue';
+import SliderBlock from '~/components/sections/trusted-block.vue';
+import BestOf from '~/components/sections/best-of.vue';
+import CaseStudies from '../components/sections/case-studies.vue';
+import { ourProjects } from "~/assets/data/projects.json";
 
+const scrollPageTo = (elementId: string) => {
+  let element = document.getElementById(elementId);
+  element && element.scrollIntoView({behavior: 'smooth'});
+};
 
-@Component({
-  components: {
-    FirstBlock,
-    ContactBlock,
-    CoreTeam,
-    TechStack,
-    ServicesBlock,
-    SliderBlock,
-    BestOf,
-    OurProjects
-  },
-   head() {
-      return {
-        title: 'main-page',
-        meta: [
-          {
-            hid: 'main-page',
-            name: 'description',
-            content: 'Xdevs is team of amazing professionals who can develop websites of any difficulty to help you bussines stay on top!'
-          }
-        ]
-      }
+useHead({
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content: 'XDEVS is a team of developers that provides ONLY high-quality solutions.'+
+          'We have been in-game since 2020 helping startups and products with any tech solution they may need'
     },
-  mixins: [PageMixin]
+  ]
 })
-export default class Index extends Vue {
-  ourProjectList: Array<any> = [];
 
-  created() {
-    this.ourProjectList = ourProjects;
-  }
-}
 </script>
