@@ -1,5 +1,5 @@
 <template v-if="data">
-  <div class="blog-header" :style="{'background-image': `${data.imgStyle || data.image || null}`}">
+  <div class="blog-header" :style="{'background-image': `linear-gradient(#000, transparent), url(${data.image})`}">
     <div class="blog-wrapper">
       <div class="blog-breadcrumbs-container" v-if="breadCrumbs.length">
         <nuxt-link
@@ -23,8 +23,10 @@
 </template>
 
 <script lang="ts" setup>
+import { Article } from '../../types';
+
 interface Props {
-  data :  {img: string, breadCrumbs: [], topic: string, description: string, author: {}, createdAt: string},
+  data :  Article,
   breadCrumbs: { name: string, link: string }[],
 }
 

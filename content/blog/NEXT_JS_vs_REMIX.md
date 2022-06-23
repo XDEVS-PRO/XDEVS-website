@@ -6,12 +6,11 @@ title: Next.js vs. Remix.
 description: Nowadays, a new React framework is no news. It seems like they are multiplying each day, so why are we focusing on Remix and Next.js today?
 image: /blog/next.js_vs_remix/next.js_vs_remix.png
 head.image: '/blog/next.js_vs_remix/next.js_vs_remix.png'
-imgStyle: linear-gradient(#000, transparent), url(/blog/next.js_vs_remix/next.js_vs_remix.png)
 alt: Next.js vs. Remix.
 author:
   name: Daniil Krutogolov
   bio: Front-end Developer
-  img: /assets/core-team/daniil.webp
+  img: ~/assets/core-team/daniil.webp
 tags:
 - Next.js
 - Remix

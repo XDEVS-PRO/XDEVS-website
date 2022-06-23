@@ -15,6 +15,7 @@
 <script lang="ts" setup>
 import ArticleHeader from '~/components/BlogComponents/ArticleHeader';
 import ArticleFooter from '~/components/BlogComponents/ArticleFooter';
+import { Article } from '../../types';
 
 const route = useRoute()
 const crumbs = ref(null)
@@ -74,6 +75,10 @@ definePageMeta({
 
   table {
     border-spacing: 1rem;
+  }
+
+  pre {
+    overflow: auto;
   }
 
   .blog-header {

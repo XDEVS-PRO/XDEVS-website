@@ -217,7 +217,7 @@ export default defineComponent({
     opacity: 1;
 
     @include for-average() {
-      padding: 15px 0;
+      padding: 0 0;
     }
   }
 
@@ -386,10 +386,6 @@ export default defineComponent({
 
   @include for-average() {
     display: block;
-  }
-
-  .mobile-menu-list {
-    margin-top: 2.5rem;
   }
 
   &.active {
