@@ -7,9 +7,9 @@
             class="article__item"
         >
           <img
-              v-if="article.img"
+              v-if="article.image"
               class="article__img"
-              :src="article.img"
+              :src="article.image"
               :alt="article.title"
           />
           <div class="article__content">
@@ -30,12 +30,11 @@
 </template>
 
 <script lang="ts" setup>
-  const props = defineProps({
-    articles: {
-      type: Array,
-      default: []
-    }
-  })
+interface Props {
+  articles: any[]
+}
+const props = withDefaults(defineProps<Props>(), {articles: []})
+console.log(props)
 </script>
 
 <style lang="scss" scoped>
