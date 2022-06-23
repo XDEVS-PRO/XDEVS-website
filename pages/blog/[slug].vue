@@ -77,6 +77,10 @@ definePageMeta({
     border-spacing: 1rem;
   }
 
+  pre {
+    overflow: auto;
+  }
+
   .blog-header {
     background-image: linear-gradient(#eb01a5, #d13531)
   }
