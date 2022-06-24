@@ -10,7 +10,7 @@ alt: Next.js vs. Remix.
 author:
   name: Daniil Krutogolov
   bio: Front-end Developer
-  img: ~/assets/core-team/daniil.webp
+  img: /blog/authors/daniil.webp
 tags:
 - Next.js
 - Remix
