@@ -2,18 +2,20 @@ import { defineNuxtConfig } from 'nuxt';
 
 export default defineNuxtConfig({
   // Global page headers: https://go.nuxtjs.dev/config-head
-  head: {
-    htmlAttrs: {
-      lang: 'en'
+  app: {
+    head: {
+      htmlAttrs: {
+        lang: 'en'
+      },
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { property: 'og:site_name', content: 'XDEVS.PRO' },
+        { property: 'og:image', content: 'https://xdevs.pro/ogXDEVS.png' },
+      ],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      ]
     },
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { property: 'og:site_name', content: 'XDEVS.PRO' },
-    ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
