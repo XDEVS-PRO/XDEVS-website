@@ -1,12 +1,12 @@
 <template>
   <section class="cr" id="core-team">
-    <dark-bg/>
-    <stripe-wrapper :color-strip="'dark'"/>
+    <dark-bg />
+    <stripe-wrapper :color-strip="'dark'" />
     <div class="cr__container container">
       <title-block
-          :title="'Core Team'"
-          :color-icon="'light'"
-          :desc-right="titleSubData"
+        :title="'Core Team'"
+        :color-icon="'light'"
+        :desc-right="titleSubData"
       />
 
       <h4 class="custom-description mobile">
@@ -18,12 +18,12 @@
           <div class="cr__modal">
             <div class="cr__modal-container container">
               <img
-                  width="278"
-                  height="320"
-                  v-if="dataModalCard.img"
-                  class="cr__modal-left"
-                  :src="dataModalCard.img"
-                  :alt="dataModalCard.alt"
+                width="278"
+                height="320"
+                v-if="dataModalCard.img"
+                class="cr__modal-left"
+                :src="dataModalCard.img"
+                :alt="dataModalCard.alt"
               />
               <div class="cr__modal-right">
                 <div class="cr__modal-right_text">
@@ -38,7 +38,7 @@
                   <div class="cr__modal-right_social">
                     <template v-for="(social, i) in dataModalCard.social">
                       <a :href="social.link" target="_blank">
-                        <img :src="social.src" :alt="social.alt"/>
+                        <img :src="social.src" :alt="social.alt" />
                       </a>
                     </template>
                   </div>
@@ -53,31 +53,34 @@
 
         <ClientOnly>
           <swiper
-              :modules="modules"
-              :slides-per-view="2"
-              :space-between="30"
-              :scrollbar="{ draggable: true }"
-              :loop="true"
-              :free-mode="true"
-              :speed="10000"
-              :autoplay="{
+            :modules="modules"
+            :slides-per-view="2"
+            :space-between="30"
+            :scrollbar="{ draggable: true }"
+            :loop="true"
+            :free-mode="true"
+            :speed="10000"
+            :autoplay="{
               delay: 1,
               pauseOnMouseEnter: true,
             }"
-              :breakpoints="{
-            560: {slidesPerView: 4,}
+            :breakpoints="{
+              560: { slidesPerView: 4 },
             }"
           >
             <swiper-slide v-for="(item, i) in TeamBlockCards">
               <div class="cr__card-wrapper">
                 <div class="cr__card-icon">
                   <img
-                      v-if="item.img"
-                      :src="item.img"
-                      :alt="item.alt"
-                      class="cr__card-icon_preview"
+                    v-if="item.img"
+                    :src="item.img"
+                    :alt="item.alt"
+                    class="cr__card-icon_preview"
                   />
-                  <p class="cr__card-icon_preview-text" @click="showModal(item)">
+                  <p
+                    class="cr__card-icon_preview-text"
+                    @click="showModal(item)"
+                  >
                     profile
                   </p>
                 </div>
@@ -88,7 +91,9 @@
                   <div v-if="item.position" class="cr__card-text-desc">
                     {{ item.position }}
                   </div>
-                  <a class="cr__card-text-btn" @click="showModal(item)">profile</a>
+                  <a class="cr__card-text-btn" @click="showModal(item)"
+                    >profile</a
+                  >
                 </div>
               </div>
             </swiper-slide>
@@ -100,27 +105,26 @@
 </template>
 
 <script setup lang="ts">
-import TitleBlock from '~/components/elements/title.vue';
-import StripeWrapper from '~/components/elements/strip-bg.vue';
-import DarkBg from '~/components/elements/dark-bg.vue';
-import CustomModal from '~/components/elements/custom-modal.vue';
-import { ref } from 'vue';
-import TeamBlockCards from './team-block-data';
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Autoplay, FreeMode, Scrollbar } from 'swiper';
+import TitleBlock from "~/components/elements/title.vue";
+import StripeWrapper from "~/components/elements/strip-bg.vue";
+import DarkBg from "~/components/elements/dark-bg.vue";
+import CustomModal from "~/components/elements/custom-modal.vue";
+import { ref } from "vue";
+import TeamBlockCards from "./team-block-data";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Autoplay, FreeMode, Scrollbar } from "swiper";
 
-import 'swiper/css';
-import 'swiper/css/scrollbar';
-import 'swiper/css/autoplay';
+import "swiper/css";
+import "swiper/css/scrollbar";
+import "swiper/css/autoplay";
 
-const modules = [Autoplay, FreeMode, Scrollbar]
+const modules = [Autoplay, FreeMode, Scrollbar];
 const isShowModal = ref(false);
 const isCloseModal = ref(false);
 const dataModalCard = ref({});
 
 const titleSubData =
-    'To stay on top of our game, every member of our team constantly works on self-improving his professional skills';
-
+  "To stay on top of our game, every member of our team constantly works on self-improving his professional skills";
 
 function showModal(item: any) {
   dataModalCard.value = item;
@@ -141,7 +145,6 @@ function closeModal() {
   -o-transition-timing-function: linear !important;
   transition-timing-function: linear !important;
 }
-
 .cr {
   &__card {
     &-icon {
@@ -152,6 +155,7 @@ function closeModal() {
       }
 
       @media screen and (max-width: 560px) {
+        padding-left: 10px;
       }
 
       &:hover {
@@ -200,9 +204,9 @@ function closeModal() {
       flex-direction: column;
       transition: all 0.4s ease-out;
       margin-bottom: 10px;
+      height: 100%;
 
       @media screen and (max-width: 560px) {
-        flex-direction: row;
         width: 100%;
       }
 
@@ -216,8 +220,11 @@ function closeModal() {
 
       @media screen and (max-width: 560px) {
         flex-direction: column;
-        padding-left: 10px;
         align-self: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 5px 0 20px 10px;
       }
     }
 
