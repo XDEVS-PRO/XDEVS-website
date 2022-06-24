@@ -34,7 +34,6 @@ interface Props {
   articles: any[]
 }
 const props = withDefaults(defineProps<Props>(), {articles: []})
-console.log(props)
 </script>
 
 <style lang="scss" scoped>
