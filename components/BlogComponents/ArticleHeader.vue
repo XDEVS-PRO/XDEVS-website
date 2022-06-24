@@ -31,7 +31,6 @@ interface Props {
 }
 
 const {data, breadCrumbs} = withDefaults(defineProps<Props>(), {breadCrumbs: []})
-console.log('header', data, breadCrumbs)
 </script>
 
 <style lang="scss" scoped>

@@ -10,7 +10,7 @@ alt: linkedin
 author: 
   name: Nikita Tovstyga
   bio: Front-end Developer
-  img: ~/assets/core-team/nikita.webp
+  img: /blog/authors/nikita.webp
 tags: 
   - linkedin
 ---

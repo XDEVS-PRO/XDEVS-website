@@ -1,16 +1,16 @@
 <template>
   <header class="header">
-    <dark-bg />
-    <stripe-wrapper v-if="!hideStripes" :color-strip="'dark'" />
+    <dark-bg/>
+    <stripe-wrapper v-if="!hideStripes" :color-strip="'dark'"/>
     <div class="header__container container">
       <div class="header__inner">
         <div class="header__left">
           <nuxt-link to="/">
             <img
-              class="header__left-img"
-              src="~/assets/logo-header.svg"
-              width="120px"
-              alt="XDEVS"
+                class="header__left-img"
+                src="~/assets/logo-header.svg"
+                width="120px"
+                alt="XDEVS"
             />
           </nuxt-link>
         </div>
@@ -19,19 +19,19 @@
           <template v-if="isOnIndex">
             <template v-for="(item, i) in headerList">
               <NuxtLink
-                class="header__right-link custom-link"
-                v-if="item.hash"
-                :to="{ path: item.link, hash: item.hash }"
-                :key="i"
+                  class="header__right-link custom-link"
+                  v-if="item.hash"
+                  :to="{ path: item.link, hash: item.hash }"
+                  :key="i"
 
               >
                 {{ item.title }}
               </NuxtLink>
               <nuxt-link
-                v-else
-                class="header__right-link custom-link"
-                :key="1+ i"
-                :to="{ path: item.link, hash: item.hash }"
+                  v-else
+                  class="header__right-link custom-link"
+                  :key="1+ i"
+                  :to="{ path: item.link, hash: item.hash }"
               >
                 {{ item.title }}
               </nuxt-link>
@@ -39,21 +39,21 @@
           </template>
           <template v-else key="2">
             <nuxt-link
-              v-for="(item, i) in headerList"
-              class="header__right-link custom-link"
-              :key="2 + i"
-              :to="{ path: item.link, hash: item.hash }"
+                v-for="(item, i) in headerList"
+                class="header__right-link custom-link"
+                :key="2 + i"
+                :to="{ path: item.link, hash: item.hash }"
             >
               {{ item.title }}
             </nuxt-link>
           </template>
 
           <div
-            :class="[
+              :class="[
               'hamburger hamburger--emphatic js-hamburger',
               { active: isShowMobMenu },
             ]"
-            @click="isShow()"
+              @click="isShow()"
           >
             <div class="hamburger-box">
               <div class="hamburger-inner"></div>
@@ -66,56 +66,46 @@
     <!--  mob menu -->
     <div :class="['mobile-menu', { active: isShowMobMenu }]">
       <div class="mobile-menu-list">
-         <ul v-if="isOnIndex">
-            <li  v-for="(item, i) in headerList"
+        <ul v-if="isOnIndex">
+          <li v-for="(item, i) in headerList"
               v-bind:key="i"
               class="mobile-menu-list_link-to-block"
-            >
-              <a
-                v-if="item.hash"
-                @click="isShow()"
-                :href="item.hash"
-                :key="i"
-
-              >
-                {{ item.title }}
-              </a>
-              <nuxt-link
-                v-else
+          >
+            <nuxt-link
                 @click.native="isShow()"
                 class="mobile-menu-list_link-to-block"
                 :key="1 + i"
                 :to="{ path: item.link, hash: item.hash }"
-              >
-                {{ item.title }}
-              </nuxt-link>
-            </li>
-          </ul>
-          <ul v-else key="3">
-           <li v-for="(item, i) in headerList"
-               class="mobile-menu-list_link-to-block"
-               v-bind:key="3+i"
-           >
-             <nuxt-link
-                 @click.native="isShow()"
-                 :key="i"
-                 :to="{ path: item.link, hash: item.hash }"
-             >
-               {{ item.title }}
-             </nuxt-link>
-           </li>
-          </ul >
+            >
+              {{ item.title }}
+            </nuxt-link>
+          </li>
+        </ul>
+        <ul v-else key="3">
+          <li v-for="(item, i) in headerList"
+              class="mobile-menu-list_link-to-block"
+              v-bind:key="3+i"
+          >
+            <nuxt-link
+                @click.native="isShow()"
+                :key="i"
+                :to="{ path: item.link, hash: item.hash }"
+            >
+              {{ item.title }}
+            </nuxt-link>
+          </li>
+        </ul>
 
         <div class="mobile-menu-list_contact">
           <div class="mobile-menu-list_contact-links">
             <a v-for="(item, i) in contactUs" :href="item.link" :key="i">
               <img
-                v-if="item.img"
-                :alt="item.alt"
-                width="45"
-                height="45"
-                class="mobile-menu-list_contact-links-icon"
-                :src="item.img"
+                  v-if="item.img"
+                  :alt="item.alt"
+                  width="45"
+                  height="45"
+                  class="mobile-menu-list_contact-links-icon"
+                  :src="item.img"
               />
             </a>
           </div>
@@ -128,13 +118,12 @@
 </template>
 
 <script lang="ts">
-import StripeWrapper from "~/components/elements/strip-bg.vue";
-import DarkBg from "~/components/elements/dark-bg.vue";
-import ScrollTo from "~/components/elements/scroll-to.vue";
-import { headerList } from "~/assets/data/header.json";
-import { contactUs } from "~/assets/data/projects.json";
-import { onMounted, ref, Ref } from "vue";
-import { defineComponent } from 'vue';
+import StripeWrapper from '~/components/elements/strip-bg.vue';
+import DarkBg from '~/components/elements/dark-bg.vue';
+import ScrollTo from '~/components/elements/scroll-to.vue';
+import { headerList } from '~/assets/data/header.json';
+import { contactUs } from '~/assets/data/projects.json';
+import { defineComponent, onMounted, Ref, ref } from 'vue';
 
 type HeaderListType = Array<{
   title: string;
@@ -142,7 +131,7 @@ type HeaderListType = Array<{
   hash?: string;
 }>;
 
-type ContactUsType =  Array<{
+type ContactUsType = Array<{
   img: string;
   alt: string;
   link: string;
@@ -171,12 +160,12 @@ export default defineComponent({
     const isShow = () => {
       isShowMobMenu.value = !isShowMobMenu.value;
       isShowMobMenu.value
-        ? document.body.classList.add("un-scroll")
-        : document.body.classList.remove("un-scroll");
+          ? document.body.classList.add('un-scroll')
+          : document.body.classList.remove('un-scroll');
     };
 
     const isOnIndex = () => {
-      return route.name === "index";
+      return route.name === 'index';
     };
 
     onMounted(() => {
@@ -328,7 +317,7 @@ export default defineComponent({
 .hamburger--emphatic .hamburger-inner:before {
   left: 0;
   transition: transform 0.125s cubic-bezier(0.6, 0.04, 0.98, 0.335),
-    top 0.05s linear 0.125s, left 0.125s ease-in 0.175s;
+  top 0.05s linear 0.125s, left 0.125s ease-in 0.175s;
 }
 
 .hamburger-inner:after {
@@ -339,7 +328,7 @@ export default defineComponent({
   top: 10px;
   right: 0;
   transition: transform 0.125s cubic-bezier(0.6, 0.04, 0.98, 0.335),
-    top 0.05s linear 0.125s, right 0.125s ease-in 0.175s;
+  top 0.05s linear 0.125s, right 0.125s ease-in 0.175s;
 }
 
 // active state for hamburger
@@ -359,7 +348,7 @@ export default defineComponent({
   top: -80px;
   left: -80px;
   transition: left 0.125s ease-out, top 0.05s linear 0.125s,
-    transform 0.125s cubic-bezier(0.075, 0.82, 0.165, 1) 0.175s;
+  transform 0.125s cubic-bezier(0.075, 0.82, 0.165, 1) 0.175s;
   transform: translate3d(80px, 80px, 0) rotate(45deg);
 }
 
@@ -373,7 +362,7 @@ export default defineComponent({
   top: -80px;
   right: -80px;
   transition: right 0.125s ease-out, top 0.05s linear 0.125s,
-    transform 0.125s cubic-bezier(0.075, 0.82, 0.165, 1) 0.175s;
+  transform 0.125s cubic-bezier(0.075, 0.82, 0.165, 1) 0.175s;
   transform: translate3d(-80px, 80px, 0) rotate(-45deg);
 }
 
