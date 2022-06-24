@@ -31,7 +31,6 @@ const scrollPageTo = (elementId: string) => {
 useHead({
   meta: [
     {
-      hid: 'description',
       name: 'description',
       content: 'XDEVS is a team of developers that provides ONLY high-quality solutions.'+
           'We have been in-game since 2020 helping startups and products with any tech solution they may need'

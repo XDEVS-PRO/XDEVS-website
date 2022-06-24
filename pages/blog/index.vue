@@ -41,7 +41,6 @@ useHead({
   title: 'XDEVS Team Blog – our latest articles 📚',
   meta: [
     {
-      hid: 'description',
       name: 'description',
       content: 'In XDEVS blog we share any kind of information that can be useful for developers, companies and startups.'
     },

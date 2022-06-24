@@ -17,7 +17,6 @@ useHead({
   title: 'XDEVS Case Studies – our latest projects and achievements 🏆',
   meta: [
     {
-      hid: 'description',
       name: 'description',
       content: 'XDEVS latest Case Studies – Fintech website, Wishlist with social aspects, Real Estate website and much more ...'
     },
