@@ -11,6 +11,7 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { property: 'og:site_name', content: 'XDEVS.PRO' },
         { property: 'og:image', content: 'https://xdevs.pro/ogXDEVS.png' },
+        { property: "og:type", content: "website"  },
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

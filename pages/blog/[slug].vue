@@ -1,5 +1,9 @@
 <template>
   <section class="blog-article">
+    <Head>
+      <Meta property="og:description" :content="article.description" />
+      <Meta property="og:title" :content="article.title" />
+    </Head>
     <ArticleHeader :data="article" :bread-crumbs="crumbs"/>
 
     <div class="blog-container">
@@ -33,9 +37,8 @@ crumbs.value = [
 
 definePageMeta({
   layout: 'blog',
+  ogType: 'article',
 })
-
-
 </script>
 
 <style lang="scss">
