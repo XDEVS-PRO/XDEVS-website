@@ -1,5 +1,10 @@
 <template>
   <section class="container-main-blog">
+    <Head>
+      <Meta property="og:title" content="XDEVS Team Blog – our latest articles 📚" />
+      <Meta property="og:description" content="Checkout XDEVS Team latest articles →" />
+      <Meta name="description" content="In XDEVS blog we share any kind of information that can be useful for developers, companies and startups." />
+    </Head>
     <BlogHeader @searchInput="searchArticles" @category="filterByCategory"/>
 
     <ul class="article-topics" v-if="topicList && topicList.length">
@@ -36,20 +41,6 @@
 import CustomSelector from "~/components/elements/custom-selector";
 import BlogHeader from "~/components/BlogComponents/BlogHeader";
 import BlogCard from "~/components/BlogComponents/BlogCard";
-
-useHead({
-  title: 'XDEVS Team Blog – our latest articles 📚',
-  meta: [
-    {
-      name: 'description',
-      content: 'In XDEVS blog we share any kind of information that can be useful for developers, companies and startups.'
-    },
-  ]
-})
-
-definePageMeta({
-  layout: 'blog',
-})
 
 const activeTopic = ref(null)
 
@@ -91,6 +82,13 @@ const sortByDate = async (sortType) => {
   }
 }
 
+useHead({
+  title: 'XDEVS Team Blog – our latest articles 📚',
+})
+
+definePageMeta({
+  layout: 'blog',
+})
 </script>
 
 <style lang="scss" scoped>
