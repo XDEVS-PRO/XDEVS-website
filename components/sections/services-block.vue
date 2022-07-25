@@ -24,65 +24,65 @@
 import TitleBlock from "~/components/elements/title.vue";
 import StripeWrapper from "~/components/elements/strip-bg.vue";
 
-import imgs from '~/assets/services/index'
-import { defineComponent } from 'vue';
+import imgs from "~/assets/services/index";
+import { defineComponent } from "vue";
 
 export default defineComponent({
   components: {
     TitleBlock,
-    StripeWrapper
+    StripeWrapper,
   },
   setup() {
-    const  cardList: Array<{ img: string; alt: string; title: string; desc: string }> = [
+    const cardList: Array<{
+      img: string;
+      alt: string;
+      title: string;
+      desc: string;
+    }> = [
       {
         img: imgs.img6,
         alt: "Discovery phase",
         title: "Discovery phase",
-        desc:
-            "Implement your business idea consulting XDEVS experts and you get the best solutions ever to satisfy your target users needs."
+        desc: "Implement your business idea consulting XDEVS experts and you get the best solutions ever to satisfy your target users needs.",
       },
       {
         img: imgs.img3,
         alt: "Web Development",
         title: "Web Development",
-        desc:
-            "Upgrade or build from scratch scalable, fully-functional web solutions."
+        desc: "Upgrade or build from scratch scalable, fully-functional web solutions.",
       },
       {
         img: imgs.img2,
         alt: "Mobile Application Development",
         title: "Mobile Application Development",
-        desc:
-            "Transform lucrative ideas into original industry-specific mobile apps."
+        desc: "Transform lucrative ideas into original industry-specific mobile apps.",
       },
 
       {
         img: imgs.img4,
         alt: "UI/UX design",
         title: "UI/UX design",
-        desc: "Win with great user experience and persuasive design."
+        desc: "Win with great user experience and persuasive design.",
       },
       {
         img: imgs.img5,
         alt: "Quality Assurance",
         title: "Quality Assurance",
-        desc:
-            "Turn to our experts to perform comprehensive, multi-stage testing and auditing of your software."
+        desc: "Turn to our experts to perform comprehensive, multi-stage testing and auditing of your software.",
       },
       {
         img: imgs.img1,
         alt: "Costs optimization",
         title: "Costs optimization",
-        desc:
-            "Are you tired of growing expenses? Our team will analyze and suggest how to minimize costs without quality loss."
+        desc: "Are you tired of growing expenses? Our team will analyze and suggest how to minimize costs without quality loss.",
       },
     ];
 
     return {
       cardList,
-    }
+    };
   },
-})
+});
 </script>
 
 <style lang="scss" scoped>
@@ -119,6 +119,10 @@ export default defineComponent({
 
     @include for-average() {
       padding: 30px;
+    }
+
+    @include for-small() {
+      box-shadow: 0px 30px 40px -10px rgba(0, 133, 255, 0.2);
     }
 
     &:hover {
