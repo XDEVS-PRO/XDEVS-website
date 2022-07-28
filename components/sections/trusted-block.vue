@@ -100,7 +100,7 @@ export default defineComponent({
         link: "https://singlead.net/",
         title: "Digital agency",
         alt: "Singlead",
-        bgColor: "#D42A06",
+        bgColor: "#fff",
       },
       {
         img: imgs.tab4,
@@ -121,7 +121,7 @@ export default defineComponent({
         link: "https://devlogics.nl/",
         title: "Innovative apps",
         alt: "DevLogics",
-        bgColor: "#44067F",
+        bgColor: "#fff",
       },
     ];
     return {
