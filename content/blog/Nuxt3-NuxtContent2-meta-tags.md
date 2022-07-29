@@ -17,7 +17,7 @@ tags:
 ---  
 
 ## Adding Meta tags in Nuxt 3 and Nuxt Content 2
-As a developer, I love to build websites. I enjoy the process itself and the results I see.  
+As a developer, I love to build websites. I enjoy the process itself and the results I see.
 As a product owner, I want to make the website noticeable in search engines and social media. To make that happen, you need to work on your website Meta tags. Adding Meta, Open Graph, and Twitter Meta tags are the same in Nuxt.
 
 As for now, Nuxt 3 is still not released, so that things may change in the future.
@@ -134,7 +134,7 @@ So now, you will see the default title when no title is set on some pages.
 
 ### definePageMeta
 `definePageMeta` is extracted at build time via a macro, so it can't be set dynamically.
-It extends `route.meta` with any non-dynamic information you pass.  It's important to notice that you can't set Meta tags using `definePageMeta` without using `useHead` composable.
+It extends `route.meta` with any non-dynamic information you pass. It's important to notice that you can't set Meta tags using `definePageMeta` without using `useHead` composable.
 
 `page1.vue`
 ```ts
@@ -154,7 +154,7 @@ console.log(route.meta.someInformation)
 ### Meta components
 You may find the Meta component a more flexible and valuable solution to set Meta tags.
 
-> Nuxt provides <Title>, <Base>, <Script>, <Style>, <Meta>, <Link>, <Body>, <Html> and <Head> components so that  you can interact directly with your metadata within your component's template.
+> Nuxt provides <Title>, <Base>, <Script>, <Style>, <Meta>, <Link>, <Body>, <Html> and <Head> components so that you can interact directly with your metadata within your component's template.
 
 They can be used with any dynamic data like a regular Nuxt component.
 
@@ -210,8 +210,8 @@ head:
       content: 'NuxtLabs'
 ---
 ```
-Moreover,  you can dynamically use Nuxt Meta components to set Meta tags on the article page. To see a real-world example of setting Meta tags in the Nuxt 3 project, you can check our [repo](https://github.com/XDEVS-PRO/XDEVS-website).
+Moreover, you can dynamically use Nuxt Meta components to set Meta tags on the article page. To see a real-world example of setting Meta tags in the Nuxt 3 project, you can check our [repo](https://github.com/XDEVS-PRO/XDEVS-website).
 
 
 ### Conclusion
-There is definitely more than one way to set Meta tags in the Nuxt 3 framework. Is it bad or good? It's up to you.  Having the possibility to make the same thing in multiple ways may be confusing for some people, including myself, but as Nuxt 3 is getting released, I believe we will get more clarification regarding adding Meta tags :) 
+There is definitely more than one way to set Meta tags in the Nuxt 3 framework. Is it bad or good? It's up to you. Having the possibility to make the same thing in multiple ways may be confusing for some people, including myself, but as Nuxt 3 is getting released, I believe we will get more clarification regarding adding Meta tags :) 
