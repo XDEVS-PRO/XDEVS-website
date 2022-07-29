@@ -50,6 +50,15 @@
             </template>
           </div>
         </div>
+        <div class="footer__right">
+          <a
+            class="header__right-link custom-link"
+            target="_blank"
+            href="https://github.com/XDEVS-PRO/XDEVS-website"
+          >
+            <img src="../assets/core-team/social/git.svg" alt="" />
+          </a>
+        </div>
       </div>
     </div>
   </footer>
@@ -155,6 +164,14 @@ export default {
   }
 
   &__right {
+    display: flex;
+    align-items: center;
+    padding-left: 134px;
+
+    img {
+      width: 70px;
+    }
+
     @include for-smallmedium() {
       font-size: 16px;
     }
