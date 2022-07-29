@@ -129,7 +129,7 @@ definePageMeta({
 })
 ```
 
-So now, you will see the default title when no title is set on some pages.
+In case no title is set, the default title will be used.
 
 
 ### definePageMeta
