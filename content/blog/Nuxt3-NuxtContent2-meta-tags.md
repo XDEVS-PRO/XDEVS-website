@@ -18,7 +18,7 @@ tags:
 
 ## Adding Meta tags in Nuxt 3 and Nuxt Content 2
 As a developer, I love to build websites. I enjoy the process itself and the results I see.  
-As a product owner, I want to make the website noticeable in search engines and social media.  To make that happen, you need to work on your website Meta tags. Adding Meta, Open Graph, and Twitter Meta tags are the same in Nuxt.
+As a product owner, I want to make the website noticeable in search engines and social media. To make that happen, you need to work on your website Meta tags. Adding Meta, Open Graph, and Twitter Meta tags are the same in Nuxt.
 
 As for now, Nuxt 3 is still not released, so that things may change in the future.
 
