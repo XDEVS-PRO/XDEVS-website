@@ -36,6 +36,7 @@
               </nuxt-link>
             </template>
             <a
+              class="header__right-link custom-link"
               target="_blank"
               href="https://github.com/XDEVS-PRO/XDEVS-website"
             >
