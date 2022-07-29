@@ -139,8 +139,6 @@ export default defineComponent({
     padding: 45px 1rem 160px 1rem;
     display: flex;
     flex-direction: column;
-    // justify-content: space-between;
-    // align-items: flex-end;
 
     @include for-large() {
       align-items: baseline;
@@ -155,27 +153,6 @@ export default defineComponent({
       padding: 0 1rem 40px 1rem;
     }
   }
-
-  // &__right {
-  //   display: flex;
-  //   flex-wrap: wrap;
-  //   max-width: 650px;
-  //   justify-content: space-between;
-  // }
-
-  // &__left {
-  //   display: flex;
-  //   flex-direction: column;
-  //   padding-right: 1rem;
-
-  //   @include for-middle() {
-  //     width: 100%;
-  //   }
-
-  //   @include for-average() {
-  //     padding: 0 0 1rem 0;
-  //   }
-  // }
 
   .title-container {
     display: flex;
