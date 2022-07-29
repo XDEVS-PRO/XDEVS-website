@@ -14,9 +14,7 @@
             />
           </a>
 
-          <h4 class="footer__left-text">
-           On  <span>🔥</span> since 2020
-          </h4>
+          <h4 class="footer__left-text">On <span>🔥</span> since 2020</h4>
         </div>
         <div class="footer__center">
           <div class="footer__center-inner custom-description">
@@ -83,10 +81,10 @@ export default {
 
     return {
       isOnIndex,
-      headerList: headerListData
-    }
-  }
-}
+      headerList: headerListData,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
