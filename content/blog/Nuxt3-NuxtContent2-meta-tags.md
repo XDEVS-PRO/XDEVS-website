@@ -154,7 +154,7 @@ console.log(route.meta.someInformation)
 ### Meta components
 You may find the Meta component a more flexible and valuable solution to set Meta tags.
 
-> Nuxt provides <Title>, <Base>, <Script>, <Style>, <Meta>, <Link>, <Body>, <Html> and <Head> components so that you can interact directly with your metadata within your component's template.
+> Nuxt provides `<Title>`, `<Base>`, `<Script>`, `<Style>`, `<Meta>`, `<Link>`, `<Body>`, `<Html>` and `<Head>` components so that you can interact directly with your metadata within your component's template.
 
 They can be used with any dynamic data like a regular Nuxt component.
 
@@ -175,8 +175,8 @@ They can be used with any dynamic data like a regular Nuxt component.
 
 Managing Meta tags in Nuxt Content is made very easy.
 
-- [Front-matter](https://content.nuxtjs.org/guide/writing/markdown#front-matter):
-> Front-matter is a convention of Markdown-based CMS to provide meta-data to pages, like description or title. In Nuxt Content, the front-matter uses the YAML syntax with `key: value` pairs.
+### [Front-matter](https://content.nuxtjs.org/guide/writing/markdown#front-matter):
+> [Front-matter](https://content.nuxtjs.org/guide/writing/markdown#front-matter) is a convention of Markdown-based CMS to provide meta-data to pages, like description or title. In Nuxt Content, the front-matter uses the YAML syntax with `key: value` pairs.
 
 ```
 yourArticle.md
@@ -187,8 +187,10 @@ description: Your article description.
 ---
 ```
 
-- [useContentHead()](https://content.nuxtjs.org/guide/writing/markdown#front-matter) This is basically the same as `useHead()` that we talked about earlier.
->`useContentHead()` is a composable providing a binding between your content data and `useHead()`.
+### [useContentHead()](https://content.nuxtjs.org/guide/writing/markdown#front-matter)
+This is basically the same as `useHead()` that we talked about earlier.
+
+>[useContentHead()](https://content.nuxtjs.org/guide/writing/markdown#front-matter) is a composable providing a binding between your content data and `useHead()`.
 ```
 yourArticle.md
 
@@ -210,8 +212,7 @@ head:
       content: 'NuxtLabs'
 ---
 ```
-Moreover, you can dynamically use Nuxt Meta components to set Meta tags on the article page. To see a real-world example of setting Meta tags in the Nuxt 3 project, you can check our [repo](https://github.com/XDEVS-PRO/XDEVS-website).
-
+Moreover, you can dynamically use `Nuxt Meta components` to set Meta tags on the article page. To see a real-world example of setting Meta tags in the Nuxt 3 project, you can check our [repo](https://github.com/XDEVS-PRO/XDEVS-website).
 
 ### Conclusion
 There is definitely more than one way to set Meta tags in the Nuxt 3 framework. Is it bad or good? It's up to you. Having the possibility to make the same thing in multiple ways may be confusing for some people, including myself, but as Nuxt 3 is getting released, I believe we will get more clarification regarding adding Meta tags :) 
