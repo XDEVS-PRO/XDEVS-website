@@ -38,7 +38,7 @@
                 backgroundColor: item.bgColor,
               }"
             >
-              <a :href="item.link" target="_blank">
+              <a rel="noreferrer nofollow" :href="item.link" target="_blank">
                 <img
                   :src="item.img"
                   :alt="item.alt"
@@ -47,7 +47,7 @@
                 />
               </a>
 
-              <a :href="item.link" target="_blank">
+              <a rel="noreferrer nofollow" :href="item.link" target="_blank">
                 <div class="sb__customers__card-back-title">
                   {{ item.title }}
                 </div>
