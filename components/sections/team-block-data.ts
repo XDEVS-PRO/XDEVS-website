@@ -89,26 +89,6 @@ const TeamBlockCards: Array<Card> = [
       'Hey! \n Need a website? Not a problem, I\'m developing websites for more than two years. Our team will provide complex solutions using all our knowledge and experience to help your business stay on top!'
   },
 
-  {
-    social: [
-      {
-        alt: 'linkedIn',
-        link: 'https://www.linkedin.com/in/dmitriy-bondarenko-a94ba3216/',
-        src: imgs.social.linked
-      },
-      {
-        alt: 'GitHub',
-        link: 'https://github.com/doomsday1204',
-        src: imgs.social.git
-      }
-    ],
-    img: imgs.dimaImg,
-    alt: 'Dmitriy Bondarenko',
-    title: 'Dmitriy Bondarenko',
-    position: 'Backend Developer',
-    desc:
-      "I’m very attentive to details, have analytical thinking, know how to set priorities, and am very optimistic! I constantly develop my skills and definitely want steady professional growth. I am very confident in myself (in a good way, of course 😉), and such a soft skill will help me reach all the set goals."
-  },
 
   {
     social: [

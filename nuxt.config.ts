@@ -9,8 +9,9 @@ export default defineNuxtConfig({
       },
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { property: 'og:site_name', content: 'XDEVS.PRO' },
+        { property: 'og:site_name', content: 'XDEVS' },
         { property: 'og:image', content: 'https://xdevs.pro/ogXDEVS.png' },
+        { property: 'og:url', content: 'https://xdevs.pro/' },
         { property: "og:type", content: "website"  },
       ],
       link: [
