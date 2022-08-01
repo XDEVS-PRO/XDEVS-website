@@ -40,7 +40,7 @@ export default defineNuxtConfig({
   content: {
     nestedProperties: ['author.name'],
     highlight: {
-      theme: 'github-light'
+      theme: 'github-dark'
     }
   },
 
