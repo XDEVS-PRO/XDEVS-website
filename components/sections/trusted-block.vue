@@ -3,7 +3,7 @@
     <dark-bg />
     <stripe-wrapper :color-strip="'dark'" />
     <div class="sb__container container">
-      <div class="title-container">
+      <div class="sb__left">
         <title-block :title="'Trusted By'" :color-icon="'light'" />
         <h4 class="custom-description">
           <span>XDEVS</span> is a <span>web/mobile development</span> team built
@@ -12,12 +12,8 @@
         </h4>
       </div>
 
-      <div class="sb__customers__card__container">
-        <div
-          v-for="(item, i) in cardList"
-          :key="i"
-          class="sb__customers__card-wrapper"
-        >
+      <div class="sb__right">
+        <div v-for="(item, i) in cardList" :key="i" class="sb__wrapper-img">
           <div class="sb__customers__card">
             <div
               :style="{
@@ -38,14 +34,14 @@
                 backgroundColor: item.bgColor,
               }"
             >
-              <a rel="noreferrer nofollow" :href="item.link" target="_blank">
-                <img
+              <!-- <a rel="noreferrer nofollow" :href="item.link" target="_blank"> -->
+              <!-- <img
                   :src="item.img"
                   :alt="item.alt"
                   width="270"
                   class="sb__card"
-                />
-              </a>
+                /> -->
+              <!-- </a> -->
 
               <a rel="noreferrer nofollow" :href="item.link" target="_blank">
                 <div class="sb__customers__card-back-title">
@@ -136,16 +132,16 @@ export default defineComponent({
 
 .sb {
   &__container.container {
-    padding: 45px 1rem 160px 1rem;
+    padding: 100px 1rem 160px 1rem;
     display: flex;
-    flex-direction: column;
-
-    @include for-large() {
-      align-items: baseline;
-    }
+    flex-direction: row;
+    justify-content: space-between;
 
     @include for-middle() {
       padding-bottom: 70px;
+      padding-top: 50px;
+      flex-direction: column;
+      align-items: center;
     }
 
     @include for-average() {
@@ -154,9 +150,10 @@ export default defineComponent({
     }
   }
 
-  .title-container {
+  &__left {
     display: flex;
-    padding: 105px 0 70px;
+    flex-direction: column;
+    padding-right: 1rem;
 
     @include for-middle() {
       padding: 35px 0 20px;
@@ -169,6 +166,7 @@ export default defineComponent({
     .title {
       display: inline-block;
       padding: 0;
+      padding-bottom: 40px;
 
       @include for-average() {
         padding-bottom: 20px;
@@ -177,27 +175,44 @@ export default defineComponent({
 
     .custom-description {
       display: inline-block;
-      margin-left: 132px;
 
       @include for-average() {
         margin-left: 0;
       }
+
+      @include for-middle() {
+        margin-bottom: 30px;
+      }
     }
   }
 
-  &__customers__card__container {
+  &__right {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    max-width: 650px;
+    justify-content: space-between;
+
+    @include for-average() {
+      justify-content: space-around;
+    }
   }
 
-  &__customers__card-wrapper {
-    margin: 20px;
+  &__wrapper-img {
+    max-width: 200px;
+    width: 100%;
+    height: 120px;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    margin-bottom: 25px;
+
+    @include for-small() {
+      width: initial;
+    }
   }
 
   &__customers__card {
     width: 200px;
-    height: 200px;
     position: relative;
     perspective: 1000px;
   }
@@ -218,14 +233,6 @@ export default defineComponent({
     background-color: #fff;
     box-shadow: 0 6px 50px 0 rgba(5, 49, 91, 0.15);
     border: 1px solid #e7e8e9;
-    border-radius: 10px;
-  }
-
-  &__customers__card-front {
-    img {
-      max-width: 150px;
-      width: 100%;
-    }
   }
 
   &__customers__card-back {
@@ -234,37 +241,27 @@ export default defineComponent({
     transform: rotateY(180deg);
     text-align: center;
     a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       color: #35c5d4;
       cursor: pointer;
-      img {
-        max-width: 150px;
-        width: 100%;
-      }
+      height: 100%;
+      width: 100%;
     }
   }
 
-  &__wrapper-img {
-    max-width: 200px;
-    width: 100%;
-    height: 100px;
-    display: flex;
-    align-self: center;
-    justify-content: center;
-
-    @include for-small() {
-      width: initial;
-    }
-  }
-
-  &__customers__card-wrapper:hover &__customers__card-front {
+  &__wrapper-img:hover &__customers__card-front {
     transform: rotateY(180deg);
   }
 
-  &__customers__card-wrapper:hover &__customers__card-back {
+  &__wrapper-img:hover &__customers__card-back {
     transform: rotateY(1turn);
   }
 
   &__card {
+    margin: 0 15px;
     max-width: 200px;
 
     @include for-average() {
