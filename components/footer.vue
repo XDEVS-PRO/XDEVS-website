@@ -50,7 +50,7 @@
             </template>
           </div>
         </div>
-        <div class="footer__right">
+        <!-- <div class="footer__right">
           <a
             class="header__right-link custom-link"
             target="_blank"
@@ -58,7 +58,7 @@
           >
             <img src="../assets/core-team/social/git.svg" alt="" />
           </a>
-        </div>
+        </div> -->
       </div>
     </div>
   </footer>

@@ -2,70 +2,78 @@
   <header class="header">
     <dark-bg />
     <stripe-wrapper v-if="!hideStripes" :color-strip="'dark'" />
-    <div class="header__container container">
-      <div class="header__inner">
-        <div class="header__left">
-          <nuxt-link to="/">
-            <img
-              class="header__left-img"
-              src="~/assets/logo-header.svg"
-              width="120px"
-              alt="XDEVS"
-            />
-          </nuxt-link>
-        </div>
+    <div class="wrapper-header__container">
+      <div class="header__container container">
+        <div class="header__inner">
+          <div class="header__left">
+            <nuxt-link to="/">
+              <img
+                class="header__left-img"
+                src="~/assets/logo-header.svg"
+                width="120px"
+                alt="XDEVS"
+              />
+            </nuxt-link>
+          </div>
 
-        <div class="header__right" v-if="headerList.length">
-          <template v-if="isOnIndex">
-            <template v-for="(item, i) in headerList">
-              <NuxtLink
-                class="header__right-link custom-link"
-                v-if="item.hash"
-                :to="{ path: item.link, hash: item.hash }"
-                :key="i"
-              >
-                {{ item.title }}
-              </NuxtLink>
+          <div class="header__right" v-if="headerList.length">
+            <template v-if="isOnIndex">
+              <template v-for="(item, i) in headerList">
+                <NuxtLink
+                  class="header__right-link custom-link"
+                  v-if="item.hash"
+                  :to="{ path: item.link, hash: item.hash }"
+                  :key="i"
+                >
+                  {{ item.title }}
+                </NuxtLink>
+                <nuxt-link
+                  v-else
+                  class="header__right-link custom-link"
+                  :key="1 + i"
+                  :to="{ path: item.link, hash: item.hash }"
+                >
+                  {{ item.title }}
+                </nuxt-link>
+              </template>
+            </template>
+            <template v-else key="2">
               <nuxt-link
-                v-else
+                v-for="(item, i) in headerList"
                 class="header__right-link custom-link"
-                :key="1 + i"
+                :key="2 + i"
                 :to="{ path: item.link, hash: item.hash }"
               >
                 {{ item.title }}
               </nuxt-link>
             </template>
-            <a
-              class="header__right-link custom-link"
-              target="_blank"
-              href="https://github.com/XDEVS-PRO/XDEVS-website"
-            >
-              <img src="../assets/core-team/social/git.svg" alt="" />
-            </a>
-          </template>
-          <template v-else key="2">
-            <nuxt-link
-              v-for="(item, i) in headerList"
-              class="header__right-link custom-link"
-              :key="2 + i"
-              :to="{ path: item.link, hash: item.hash }"
-            >
-              {{ item.title }}
-            </nuxt-link>
-          </template>
 
-          <div
-            :class="[
-              'hamburger hamburger--emphatic js-hamburger',
-              { active: isShowMobMenu },
-            ]"
-            @click="isShow()"
-          >
-            <div class="hamburger-box">
-              <div class="hamburger-inner"></div>
+            <div
+              :class="[
+                'hamburger hamburger--emphatic js-hamburger',
+                { active: isShowMobMenu },
+              ]"
+              @click="isShow()"
+            >
+              <div class="hamburger-box">
+                <div class="hamburger-inner"></div>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+      <div class="githubIcon">
+        <a
+          class="header__right-link custom-link"
+          target="_blank"
+          href="https://github.com/XDEVS-PRO/XDEVS-website"
+        >
+          <img
+            class="white-img"
+            src="../assets/core-team/social/git.svg"
+            alt=""
+          />
+        </a>
       </div>
     </div>
 
@@ -119,7 +127,18 @@
           </div>
         </div>
       </div>
+
       <div class="mobile-menu_bg"></div>
+      <div class="mobile__githubIcon">
+        <a target="_blank" href="https://github.com/XDEVS-PRO/XDEVS-website">
+          <img
+            class="white-img"
+            src="../assets/core-team/social/git.svg"
+            alt=""
+          />
+        </a>
+      </div>
+
       <div class="mobile-menu_bg-deep"></div>
     </div>
   </header>
@@ -206,6 +225,23 @@ export default defineComponent({
     position: fixed;
   }
 
+  .wrapper-header__container {
+    display: flex;
+    max-width: 100%;
+    align-items: center;
+    position: relative;
+
+    .githubIcon {
+      position: absolute;
+      right: 16px;
+
+      .white-img {
+        filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(9%)
+          hue-rotate(159deg) brightness(104%) contrast(104%);
+      }
+    }
+  }
+
   &__inner {
     display: flex;
     justify-content: space-between;
@@ -233,11 +269,16 @@ export default defineComponent({
     display: flex;
     justify-content: space-between;
 
+    @media (max-width: 1268px) {
+      padding-right: 30px;
+    }
+
     @include for-middle() {
-      max-width: 460px;
+      max-width: 530px;
     }
 
     @include for-average() {
+      padding-right: 0;
       justify-content: flex-end;
     }
 
@@ -251,6 +292,18 @@ export default defineComponent({
         display: none;
       }
     }
+  }
+}
+
+.mobile__githubIcon {
+  a {
+    padding: 35px 10px 10px 10px;
+  }
+  .white-img {
+    width: 45px;
+    height: 45px;
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(9%)
+      hue-rotate(159deg) brightness(104%) contrast(104%);
   }
 }
 
