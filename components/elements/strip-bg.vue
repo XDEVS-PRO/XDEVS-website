@@ -1,10 +1,11 @@
 <template>
   <div class="strip-wrapper__bg">
     <div class="strip-wrapper__grid">
+      <!-- colorStrip === 'red' ? '#f52c68' : '#e5e5e5' -->
       <span
         class="strip-wrapper__line"
         :style="{
-          'border-color': colorStrip === 'dark' ? '#28292a' : '#e5e5e5'
+          'border-color': colorStrip === 'dark' ? '#28292a' : '#e5e5e5',
         }"
         v-for="i in 4"
         :key="i"
@@ -14,14 +15,13 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from "vue";
 
-import { defineComponent } from 'vue';
-
-export default defineComponent ({
+export default defineComponent({
   props: {
-    colorStrip: {type: String, default: 'light'}
-  }
-})
+    colorStrip: { type: String, default: "light" },
+  },
+});
 </script>
 
 <style lang="scss" scoped>

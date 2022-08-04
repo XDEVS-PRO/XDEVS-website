@@ -34,15 +34,6 @@
                 backgroundColor: item.bgColor,
               }"
             >
-              <!-- <a rel="noreferrer nofollow" :href="item.link" target="_blank"> -->
-              <!-- <img
-                  :src="item.img"
-                  :alt="item.alt"
-                  width="270"
-                  class="sb__card"
-                /> -->
-              <!-- </a> -->
-
               <a rel="noreferrer nofollow" :href="item.link" target="_blank">
                 <div class="sb__customers__card-back-title">
                   {{ item.title }}
@@ -130,9 +121,17 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import "/assets/styles/variables";
 
+.strip-wrapper__grid {
+  background: red;
+}
+
+.strip-wrapper__line {
+  border-color: #f52c68;
+}
+
 .sb {
   &__container.container {
-    padding: 100px 1rem 160px 1rem;
+    padding: 120px 1rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -148,6 +147,10 @@ export default defineComponent({
       flex-direction: column;
       padding: 0 1rem 40px 1rem;
     }
+
+    @include for-small() {
+      padding: 0 1rem 20px;
+    }
   }
 
   &__left {
@@ -155,12 +158,16 @@ export default defineComponent({
     flex-direction: column;
     padding-right: 1rem;
 
-    @include for-middle() {
-      padding: 35px 0 20px;
-    }
-
     @include for-average() {
       flex-direction: column;
+    }
+
+    @include for-middle() {
+      padding: 35px 0 0 0;
+    }
+
+    @include for-small() {
+      padding-top: 20px;
     }
 
     .title {
@@ -171,17 +178,31 @@ export default defineComponent({
       @include for-average() {
         padding-bottom: 20px;
       }
+
+      @include for-small() {
+        padding-bottom: 10px;
+      }
     }
 
     .custom-description {
       display: inline-block;
 
+      &::before {
+        background: linear-gradient(87.58deg, #f52c68, #ff4874);
+      }
+
       @include for-average() {
         margin-left: 0;
+        font-size: 0.85rem;
       }
 
       @include for-middle() {
         margin-bottom: 30px;
+      }
+
+      @include for-small() {
+        font-size: 0.75rem;
+        margin-bottom: 15px;
       }
     }
   }
@@ -204,10 +225,12 @@ export default defineComponent({
     display: flex;
     align-self: center;
     justify-content: center;
-    margin-bottom: 25px;
+    // margin-bottom: 25px;
+    margin: 6px;
 
     @include for-small() {
-      width: initial;
+      width: 44%;
+      height: 90px;
     }
   }
 
@@ -215,6 +238,14 @@ export default defineComponent({
     width: 200px;
     position: relative;
     perspective: 1000px;
+
+    @include for-average() {
+      max-width: 180px;
+    }
+
+    @include for-small() {
+      max-width: 136px;
+    }
   }
 
   &__customers__card-front,
@@ -233,6 +264,10 @@ export default defineComponent({
     background-color: #fff;
     box-shadow: 0 6px 50px 0 rgba(5, 49, 91, 0.15);
     border: 1px solid #e7e8e9;
+
+    @include for-small() {
+      // height: 80%;
+    }
   }
 
   &__customers__card-back {
@@ -262,16 +297,17 @@ export default defineComponent({
 
   &__card {
     margin: 0 15px;
-    max-width: 200px;
+    // max-width: 200px;
+    width: 90%;
 
-    @include for-average() {
-      max-width: 180px;
-    }
+    // @include for-average() {
+    //   max-width: 180px;
+    // }
 
-    @include for-small() {
-      max-width: 120px;
-      margin: 0 5px;
-    }
+    // @include for-small() {
+    //   max-width: 120px;
+    //   margin: 0 5px;
+    // }
 
     &-container {
       @include for-small() {
