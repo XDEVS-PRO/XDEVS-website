@@ -138,7 +138,6 @@
           />
         </a>
       </div>
-
       <div class="mobile-menu_bg-deep"></div>
     </div>
   </header>
@@ -296,6 +295,9 @@ export default defineComponent({
 }
 
 .mobile__githubIcon {
+  position: absolute;
+  left: 0;
+  top: 550px;
   a {
     padding: 35px 10px 10px 10px;
   }
