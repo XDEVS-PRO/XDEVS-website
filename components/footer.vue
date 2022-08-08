@@ -50,15 +50,6 @@
             </template>
           </div>
         </div>
-        <!-- <div class="footer__right">
-          <a
-            class="header__right-link custom-link"
-            target="_blank"
-            href="https://github.com/XDEVS-PRO/XDEVS-website"
-          >
-            <img src="../assets/core-team/social/git.svg" alt="" />
-          </a>
-        </div> -->
       </div>
     </div>
   </footer>
@@ -151,33 +142,10 @@ export default {
 
     a {
       font-size: 18px;
-      //margin: 0 20px 40px 20px;
       color: $white-f;
       text-decoration: none;
       display: inline-block;
       position: relative;
-
-      //@include for-smallmedium() {
-      //  margin: 20px 20px 20px 0;
-      //}
-    }
-  }
-
-  &__right {
-    display: flex;
-    align-items: center;
-    padding-left: 134px;
-
-    img {
-      width: 70px;
-    }
-
-    @include for-smallmedium() {
-      font-size: 16px;
-    }
-
-    @include for-average() {
-      display: none;
     }
   }
 }

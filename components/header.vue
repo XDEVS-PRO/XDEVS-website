@@ -297,7 +297,7 @@ export default defineComponent({
 .mobile__githubIcon {
   position: absolute;
   left: 0;
-  top: 550px;
+  top: 540px;
   a {
     padding: 35px 10px 10px 10px;
   }
