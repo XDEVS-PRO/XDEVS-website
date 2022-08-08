@@ -1,7 +1,7 @@
 <template>
   <section class="sb shadow-bg" id="trusted-by">
     <dark-bg />
-    <stripe-wrapper :color-strip="'dark'" />
+    <stripe-wrapper :color-strip="'red'" />
     <div class="sb__container container">
       <div class="sb__left">
         <title-block :title="'Trusted By'" :color-icon="'light'" />
@@ -121,14 +121,6 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import "/assets/styles/variables";
 
-.strip-wrapper__grid {
-  background: red;
-}
-
-.strip-wrapper__line {
-  border-color: #f52c68;
-}
-
 .sb {
   &__container.container {
     padding: 120px 1rem;
@@ -137,7 +129,7 @@ export default defineComponent({
     justify-content: space-between;
 
     @include for-middle() {
-      padding-bottom: 70px;
+      padding-bottom: 50px;
       padding-top: 50px;
       flex-direction: column;
       align-items: center;
@@ -145,11 +137,11 @@ export default defineComponent({
 
     @include for-average() {
       flex-direction: column;
-      padding: 0 1rem 40px 1rem;
+      padding: 40px 1rem;
     }
 
     @include for-small() {
-      padding: 0 1rem 20px;
+      padding: 20px 1rem;
     }
   }
 
@@ -162,12 +154,8 @@ export default defineComponent({
       flex-direction: column;
     }
 
-    @include for-middle() {
-      padding: 35px 0 0 0;
-    }
-
     @include for-small() {
-      padding-top: 20px;
+      padding: 0;
     }
 
     .title {
@@ -186,10 +174,6 @@ export default defineComponent({
 
     .custom-description {
       display: inline-block;
-
-      &::before {
-        background: linear-gradient(87.58deg, #f52c68, #ff4874);
-      }
 
       @include for-average() {
         margin-left: 0;
@@ -225,12 +209,16 @@ export default defineComponent({
     display: flex;
     align-self: center;
     justify-content: center;
-    // margin-bottom: 25px;
-    margin: 6px;
+    margin: 10px;
 
     @include for-small() {
       width: 44%;
       height: 90px;
+    }
+
+    @include for-verysmall() {
+      width: 40%;
+      height: 60px;
     }
   }
 
@@ -264,10 +252,6 @@ export default defineComponent({
     background-color: #fff;
     box-shadow: 0 6px 50px 0 rgba(5, 49, 91, 0.15);
     border: 1px solid #e7e8e9;
-
-    @include for-small() {
-      // height: 80%;
-    }
   }
 
   &__customers__card-back {
@@ -297,18 +281,8 @@ export default defineComponent({
 
   &__card {
     margin: 0 15px;
-    // max-width: 200px;
-    width: 90%;
-
-    // @include for-average() {
-    //   max-width: 180px;
-    // }
-
-    // @include for-small() {
-    //   max-width: 120px;
-    //   margin: 0 5px;
-    // }
-
+    max-width: 200px;
+    height: 100%;
     &-container {
       @include for-small() {
         display: none;

@@ -1,6 +1,6 @@
 <template>
   <section class="ts" id="tech-stack">
-    <stripe-wrapper :color-strip="'ling'" />
+    <stripe-wrapper :color-strip="'light'" />
     <div class="ts__container container">
       <title-block :title="'Tech Stack'" :color-icon="'dark'" />
       <div :class="['ts__inner', `state-${classState}`]">
@@ -55,7 +55,11 @@
           </p>
           <div class="tabs-inner">
             <div class="tabs-inner-python">
-              <img src="~/assets/tech-stack/python.svg" alt="Python" width="44" />
+              <img
+                src="~/assets/tech-stack/python.svg"
+                alt="Python"
+                width="44"
+              />
               <p>Python</p>
             </div>
             <div class="tabs-inner-nodejs">
@@ -108,7 +112,11 @@
           </p>
           <div class="screen-inner">
             <div class="screen-inner_angular">
-              <img src="~/assets/tech-stack/angular.svg" alt="Angular" width="53" />
+              <img
+                src="~/assets/tech-stack/angular.svg"
+                alt="Angular"
+                width="53"
+              />
               <p>Angular</p>
             </div>
             <div class="screen-inner_react">
@@ -225,13 +233,13 @@
             :alt="item.className"
             :style="{
               opacity:
-                item.className === isShowTextId && isShowText ? '0.4' : null
+                item.className === isShowTextId && isShowText ? '0.4' : null,
             }"
           />
           <p
             :class="[
               `ts__inner-mob_text-${item.className}`,
-              { active: item.className === isShowTextId && isShowText }
+              { active: item.className === isShowTextId && isShowText },
             ]"
           >
             {{ item.text }}
@@ -260,15 +268,15 @@
 import TitleBlock from "~/components/elements/title.vue";
 import StripeWrapper from "~/components/elements/strip-bg.vue";
 import CustomModal from "~/components/elements/custom-modal.vue";
-import imgs from '~/assets/tech-stack'
-import { defineComponent } from 'vue';
-import { ref } from 'vue';
+import imgs from "~/assets/tech-stack";
+import { defineComponent } from "vue";
+import { ref } from "vue";
 
 export default defineComponent({
   components: {
     TitleBlock,
     StripeWrapper,
-    CustomModal
+    CustomModal,
   },
 
   setup() {
@@ -284,45 +292,42 @@ export default defineComponent({
       {
         img: imgs.cloud,
         className: "cloud",
-        text:
-            "We ensure that our solution will be online 100% time. We use only tested hosting providers.",
-        textId: "cloud"
+        text: "We ensure that our solution will be online 100% time. We use only tested hosting providers.",
+        textId: "cloud",
       },
       {
         img: imgs.phone,
         className: "phone",
-        text:
-            "We build mobile apps for both Android and IOS at once to save your time and money.",
-        textId: "phone"
+        text: "We build mobile apps for both Android and IOS at once to save your time and money.",
+        textId: "phone",
       },
       {
         img: imgs.screen,
         className: "screen",
         text: "We use only well-known professional front-end frameworks.",
-        textId: "screen"
+        textId: "screen",
       },
       {
         img: imgs.tabs,
         className: "tabs",
-        text:
-            "The variety of backend languages and frameworks we know helps us to choose the best solution for your needs.",
-        textId: "tabs"
-      }
+        text: "The variety of backend languages and frameworks we know helps us to choose the best solution for your needs.",
+        textId: "tabs",
+      },
     ];
 
     function changeState(state: any = "default") {
       classState.value = state;
-    };
+    }
 
     function showText(item: any) {
       isShowTextId.value = item;
       isShowText.value = !isShowText.value;
-    };
+    }
 
     function isShowingModal(item: any) {
       dataModalCard.value = item;
       isShowModal.value = true;
-    };
+    }
 
     function isClosedModal() {
       dataModalCard.value = {};
@@ -341,9 +346,9 @@ export default defineComponent({
       showText,
       isShowingModal,
       isClosedModal,
-    }
+    };
   },
-})
+});
 </script>
 
 <style lang="scss" scoped>

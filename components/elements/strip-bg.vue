@@ -5,7 +5,7 @@
       <span
         class="strip-wrapper__line"
         :style="{
-          'border-color': colorStrip === 'dark' ? '#28292a' : '#e5e5e5',
+          'border-color': colorStripColor,
         }"
         v-for="i in 4"
         :key="i"
@@ -20,6 +20,21 @@ import { defineComponent } from "vue";
 export default defineComponent({
   props: {
     colorStrip: { type: String, default: "light" },
+  },
+
+  setup(props) {
+    let colorStripColor = null;
+
+    if (props.colorStrip === "dark") {
+      // console.log(props.colorStrip);
+      colorStripColor = "#28292a";
+    } else if (props.colorStrip === "light") {
+      colorStripColor = "#e5e5e5";
+    } else {
+      colorStripColor = "#f52c68";
+    }
+
+    return { colorStripColor };
   },
 });
 </script>
