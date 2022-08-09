@@ -1,6 +1,6 @@
 ---
 topic: Variables & Scopes in JavaScript
-createdAt: 1655420400000
+createdAt: 1660075676825
 category: Web development
 title: Variables & Scopes in JS.
 description: New in JavaScript? Let me help you to dive in.
@@ -18,7 +18,7 @@ This article will overview variables and scopes in JavaScript and other related 
 
 ## Global Scope.
 
-We declare `var` and `let` variables in our JS file.
+Let's declare `var` and `let` variables in our JS file.
 If variables are not in the function, like in example below, they become a part of Global Scope.
 
 ```js
