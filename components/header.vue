@@ -2,62 +2,61 @@
   <header class="header">
     <dark-bg />
     <stripe-wrapper v-if="!hideStripes" :color-strip="'dark'" />
-    <div class="wrapper-header__container">
-      <div class="header__container container">
-        <div class="header__inner">
-          <div class="header__left">
-            <nuxt-link to="/">
-              <img
-                class="header__left-img"
-                src="~/assets/logo-header.svg"
-                width="120px"
-                alt="XDEVS"
-              />
-            </nuxt-link>
-          </div>
+    <!-- <div class="wrapper-header__container"> -->
+    <div class="header__container container">
+      <div class="header__inner">
+        <div class="header__left">
+          <nuxt-link to="/">
+            <img
+              class="header__left-img"
+              src="~/assets/logo-header.svg"
+              width="120px"
+              alt="XDEVS"
+            />
+          </nuxt-link>
+        </div>
 
-          <div class="header__right" v-if="headerList.length">
-            <template v-if="isOnIndex">
-              <template v-for="(item, i) in headerList">
-                <NuxtLink
-                  class="header__right-link custom-link"
-                  v-if="item.hash"
-                  :to="{ path: item.link, hash: item.hash }"
-                  :key="i"
-                >
-                  {{ item.title }}
-                </NuxtLink>
-                <nuxt-link
-                  v-else
-                  class="header__right-link custom-link"
-                  :key="1 + i"
-                  :to="{ path: item.link, hash: item.hash }"
-                >
-                  {{ item.title }}
-                </nuxt-link>
-              </template>
-            </template>
-            <template v-else key="2">
-              <nuxt-link
-                v-for="(item, i) in headerList"
+        <div class="header__right" v-if="headerList.length">
+          <template v-if="isOnIndex">
+            <template v-for="(item, i) in headerList">
+              <NuxtLink
                 class="header__right-link custom-link"
-                :key="2 + i"
+                v-if="item.hash"
+                :to="{ path: item.link, hash: item.hash }"
+                :key="i"
+              >
+                {{ item.title }}
+              </NuxtLink>
+              <nuxt-link
+                v-else
+                class="header__right-link custom-link"
+                :key="1 + i"
                 :to="{ path: item.link, hash: item.hash }"
               >
                 {{ item.title }}
               </nuxt-link>
             </template>
-
-            <div
-              :class="[
-                'hamburger hamburger--emphatic js-hamburger',
-                { active: isShowMobMenu },
-              ]"
-              @click="isShow()"
+          </template>
+          <template v-else key="2">
+            <nuxt-link
+              v-for="(item, i) in headerList"
+              class="header__right-link custom-link"
+              :key="2 + i"
+              :to="{ path: item.link, hash: item.hash }"
             >
-              <div class="hamburger-box">
-                <div class="hamburger-inner"></div>
-              </div>
+              {{ item.title }}
+            </nuxt-link>
+          </template>
+
+          <div
+            :class="[
+              'hamburger hamburger--emphatic js-hamburger',
+              { active: isShowMobMenu },
+            ]"
+            @click="isShow()"
+          >
+            <div class="hamburger-box">
+              <div class="hamburger-inner"></div>
             </div>
           </div>
         </div>
@@ -76,6 +75,8 @@
         </a>
       </div>
     </div>
+
+    <!-- </div> -->
 
     <!--  mob menu -->
     <div :class="['mobile-menu', { active: isShowMobMenu }]">
@@ -224,20 +225,14 @@ export default defineComponent({
     position: fixed;
   }
 
-  .wrapper-header__container {
-    display: flex;
-    max-width: 100%;
-    align-items: center;
-    position: relative;
+  .githubIcon {
+    position: absolute;
+    right: 16px;
+    top: 8px;
 
-    .githubIcon {
-      position: absolute;
-      right: 16px;
-
-      .white-img {
-        filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(9%)
-          hue-rotate(159deg) brightness(104%) contrast(104%);
-      }
+    .white-img {
+      filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(9%)
+        hue-rotate(159deg) brightness(104%) contrast(104%);
     }
   }
 
@@ -268,9 +263,9 @@ export default defineComponent({
     display: flex;
     justify-content: space-between;
 
-    @media (max-width: 1268px) {
-      padding-right: 30px;
-    }
+    // @media (max-width: 1268px) {
+    //   padding-right: 30px;
+    // }
 
     @include for-middle() {
       max-width: 530px;
