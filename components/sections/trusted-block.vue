@@ -17,6 +17,40 @@
         </div>
       </div>
     </div>
+
+    <div class="upwork__container container">
+      <div class="upwork__left">
+        <div class="logo-wrapper">
+          <span>a trusted digital agency</span>
+          <title-block :title="'XDEV on Upwork'" :color-icon="'light'" />
+        </div>
+        <h4 class="custom-description">
+          In order to ensure the sefety of our job we have created an agency on
+          the world known freelance website.
+        </h4>
+        <a
+          href="https://www.upwork.com/ag/xdevs/"
+          target="_blank"
+          class="x-btn"
+        >
+          {{ btnText }}
+        </a>
+      </div>
+      <div class="upwork__right">
+        <div class="imgs-wrapper">
+          <img
+            class="upwork-window"
+            src="@/assets/trusted-by/screen.webp"
+            alt="upwork-window"
+          />
+          <img
+            class="shadow"
+            src="@/assets/trusted-by/shadow.webp"
+            alt="shadow for upwork-window"
+          />
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 
@@ -26,61 +60,64 @@ import DarkBg from "~/components/elements/dark-bg.vue";
 import StripeWrapper from "~/components/elements/strip-bg.vue";
 
 //imgs
-import imgs from '~/assets/slider';
-import { defineComponent } from 'vue';
+import imgs from "~/assets/slider";
+import { defineComponent } from "vue";
 
 export default defineComponent({
   components: {
     TitleBlock,
     DarkBg,
-    StripeWrapper
+    StripeWrapper,
   },
   setup() {
     const cardList = [
       {
         img: imgs.tab1,
         link: "https://www.google.com",
-        alt: "INOXOFT"
+        alt: "INOXOFT",
       },
       {
         img: imgs.tab2,
         link: "https://www.google.com",
-        alt: "Octopus"
+        alt: "Octopus",
       },
       {
         img: imgs.tab3,
         link: "https://www.google.com",
-        alt: "Singlead"
+        alt: "Singlead",
       },
       {
         img: imgs.tab4,
         link: "https://www.google.com",
-        alt: "zitemedia"
+        alt: "zitemedia",
       },
       {
         img: imgs.tab5,
         link: "https://www.google.com",
-        alt: "chargeback"
+        alt: "chargeback",
       },
       {
         img: imgs.tab6,
         link: "https://www.google.com",
-        alt: "DevLogics"
-      }
+        alt: "DevLogics",
+      },
     ];
+    const btnText = "<Go To Upwork>";
     return {
-      cardList
-    }
-  }
-})
+      cardList,
+      btnText,
+    };
+  },
+});
 </script>
 
 <style lang="scss" scoped>
 @import "/assets/styles/variables";
 
 .sb {
-  &__container.container {
-    padding: 45px 1rem 160px 1rem;
+  &__container.container,
+  .upwork__container {
+    padding: 45px 1rem;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -149,6 +186,119 @@ export default defineComponent({
     &-container {
       @include for-small() {
         display: none;
+      }
+    }
+  }
+}
+
+.upwork {
+  &__container.container {
+    padding-bottom: 150px;
+    align-items: flex-start;
+
+    @include for-average() {
+      flex-direction: row;
+    }
+  }
+  &__left {
+    align-self: flex-start;
+
+    @include for-small() {
+      width: 100%;
+    }
+
+    .logo-wrapper {
+      position: relative;
+      span {
+        position: absolute;
+        background: -webkit-linear-gradient(87.58deg, #0085ff, #11a9ff);
+        font-size: 1rem;
+        font-family: Noto Sans JP;
+        line-height: 1.2rem;
+        // padding-left: 72px;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        top: -16px;
+        left: 72px;
+
+        // @include for-small() {
+        // padding-left: 168px;
+        // }
+      }
+
+      .title {
+        padding-top: 10px;
+      }
+    }
+    .custom-description {
+      margin-bottom: 70px;
+
+      @include for-large() {
+        padding-right: 40px;
+      }
+
+      @include for-smallmedium() {
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  &__right {
+    max-width: 650px;
+    margin-right: 16px;
+
+    @include for-average() {
+      align-self: center;
+      display: block;
+    }
+
+    @include for-small() {
+      display: none;
+    }
+
+    .imgs-wrapper {
+      position: relative;
+
+      .upwork-window {
+        @include for-large() {
+          max-width: 500px;
+        }
+
+        @include for-middle() {
+          max-width: 400px;
+        }
+
+        @include for-average() {
+          max-width: 250px;
+        }
+
+        @include for-smallmedium() {
+          max-width: 150px;
+        }
+      }
+
+      .shadow {
+        position: absolute;
+        bottom: -56px;
+        left: -26px;
+
+        @include for-large() {
+          max-width: 540px;
+        }
+
+        @include for-middle() {
+          max-width: 440px;
+        }
+
+        @include for-average() {
+          max-width: 290px;
+          bottom: -32px;
+          left: -20px;
+        }
+
+        @include for-smallmedium() {
+          max-width: 190px;
+        }
       }
     }
   }
