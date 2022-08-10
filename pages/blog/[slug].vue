@@ -44,7 +44,6 @@ definePageMeta({
 
 <style lang="scss">
 @import "/assets/styles/variables";
-@import "/assets/styles/prism";
 
 .blog-article {
   padding-top: 100px;
@@ -205,5 +204,12 @@ definePageMeta({
 
 .language-js.line-numbers {
   border-radius: 4px;
+}
+
+pre {
+  border-radius: 0.3em;
+  padding: 1em;
+  margin: 0.5em 0;
+  background: #232323;
 }
 </style>
