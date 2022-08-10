@@ -213,7 +213,7 @@ export default defineComponent({
 
     @include for-small() {
       width: 44%;
-      height: 90px;
+      height: 80px;
     }
 
     @include for-verysmall() {
