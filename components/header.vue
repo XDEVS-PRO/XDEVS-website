@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header :class="['header', { active: isShowMobMenu }]">
     <dark-bg />
     <stripe-wrapper v-if="!hideStripes" :color-strip="'dark'" />
     <!-- <div class="wrapper-header__container"> -->
@@ -128,18 +128,17 @@
           </div>
         </div>
       </div>
-
       <div class="mobile-menu_bg"></div>
-      <div class="mobile__githubIcon">
-        <a target="_blank" href="https://github.com/XDEVS-PRO/XDEVS-website">
-          <img
-            class="white-img"
-            src="../assets/core-team/social/git.svg"
-            alt=""
-          />
-        </a>
-      </div>
       <div class="mobile-menu_bg-deep"></div>
+    </div>
+    <div class="mobile__githubIcon">
+      <a target="_blank" href="https://github.com/XDEVS-PRO/XDEVS-website">
+        <img
+          class="white-img"
+          src="../assets/core-team/social/git.svg"
+          alt=""
+        />
+      </a>
     </div>
   </header>
 </template>
@@ -225,6 +224,16 @@ export default defineComponent({
     position: fixed;
   }
 
+  &.active {
+    height: 100%;
+
+    @media screen and (min-height: 570px) {
+      .mobile__githubIcon {
+        display: block;
+      }
+    }
+  }
+
   .githubIcon {
     position: absolute;
     right: 16px;
@@ -290,12 +299,15 @@ export default defineComponent({
 }
 
 .mobile__githubIcon {
+  display: none;
   position: absolute;
-  left: 0;
-  top: 540px;
+  left: 16px;
+  bottom: 8px;
+
   a {
     padding: 35px 10px 10px 10px;
   }
+
   .white-img {
     width: 45px;
     height: 45px;
