@@ -148,8 +148,8 @@ func();
             
 ```
 
-Wow! We get `undefined` here! Let me tell you why.
-We don't pass a value to `func()` when calling it, but in the function declaration, func(x) has x as the argument. So when JavaScript calls `console.log(x)`, it looks for the `x` variable in the function's scope and finds it. But since we don't pass any value as an argument, the value of x is `undefined`.
+Wow! We get `undefined` here! The reason is
+we don't pass a value to `func()` when calling it, but in the function declaration, func(x) has x as the argument. So when JavaScript calls `console.log(x)`, it looks for the `x` variable in the function's scope and finds it. But since we don't pass any value as an argument, the value of x is `undefined`.
 
 Let's change the example a bit.
 ```js
@@ -176,7 +176,7 @@ In this diagram, coffee and name are variables in functions lexical environment,
 
 ## Closures.
 
-Imagine we want to create a `function` that counts how much ice latte we have drunk.  But there is one condition, we want to make the counter variable accessible only with the `function`.
+Imagine we want to create a `function` that counts how much ice latte we have drunk.  But there is one condition, we want to make the counter variable accessible only within the `function`.
 ```js
 function drinkLatte() {
   let  counter = 0;
@@ -188,9 +188,9 @@ console.log(drinkLatte()); // 1
 console.log(drinkLatte()); // 1
 
 ```
-But there is one issue with this code. Is the counter variable accessible only with the function? Yes. Is this code works properly? No.
+Have you noticed the issue? Is the counter variable accessible only with the function? Yes. Is this code works properly? No.
 Every time we call `drinkLatte()` it will return 1. It works like this because the counter’s variable lifetime ends with the function’s close bracket. So in this example, we create a counter variable three times with a value of 0, then increment the counter to a value of 1 and return. We need a mechanism that can save the state of variables.
-Closures can help us with that. Here is another example with using of closures.
+Closures can help us with that. Here is another example using closures.
 ```js
 function getLatte() {
   let  counter = 0;
@@ -206,8 +206,8 @@ console.log(latte()); // 2
 console.log(latte()); // 3
 
 ```
-It works! We created a new function named getLatte which wrapped our previous function. The getLatte function has a counter variable declared in it, and it returns the drinkLatte function, which increments the counter variable from the outer function.
-Then we initialize the latte variable with returned function, so now we can call the drinkLatte function from that variable.
+It works! We created a new function named `getLatte` which wrapped our previous function. The `getLatte` function has a counter variable declared in it, and it returns the drinkLatte function, which increments the counter variable from the outer function.
+Then we initialize the `latte` variable with returned function, so now we can call the `drinkLatte` function from that variable.
 
 With Closures, we can expand the lifetime of a variable and use it in inner functions.
 
@@ -217,10 +217,10 @@ With Closures, we can expand the lifetime of a variable and use it in inner func
 
 
 Avoid using Global Variables without good reason.
-Use `let` & `const` instead of `var` because it’s safer.
+Use `let` & `const` instead of `var` as it is much safer.
 Be aware of TDZ and keep in mind how Lexical Environment works.
 
 
-That’s all! Thanks for reading. If you liked the article, you could help Ukraine. Even $1 would be great.
+That’s all! Thanks for reading. If you liked the article, you could help Ukraine. Even $1 would help.
 
 Come Back Alive Fund: https://savelife.in.ua/en/donate-en/.
