@@ -304,6 +304,10 @@ export default defineComponent({
   left: 16px;
   bottom: 8px;
 
+  @include for-verysmall() {
+    left: 6px;
+  }
+
   a {
     padding: 35px 10px 10px 10px;
   }
