@@ -211,5 +211,6 @@ pre {
   padding: 1em;
   margin: 0.5em 0;
   background: #232323;
+  color: white;
 }
 </style>
