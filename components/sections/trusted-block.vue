@@ -21,7 +21,7 @@
     <div class="upwork__container container">
       <div class="upwork__left">
         <div class="logo-wrapper">
-          <span>a trusted digital agency</span>
+          <span class="above-title">a trusted digital agency</span>
           <title-block :title="'XDEV on Upwork'" :color-icon="'light'" />
         </div>
         <h4 class="custom-description">
@@ -196,8 +196,13 @@ export default defineComponent({
     padding-bottom: 150px;
     align-items: flex-start;
 
+    @include for-middle() {
+      padding-bottom: 45px;
+    }
+
     @include for-average() {
       flex-direction: row;
+      padding-top: 45px;
     }
   }
   &__left {
@@ -209,7 +214,8 @@ export default defineComponent({
 
     .logo-wrapper {
       position: relative;
-      span {
+
+      .above-title {
         position: absolute;
         background: -webkit-linear-gradient(87.58deg, #0085ff, #11a9ff);
         font-size: 1rem;
@@ -221,9 +227,13 @@ export default defineComponent({
         top: -16px;
         left: 72px;
 
-        // @include for-small() {
-        // padding-left: 168px;
-        // }
+        @include for-small() {
+          left: initial;
+          right: initial;
+          width: 100%;
+          text-align: center;
+          margin-left: -10px;
+        }
       }
 
       .title {
