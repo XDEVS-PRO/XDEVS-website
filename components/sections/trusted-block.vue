@@ -218,7 +218,7 @@ export default defineComponent({
 
     @include for-verysmall() {
       width: 40%;
-      height: 60px;
+      height: 50px;
     }
   }
 
@@ -233,6 +233,17 @@ export default defineComponent({
 
     @include for-small() {
       max-width: 136px;
+    }
+
+    a {
+      font-size: 16px;
+      @include for-small() {
+        font-size: 12px;
+      }
+
+      @include for-verysmall() {
+        font-size: 10px;
+      }
     }
   }
 
@@ -252,6 +263,19 @@ export default defineComponent({
     background-color: #fff;
     box-shadow: 0 6px 50px 0 rgba(5, 49, 91, 0.15);
     border: 1px solid #e7e8e9;
+
+    img {
+      max-width: 150px;
+      max-height: 50px;
+
+      @include for-small() {
+        max-width: 100px;
+      }
+
+      @include for-verysmall() {
+        max-width: 70px;
+      }
+    }
   }
 
   &__customers__card-back {
@@ -283,6 +307,7 @@ export default defineComponent({
     margin: 0 15px;
     max-width: 200px;
     height: 100%;
+
     &-container {
       @include for-small() {
         display: none;
