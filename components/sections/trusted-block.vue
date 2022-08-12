@@ -1,7 +1,7 @@
 <template>
   <section class="sb shadow-bg" id="trusted-by">
     <dark-bg />
-    <stripe-wrapper :color-strip="'red'" />
+    <stripe-wrapper :color-strip="'dark'" />
     <div class="sb__container container">
       <div class="sb__left">
         <title-block :title="'Trusted By'" :color-icon="'light'" />
