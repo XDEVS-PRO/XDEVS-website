@@ -26,53 +26,53 @@ import DarkBg from "~/components/elements/dark-bg.vue";
 import StripeWrapper from "~/components/elements/strip-bg.vue";
 
 //imgs
-import imgs from '~/assets/slider';
-import { defineComponent } from 'vue';
+import imgs from "~/assets/slider";
+import { defineComponent } from "vue";
 
 export default defineComponent({
   components: {
     TitleBlock,
     DarkBg,
-    StripeWrapper
+    StripeWrapper,
   },
   setup() {
     const cardList = [
       {
         img: imgs.tab1,
         link: "https://www.google.com",
-        alt: "INOXOFT"
+        alt: "INOXOFT",
       },
       {
         img: imgs.tab2,
         link: "https://www.google.com",
-        alt: "Octopus"
+        alt: "Octopus",
       },
       {
         img: imgs.tab3,
         link: "https://www.google.com",
-        alt: "Singlead"
+        alt: "Singlead",
       },
       {
         img: imgs.tab4,
         link: "https://www.google.com",
-        alt: "zitemedia"
+        alt: "zitemedia",
       },
       {
         img: imgs.tab5,
         link: "https://www.google.com",
-        alt: "chargeback"
+        alt: "chargeback",
       },
       {
         img: imgs.tab6,
         link: "https://www.google.com",
-        alt: "DevLogics"
-      }
+        alt: "DevLogics",
+      },
     ];
     return {
-      cardList
-    }
-  }
-})
+      cardList,
+    };
+  },
+});
 </script>
 
 <style lang="scss" scoped>
