@@ -2,10 +2,20 @@
   <div class="blog-footer">
     <div class="blog-author-wrapper">
       <div class="blog-author-details">
-        <img v-if="author && author.img" :src="author.img" class="blog-author-image" alt="Author">
+        <img
+          v-if="author && author.img"
+          :src="author.img"
+          :srcset="author.smallImg"
+          class="blog-author-image"
+          alt="Author"
+        />
         <div class="blog-author-description">
-          <h6 v-if="author && author.name" class="blog-author-name">{{ author.name }}</h6>
-          <span v-if="author && author.bio" class="blog-author-position">{{ author.bio }}</span>
+          <h6 v-if="author && author.name" class="blog-author-name">
+            {{ author.name }}
+          </h6>
+          <span v-if="author && author.bio" class="blog-author-position">{{
+            author.bio
+          }}</span>
         </div>
       </div>
       <nuxt-link to="/" class="blog-author-link">Meet the author</nuxt-link>
@@ -15,10 +25,10 @@
 
 <script lang="ts" setup>
 interface Props {
-  author: { img: string, name: string, bio: string },
+  author: { img: string; name: string; bio: string; smallImg: string };
 }
 
-const {author} = defineProps<Props>()
+const { author } = defineProps<Props>();
 </script>
 
 <style lang="scss" scoped>
@@ -32,7 +42,7 @@ const {author} = defineProps<Props>()
 }
 
 .blog-author-wrapper {
-  border-top: 1px solid #EDEDED;
+  border-top: 1px solid #ededed;
   padding-top: 20px;
   display: flex;
   justify-content: space-between;
@@ -67,12 +77,12 @@ const {author} = defineProps<Props>()
 }
 
 .blog-author-position {
-  color: #6D6D6D;
+  color: #6d6d6d;
   font-size: 16px;
 }
 
 .blog-author-link {
-  border: 1px solid #42484F;
+  border: 1px solid #42484f;
   padding: 20px 40px;
   font-size: 16px;
   font-weight: 600;
