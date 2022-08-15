@@ -229,7 +229,8 @@ export default defineComponent({
 
     @media screen and (min-height: 570px) {
       .mobile__githubIcon {
-        display: block;
+        visibility: visible;
+        opacity: 0.6;
       }
     }
   }
@@ -299,7 +300,9 @@ export default defineComponent({
 }
 
 .mobile__githubIcon {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear 1s;
   position: absolute;
   left: 16px;
   bottom: 8px;
