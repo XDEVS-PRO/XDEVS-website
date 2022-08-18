@@ -3,7 +3,7 @@ topic: Variables & Scopes in JavaScript
 createdAt: 1660075676825
 category: Web development
 title: Variables & Scopes in JS.
-description: New in JavaScript? Let me help you to dive in.
+description: New to JavaScript? Let me help you to dive in.
 image: /blog/vars_scopes_js/js-logo.png
 head.image: "/blog/vars_scopes_js/js-logo.png"
 author:
@@ -24,15 +24,14 @@ If variables are not in the function, like in example below, they become a part 
 ```js
 var a = 10;
 let b = 10;
-
 ```
 
-This is bad for a few reasons. 
+This is bad for a few reasons.
 
-Reason one: a lifetime of the variables in Global Scope is infinite until a user closes the tab in the browser. If you store much data in Global Scope, it may affect performance and memory consumption. 
+Reason one: lifetime of the variables in Global Scope is infinite until user closes the tab in the browser. If you store a lot of data in Global Scope, it may affect performance and memory consumption.
 
-Reason two: declare a variable in Global Scope without a good reason is an efficient way to write poor code.
-Because the code written this way is harder to support, test, and understand. 
+Reason two: declaring a variable in Global Scope without a good reason is an efficient way to write poor code,
+because the code written this way is harder to support, test, and understand.
 
 Reason three (for `var` only): If you are not using 'strict mode' in your JS file, `var` in Global Scope will become the property of the window object. With this, you can accidentally overwrite the window’s object variable or function, and that would lead only to pain, fear, and bugs.
 
@@ -42,58 +41,57 @@ Reason three (for `var` only): If you are not using 'strict mode' in your JS fil
 
 ```js
 function outer() {
- var x = 12;
+  var x = 12;
 
- function inner() {
-  console.log(x); // 12
- }
+  function inner() {
+    console.log(x); // 12
+  }
 
- if (2 + 2 == 4) {
-  console.log(x); // 12
- }
+  if (2 + 2 == 4) {
+    console.log(x); // 12
+  }
 
- inner();
+  inner();
 }
 
 outer();
-    
 ```
 
-As you can see, we can access the `x` variable anywhere in the function where it was declared. Independent of nesting level. In that case, the `x` variable lifetime end's only with a close bracket of function where it was declared.
+As you can see, we can access the `x` variable anywhere in the function where it was declared. Independent of nesting level. In that case, the `x` variable lifetime ends only with a closing bracket of function where it was declared.
 
 ## Block Scope.
 
-Opposite of Function Scope is the Block Scope. When you declare a `let` variable, its lifetime ends with a close bracket of its block.
+Opposite of Function Scope is the Block Scope. When you declare a `let` variable, its lifetime ends with a closing bracket of its block.
+
 ```js
 {
-  let  x = 10;
+  let x = 10;
 } // lifetime of x ends.
-
 ```
 
 Also, you can access the `x` variable only from inside the block where it was declared.
+
 ```js
 function func() {
   if (2 + 2 == 4) {
-      let  x = 10
-      console.log(x); // 10
-    }
+    let x = 10;
+    console.log(x); // 10
+  }
 
   console.log(x); // Uncaught ReferenceError: x is not defined
 }
 
 func();
-
 ```
 
 ## const Variable. 
 
 `const` is the same as `let`, but you can't change the variable value after initialization.
+
 ```js
 const x = 10;
 
 x = 5; // Uncaught TypeError: Assignment to constant variable.
-
 ```
 
 :article-img{src="/blog/vars_scopes_js/meme_03.webp" alt="meme_03"}
@@ -101,6 +99,7 @@ x = 5; // Uncaught TypeError: Assignment to constant variable.
 ## Temporal Dead Zone (TDZ)
 
 And this is where all the fun begins.
+
 ```js
 function simpleFunc() {
   console.log(x); // Reference error
@@ -109,10 +108,10 @@ function simpleFunc() {
 }
 
 simpleFunc();
-
 ```
 
 And what is going to happen if we change `let` to `var`?
+
 ```js
 function simpleFunc() {
   console.log(x); // undefined
@@ -121,7 +120,6 @@ function simpleFunc() {
 }
 
 simpleFunc();
-
 ```
 
 Interesting. To understand this, we need to talk about hoisting. 
@@ -135,23 +133,24 @@ Also, `var` and `let`/`const` behaviours differently in TDZ. In the case of `let
 
 :article-img{src="/blog/vars_scopes_js/meme_01.jpeg" alt="meme_1"}
 
-
 ## Arguments in functions & Lexical Environment.
 
 Arguments that you pass into the function are attached to the scope of that function.
+
 ```js
 function func(x) {
   console.log(x); // undefined
 }
 var x = 'I'm outside the function!';
 func();
-            
+
 ```
 
 Wow! We get `undefined` here! The reason is
 we don't pass a value to `func()` when calling it, but in the function declaration, func(x) has x as the argument. So when JavaScript calls `console.log(x)`, it looks for the `x` variable in the function's scope and finds it. But since we don't pass any value as an argument, the value of x is `undefined`.
 
 Let's change the example a bit.
+
 ```js
 function func(a) {
   console.log(x); // I'm outside the function!
@@ -171,32 +170,33 @@ This diagram shows Lexical Environment conditionally but can help you understand
 
 :article-img{src="/blog/vars_scopes_js/diagram.png" alt="meme_03"}
 
-
 In this diagram, coffee and name are variables in functions lexical environment, and ref leads to outer Lexical environment. Ref of Global Scope is `null`.
 
 ## Closures.
 
 Imagine we want to create a `function` that counts how much ice latte we have drunk.  But there is one condition, we want to make the counter variable accessible only within the `function`.
+
 ```js
 function drinkLatte() {
-  let  counter = 0;
-    return ++counter;
+  let counter = 0;
+  return ++counter;
 }
 
 console.log(drinkLatte()); // 1
 console.log(drinkLatte()); // 1
 console.log(drinkLatte()); // 1
-
 ```
-Have you noticed the issue? Is the counter variable accessible only with the function? Yes. Is this code works properly? No.
+
+Have you noticed the issue? Is the counter variable accessible only with the function? Yes. Does this code work properly? No.
 Every time we call `drinkLatte()` it will return 1. It works like this because the counter’s variable lifetime ends with the function’s close bracket. So in this example, we create a counter variable three times with a value of 0, then increment the counter to a value of 1 and return. We need a mechanism that can save the state of variables.
 Closures can help us with that. Here is another example using closures.
+
 ```js
 function getLatte() {
-  let  counter = 0;
+  let counter = 0;
   return function drinkLatte() {
-          return ++counter;
-        }
+    return ++counter;
+  };
 }
 
 const latte = getLatte();
@@ -204,8 +204,8 @@ const latte = getLatte();
 console.log(latte()); // 1
 console.log(latte()); // 2
 console.log(latte()); // 3
-
 ```
+
 It works! We created a new function named `getLatte` which wrapped our previous function. The `getLatte` function has a counter variable declared in it, and it returns the drinkLatte function, which increments the counter variable from the outer function.
 Then we initialize the `latte` variable with returned function, so now we can call the `drinkLatte` function from that variable.
 
@@ -215,11 +215,9 @@ With Closures, we can expand the lifetime of a variable and use it in inner func
 
 :article-img{src="/blog/vars_scopes_js/meme_02.jpeg" alt="meme_02"}
 
-
 Avoid using Global Variables without good reason.
 Use `let` & `const` instead of `var` as it is much safer.
 Be aware of TDZ and keep in mind how Lexical Environment works.
-
 
 That’s all! Thanks for reading. If you liked the article, you could help Ukraine. Even $1 would help.
 

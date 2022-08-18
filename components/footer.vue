@@ -14,9 +14,7 @@
             />
           </a>
 
-          <h4 class="footer__left-text">
-           On  <span>🔥</span> since 2020
-          </h4>
+          <h4 class="footer__left-text">On <span>🔥</span> since 2020</h4>
         </div>
         <div class="footer__center">
           <div class="footer__center-inner custom-description">
@@ -83,10 +81,10 @@ export default {
 
     return {
       isOnIndex,
-      headerList: headerListData
-    }
-  }
-}
+      headerList: headerListData,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -144,25 +142,10 @@ export default {
 
     a {
       font-size: 18px;
-      //margin: 0 20px 40px 20px;
       color: $white-f;
       text-decoration: none;
       display: inline-block;
       position: relative;
-
-      //@include for-smallmedium() {
-      //  margin: 20px 20px 20px 0;
-      //}
-    }
-  }
-
-  &__right {
-    @include for-smallmedium() {
-      font-size: 16px;
-    }
-
-    @include for-average() {
-      display: none;
     }
   }
 }
