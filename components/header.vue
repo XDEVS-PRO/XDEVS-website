@@ -1,16 +1,17 @@
 <template>
-  <header class="header">
-    <dark-bg/>
-    <stripe-wrapper v-if="!hideStripes" :color-strip="'dark'"/>
+  <header :class="['header', { active: isShowMobMenu }]">
+    <dark-bg />
+    <stripe-wrapper v-if="!hideStripes" :color-strip="'dark'" />
+    <!-- <div class="wrapper-header__container"> -->
     <div class="header__container container">
       <div class="header__inner">
         <div class="header__left">
           <nuxt-link to="/">
             <img
-                class="header__left-img"
-                src="~/assets/logo-header.svg"
-                width="120px"
-                alt="XDEVS"
+              class="header__left-img"
+              src="~/assets/logo-header.svg"
+              width="120px"
+              alt="XDEVS"
             />
           </nuxt-link>
         </div>
@@ -19,19 +20,18 @@
           <template v-if="isOnIndex">
             <template v-for="(item, i) in headerList">
               <NuxtLink
-                  class="header__right-link custom-link"
-                  v-if="item.hash"
-                  :to="{ path: item.link, hash: item.hash }"
-                  :key="i"
-
+                class="header__right-link custom-link"
+                v-if="item.hash"
+                :to="{ path: item.link, hash: item.hash }"
+                :key="i"
               >
                 {{ item.title }}
               </NuxtLink>
               <nuxt-link
-                  v-else
-                  class="header__right-link custom-link"
-                  :key="1+ i"
-                  :to="{ path: item.link, hash: item.hash }"
+                v-else
+                class="header__right-link custom-link"
+                :key="1 + i"
+                :to="{ path: item.link, hash: item.hash }"
               >
                 {{ item.title }}
               </nuxt-link>
@@ -39,21 +39,21 @@
           </template>
           <template v-else key="2">
             <nuxt-link
-                v-for="(item, i) in headerList"
-                class="header__right-link custom-link"
-                :key="2 + i"
-                :to="{ path: item.link, hash: item.hash }"
+              v-for="(item, i) in headerList"
+              class="header__right-link custom-link"
+              :key="2 + i"
+              :to="{ path: item.link, hash: item.hash }"
             >
               {{ item.title }}
             </nuxt-link>
           </template>
 
           <div
-              :class="[
+            :class="[
               'hamburger hamburger--emphatic js-hamburger',
               { active: isShowMobMenu },
             ]"
-              @click="isShow()"
+            @click="isShow()"
           >
             <div class="hamburger-box">
               <div class="hamburger-inner"></div>
@@ -61,35 +61,52 @@
           </div>
         </div>
       </div>
+      <div class="githubIcon">
+        <a
+          class="header__right-link custom-link"
+          target="_blank"
+          href="https://github.com/XDEVS-PRO/XDEVS-website"
+        >
+          <img
+            class="white-img"
+            src="../assets/core-team/social/git.svg"
+            alt=""
+          />
+        </a>
+      </div>
     </div>
+
+    <!-- </div> -->
 
     <!--  mob menu -->
     <div :class="['mobile-menu', { active: isShowMobMenu }]">
       <div class="mobile-menu-list">
         <ul v-if="isOnIndex">
-          <li v-for="(item, i) in headerList"
-              v-bind:key="i"
-              class="mobile-menu-list_link-to-block"
+          <li
+            v-for="(item, i) in headerList"
+            v-bind:key="i"
+            class="mobile-menu-list_link-to-block"
           >
             <nuxt-link
-                @click.native="isShow()"
-                class="mobile-menu-list_link-to-block"
-                :key="1 + i"
-                :to="{ path: item.link, hash: item.hash }"
+              @click.native="isShow()"
+              class="mobile-menu-list_link-to-block"
+              :key="1 + i"
+              :to="{ path: item.link, hash: item.hash }"
             >
               {{ item.title }}
             </nuxt-link>
           </li>
         </ul>
         <ul v-else key="3">
-          <li v-for="(item, i) in headerList"
-              class="mobile-menu-list_link-to-block"
-              v-bind:key="3+i"
+          <li
+            v-for="(item, i) in headerList"
+            class="mobile-menu-list_link-to-block"
+            v-bind:key="3 + i"
           >
             <nuxt-link
-                @click.native="isShow()"
-                :key="i"
-                :to="{ path: item.link, hash: item.hash }"
+              @click.native="isShow()"
+              :key="i"
+              :to="{ path: item.link, hash: item.hash }"
             >
               {{ item.title }}
             </nuxt-link>
@@ -100,12 +117,12 @@
           <div class="mobile-menu-list_contact-links">
             <a v-for="(item, i) in contactUs" :href="item.link" :key="i">
               <img
-                  v-if="item.img"
-                  :alt="item.alt"
-                  width="45"
-                  height="45"
-                  class="mobile-menu-list_contact-links-icon"
-                  :src="item.img"
+                v-if="item.img"
+                :alt="item.alt"
+                width="45"
+                height="45"
+                class="mobile-menu-list_contact-links-icon"
+                :src="item.img"
               />
             </a>
           </div>
@@ -114,16 +131,25 @@
       <div class="mobile-menu_bg"></div>
       <div class="mobile-menu_bg-deep"></div>
     </div>
+    <div class="mobile__githubIcon">
+      <a target="_blank" href="https://github.com/XDEVS-PRO/XDEVS-website">
+        <img
+          class="white-img"
+          src="../assets/core-team/social/git.svg"
+          alt=""
+        />
+      </a>
+    </div>
   </header>
 </template>
 
 <script lang="ts">
-import StripeWrapper from '~/components/elements/strip-bg.vue';
-import DarkBg from '~/components/elements/dark-bg.vue';
-import ScrollTo from '~/components/elements/scroll-to.vue';
-import { headerList } from '~/assets/data/header.json';
-import { contactUs } from '~/assets/data/projects.json';
-import { defineComponent, onMounted, Ref, ref } from 'vue';
+import StripeWrapper from "~/components/elements/strip-bg.vue";
+import DarkBg from "~/components/elements/dark-bg.vue";
+import ScrollTo from "~/components/elements/scroll-to.vue";
+import { headerList } from "~/assets/data/header.json";
+import { contactUs } from "~/assets/data/projects.json";
+import { defineComponent, onMounted, Ref, ref } from "vue";
 
 type HeaderListType = Array<{
   title: string;
@@ -139,7 +165,7 @@ type ContactUsType = Array<{
 
 export default defineComponent({
   props: {
-    hideStripes: Boolean
+    hideStripes: Boolean,
   },
 
   components: {
@@ -149,7 +175,7 @@ export default defineComponent({
   },
 
   setup() {
-    const route = useRoute()
+    const route = useRoute();
 
     const isShowMobMenu = ref(false);
 
@@ -160,28 +186,28 @@ export default defineComponent({
     const isShow = () => {
       isShowMobMenu.value = !isShowMobMenu.value;
       isShowMobMenu.value
-          ? document.body.classList.add('un-scroll')
-          : document.body.classList.remove('un-scroll');
+        ? document.body.classList.add("un-scroll")
+        : document.body.classList.remove("un-scroll");
     };
 
     const isOnIndex = () => {
-      return route.name === 'index';
+      return route.name === "index";
     };
 
     onMounted(() => {
       contactUsData.value = contactUs;
       headerListData.value = headerList;
-    })
+    });
 
     return {
       isShowMobMenu,
       headerList: headerListData,
       contactUs: contactUsData,
       isOnIndex,
-      isShow
-    }
-  }
-})
+      isShow,
+    };
+  },
+});
 </script>
 
 <style lang="scss" scoped>
@@ -196,6 +222,28 @@ export default defineComponent({
 
   @include for-average() {
     position: fixed;
+  }
+
+  &.active {
+    height: 100%;
+
+    @media screen and (min-height: 570px) {
+      .mobile__githubIcon {
+        visibility: visible;
+        opacity: 0.6;
+      }
+    }
+  }
+
+  .githubIcon {
+    position: absolute;
+    right: 16px;
+    top: 8px;
+
+    .white-img {
+      filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(9%)
+        hue-rotate(159deg) brightness(104%) contrast(104%);
+    }
   }
 
   &__inner {
@@ -225,11 +273,16 @@ export default defineComponent({
     display: flex;
     justify-content: space-between;
 
+    // @media (max-width: 1268px) {
+    //   padding-right: 30px;
+    // }
+
     @include for-middle() {
-      max-width: 460px;
+      max-width: 530px;
     }
 
     @include for-average() {
+      padding-right: 0;
       justify-content: flex-end;
     }
 
@@ -243,6 +296,30 @@ export default defineComponent({
         display: none;
       }
     }
+  }
+}
+
+.mobile__githubIcon {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear 1s;
+  position: absolute;
+  left: 16px;
+  bottom: 8px;
+
+  @include for-verysmall() {
+    left: 6px;
+  }
+
+  a {
+    padding: 35px 10px 10px 10px;
+  }
+
+  .white-img {
+    width: 45px;
+    height: 45px;
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(9%)
+      hue-rotate(159deg) brightness(104%) contrast(104%);
   }
 }
 
@@ -317,7 +394,7 @@ export default defineComponent({
 .hamburger--emphatic .hamburger-inner:before {
   left: 0;
   transition: transform 0.125s cubic-bezier(0.6, 0.04, 0.98, 0.335),
-  top 0.05s linear 0.125s, left 0.125s ease-in 0.175s;
+    top 0.05s linear 0.125s, left 0.125s ease-in 0.175s;
 }
 
 .hamburger-inner:after {
@@ -328,7 +405,7 @@ export default defineComponent({
   top: 10px;
   right: 0;
   transition: transform 0.125s cubic-bezier(0.6, 0.04, 0.98, 0.335),
-  top 0.05s linear 0.125s, right 0.125s ease-in 0.175s;
+    top 0.05s linear 0.125s, right 0.125s ease-in 0.175s;
 }
 
 // active state for hamburger
@@ -348,7 +425,7 @@ export default defineComponent({
   top: -80px;
   left: -80px;
   transition: left 0.125s ease-out, top 0.05s linear 0.125s,
-  transform 0.125s cubic-bezier(0.075, 0.82, 0.165, 1) 0.175s;
+    transform 0.125s cubic-bezier(0.075, 0.82, 0.165, 1) 0.175s;
   transform: translate3d(80px, 80px, 0) rotate(45deg);
 }
 
@@ -362,7 +439,7 @@ export default defineComponent({
   top: -80px;
   right: -80px;
   transition: right 0.125s ease-out, top 0.05s linear 0.125s,
-  transform 0.125s cubic-bezier(0.075, 0.82, 0.165, 1) 0.175s;
+    transform 0.125s cubic-bezier(0.075, 0.82, 0.165, 1) 0.175s;
   transform: translate3d(-80px, 80px, 0) rotate(-45deg);
 }
 
