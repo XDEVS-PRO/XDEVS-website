@@ -20,7 +20,7 @@ export default defineEventHandler(async (event) => {
     changefreq: 'monthly'
   })
   sitemap.write({
-    url: '/',
+    url: '/blog',
     changefreq: 'monthly'
   })
   sitemap.end()
