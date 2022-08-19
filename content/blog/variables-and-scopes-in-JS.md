@@ -28,7 +28,7 @@ let b = 10;
 
 This is bad for a few reasons.
 
-Reason one: a lifetime of the variables in Global Scope is infinite until the user closes the tab in the browser. If you store a lot of data in Global Scope, it may affect performance and memory consumption.
+Reason one: a lifetime of variables in Global Scope is infinite until a user closes the tab in the browser. If you store a lot of data in Global Scope, it may affect performance and memory consumption.
 
 Reason two: declaring a variable in Global Scope without a good reason is an efficient way to write poor code, 
 because the code written this way is harder to support, test, and understand.
