@@ -19,7 +19,7 @@ This article will overview variables and scopes in JavaScript and other related 
 ## Global Scope.
 
 Let's declare `var` and `let` variables in our JS file.
-If variables are not in the function, like in example below, they become a part of Global Scope.
+If variables are not in the function, like in the example below, they become a part of Global Scope.
 
 ```js
 var a = 10;
@@ -28,9 +28,9 @@ let b = 10;
 
 This is bad for a few reasons.
 
-Reason one: lifetime of the variables in Global Scope is infinite until user closes the tab in the browser. If you store a lot of data in Global Scope, it may affect performance and memory consumption.
+Reason one: a lifetime of the variables in Global Scope is infinite until the user closes the tab in the browser. If you store a lot of data in Global Scope, it may affect performance and memory consumption.
 
-Reason two: declaring a variable in Global Scope without a good reason is an efficient way to write poor code,
+Reason two: declaring a variable in Global Scope without a good reason is an efficient way to write poor code, 
 because the code written this way is harder to support, test, and understand.
 
 Reason three (for `var` only): If you are not using 'strict mode' in your JS file, `var` in Global Scope will become the property of the window object. With this, you can accidentally overwrite the window’s object variable or function, and that would lead only to pain, fear, and bugs.
@@ -129,7 +129,7 @@ JavaScript binds a variable or a function to its scope that way. 
 Note that only variable declaration pops up, not the variable initialization!
 So what is TDZ? 
 TDZ is the term to describe a state when a variable/function is unreachable. Like in the example above, we can't access the `x` variable before it was declared because `console.log(x)` is in Temporal Dead Zone. 
-Also, `var` and `let`/`const` behaviours differently in TDZ. In the case of `let`/`const`, you would get a Reference Error while trying to access a variable in TDZ. In the case of var, you get `undefined`, which may lead to problems.
+Also, `var` and `let`/`const` behaviors are different in TDZ. In the case of `let`/`const`, you would get a Reference Error while trying to access a variable in TDZ. In the case of var, you get `undefined`, which may lead to problems.
 
 :article-img{src="/blog/vars_scopes_js/meme_01.jpeg" alt="meme_1"}
 
@@ -146,8 +146,7 @@ func();
 
 ```
 
-Wow! We get `undefined` here! The reason is
-we don't pass a value to `func()` when calling it, but in the function declaration, func(x) has x as the argument. So when JavaScript calls `console.log(x)`, it looks for the `x` variable in the function's scope and finds it. But since we don't pass any value as an argument, the value of x is `undefined`.
+Wow! We get `undefined` here! The reason is we don't pass a value to `func()` when calling it, but in the function declaration, func(x) has x as the argument. So when JavaScript calls `console.log(x)`, it finds the `x` variable in the function's scope. But since we don't pass any value as an argument, the value of x is `undefined`.
 
 Let's change the example a bit.
 
@@ -188,8 +187,8 @@ console.log(drinkLatte()); // 1
 ```
 
 Have you noticed the issue? Is the counter variable accessible only with the function? Yes. Does this code work properly? No.
-Every time we call `drinkLatte()` it will return 1. It works like this because the counter’s variable lifetime ends with the function’s close bracket. So in this example, we create a counter variable three times with a value of 0, then increment the counter to a value of 1 and return. We need a mechanism that can save the state of variables.
-Closures can help us with that. Here is another example using closures.
+Every time we call `drinkLatte()`, it will return 1. It works because the counter’s variable lifetime ends with the function’s close bracket. So in this example, we create a counter variable three times with a value of 0, then increment the counter to a value of 1 and return. We need a mechanism that can save the state of variables.
+Closures can help us with that. Here is another example of using closures.
 
 ```js
 function getLatte() {
