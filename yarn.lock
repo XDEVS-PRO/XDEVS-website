@@ -2299,9 +2299,9 @@ fetch-blob@^3.1.2, fetch-blob@^3.1.4:
     node-domexception "^1.0.0"
     web-streams-polyfill "^3.0.3"
 
-fibers@^5.0.2:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/fibers/-/fibers-5.0.2.tgz#662997f35cf9fc7bd80d4891a4ac08ec73dfe5f7"
+fibers@^5.0.3:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/fibers/-/fibers-5.0.3.tgz#2fd03acb255db66fe693d15beafbf5ae92193fd7"
   dependencies:
     detect-libc "^1.0.3"
 
