@@ -15,7 +15,7 @@
         "@nuxt/content": "^2.0.1",
         "@nuxtjs/router-extras": "^1.1.1",
         "@nuxtjs/svg": "^0.4.0",
-        "core-js": "^3.24.1",
+        "core-js": "^3.26.0",
         "css-loader": "^6.7.1",
         "fibers": "^5.0.2",
         "nuxt": "npm:nuxt3@3.0.0-rc.4-27588443.cf25525",
