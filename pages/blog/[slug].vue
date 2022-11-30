@@ -4,41 +4,42 @@
       <Meta property="og:description" :content="article.description" />
       <Meta property="og:title" :content="article.title" />
     </Head>
-    <ArticleHeader :data="article" :bread-crumbs="crumbs"/>
+    <ArticleHeader :data="article" :bread-crumbs="crumbs" />
 
     <div class="blog-container">
       <article>
-        <ContentDoc/>
+        <ContentDoc />
       </article>
     </div>
 
-    <ArticleFooter :author="article.author"/>
+    <ArticleFooter :author="article.author" />
   </section>
 </template>
 
+//TODO: discuss diff themes for block code for JS/ for PHP - diff styles for
+code blockes.
+
 <script lang="ts" setup>
-import ArticleHeader from '~/components/BlogComponents/ArticleHeader';
-import ArticleFooter from '~/components/BlogComponents/ArticleFooter';
-import { Article } from '../../types';
+import ArticleHeader from "~/components/BlogComponents/ArticleHeader";
+import ArticleFooter from "~/components/BlogComponents/ArticleFooter";
+import { Article } from "../../types";
 
-const route = useRoute()
-const crumbs = ref(null)
+const route = useRoute();
+const crumbs = ref(null);
 
-const {data: article } = await useAsyncData(route.path,
-    () => queryContent('blog')
-    .where({_path: route.path})
-    .findOne(),
-)
+const { data: article } = await useAsyncData(route.path, () =>
+  queryContent("blog").where({ _path: route.path }).findOne()
+);
 
 crumbs.value = [
-  {name: 'Blog Posts', link: '/blog'},
-  {name: article.value.title, link: route.path}
+  { name: "Blog Posts", link: "/blog" },
+  { name: article.value.title, link: route.path },
 ];
 
 definePageMeta({
-  layout: 'blog',
-  ogType: 'article',
-})
+  layout: "blog",
+  ogType: "article",
+});
 </script>
 
 <style lang="scss">
@@ -80,12 +81,8 @@ definePageMeta({
     border-spacing: 1rem;
   }
 
-  pre {
-    overflow: auto;
-  }
-
   .blog-header {
-    background-image: linear-gradient(#eb01a5, #d13531)
+    background-image: linear-gradient(#eb01a5, #d13531);
   }
 
   #other-comparisons ~ table {
@@ -114,7 +111,7 @@ definePageMeta({
 
     &:after {
       content: "";
-      border-bottom: 2px solid #0085FF;
+      border-bottom: 2px solid #0085ff;
       width: 90px;
       height: 2px;
       position: absolute;
@@ -137,7 +134,7 @@ definePageMeta({
   }
 
   p {
-    color: #42484F;
+    color: #42484f;
     font-size: 16px;
     font-weight: 300;
     padding-bottom: 20px;
@@ -145,37 +142,36 @@ definePageMeta({
   }
 }
 
-
 .blog-breadcrumbs-container {
   padding: 20px 0;
 }
 
 .blog-breadcrumbs-link {
   font-size: 14px;
-  color: #BFBFBF;
+  color: #bfbfbf;
 
   span {
     padding: 0 10px;
   }
 
   &:last-of-type {
-    color: #0085FF;
+    color: #0085ff;
   }
 }
 
 .blog-author {
-  color: #EDEDED;
+  color: #ededed;
 }
 
 .quote {
-  background: #F9F9F9;
+  background: #f9f9f9;
   border-radius: 4px;
   position: relative;
   padding: 30px 30px 30px 80px;
   font-weight: 300;
   font-size: 16px;
   line-height: 160%;
-  color: #42484F;
+  color: #42484f;
   margin-bottom: 40px;
 
   &:before {
@@ -196,7 +192,7 @@ definePageMeta({
     font-weight: 600;
     padding-bottom: 30px;
     margin-top: -15px;
-    color: #42484F;
+    color: #42484f;
   }
 }
 
@@ -210,4 +206,12 @@ definePageMeta({
   border-radius: 4px;
 }
 
+pre {
+  border-radius: 0.3em;
+  padding: 1em;
+  margin: 0.5em 0;
+  background: #232323;
+  color: #fffffe;
+  overflow: auto;
+}
 </style>
