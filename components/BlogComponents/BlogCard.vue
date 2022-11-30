@@ -3,25 +3,34 @@
     <template v-for="article of articles">
       <li class="article__wrapper">
         <NuxtLink
-            :to="`/blog/${article._path.split('/').pop()}`" :key="article.slug"
-            class="article__item"
+          :to="`/blog/${article._path.split('/').pop()}`"
+          :key="article.slug"
+          class="article__item"
         >
           <img
-              v-if="article.image"
-              class="article__img"
-              :src="article.image"
-              :alt="article.title"
+            v-if="article.image"
+            class="article__img"
+            :src="article.image"
+            :alt="article.title"
           />
           <div class="article__content">
             <div class="article__sub-title">
-              <span>{{new Date(article.createdAt).toLocaleDateString('uk-UA') }}&nbsp;</span>
-              <span>{{article.topic}}</span>
+              <span
+                >{{
+                  new Date(article.createdAt).toLocaleDateString("uk-UA")
+                }}&nbsp;</span
+              >
+              <span>{{ article.topic }}</span>
             </div>
-            <h2 v-if="article.title" class="article__title">{{ article.title }}</h2>
+            <h2 v-if="article.title" class="article__title">
+              {{ article.title }}
+            </h2>
             <p v-if="article.description" class="article__description">
               {{ article.description }}
             </p>
-            <p class="article__link-text">Go to the article <span class="article__arrow"/></p>
+            <p class="article__link-text">
+              Go to the article <span class="article__arrow" />
+            </p>
           </div>
         </NuxtLink>
       </li>
@@ -31,9 +40,9 @@
 
 <script lang="ts" setup>
 interface Props {
-  articles: any[]
+  articles: any[];
 }
-const props = withDefaults(defineProps<Props>(), {articles: []})
+const props = withDefaults(defineProps<Props>(), { articles: [] });
 </script>
 
 <style lang="scss" scoped>
@@ -57,7 +66,6 @@ const props = withDefaults(defineProps<Props>(), {articles: []})
     grid-template-columns: minmax(180px, 1fr);
   }
 }
-
 
 .article__item {
   display: flex;
@@ -93,7 +101,7 @@ const props = withDefaults(defineProps<Props>(), {articles: []})
   padding-bottom: 15px;
 
   span {
-    color: #6D6D6D;
+    color: #6d6d6d;
     font-size: 14px;
 
     &:first-of-type {
@@ -104,7 +112,7 @@ const props = withDefaults(defineProps<Props>(), {articles: []})
 
 .article__link-text {
   align-items: center;
-  color: #0085FF;
+  color: #0085ff;
   font-size: 16px;
   font-weight: 600;
   padding-bottom: 10px;
@@ -117,14 +125,14 @@ const props = withDefaults(defineProps<Props>(), {articles: []})
 }
 
 .article__description {
-  color: #42484F;
+  color: #42484f;
   padding-bottom: 20px;
   font-size: 16px;
   font-weight: 300;
 }
 
 .article__content {
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
   padding: 20px 30px;
 
   @include for-middle() {
@@ -140,5 +148,4 @@ const props = withDefaults(defineProps<Props>(), {articles: []})
     box-shadow: 0px 30px 40px -10px rgba(0, 133, 255, 0.2);
   }
 }
-
 </style>
