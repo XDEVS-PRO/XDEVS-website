@@ -41,7 +41,7 @@
           <img
             class="upwork__right-image"
             src="@/assets/trusted-by/upwork-img.png"
-            :alt="Upwork - image"
+            alt="Upwork - image"
           />
         </div>
       </div>
