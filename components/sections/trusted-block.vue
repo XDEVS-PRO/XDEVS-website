@@ -223,6 +223,7 @@ export default defineComponent({
 
       @include for-small() {
         text-align: left;
+        margin-bottom: 40px;
       }
     }
 
