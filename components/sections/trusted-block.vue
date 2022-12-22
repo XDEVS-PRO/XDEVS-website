@@ -17,17 +17,46 @@
         </div>
       </div>
     </div>
+
+    <div class="upwork__container container">
+      <div class="upwork__title">
+        <h3 class="upwork__title-top">a trusted digital agency</h3>
+        <title-block :title="'XDEVS on Upwork'" :color-icon="'light'" />
+      </div>
+      <div class="upwork__content">
+        <div class="upwork__left">
+          <h4 class="custom-description">
+            In order to ensure the <span>sefety</span> of our job we have
+            created an agency on
+            <span> the world known freelance website </span>.
+          </h4>
+
+          <a
+            class="x-btn"
+            href="https://www.upwork.com/o/companies/~01a2cc063e6714d963/"
+            >{{ btnData }}</a
+          >
+        </div>
+        <div class="upwork__right">
+          <img
+            class="upwork__right-image"
+            src="@/assets/trusted-by/upwork-img.png"
+            alt="Upwork - image"
+          />
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 
 <script lang="ts" scoped>
-import TitleBlock from "~/components/elements/title.vue";
-import DarkBg from "~/components/elements/dark-bg.vue";
-import StripeWrapper from "~/components/elements/strip-bg.vue";
+import TitleBlock from '~/components/elements/title.vue';
+import DarkBg from '~/components/elements/dark-bg.vue';
+import StripeWrapper from '~/components/elements/strip-bg.vue';
 
 //imgs
-import imgs from "~/assets/slider";
-import { defineComponent } from "vue";
+import imgs from '~/assets/slider';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   components: {
@@ -39,48 +68,50 @@ export default defineComponent({
     const cardList = [
       {
         img: imgs.tab1,
-        link: "https://www.google.com",
-        alt: "INOXOFT",
+        link: 'https://www.google.com',
+        alt: 'INOXOFT',
       },
       {
         img: imgs.tab2,
-        link: "https://www.google.com",
-        alt: "Octopus",
+        link: 'https://www.google.com',
+        alt: 'Octopus',
       },
       {
         img: imgs.tab3,
-        link: "https://www.google.com",
-        alt: "Singlead",
+        link: 'https://www.google.com',
+        alt: 'Singlead',
       },
       {
         img: imgs.tab4,
-        link: "https://www.google.com",
-        alt: "zitemedia",
+        link: 'https://www.google.com',
+        alt: 'zitemedia',
       },
       {
         img: imgs.tab5,
-        link: "https://www.google.com",
-        alt: "chargeback",
+        link: 'https://www.google.com',
+        alt: 'chargeback',
       },
       {
         img: imgs.tab6,
-        link: "https://www.google.com",
-        alt: "DevLogics",
+        link: 'https://www.google.com',
+        alt: 'DevLogics',
       },
     ];
+    const btnData = '<Go to Upwork>';
     return {
       cardList,
+      btnData,
     };
   },
 });
 </script>
 
 <style lang="scss" scoped>
-@import "/assets/styles/variables";
+@import '/assets/styles/variables';
 
 .sb {
   &__container.container {
-    padding: 45px 1rem 160px 1rem;
+    padding: 45px 1rem 64px 1rem;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -150,6 +181,79 @@ export default defineComponent({
       @include for-small() {
         display: none;
       }
+    }
+  }
+}
+
+.upwork {
+  &__container.container {
+    padding-bottom: 80px;
+
+    @include for-average {
+      padding-bottom: 40px;
+    }
+  }
+
+  &__title {
+    .title {
+      padding-top: 0;
+    }
+  }
+
+  &__title-top {
+    padding-left: 72px;
+    font-weight: 350;
+    color: #028dff;
+
+    @include for-small() {
+      padding-left: 0;
+      text-align: center;
+      padding-right: 32px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__left {
+    .custom-description {
+      margin-bottom: 70px;
+
+      @include for-small() {
+        text-align: left;
+        margin-bottom: 40px;
+      }
+    }
+
+    @include for-small() {
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  &__right-image {
+    max-width: 620px;
+
+    @include for-large() {
+      max-width: 500px;
+    }
+
+    @include for-middle() {
+      max-width: 450px;
+    }
+
+    @include for-average() {
+      max-width: 380px;
+    }
+
+    @include for-smallmedium() {
+      max-width: 300px;
+    }
+
+    @include for-small() {
+      display: none;
     }
   }
 }
