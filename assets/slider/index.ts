@@ -11,5 +11,5 @@ export default {
     tab3,
     tab4,
     tab5,
-    tab6
+    tab6,
 }

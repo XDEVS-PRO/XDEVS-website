@@ -4,7 +4,11 @@
     <stripe-wrapper :color-strip="'dark'" />
     <div class="sb__container container">
       <div class="sb__left">
-        <title-block :title="'Trusted By'" :color-icon="'light'" />
+        <title-block
+          class="trusted-by"
+          :title="'Trusted By'"
+          :color-icon="'light'"
+        />
         <h4 class="custom-description">
           <span>XDEVS</span> is a <span>web/mobile development</span> team built
           upon our friendship and exceptional professionalism. We value each
@@ -12,8 +16,23 @@
         </h4>
       </div>
       <div class="sb__right">
-        <div v-for="(item, i) in cardList" :key="i" class="sb__wrapper-img">
-          <img :src="item.img" :alt="item.alt" width="270" class="sb__card" />
+        <div v-for="(item, i) in cardList" :key="i" class="flip-container">
+          <div class="flip">
+            <div class="front">
+              <img class="front-image" :src="item.img" :alt="item.alt" />
+            </div>
+            <div class="back">
+              <a
+                class="back-link"
+                :href="item.link"
+                rel="noreferrer nofollow"
+                target="_blank"
+              >
+                <h4 class="back-title">{{ item.title }}</h4>
+                <h4 class="back-subtitle">{{ item.subtitle }}</h4>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -21,13 +40,14 @@
 </template>
 
 <script lang="ts" scoped>
-import TitleBlock from "~/components/elements/title.vue";
-import DarkBg from "~/components/elements/dark-bg.vue";
-import StripeWrapper from "~/components/elements/strip-bg.vue";
+import TitleBlock from '~/components/elements/title.vue';
+import DarkBg from '~/components/elements/dark-bg.vue';
+import StripeWrapper from '~/components/elements/strip-bg.vue';
 
 //imgs
-import imgs from "~/assets/slider";
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue';
+
+import { cardList } from '~/assets/trusted-by/cardList';
 
 export default defineComponent({
   components: {
@@ -36,38 +56,6 @@ export default defineComponent({
     StripeWrapper,
   },
   setup() {
-    const cardList = [
-      {
-        img: imgs.tab1,
-        link: "https://www.google.com",
-        alt: "INOXOFT",
-      },
-      {
-        img: imgs.tab2,
-        link: "https://www.google.com",
-        alt: "Octopus",
-      },
-      {
-        img: imgs.tab3,
-        link: "https://www.google.com",
-        alt: "Singlead",
-      },
-      {
-        img: imgs.tab4,
-        link: "https://www.google.com",
-        alt: "zitemedia",
-      },
-      {
-        img: imgs.tab5,
-        link: "https://www.google.com",
-        alt: "chargeback",
-      },
-      {
-        img: imgs.tab6,
-        link: "https://www.google.com",
-        alt: "DevLogics",
-      },
-    ];
     return {
       cardList,
     };
@@ -76,7 +64,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@import "/assets/styles/variables";
+@import '/assets/styles/variables';
 
 .sb {
   &__container.container {
@@ -85,12 +73,10 @@ export default defineComponent({
     justify-content: space-between;
     align-items: flex-end;
 
-    @include for-large() {
-      align-items: baseline;
-    }
-
     @include for-middle() {
       padding-bottom: 70px;
+      padding-top: 70px;
+      align-items: flex-start;
     }
 
     @include for-average() {
@@ -103,7 +89,95 @@ export default defineComponent({
     display: flex;
     flex-wrap: wrap;
     max-width: 650px;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .title.trusted-by {
+    @include for-middle() {
+      padding-top: 0;
+    }
+
+    @include for-average() {
+      padding-top: 35px;
+    }
+
+    @include for-smallmedium() {
+      padding-top: 40px;
+      padding-bottom: 20px;
+    }
+  }
+
+  .flip-container,
+  .front,
+  .back {
+    width: 200px;
+    height: 100px;
+
+    @include for-small() {
+      width: 150px;
+      height: 80px;
+    }
+
+    @include for-verysmall() {
+      width: 120px;
+    }
+  }
+
+  .flip-container {
+    perspective: 1000px;
+  }
+
+  .flip-container:hover .flip {
+    transform: rotateY(180deg);
+  }
+
+  .flip {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: 0.6s;
+  }
+
+  .front,
+  .back {
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .front {
+    transform: rotateY(0);
+    z-index: 2;
+  }
+
+  .back {
+    transform: rotateY(180deg);
+    text-align: center;
+  }
+
+  .front-image,
+  .back-link {
+    max-width: 150px;
+
+    @include for-small() {
+      max-width: 120px;
+    }
+
+    @include for-verysmall() {
+      width: 100px;
+    }
+  }
+
+  .back-link {
+    width: 100%;
+    @include for-small() {
+      font-size: 12px;
+    }
   }
 
   &__left {
