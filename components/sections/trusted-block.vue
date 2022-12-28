@@ -89,7 +89,8 @@ export default defineComponent({
     display: flex;
     flex-wrap: wrap;
     max-width: 650px;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 5px;
   }
 
   .title.trusted-by {
@@ -125,7 +126,6 @@ export default defineComponent({
 
   .flip-container {
     perspective: 1000px;
-    margin-bottom: 4px;
   }
 
   .flip-container:hover .flip {
