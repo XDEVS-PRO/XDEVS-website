@@ -20,9 +20,12 @@
 import ArticleHeader from '~/components/BlogComponents/ArticleHeader';
 import ArticleFooter from '~/components/BlogComponents/ArticleFooter';
 import { Article } from '../../types';
+import { definePageMeta } from '~/utils/meta';
+import { useRoute } from 'vue-router';
+import { ref } from 'vue';
 
 const route = useRoute()
-const crumbs = ref(null)
+const crumbs = ref<{ name: any; link: string; }[] | null>(null)
 
 const {data: article } = await useAsyncData(route.path,
     () => queryContent('blog')

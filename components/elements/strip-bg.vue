@@ -13,15 +13,16 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
+import { defineProps } from 'vue'
 
-import { defineComponent } from 'vue';
-
-export default defineComponent ({
-  props: {
-    colorStrip: {type: String, default: 'light'}
+defineProps({
+  colorStrip: {
+    type: String,
+    default: 'light'
   }
 })
+
 </script>
 
 <style lang="scss" scoped>

@@ -14,7 +14,7 @@
 
 <script lang="ts" setup>
 
-const props = defineProps({
+defineProps({
   isOpen: {type: Boolean, required: true},
   className: {type: String, required: false},
   portal: {type: Boolean, default: true},
@@ -22,9 +22,6 @@ const props = defineProps({
   close: {type: Function, required: true}
 })
 
-function close() {
-  props.close();
-}
 </script>
 
 <style scoped lang="scss">

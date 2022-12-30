@@ -2,7 +2,7 @@
   <section class="check">
     <HeaderBlock />
     <div id="root-wrapper">
-      <slot />
+      <slot></slot>
     </div>
     <FooterBlock />
     <ShortFooter />
@@ -13,7 +13,6 @@
 import HeaderBlock from "~/components/header.vue";
 import FooterBlock from "~/components/footer.vue";
 import ShortFooter from "~/components/short-footer.vue";
-
 </script>
 
 <style lang="scss" scoped>

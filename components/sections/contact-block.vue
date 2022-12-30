@@ -88,29 +88,14 @@
   </section>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import TitleBlock from '~/components/elements/title.vue';
 import StripeWrapper from '~/components/elements/strip-bg.vue';
 import { contactUs } from '~/assets/data/projects.json';
-import { defineComponent } from 'vue';
 
-export default defineComponent({
-  components: {
-    TitleBlock,
-    StripeWrapper
-  },
+const btnText = '<Drop an email>';
+const contactUsData: Array<{ img: string; alt: string; link: string }> = contactUs;
 
-  setup() {
-    const btnText = '<Drop an email>';
-    const contactUsData: Array<{ img: string; alt: string; link: string }> = contactUs;
-
-    return {
-      btnText,
-      contactUsData,
-    }
-  }
-
-})
 </script>
 
 <style lang="scss" scoped>

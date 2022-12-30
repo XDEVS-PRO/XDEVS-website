@@ -35,21 +35,33 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
+import { defineProps } from 'vue'
 
-
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  props: {
-    title: {type: String, required: false},
-    subTitle: {type: String, required: false},
-    colorIcon: {type: String, required: false, default: 'light'},
-    descRight: {type: String, required: false},
-    descBottom: {type: String, required: false}
+defineProps({
+  title: {
+    type: String,
+    required: false
+  },
+  subTitle: {
+    type: String,
+    required: false
+  },
+  colorIcon: {
+    type: String,
+    required: false,
+    default: 'light'
+  },
+  descRight: {
+    type: String,
+    required: false
+  },
+  descBottom: {
+    type: String,
+    required: false
   }
-
 })
+
 </script>
 
 <style lang="scss" scoped>

@@ -4,6 +4,7 @@
       <div class="blog-breadcrumbs-container" v-if="breadCrumbs.length">
         <nuxt-link
             v-for="(item, idx) in breadCrumbs"
+            :key="item.link"
             :to="item.link"
             class="blog-breadcrumbs-link"
         >

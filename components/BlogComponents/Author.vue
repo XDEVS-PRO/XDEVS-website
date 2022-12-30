@@ -18,21 +18,15 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    author: {
-      type: Object,
-      required: true
-    }
-  },
-  setup(props) {
-    const { author } = props;
-    return {
-      author
-    }
+<script lang="ts" setup>
+
+defineProps({
+  author: {
+    type: Object,
+    required: true
   }
-}
+})
+
 </script>
 
 <style scoped>

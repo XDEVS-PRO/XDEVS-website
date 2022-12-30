@@ -1,6 +1,6 @@
 <template>
   <ul class="article-list" v-if="articles.length">
-    <template v-for="article of articles">
+    <template v-for="article of articles" :key="article.createdAt">
       <li class="article__wrapper">
         <NuxtLink
             :to="`/blog/${article._path.split('/').pop()}`" :key="article.slug"

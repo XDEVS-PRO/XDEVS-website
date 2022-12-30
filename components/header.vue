@@ -17,7 +17,7 @@
         </div>
 
         <div class="header__right" v-if="headerList.length">
-          <template v-if="isOnIndex">
+          <template v-if="isOnIndex()">
             <template v-for="(item, i) in headerList">
               <NuxtLink
                 class="header__right-link custom-link"
@@ -143,13 +143,14 @@
   </header>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import StripeWrapper from "~/components/elements/strip-bg.vue";
 import DarkBg from "~/components/elements/dark-bg.vue";
 import ScrollTo from "~/components/elements/scroll-to.vue";
 import { headerList } from "~/assets/data/header.json";
 import { contactUs } from "~/assets/data/projects.json";
-import { defineComponent, onMounted, Ref, ref } from "vue";
+import { onMounted, defineProps, Ref, ref } from "vue";
+import { useRoute } from "vue-router";
 
 type HeaderListType = Array<{
   title: string;
@@ -163,50 +164,31 @@ type ContactUsType = Array<{
   link: string;
 }>;
 
-export default defineComponent({
-  props: {
-    hideStripes: Boolean,
-  },
+defineProps({
+  hideStripes: Boolean
+});
+const route = useRoute();
 
-  components: {
-    StripeWrapper,
-    DarkBg,
-    ScrollTo,
-  },
+const isShowMobMenu = ref(false);
 
-  setup() {
-    const route = useRoute();
+const headerListData: Ref<HeaderListType> | Ref<never[]> = ref([]);
 
-    const isShowMobMenu = ref(false);
+const contactUsData: Ref<ContactUsType> | Ref<never[]> = ref([]);
 
-    const headerListData: Ref<HeaderListType> | Ref<never[]> = ref([]);
+const isShow = () => {
+  isShowMobMenu.value = !isShowMobMenu.value;
+  isShowMobMenu.value
+    ? document.body.classList.add("un-scroll")
+    : document.body.classList.remove("un-scroll");
+};
 
-    const contactUsData: Ref<ContactUsType> | Ref<never[]> = ref([]);
+const isOnIndex = () => {
+  return route.name === "index";
+};
 
-    const isShow = () => {
-      isShowMobMenu.value = !isShowMobMenu.value;
-      isShowMobMenu.value
-        ? document.body.classList.add("un-scroll")
-        : document.body.classList.remove("un-scroll");
-    };
-
-    const isOnIndex = () => {
-      return route.name === "index";
-    };
-
-    onMounted(() => {
-      contactUsData.value = contactUs;
-      headerListData.value = headerList;
-    });
-
-    return {
-      isShowMobMenu,
-      headerList: headerListData,
-      contactUs: contactUsData,
-      isOnIndex,
-      isShow,
-    };
-  },
+onMounted(() => {
+  contactUsData.value = contactUs;
+  headerListData.value = headerList;
 });
 </script>
 
@@ -579,3 +561,7 @@ export default defineComponent({
   }
 }
 </style>
+
+function useRoute() {
+  throw new Error("Function not implemented.");
+}

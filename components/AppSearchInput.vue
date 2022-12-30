@@ -26,7 +26,9 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
+import { ref, defineEmits } from 'vue'
+
 defineEmits<{
   (e: 'searchInput', value: string): void
 }>()

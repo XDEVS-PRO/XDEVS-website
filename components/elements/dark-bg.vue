@@ -2,13 +2,6 @@
   <div class="dark-bg__img"></div>
 </template>
 
-<script lang="ts">
-
-export default {
-  
-}
-</script>
-
 <style lang="scss" scoped>
 .dark-bg__img {
   position: absolute;

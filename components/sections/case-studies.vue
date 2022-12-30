@@ -117,7 +117,7 @@
 import TitleBlock from '~/components/elements/title.vue';
 import DarkBg from '~/components/elements/dark-bg.vue';
 import StripeWrapper from '~/components/elements/strip-bg.vue';
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 
 export interface Project {
   src: string;
@@ -129,13 +129,14 @@ export interface Project {
 }
 
 const props = defineProps({
-  data: {type: Array},
+  data: {type: Array, required: true},
   scroll: {default: false},
 })
 
 const showProject: any = ref(props.data[0]);
-let counter = 0
 const projectsList = props.data;
+
+let counter = 0;
 
 const next = () => {
   counter++;
@@ -144,6 +145,7 @@ const next = () => {
   }
   showProject.value = projectsList[counter]
 }
+
 const prev = () => {
   counter--;
   if (!projectsList[counter]) {

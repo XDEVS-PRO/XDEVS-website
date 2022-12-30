@@ -2,7 +2,7 @@
   <section>
     <HeaderBlock :hide-stripes="true" />
     <div id="root-wrapper">
-      <slot />
+      <slot></slot>
     </div>
     <FooterBlock />
     <ShortFooter />

@@ -4,15 +4,17 @@
   </a>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
+import { defineProps } from "vue";
 
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  props: {
-    data: { default: "close", required: true, type: String }
+defineProps({
+  data: {
+    type: String,
+    required: true,
+    default: "close"
   }
 })
+
 </script>
 
 <style lang="scss" scoped>

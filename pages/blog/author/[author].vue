@@ -56,30 +56,37 @@
   </div>
 </template>
 
-<script>
-export default {
-  async asyncData({ $content, params }) {
-    const articles = await $content('articles')
-      .where({
-        'author.name': {
-          $regex: [params.author, 'i']
-        }
-      })
-      .without('body')
-      .sortBy('createdAt', 'asc')
-      .fetch()
-    return {
-      articles
-    }
-  },
-  methods: {
-    formatDate(date) {
-      const options = { year: 'numeric', month: 'long', day: 'numeric' }
-      return new Date(date).toLocaleDateString('en', options)
-    }
-  },
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
   layout: 'blog'
+})
+
+</script>
+
+<script lang="ts" setup>
+
+async function asyncData({ $content, params }) {
+  const articles = await $content('articles')
+    .where({
+      'author.name': {
+        $regex: [params.author, 'i']
+      }
+    })
+    .without('body')
+    .sortBy('createdAt', 'asc')
+    .fetch()
+  return {
+    articles
+  }
+};
+
+function formatDate(date) {
+  const options = { year: 'numeric', month: 'long', day: 'numeric' }
+  return new Date(date).toLocaleDateString('en', options)
 }
+
 </script>
 
 <style scoped>

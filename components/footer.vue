@@ -18,7 +18,7 @@
         </div>
         <div class="footer__center">
           <div class="footer__center-inner custom-description">
-            <template v-if="isOnIndex">
+            <template v-if="isOnIndex()">
               <template v-for="(item, i) in headerList">
                 <NuxtLink
                   class="header__right-link custom-link"
@@ -55,36 +55,24 @@
   </footer>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import StripeWrapper from "~/components/elements/strip-bg.vue";
 import DarkBg from "~/components/elements/dark-bg.vue";
 import { headerList } from "~/assets/data/header.json";
+import { useRoute } from "vue-router";
 
-export default {
-  components: {
-    StripeWrapper,
-    DarkBg,
-  },
+const route = useRoute();
 
-  setup() {
-    const route = useRoute();
+const headerListData: Array<{
+  title: string;
+  link: string;
+  hash?: string;
+}> = headerList;
 
-    const headerListData: Array<{
-      title: string;
-      link: string;
-      hash?: string;
-    }> = headerList;
-
-    const isOnIndex = () => {
-      return route.name === "index";
-    };
-
-    return {
-      isOnIndex,
-      headerList: headerListData,
-    };
-  },
+const isOnIndex = () => {
+  return route.name === "index";
 };
+
 </script>
 
 <style lang="scss" scoped>
