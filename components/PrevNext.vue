@@ -19,19 +19,20 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    prev: {
-      type: Object,
-      default: () => null
-    },
-    next: {
-      type: Object,
-      default: () => null
-    }
+<script lang="ts" setup>
+import { defineProps } from 'vue'
+
+defineProps({
+  prev: {
+    type: Object,
+    default: () => null
+  },
+  next: {
+    type: Object,
+    default: () => null
   }
-}
+});
+
 </script>
 
 <style>

@@ -57,31 +57,39 @@
 </div>
 </template>
 
-<script>
-export default {
-  async asyncData({ $content, params }) {
-    const tags = await $content('tags')
-      .where({ slug: { $contains: params.tag } })
-      .limit(1)
-      .fetch()
-    const tag = tags.length > 0 ? tags[0] : {}
-    const articles = await $content('articles')
-      .where({ tags: { $contains: tag.name } })
-      .sortBy('createdAt', 'asc')
-      .fetch()
-    return {
-      articles,
-      tag
-    }
-  },
-  methods: {
-    formatDate(date) {
-      const options = { year: 'numeric', month: 'long', day: 'numeric' }
-      return new Date(date).toLocaleDateString('en', options)
-    }
-  },
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
   layout: 'blog'
+})
+
+</script>
+
+
+<script lang="ts" setup>
+
+async function asyncData({ $content, params }) {
+  const tags = await $content('tags')
+    .where({ slug: { $contains: params.tag } })
+    .limit(1)
+    .fetch()
+  const tag = tags.length > 0 ? tags[0] : {}
+  const articles = await $content('articles')
+    .where({ tags: { $contains: tag.name } })
+    .sortBy('createdAt', 'asc')
+    .fetch()
+  return {
+    articles,
+    tag
+  }
+};
+
+function formatDate(date) {
+  const options = { year: 'numeric', month: 'long', day: 'numeric' }
+  return new Date(date).toLocaleDateString('en', options)
 }
+
 </script>
 
 <style scoped>

@@ -53,16 +53,10 @@
   </section>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import StripeWrapper from "~/components/elements/strip-bg.vue";
 import TitleBlock from "~/components/elements/title.vue";
-
-export default {
-  components: {
-    StripeWrapper,
-    TitleBlock
-  }
-}</script>
+</script>
 
 <style lang="scss" scoped>
 @import "/assets/styles/variables";

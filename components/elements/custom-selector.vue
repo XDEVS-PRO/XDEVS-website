@@ -1,6 +1,6 @@
 <template>
   <div class="custom-select" :tabindex="tabIndex" @blur="open = false">
-    <span :class="['arrow', { open: open }]"/>
+    <span :class="['arrow', { open: open }]" />
     <div class="selected" :class="{ open: open }" @click="open = !open">
       {{ selected.label ? selected.label : selected }}
     </div>
@@ -17,24 +17,23 @@
 </template>
 
 <script lang="ts" setup>
+import { ref } from 'vue'
 
 interface Props {
   options: any[]
   defaultOption?: string | null
   tabIndex?: number
 }
-const props = withDefaults(defineProps<Props>(), {defaultOption: null, tabIndex: 0})
+const {options, defaultOption, tabIndex} = withDefaults(defineProps<Props>(), {defaultOption: null, tabIndex: 0})
 const emit = defineEmits<{
   (e: 'selectOption', value: string): void
 }>()
-
-const {options, defaultOption, tabIndex} = props
 
 const open = ref(false);
 const selected = ref(defaultOption)
 
 
-const selectOption = (option) => {
+const selectOption = (option: string) => {
   selected.value = option;
   open.value = false;
   emit('selectOption', option);

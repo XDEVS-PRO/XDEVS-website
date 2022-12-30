@@ -256,94 +256,70 @@
   </section>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import TitleBlock from "~/components/elements/title.vue";
 import StripeWrapper from "~/components/elements/strip-bg.vue";
 import CustomModal from "~/components/elements/custom-modal.vue";
 import imgs from '~/assets/tech-stack'
-import { defineComponent } from 'vue';
 import { ref } from 'vue';
 
-export default defineComponent({
-  components: {
-    TitleBlock,
-    StripeWrapper,
-    CustomModal
+const classState = ref("default");
+const isShowText = ref(false);
+const isShowTextId = ref(null);
+
+const isShowModal = ref(false);
+const isCloseModal = ref(false);
+const dataModalCard = ref<Record<string, any>>({});
+
+const cardsMobile = [
+  {
+    img: imgs.cloud,
+    className: "cloud",
+    text:
+        "We ensure that our solution will be online 100% time. We use only tested hosting providers.",
+    textId: "cloud"
   },
-
-  setup() {
-    const classState = ref("default");
-    const isShowText = ref(false);
-    const isShowTextId = ref(null);
-
-    const isShowModal = ref(false);
-    const isCloseModal = ref(false);
-    const dataModalCard = ref({});
-
-    const cardsMobile = [
-      {
-        img: imgs.cloud,
-        className: "cloud",
-        text:
-            "We ensure that our solution will be online 100% time. We use only tested hosting providers.",
-        textId: "cloud"
-      },
-      {
-        img: imgs.phone,
-        className: "phone",
-        text:
-            "We build mobile apps for both Android and IOS at once to save your time and money.",
-        textId: "phone"
-      },
-      {
-        img: imgs.screen,
-        className: "screen",
-        text: "We use only well-known professional front-end frameworks.",
-        textId: "screen"
-      },
-      {
-        img: imgs.tabs,
-        className: "tabs",
-        text:
-            "The variety of backend languages and frameworks we know helps us to choose the best solution for your needs.",
-        textId: "tabs"
-      }
-    ];
-
-    function changeState(state: any = "default") {
-      classState.value = state;
-    };
-
-    function showText(item: any) {
-      isShowTextId.value = item;
-      isShowText.value = !isShowText.value;
-    };
-
-    function isShowingModal(item: any) {
-      dataModalCard.value = item;
-      isShowModal.value = true;
-    };
-
-    function isClosedModal() {
-      dataModalCard.value = {};
-      return (isShowModal.value = false);
-    }
-
-    return {
-      cardsMobile,
-      classState,
-      isShowText,
-      isShowTextId,
-      isShowModal,
-      isCloseModal,
-      dataModalCard,
-      changeState,
-      showText,
-      isShowingModal,
-      isClosedModal,
-    }
+  {
+    img: imgs.phone,
+    className: "phone",
+    text:
+        "We build mobile apps for both Android and IOS at once to save your time and money.",
+    textId: "phone"
   },
-})
+  {
+    img: imgs.screen,
+    className: "screen",
+    text: "We use only well-known professional front-end frameworks.",
+    textId: "screen"
+  },
+  {
+    img: imgs.tabs,
+    className: "tabs",
+    text:
+        "The variety of backend languages and frameworks we know helps us to choose the best solution for your needs.",
+    textId: "tabs"
+  }
+];
+
+function changeState(state: any = "default") {
+  classState.value = state;
+};
+
+function showText(item: any) {
+  isShowTextId.value = item;
+  isShowText.value = !isShowText.value;
+};
+
+function isShowingModal(item: any) {
+  dataModalCard.value = item;
+  isShowModal.value = true;
+};
+
+function isClosedModal() {
+  dataModalCard.value = {};
+  return (isShowModal.value = false);
+}
+
 </script>
 
 <style lang="scss" scoped>

@@ -36,7 +36,7 @@
                     </p>
                   </div>
                   <div class="cr__modal-right_social">
-                    <template v-for="(social, i) in dataModalCard.social">
+                    <template v-for="social in dataModalCard.social">
                       <a :href="social.link" target="_blank">
                         <img :src="social.src" :alt="social.alt" />
                       </a>
@@ -68,7 +68,7 @@
               560: { slidesPerView: 4 },
             }"
           >
-            <swiper-slide v-for="(item, i) in TeamBlockCards">
+            <swiper-slide v-for="item in TeamBlockCards">
               <div class="cr__card-wrapper">
                 <div class="cr__card-icon">
                   <img
@@ -104,7 +104,7 @@
   </section>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import TitleBlock from "~/components/elements/title.vue";
 import StripeWrapper from "~/components/elements/strip-bg.vue";
 import DarkBg from "~/components/elements/dark-bg.vue";
@@ -121,7 +121,7 @@ import "swiper/css/autoplay";
 const modules = [Autoplay, FreeMode, Scrollbar];
 const isShowModal = ref(false);
 const isCloseModal = ref(false);
-const dataModalCard = ref({});
+const dataModalCard = ref<Record<string, any>>({});
 
 const titleSubData =
   "To stay on top of our game, every member of our team constantly works on self-improving his professional skills";

@@ -18,21 +18,11 @@
   </section>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import StripeWrapper from "~/components/elements/strip-bg.vue";
 
-export default {
-  components: {
-    StripeWrapper
-  },
+const btnData = "<Discuss your idea>";
 
-  setup() {
-    const btnData = "<Disscuss your idea>";
-    return {
-      btnData
-    }
-  }
-}
 </script>
 
 <style lang="scss" scoped>

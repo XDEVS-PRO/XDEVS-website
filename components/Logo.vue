@@ -28,14 +28,13 @@
   </nuxt-link>
 </template>
 
-<script>
+<script lang="ts" setup>
 
-export default {
-  props: {
+  defineProps({
     link: {
       type: String,
       default: "/"
     }
-  }
-}
+  })
+
 </script>

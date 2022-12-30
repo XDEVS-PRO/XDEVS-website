@@ -3,27 +3,25 @@
     <slot></slot>
   </div>
 </template>
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script lang="ts" setup>
+import { defineProps } from "vue";
 
-export default defineComponent({
+defineProps({
+  link: {
+    type: String,
+    required: true
+  }
+});
 
-  props: {
-    link: String
-  },
+const scrollToBlock = (item: any) => {
+  const el = document.getElementById(item.replace("#to_", ""));
+  if (el) {
+    location.hash = item;
 
-  methods: {
-    scrollToBlock(item: any) {
-      const el = document.getElementById(item.replace("#to_", ""));
-      if (el) {
-        location.hash = item;
+    const viewportY = el.getBoundingClientRect().top;
+    const scrolltop = window.pageYOffset;
+    window.scrollTo({ top: viewportY + scrolltop - 80, behavior: "smooth" });
+  }
+}
 
-        const viewportY = el.getBoundingClientRect().top;
-        const scrolltop = window.pageYOffset;
-        window.scrollTo({ top: viewportY + scrolltop - 80, behavior: "smooth" });
-      }
-    }
-  },
-
-})
 </script>

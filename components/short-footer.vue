@@ -15,12 +15,6 @@
   </section>
 </template>
 
-<script lang="ts">
-  export default {
-    name: 'short-footer'
-  }
-</script>
-
 <style lang="scss" scoped>
 @import "/assets/styles/variables";
 

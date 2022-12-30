@@ -16,14 +16,14 @@
   </header>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import CustomSelector from '@/components/elements/custom-selector'
 
 defineEmits<{
   (e: 'searchInput', value: string): void
   (e: 'category', value: string): void
-
 }>()
+
 const options = ['All articles', 'Web development', 'Mobile development', 'Management']
 
 </script>

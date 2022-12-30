@@ -28,22 +28,12 @@
   </section>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import StripeWrapper from '~/components/elements/strip-bg.vue';
 import DarkBg from '~/components/elements/dark-bg.vue';
-import { defineComponent } from 'vue';
 
-export default defineComponent({
-  components: {
-    StripeWrapper,
-    DarkBg
-  },
-  setup() {
-    return {
-      btnText: `<Meet the team>`
-    }
-  },
-})
+const btnText = 'Meet our team';
+
 </script>
 
 <style lang="scss" scoped>
