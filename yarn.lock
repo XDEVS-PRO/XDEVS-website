@@ -402,7 +402,7 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@nuxt/content@^2.3.0":
+"@nuxt/content@^2.0.1":
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/@nuxt/content/-/content-2.3.0.tgz#96e4c2c78b153c6769d35e909539bad5d98a704d"
   integrity sha512-7IudXOiycHXWxRDe7tWFwnIVT6bp0YG5O4wttCYYd7cvyjX3k6d3zD2j1IkjJMhfqU2PWQ/Wd+A2+oeiLNg3gA==
@@ -1719,7 +1719,7 @@ copy-descriptor@^0.1.0:
   resolved "https://registry.yarnpkg.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
   integrity sha512-XgZ0pFcakEUlbwQEVNg3+QAis1FyTL3Qel9FYy8pSkQqoG3PNoT0bOCQtOXcOkur21r2Eq2kI+IE+gsmAEVlYw==
 
-core-js@^3.27.1:
+core-js@^3.24.1:
   version "3.27.1"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.27.1.tgz#23cc909b315a6bb4e418bf40a52758af2103ba46"
   integrity sha512-GutwJLBChfGCpwwhbYoqfv03LAfmiz7e7D/BNxzeMxwQf10GRSzqiOjx7AmtEk+heiD/JWmBuyBPgFtx0Sg1ww==
@@ -1761,7 +1761,7 @@ css-declaration-sorter@^6.3.1:
   resolved "https://registry.yarnpkg.com/css-declaration-sorter/-/css-declaration-sorter-6.3.1.tgz#be5e1d71b7a992433fb1c542c7a1b835e45682ec"
   integrity sha512-fBffmak0bPAnyqc/HO8C3n2sHrp9wcqQz6ES9koRF2/mLOVAx9zIQ3Y7R29sYCteTPqMCwns4WYQoCX91Xl3+w==
 
-css-loader@^6.7.3:
+css-loader@^6.7.1:
   version "6.7.3"
   resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-6.7.3.tgz#1e8799f3ccc5874fdd55461af51137fcc5befbcd"
   integrity sha512-qhOH1KlBMnZP8FzRO6YCH9UHXQhVMcEGLyNdb7Hv2cpcmJbW0YrddO+tG1ab5nT41KpHIYGsbeHqxB9xPu1pKQ==
@@ -2704,7 +2704,7 @@ fetch-blob@^3.1.2, fetch-blob@^3.1.4:
     node-domexception "^1.0.0"
     web-streams-polyfill "^3.0.3"
 
-fibers@^5.0.3:
+fibers@^5.0.2:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/fibers/-/fibers-5.0.3.tgz#2fd03acb255db66fe693d15beafbf5ae92193fd7"
   integrity sha512-/qYTSoZydQkM21qZpGLDLuCq8c+B8KhuCQ1kLPvnRNhxhVbvrpmH9l2+Lblf5neDuEsY4bfT7LeO553TXQDvJw==
@@ -6044,7 +6044,7 @@ sass-loader@^13.2.0:
     klona "^2.0.4"
     neo-async "^2.6.2"
 
-sass@^1.57.1:
+sass@^1.54.0:
   version "1.57.1"
   resolved "https://registry.yarnpkg.com/sass/-/sass-1.57.1.tgz#dfafd46eb3ab94817145e8825208ecf7281119b5"
   integrity sha512-O2+LwLS79op7GI0xZ8fqzF7X2m/m8WFfI02dHOdsK5R2ECeS5F62zrwg/relM1rjSLy7Vd/DiMNIvPrQGsA0jw==
@@ -6620,7 +6620,7 @@ svgo@^2.7.0:
     picocolors "^1.0.0"
     stable "^0.1.8"
 
-swiper@^8.4.5:
+swiper@^8.3.2:
   version "8.4.5"
   resolved "https://registry.yarnpkg.com/swiper/-/swiper-8.4.5.tgz#149ca81f67393d3f33abddd0f968fc37e99980b5"
   integrity sha512-zveyEFBBv4q1sVkbJHnuH4xCtarKieavJ4SxP0QEHvdpPLJRuD7j/Xg38IVVLbp7Db6qrPsLUePvxohYx39Agw==
